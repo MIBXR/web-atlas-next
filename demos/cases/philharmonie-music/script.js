@@ -1,0 +1,24 @@
+const menu=document.querySelector('#menu'),toggle=document.querySelector('#menu-toggle'),menuLinks=document.querySelector('#menu-links'),menuBack=document.querySelector('#menu-back');
+const homeMenu=menuLinks.innerHTML;
+const groups={concerts:[['Saison 26/27','https://philharmoniedeparis.fr/fr/programmation/saison-26-27'],['George Benjamin','#concert']],musee:[['Video Games & Music','#main'],['Musée de la musique','https://philharmoniedeparis.fr/fr/musee']],pratique:[['Préparer votre venue','#venir'],['Accessibilité','https://philharmoniedeparis.fr/fr/accessibilite']]};
+function resetMenu(){menuLinks.innerHTML=homeMenu;menuBack.hidden=true;menu.querySelectorAll('[data-menu-group]').forEach(e=>e.removeAttribute('aria-current'))}
+function closeMenu(){menu.hidden=true;toggle.setAttribute('aria-expanded','false');toggle.textContent='☰︎ MENU';document.body.classList.remove('menu-open')}
+toggle.onclick=()=>{const open=menu.hidden;menu.hidden=!open;toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'× FERMER':'☰︎ MENU';document.body.classList.toggle('menu-open',open);if(open)resetMenu()};
+menu.querySelectorAll('[data-menu-group]').forEach(button=>button.onclick=()=>{menu.querySelectorAll('[data-menu-group]').forEach(e=>e.removeAttribute('aria-current'));button.setAttribute('aria-current','true');menuLinks.replaceChildren();groups[button.dataset.menuGroup].forEach(([title,url])=>{const a=document.createElement('a');a.textContent=title;a.href=url;if(url.startsWith('https:')){a.target='_blank';a.rel='noopener'}menuLinks.append(a)});menuBack.hidden=false});menuBack.onclick=resetMenu;
+menu.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();toggle.focus()}});document.querySelector('#back-top').onclick=()=>window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'});
+// The three photographs and 500ms track are observed; the 6s cycle is a local approximation.
+const concert=document.querySelector('.concert-photo'),concertTrack=document.querySelector('.concert-track');
+const concertReduce=matchMedia('(prefers-reduced-motion: reduce)');let concertIndex=0,concertSlot=1,concertBusy=false,concertPaused=concertReduce.matches,concertInside=false,concertVisible=false;
+const concertPause=document.querySelector('#concert-pause');
+const concertPhotos=Array.from(concertTrack.children), concertFirst=concertPhotos[0].cloneNode(true),concertLast=concertPhotos.at(-1).cloneNode(true);
+[concertFirst,concertLast].forEach(e=>{e.setAttribute('aria-hidden','true');e.inert=true});concertTrack.prepend(concertLast);concertTrack.append(concertFirst);
+function concertPlace(instant=false){concertTrack.style.transition=instant?'none':'';concertTrack.style.transform='translateX('+(-100*concertSlot)+'%)';if(instant){void concertTrack.offsetWidth;concertTrack.style.transition=''}}
+function concertShow(delta){if(concertBusy)return;concertIndex=(concertIndex+delta+3)%3;concertSlot+=delta;concertBusy=!concertReduce.matches;concertPlace();document.querySelector('#concert-position').textContent=(concertIndex+1)+' / 3';if(!concertBusy){concertSlot=concertIndex+1;concertPlace(true)}}
+concertTrack.addEventListener('transitionend',e=>{if(e.propertyName!=='transform')return;concertSlot=concertIndex+1;concertPlace(true);concertBusy=false});concertPlace(true);
+function concertPauseState(){concertPause.setAttribute('aria-pressed',String(concertPaused));concertPause.setAttribute('aria-label',concertPaused?'Lecture des photographies':'Pause des photographies');concertPause.textContent=concertPaused?'▶︎':'Ⅱ'}
+document.querySelector('#concert-prev').onclick=()=>concertShow(-1);document.querySelector('#concert-next').onclick=()=>concertShow(1);concertPause.onclick=()=>{concertPaused=!concertPaused;concertPauseState()};
+concert.addEventListener('pointerenter',()=>concertInside=true);concert.addEventListener('pointerleave',()=>concertInside=false);concert.addEventListener('focusin',()=>concertInside=true);concert.addEventListener('focusout',()=>concertInside=false);
+let concertStart=null;concert.addEventListener('touchstart',e=>{concertStart=e.touches[0].clientX},{passive:true});concert.addEventListener('touchend',e=>{if(concertStart===null)return;const dx=e.changedTouches[0].clientX-concertStart;if(Math.abs(dx)>40)concertShow(dx<0?1:-1);concertStart=null},{passive:true});
+new IntersectionObserver(es=>concertVisible=es[0].isIntersecting,{threshold:.15}).observe(concert);
+const concertTimer=setInterval(()=>{if(concertVisible&&!concertPaused&&!concertInside&&!document.hidden)concertShow(1)},6000);
+concertReduce.addEventListener('change',()=>{if(concertReduce.matches){concertPaused=true;concertPauseState()}});window.addEventListener('pagehide',()=>clearInterval(concertTimer),{once:true});concertPauseState();
