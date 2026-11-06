@@ -1,0 +1,599 @@
+{
+  "schemaVersion": 1,
+  "id": "offsite-playlist-extension",
+  "pattern": {
+    "id": "offsite-playlist-extension",
+    "order": 41,
+    "title": "以官方播放列表延伸主题",
+    "category": "加载与媒体",
+    "experienceTypes": [
+      "sound",
+      "structure"
+    ],
+    "summary": "用户主动离开阅读页面，通过声音回顾主题。",
+    "mechanism": "明确的Playlist或官方影片入口链接真实外部平台，不加载无授权播放器或自动音乐；说明目标与声音来源。",
+    "trigger": "激活播放列表或官方影片链接",
+    "effect": "阅读页面后，可继续体验展览/演出主题。",
+    "useCases": [
+      "音乐展览与活动回顾"
+    ],
+    "avoid": [
+      "把站外声音说成本站背景音乐"
+    ],
+    "constraints": [
+      "链接可读且标明目标，图片轮播不当作音频播放。",
+      "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+    ],
+    "composition": {
+      "role": "support",
+      "pairsWellWith": [
+        "sound-opt-in"
+      ],
+      "conflicts": []
+    },
+    "parameters": [],
+    "prompt": "为【目标页面/组件】实现「以官方播放列表延伸主题」。明确的Playlist或官方影片入口链接真实外部平台，不加载无授权播放器或自动音乐；说明目标与声音来源。触发：激活播放列表或官方影片链接。可见结果：展览/演出主题可在读页之后继续体验。适用任务：音乐展览与活动回顾。链接可读且标明目标，图片轮播不当作音频播放。键盘：使用有明确目标名称的原生a，外部平台可按正常浏览器行为打开。减少动态：此机制只提供入口，页面内不需要动态；外部播放由用户选择。",
+    "sources": [
+      {
+        "caseId": "philharmonie-music",
+        "locator": "entries/cases/philharmonie-music.json#interaction/4",
+        "observation": "打开Playlist：转到官方fanlink，选择个人音乐平台。 音乐是展览主题的延伸与回看媒介。",
+        "evidence": "observed",
+        "referenceUrl": "https://philharmoniedeparis.fr/fr/activite/exposition/28822-video-games-music",
+        "capturedAt": "2026-10-07",
+        "focus": {
+          "target": ".playlist",
+          "label": "展览的官方 Playlist 入口",
+          "instruction": "点 Playlist 前往官方 fanlink，再选择自己的音乐平台；网页本身保留这个外部收听入口。"
+        }
+      },
+      {
+        "caseId": "fuji-rock",
+        "locator": "entries/cases/fuji-rock.json#soundBehavior/control",
+        "observation": "Aftermovie链接到官方YouTube；没有独立BGM开关。",
+        "evidence": "observed",
+        "referenceUrl": "https://www.fujirockfestival.com/",
+        "capturedAt": "2026-10-07",
+        "focus": {
+          "target": ".aftermovie",
+          "label": "官方 Aftermovie 入口",
+          "instruction": "点 Aftermovie 打开官方 YouTube 影像，现场声音由官方影片承接，当前网页保留外部观看入口。"
+        }
+      },
+      {
+        "caseId": "persona-kinetic",
+        "locator": "entries/cases/persona-kinetic.json#soundBehavior/control",
+        "observation": "WATCH THE OFFICIAL TRAILER 点击打开原始YouTube宣传片。",
+        "evidence": "observed",
+        "referenceUrl": "https://persona.atlus.com/p5r/?lang=en#",
+        "capturedAt": "2026-10-07",
+        "focus": {
+          "target": "#top a[href*=\"youtu\"]",
+          "label": "官方预告片入口",
+          "instruction": "点 WATCH THE OFFICIAL TRAILER，打开原始 YouTube 宣传片。",
+          "prepare": [
+            {
+              "click": "header nav a[href=\"#top\"]"
+            }
+          ]
+        }
+      }
+    ],
+    "sourceFiles": [
+      "demos/cases/fuji-rock/app.js",
+      "demos/cases/fuji-rock/fidelity.md",
+      "demos/cases/fuji-rock/index.html",
+      "demos/cases/fuji-rock/style.css",
+      "demos/cases/persona-kinetic/fidelity.md",
+      "demos/cases/persona-kinetic/index.html",
+      "demos/cases/persona-kinetic/script.js",
+      "demos/cases/persona-kinetic/style.css",
+      "demos/cases/philharmonie-music/fidelity.md",
+      "demos/cases/philharmonie-music/index.html",
+      "demos/cases/philharmonie-music/script.js",
+      "demos/cases/philharmonie-music/style.css",
+      "entries/cases/fuji-rock.json",
+      "entries/cases/persona-kinetic.json",
+      "entries/cases/philharmonie-music.json",
+      "docs/cases/fuji-rock.md",
+      "docs/cases/persona-kinetic.md",
+      "docs/cases/philharmonie-music.md"
+    ],
+    "preview": "previews/patterns/offsite-playlist-extension.jpg"
+  },
+  "sourceCases": [
+    {
+      "id": "fuji-rock",
+      "title": "Fuji Rock：现场照片与节日导览",
+      "paths": {
+        "bundle": "agent/cases/fuji-rock.json",
+        "demo": "demos/cases/fuji-rock/index.html"
+      }
+    },
+    {
+      "id": "persona-kinetic",
+      "title": "Persona 5 Royal · 黑金角色拼贴",
+      "paths": {
+        "bundle": "agent/cases/persona-kinetic.json",
+        "demo": "demos/cases/persona-kinetic/index.html"
+      }
+    },
+    {
+      "id": "philharmonie-music",
+      "title": "巴黎爱乐厅 · 音乐展与音乐会详情",
+      "paths": {
+        "bundle": "agent/cases/philharmonie-music.json",
+        "demo": "demos/cases/philharmonie-music/index.html"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "prompts/patterns/offsite-playlist-extension.md",
+      "role": "prompt",
+      "content": "# 以官方播放列表延伸主题 · 复用 Prompt\n\n[结构化条目](../../entries/patterns/offsite-playlist-extension.json)\n\n为【目标页面/组件】实现「以官方播放列表延伸主题」。明确的Playlist或官方影片入口链接真实外部平台，不加载无授权播放器或自动音乐；说明目标与声音来源。触发：激活播放列表或官方影片链接。可见结果：展览/演出主题可在读页之后继续体验。适用任务：音乐展览与活动回顾。链接可读且标明目标，图片轮播不当作音频播放。键盘：使用有明确目标名称的原生a，外部平台可按正常浏览器行为打开。减少动态：此机制只提供入口，页面内不需要动态；外部播放由用户选择。\n\n## 制作约束\n\n- 链接可读且标明目标，图片轮播不当作音频播放。\n- 迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/fuji-rock/app.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/4AS4QwyCS1efKr65S46uaPdnyKlI2c2PJ46xsn4spc.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/4AS4QwyCS1efKr65S46uaPdnyKlI2c2PJ46xsn4ssp.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/aC8sy0ycHbxdRqtlOkZQXy8CrGnlxFEKz3yPwGxJ.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/aTIiCxTF0FbTasM3Dpxb7B9pdYwG5HI5l4x2tLfjpc.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/aTIiCxTF0FbTasM3Dpxb7B9pdYwG5HI5l4x2tLfjsp.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/buy_ticket.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/logo_mountain.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/logo_type.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/nav_icon02.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/nav_icon04.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/nav_icon05.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/nav_icon06.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/nav_icon11.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/punav_icon07.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/punav_icon08.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/punav_icon09.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/punav_icon10.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/teHObwbhgXgjKLqX8HrBRJln7mxMNiwc5nSEcBsA.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/W2upzapTzUVTHJJK0lsN7vMw4gUaVuSQWU6Z2qUb.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/wtdrdF0xM8yaZQoCtKBNOnud4e7Zf5LgOWNPfXVJpc.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/wtdrdF0xM8yaZQoCtKBNOnud4e7Zf5LgOWNPfXVJsp.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/xQh5p3rAKkRkA04nH6TGqX7Pnp7hYgJ947xpjHyJ.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/fuji-rock/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/fuji-rock/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/fuji-rock/source/assets/source-style.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/fuji-rock/source/screenshots/fuji-rock-menu-source.jpg",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/fuji-rock/style.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/ann-school.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/ann-thief.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/arsene.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/captain-kidd.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/carmen.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/carousel_arrow_left.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/carousel_arrow_right.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/characters-en.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/dot.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/hero.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/joker-school.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/joker-thief.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/logo.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/now-en.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/phantom_life_ss1.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/phantom_life_ss2.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/phantom_life_ss3.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/ryuji-school.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/ryuji-thief.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/school_life_ss1.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/school_life_ss2.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/school_life_ss3.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/school_life_ss4.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/school_life_ss5.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/school.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/star1.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/star2.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/star3.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/star4.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/star5.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/star6.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/assets/title-en.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/script.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/source/assets/phantom.png",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/source/assets/star.png",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/source/screenshots/persona-character-source.jpg",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/persona-kinetic/style.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/assets/benjamin.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/assets/exhibition.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/assets/installation-1.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/assets/installation-2.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/assets/kamei.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/assets/philharmonique-bold.otf",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/assets/philharmonique.otf",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/assets/sprite.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/assets/stulz.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/script.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/philharmonie-music/style.css",
+      "role": "source"
+    },
+    {
+      "path": "docs/cases/fuji-rock.md",
+      "role": "context"
+    },
+    {
+      "path": "docs/cases/persona-kinetic.md",
+      "role": "context"
+    },
+    {
+      "path": "docs/cases/philharmonie-music.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/fuji-rock.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/persona-kinetic.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/philharmonie-music.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/patterns/offsite-playlist-extension.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/fuji-rock-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/fuji-rock-reference.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/fuji-rock.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/persona-kinetic-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/persona-kinetic-reference.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/persona-kinetic.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/philharmonie-music-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/philharmonie-music-reference.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/philharmonie-music.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/patterns/offsite-playlist-extension.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/fuji-rock.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/cases/persona-kinetic.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/cases/philharmonie-music.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/patterns/offsite-playlist-extension.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ]
+}

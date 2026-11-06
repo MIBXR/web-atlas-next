@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 1,
+  "id": "blurred-layered-video-handoff",
+  "pattern": {
+    "id": "blurred-layered-video-handoff",
+    "order": 28,
+    "title": "旧片模糊退出、新片延后进入",
+    "category": "加载与媒体",
+    "experienceTypes": [
+      "page-motion"
+    ],
+    "summary": "影片与主题字按不同阶段交接。",
+    "mechanism": "旧影片先模糊退出，新影片稍后进入，标题再延迟进入；各层叠放在同一舞台，快速选择由最后请求队列管理。",
+    "trigger": "选择影片章节",
+    "effect": "镜头更替时保持观看的连续性。",
+    "useCases": [
+      "少量世界玩法章节"
+    ],
+    "avoid": [
+      "同时播放多层影片或让标题先于正确场景出现"
+    ],
+    "constraints": [
+      "切出的影片必须暂停；减少动态时直接显示当前片的静帧与标题。",
+      "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+    ],
+    "composition": {
+      "role": "support",
+      "pairsWellWith": [
+        "last-request-transition",
+        "clip-tail-advance"
+      ],
+      "conflicts": []
+    },
+    "parameters": [
+      {
+        "name": "来源影片",
+        "value": "1s退；1.6s入、延迟0.6s",
+        "note": "旧片/新片分开"
+      },
+      {
+        "name": "来源标题",
+        "value": "1.6s、延迟1s",
+        "note": "标题晚于场景带入"
+      }
+    ],
+    "prompt": "为【目标页面/组件】实现「旧片模糊退出、新片延后进入」。旧影片先模糊退出，新影片稍后进入，标题再延迟进入；同一舞台叠层和最后请求队列管理快选。触发：选择影片章节。可见结果：镜头间更替保持观看连续。适用任务：少量世界玩法章节。切出影片必须暂停，降低动态直接显示当前片静帧与标题。键盘：触发控件用原生按钮或链接，显示焦点并同步选择/展开状态；提供可取消或返回的路径。减少动态：停用自动推进与大幅运动，手动选择即时完成，终态内容及状态说明保持可见。",
+    "sources": [
+      {
+        "caseId": "zelda-world",
+        "locator": "entries/cases/zelda-world.json#interaction/1",
+        "observation": "点击章节 → 300ms输入锁；前片1秒模糊退场，后片1.6秒、延迟0.6秒进入；标题1.6秒、延迟1秒进入。快速选择保留最后请求。",
+        "evidence": "observed",
+        "referenceUrl": "https://www.nintendo.com/jp/zelda/totk/world/index.html",
+        "capturedAt": "2026-10-07",
+        "focus": {
+          "target": ".world-stage",
+          "label": "世界影片与标题交接",
+          "instruction": "点底部另一个章节，看旧片模糊退出、新片延后进入，标题再接上。",
+          "prepare": [
+            {
+              "click": "#entry-gate:not([hidden]):not([data-phase]) [data-enter=\"off\"]",
+              "waitFor": "body:has(#entry-gate[hidden])"
+            },
+            {
+              "click": ".chapters a[href=\"#world-2\"]:not([aria-current=\"true\"])",
+              "waitFor": ".world-stage[data-scene=\"2\"]"
+            }
+          ]
+        }
+      }
+    ],
+    "sourceFiles": [
+      "demos/cases/zelda-world/fidelity.md",
+      "demos/cases/zelda-world/index.html",
+      "demos/cases/zelda-world/script.js",
+      "demos/cases/zelda-world/style.css",
+      "entries/cases/zelda-world.json",
+      "docs/cases/zelda-world.md"
+    ],
+    "preview": "previews/patterns/blurred-layered-video-handoff.jpg"
+  },
+  "sourceCases": [
+    {
+      "id": "zelda-world",
+      "title": "塞尔达 · 全景世界舞台",
+      "paths": {
+        "bundle": "agent/cases/zelda-world.json",
+        "demo": "demos/cases/zelda-world/index.html"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "prompts/patterns/blurred-layered-video-handoff.md",
+      "role": "prompt",
+      "content": "# 旧片模糊退出、新片延后进入 · 复用 Prompt\n\n[结构化条目](../../entries/patterns/blurred-layered-video-handoff.json)\n\n为【目标页面/组件】实现「旧片模糊退出、新片延后进入」。旧影片先模糊退出，新影片稍后进入，标题再延迟进入；同一舞台叠层和最后请求队列管理快选。触发：选择影片章节。可见结果：镜头间更替保持观看连续。适用任务：少量世界玩法章节。切出影片必须暂停，降低动态直接显示当前片静帧与标题。键盘：触发控件用原生按钮或链接，显示焦点并同步选择/展开状态；提供可取消或返回的路径。减少动态：停用自动推进与大幅运动，手动选择即时完成，终态内容及状态说明保持可见。\n\n## 制作约束\n\n- 切出的影片必须暂停；减少动态时直接显示当前片的静帧与标题。\n- 迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/bg_loading.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/bgm.mp3",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/btn_sound_off.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/btn_sound_on.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/caption_1.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/caption_2.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/caption_3.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/chapter-1.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/chapter-2.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/chapter-3.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/frame_thumbnail.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/kakeru-poster.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/kakeru.mp4",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/logo.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/mask_loading.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/nav_character_on.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/nav_character.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/nav_movie_on.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/nav_movie.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/nav_world_on.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/nav_world.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/obj_loading_2.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/se.mp3",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/sound-control-off.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/sound-control-on.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/title_sound.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/title-1.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/title-2.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/title-3.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/tsukuru-poster.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/tsukuru.mp4",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/tsumugu-poster.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/tsumugu.mp4",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/assets/txt_sound.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/zelda-world/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/zelda-world/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/zelda-world/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/zelda-world/script.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/zelda-world/source/assets/kakeru.m3u8",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/zelda-world/source/assets/tsukuru.m3u8",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/zelda-world/source/assets/tsumugu.m3u8",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/zelda-world/source/media.sh",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/zelda-world/source/README.md",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/zelda-world/style.css",
+      "role": "source"
+    },
+    {
+      "path": "docs/cases/zelda-world.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/zelda-world.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/patterns/blurred-layered-video-handoff.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/zelda-world-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/zelda-world-reference.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/zelda-world.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/patterns/blurred-layered-video-handoff.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/zelda-world.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/patterns/blurred-layered-video-handoff.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ]
+}

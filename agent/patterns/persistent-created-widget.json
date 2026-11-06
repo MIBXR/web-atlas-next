@@ -1,0 +1,378 @@
+{
+  "schemaVersion": 1,
+  "id": "persistent-created-widget",
+  "pattern": {
+    "id": "persistent-created-widget",
+    "order": 132,
+    "title": "已创建挂件跨场景保留",
+    "category": "内容组织",
+    "experienceTypes": [
+      "page-motion",
+      "structure"
+    ],
+    "summary": "生成的结果继续参与下一段演示。",
+    "mechanism": "创建过程结束后，先放大展示结果挂件，再缩到固定角落；后台界面切换到管理列表时，挂件继续保留，最后通过已安装项确认结果归属。",
+    "trigger": "创建过程完成并转入管理场景",
+    "effect": "用户看到生成、可用与被管理的是同一个对象。",
+    "useCases": [
+      "插件创建演示",
+      "生成组件或工具安装介绍"
+    ],
+    "avoid": [
+      "切换场景后成果消失，导致身份断裂",
+      "把固定动画伪装成真实安装"
+    ],
+    "constraints": [
+      "挂件状态不能在场景交接时重置；放大与紧凑形态共享同一内容。",
+      "手机保留挂件与管理器的对应关系，同时避免遮住列表的主要信息。"
+    ],
+    "composition": {
+      "role": "accent",
+      "notes": "让成果在前后场景中保持同一身份；前序可搭配过程折叠，运行控制交给独立的暂停生命周期。",
+      "pairsWellWith": [
+        "process-to-result-collapse",
+        "viewport-animation-lifecycle"
+      ],
+      "conflicts": []
+    },
+    "parameters": [
+      {
+        "name": "完整周期",
+        "value": "22秒",
+        "note": "官网CSS。"
+      },
+      {
+        "name": "挂件交接",
+        "value": "8.69–9.24秒展开，11.66秒紧凑",
+        "note": "官网关键帧，管理器在11.44–12.1秒进入。"
+      }
+    ],
+    "sources": [
+      {
+        "caseId": "deepseek-harness",
+        "locator": "entries/cases/deepseek-harness.json#interaction/1",
+        "observation": "插件演示22秒：对话输入、10条工具步骤、过程折叠、番茄钟放大，再缩至右上角；插件管理器滚过7个官方插件并高亮已安装项，挂件贯穿场景交接。",
+        "evidence": "observed",
+        "referenceUrl": "https://www.deepseek.com/harness/",
+        "capturedAt": "2026-10-11",
+        "focus": {
+          "target": "[class^=HarnessPluginsPreview_canvas]",
+          "label": "跨场景保留的番茄钟",
+          "instruction": "看对话完成工具步骤后生成番茄钟，再留在右上角；插件管理器切入时挂件继续保留。"
+        }
+      }
+    ],
+    "sourceFiles": [
+      "entries/cases/deepseek-harness.json",
+      "docs/cases/deepseek-harness.md",
+      "demos/cases/deepseek-harness/app.js",
+      "demos/cases/deepseek-harness/fidelity.md",
+      "demos/cases/deepseek-harness/index.html",
+      "demos/cases/deepseek-harness/messages.js",
+      "demos/cases/deepseek-harness/reference.css",
+      "demos/cases/deepseek-harness/runtime.js",
+      "demos/cases/deepseek-harness/state.css",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/1798-4c32a4b3e02e20fe.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/7386dc53.5bf20d414744188e.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/7591-a9eaac0cc94f9f3e.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/1835-f521304a15b83224.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/3743-7c4be9ad33829b7f.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/app/[locale]/harness/page-82b977ba6da9187f.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/5565.779b207d687b6031.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/1563-d3f244478cac7e75.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/app/[locale]/template-4dc2bb6be23dc661.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/9164-9f2478a2648a9516.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/8091.573531f4257c3cd0.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/6872-122f878b6e348922.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/8809-44db951c56e60f28.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/6336-e0040a1eb23dd92b.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/8555-7c9518c428e988c2.js",
+      "demos/cases/deepseek-harness/vendor/deepseek-harness/86b88eeb-5b86058878847f6a.js"
+    ],
+    "prompt": "为【目标页面/组件】实现「已创建挂件跨场景保留」。创建过程结束后将结果挂件先放大展示，再缩到固定角落；后台界面切换到管理列表时挂件持续存在，最后通过已安装项确认结果归属。 触发：创建过程完成并转入管理场景。结果：用户看到生成、可用与被管理的是同一个对象。 挂件状态不能在场景交接时重置；放大与紧凑形态共享同一内容。 手机保留挂件与管理器的对应关系，同时避免遮住列表的主要信息。 负责成果身份连续性，前序可搭配过程折叠，运行控制交给独立暂停生命周期。 键盘：暂停按钮可键盘操作；图解内部不伪造可编辑输入或可点击安装。 减少动态：呈现挂件与管理器已安装项的稳定终态，并给出过程说明。 实施前读取来源源码、研究与复现边界，不以本Prompt替代代码。",
+    "preview": "previews/patterns/persistent-created-widget.jpg"
+  },
+  "sourceCases": [
+    {
+      "id": "deepseek-harness",
+      "title": "DeepSeek Harness · 可观察的产品演示",
+      "paths": {
+        "bundle": "agent/cases/deepseek-harness.json",
+        "demo": "demos/cases/deepseek-harness/index.html"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "prompts/patterns/persistent-created-widget.md",
+      "role": "prompt",
+      "content": "# 已创建挂件跨场景保留 · 复用 Prompt\n\n[结构化条目](../../entries/patterns/persistent-created-widget.json)\n\n为【目标页面/组件】实现「已创建挂件跨场景保留」。创建过程结束后将结果挂件先放大展示，再缩到固定角落；后台界面切换到管理列表时挂件持续存在，最后通过已安装项确认结果归属。 触发：创建过程完成并转入管理场景。结果：用户看到生成、可用与被管理的是同一个对象。 挂件状态不能在场景交接时重置；放大与紧凑形态共享同一内容。 手机保留挂件与管理器的对应关系，同时避免遮住列表的主要信息。 负责成果身份连续性，前序可搭配过程折叠，运行控制交给独立暂停生命周期。 键盘：暂停按钮可键盘操作；图解内部不伪造可编辑输入或可点击安装。 减少动态：呈现挂件与管理器已安装项的稳定终态，并给出过程说明。 实施前读取来源源码、研究与复现边界，不以本Prompt替代代码。\n\n## 制作约束\n\n- 挂件状态不能在场景交接时重置；放大与紧凑形态共享同一内容。\n- 手机保留挂件与管理器的对应关系，同时避免遮住列表的主要信息。\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/app.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/BRAND_GUIDELINES.zh.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/fonts/dm-sans-400.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/fonts/dm-sans-500.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/fonts/dm-sans-700.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/fonts/montserrat-500.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/fonts/montserrat.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/harness/fonts/fragment-mono-latin.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/harness/icons/file-types/excel.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/harness/icons/file-types/html.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/harness/icons/file-types/markdown.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/harness/icons/file-types/pdf.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/harness/icons/file-types/python.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/harness/icons/file-types/typescript.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/harness/icons/file-types/word.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/harness/images/feat-plugins-en.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/harness/images/feat-plugins-zh.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/harness/images/feat-trace-en.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/harness/images/feat-trace-zh.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/assets/harness/images/qr-wechat.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/LICENSE",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/messages.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/reference.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/source/assets/_next/static/css/25f198211a7e1205.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/source/assets/_next/static/css/5adb47a13a2794be.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/source/assets/_next/static/css/826310b8bcf73c16.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/source/assets/_next/static/css/aa0e993381ed79dc.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/source/assets/harness/favicon.svg",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/state.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/1563-d3f244478cac7e75.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/1798-4c32a4b3e02e20fe.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/1835-f521304a15b83224.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/3743-7c4be9ad33829b7f.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/5565.779b207d687b6031.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/6336-e0040a1eb23dd92b.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/6872-122f878b6e348922.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/7386dc53.5bf20d414744188e.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/7591-a9eaac0cc94f9f3e.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/8091.573531f4257c3cd0.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/8555-7c9518c428e988c2.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/86b88eeb-5b86058878847f6a.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/8809-44db951c56e60f28.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/9164-9f2478a2648a9516.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/app/[locale]/harness/page-82b977ba6da9187f.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/deepseek-harness/vendor/deepseek-harness/app/[locale]/template-4dc2bb6be23dc661.js",
+      "role": "vendor"
+    },
+    {
+      "path": "docs/cases/deepseek-harness.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/deepseek-harness.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/patterns/persistent-created-widget.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/deepseek-harness-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/deepseek-harness.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/patterns/persistent-created-widget.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/deepseek-harness.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/patterns/persistent-created-widget.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ]
+}

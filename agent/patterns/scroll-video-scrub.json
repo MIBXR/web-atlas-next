@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "id": "scroll-video-scrub",
+  "pattern": {
+    "id": "scroll-video-scrub",
+    "order": 7,
+    "title": "滚动进度驱动视频帧",
+    "category": "滚动叙事",
+    "experienceTypes": [
+      "page-motion"
+    ],
+    "summary": "让镜头细节与读页进度对应。",
+    "mechanism": "暂停短片，将 sticky 段的滚动进度映射到 currentTime；标题在交接区让出画面，反向滚动可以回看。静态呈现可用镜头静帧替代滚动 seek，并按文档顺序保留完整说明。",
+    "trigger": "上下滚动镜头段",
+    "effect": "用户以阅读速度控制产品展示。",
+    "useCases": [
+      "有稳定短片的镜头或结构介绍"
+    ],
+    "avoid": [
+      "将公开组件的存在当作源浏览器增强分支已验证的依据"
+    ],
+    "constraints": [
+      "来源 Apple 的增强滚动分支当次未现场通过；此处依据公共代码迁移，静帧用于降低动态，也用作失败时的回退。",
+      "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+    ],
+    "composition": {
+      "role": "support",
+      "pairsWellWith": [
+        "sticky-stage-handoff"
+      ],
+      "conflicts": []
+    },
+    "parameters": [
+      {
+        "name": "本地媒体/舞台",
+        "value": "4.984秒 / 220vh",
+        "note": "来源视频与本地拟合滚动段"
+      }
+    ],
+    "prompt": "为【目标页面/组件】实现「滚动进度驱动视频帧」。暂停短片并把sticky段滚动进度映射到currentTime，标题在交接区让出画面；反向滚动可以回看。触发：上下滚动镜头段。可见结果：用户以阅读速度控制产品展示。适用任务：有稳定短片的镜头或结构介绍。来源Apple增强滚动分支当次未现场通过；此处为公共代码依据的迁移，静帧作为降低动态与失败回退。键盘：触发控件用原生按钮或链接，显示焦点并同步选择/展开状态；提供可取消或返回的路径。减少动态：取消滚动seek及大幅位移，静帧与完整镜头说明按文档顺序可读。",
+    "sources": [
+      {
+        "caseId": "apple-product",
+        "locator": "entries/cases/apple-product.json#interaction/3",
+        "observation": "镜头长段向下/向上滚动 → 暂停的官方相机 WebM 按进度 seek，标题让出画面；后续性能和续航用官方静帧保持 sticky 媒体和前后文交接。",
+        "evidence": "inferred",
+        "referenceUrl": "https://www.apple.com/iphone-18-pro/",
+        "capturedAt": "2026-10-07",
+        "focus": {
+          "target": "#cameras .camera-sticky",
+          "label": "镜头系统滚动视频",
+          "instruction": "缓慢向下、向上滚动，观察镜头视频随滚动定位，以及标题让出画面的过程。",
+          "prepare": [
+            {
+              "scroll": "#cameras"
+            },
+            {
+              "video": "#camera-video"
+            }
+          ]
+        }
+      }
+    ],
+    "sourceFiles": [
+      "demos/cases/apple-product/fidelity.md",
+      "demos/cases/apple-product/index.html",
+      "demos/cases/apple-product/journey.js",
+      "demos/cases/apple-product/script.js",
+      "demos/cases/apple-product/style.css",
+      "entries/cases/apple-product.json"
+    ],
+    "preview": "previews/patterns/scroll-video-scrub.jpg"
+  },
+  "sourceCases": [
+    {
+      "id": "apple-product",
+      "title": "Apple · 滚动产品舞台",
+      "paths": {
+        "bundle": "agent/cases/apple-product.json",
+        "demo": "demos/cases/apple-product/index.html"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "prompts/patterns/scroll-video-scrub.md",
+      "role": "prompt",
+      "content": "# 滚动进度驱动视频帧 · 复用 Prompt\n\n[结构化条目](../../entries/patterns/scroll-video-scrub.json)\n\n为【目标页面/组件】实现「滚动进度驱动视频帧」。暂停短片并把sticky段滚动进度映射到currentTime，标题在交接区让出画面；反向滚动可以回看。触发：上下滚动镜头段。可见结果：用户以阅读速度控制产品展示。适用任务：有稳定短片的镜头或结构介绍。来源Apple增强滚动分支当次未现场通过；此处为公共代码依据的迁移，静帧作为降低动态与失败回退。键盘：触发控件用原生按钮或链接，显示焦点并同步选择/展开状态；提供可取消或返回的路径。减少动态：取消滚动seek及大幅位移，静帧与完整镜头说明按文档顺序可读。\n\n## 制作约束\n\n- 来源 Apple 的增强滚动分支当次未现场通过；此处依据公共代码迁移，静帧用于降低动态，也用作失败时的回退。\n- 迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/apple-product/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/3d_viewer__hgotqf9hvvee_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/action_button__f9p8n5h9xk66_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/aperture-balance.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/aperture-depth.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/aperture-light.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/aperture-maxdepth.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/battery_endframe__ds9p2a09r9aq_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/camera_control__f4t7iottmvyy_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/camera_system_startframe__e0gisudnvv2a_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/camera-system.webm",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/chip_endframe__lhkymtfv1uie_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/color_black__dseo2tvypuc2_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/color_burgundy__f95it7a6dnyq_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/color_glacier__fkxlpbz0ruy6_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/color_silver__c0oudn0fzw4m_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/colors_endframe__czfie0zmty4i_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/durability__gluy1en01nqm_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/dynamic_island_endframe__edszr68pgo66_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/hero_endframe__fbxsnz8txcia_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/hls.min.js",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/icon_large.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/large_2x.mp4",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/main_camera_endframe__fcjfhs06rdme_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/siri.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/size__ufk3tqa1f5e2_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/assets/viewer_aperture_endframe__2jpki8xah2au_large_2x.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/apple-product/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/apple-product/HLS-LICENSE.txt",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/apple-product/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/apple-product/journey.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/apple-product/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/apple-product/script.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/apple-product/source/assets/hero_startframe__ck15fj8f67hy_large_2x.jpg",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/apple-product/style.css",
+      "role": "source"
+    },
+    {
+      "path": "docs/cases/apple-product.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/apple-product.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/patterns/scroll-video-scrub.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/apple-product-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/apple-product-reference.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/apple-product.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/patterns/scroll-video-scrub.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/apple-product.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/patterns/scroll-video-scrub.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ]
+}

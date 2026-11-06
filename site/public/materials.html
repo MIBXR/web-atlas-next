@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>跳转到素材</title>
+<script>
+  var parts = location.hash.slice(1).split("?");
+  var hash = decodeURIComponent(parts[0]);
+  var p = new URLSearchParams(parts[1]);
+  var q = new URLSearchParams();
+  ["q", "category", "type"].forEach(function (key) { if (p.get(key) && p.get(key) !== "all") q.set(key, p.get(key)); });
+  if (p.get("favorites") === "1") q.set("fav", "1");
+  if (p.get("sort") === "title") q.set("sort", "title");
+  if (p.get("dir") === "desc") q.set("dir", "desc");
+  var route = hash.startsWith("material/") ? "/materials/" + encodeURIComponent(hash.slice(9)) : "/materials";
+  location.replace("./#" + route + (q.size ? "?" + q : ""));
+</script>

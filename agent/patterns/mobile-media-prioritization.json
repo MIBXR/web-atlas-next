@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 1,
+  "id": "mobile-media-prioritization",
+  "pattern": {
+    "id": "mobile-media-prioritization",
+    "order": 21,
+    "title": "按手机信息任务裁减复杂演示",
+    "category": "内容组织",
+    "experienceTypes": [
+      "structure"
+    ],
+    "summary": "复杂媒体变体与正文分别管理。",
+    "mechanism": "窄屏保留主张、操作和说明；根据来源变体隐藏重型演示，或仅保留消息线程，避免把桌面内容全部缩小到无法阅读。",
+    "trigger": "进入窄屏布局",
+    "effect": "无需理解极小的界面，也能读懂核心信息。",
+    "useCases": [
+      "密集工具产品的移动营销页"
+    ],
+    "avoid": [
+      "隐藏整节内容或把不同来源规则混用"
+    ],
+    "constraints": [
+      "Notion 在手机上隐藏 hero 媒体，Linear 保留首屏应用的裁切画面；具体变体须按任务决定。",
+      "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+    ],
+    "composition": {
+      "role": "foundation",
+      "pairsWellWith": [
+        "capability-bento-hierarchy"
+      ],
+      "conflicts": []
+    },
+    "parameters": [],
+    "prompt": "为【目标页面/组件】实现「按手机信息任务裁减复杂演示」。窄屏保留主张、操作和说明，按来源变体隐藏重型演示或仅保留消息线程，避免把桌面全部缩到不可读。触发：进入窄屏布局。可见结果：核心信息无需理解极小界面也可读。适用任务：密集工具产品的移动营销页。Notion手机隐藏hero媒体，Linear保留首屏应用裁切；具体变体须按任务决定。键盘：保留语义标题、顺序阅读与图像替代文字；装饰不进入Tab顺序。减少动态：布局与内容保持可读；不为静态构成增加自动运动。",
+    "sources": [
+      {
+        "caseId": "notion-editorial",
+        "locator": "entries/cases/notion-editorial.json#interaction/1",
+        "observation": "桌面官方产品视频静音循环，可暂停；手机保留上方七个头像 pile，当前页面隐藏 hero 媒体区而不是塞入桌面视频。",
+        "evidence": "adapted",
+        "referenceUrl": "https://www.notion.com/",
+        "capturedAt": "2026-10-07",
+        "focus": {
+          "target": ".hero",
+          "label": "手机的头像与标题",
+          "instruction": "对照手机与桌面模式：手机保留头像、主张和入口，桌面的产品影片在手机上隐藏。",
+          "viewport": "mobile"
+        }
+      },
+      {
+        "caseId": "linear-workflow",
+        "locator": "entries/cases/linear-workflow.json#interaction/5",
+        "observation": "手机保留完整应用缩放裁切、Intake 消息线程；按原站隐藏 Planning/AI/Build 的复杂图示并保留标题正文。",
+        "evidence": "observed",
+        "referenceUrl": "https://linear.app/",
+        "capturedAt": "2026-10-07",
+        "focus": {
+          "target": "#workflow",
+          "label": "手机保留消息线程",
+          "instruction": "向下查看手机的 Intake 消息线程，再对照桌面模式；复杂 Planning、AI、Build 图示在手机上让位给文字。",
+          "viewport": "mobile"
+        }
+      }
+    ],
+    "sourceFiles": [
+      "demos/cases/linear-workflow/fidelity.md",
+      "demos/cases/linear-workflow/index.html",
+      "demos/cases/linear-workflow/journey.js",
+      "demos/cases/linear-workflow/script.js",
+      "demos/cases/linear-workflow/style.css",
+      "demos/cases/notion-editorial/fidelity.md",
+      "demos/cases/notion-editorial/index.html",
+      "demos/cases/notion-editorial/journey.js",
+      "demos/cases/notion-editorial/script.js",
+      "demos/cases/notion-editorial/style.css",
+      "entries/cases/linear-workflow.json",
+      "entries/cases/notion-editorial.json",
+      "docs/cases/notion-editorial.md"
+    ],
+    "preview": "previews/patterns/mobile-media-prioritization.jpg"
+  },
+  "sourceCases": [
+    {
+      "id": "linear-workflow",
+      "title": "Linear — 深色产品开发系统",
+      "paths": {
+        "bundle": "agent/cases/linear-workflow.json",
+        "demo": "demos/cases/linear-workflow/index.html"
+      }
+    },
+    {
+      "id": "notion-editorial",
+      "title": "Notion — 插画与真实工作空间",
+      "paths": {
+        "bundle": "agent/cases/notion-editorial.json",
+        "demo": "demos/cases/notion-editorial/index.html"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "prompts/patterns/mobile-media-prioritization.md",
+      "role": "prompt",
+      "content": "# 按手机信息任务裁减复杂演示 · 复用 Prompt\n\n[结构化条目](../../entries/patterns/mobile-media-prioritization.json)\n\n为【目标页面/组件】实现「按手机信息任务裁减复杂演示」。窄屏保留主张、操作和说明，按来源变体隐藏重型演示或仅保留消息线程，避免把桌面全部缩到不可读。触发：进入窄屏布局。可见结果：核心信息无需理解极小界面也可读。适用任务：密集工具产品的移动营销页。Notion手机隐藏hero媒体，Linear保留首屏应用裁切；具体变体须按任务决定。键盘：保留语义标题、顺序阅读与图像替代文字；装饰不进入Tab顺序。减少动态：布局与内容保持可读；不为静态构成增加自动运动。\n\n## 制作约束\n\n- Notion 在手机上隐藏 hero 媒体，Linear 保留首屏应用的裁切画面；具体变体须按任务决定。\n- 迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/linear-workflow/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/linear-workflow/assets/inter.woff2",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/linear-workflow/assets/karri.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/linear-workflow/assets/logo.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/linear-workflow/assets/product-depth.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/linear-workflow/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/linear-workflow/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/linear-workflow/journey.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/linear-workflow/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/linear-workflow/script.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/linear-workflow/source/assets/hero-atmosphere.webp",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/linear-workflow/style.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/automate.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/capture.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/figma.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/find.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/hero.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/hero.mp4",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/logo.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/mobile.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/notion-bold.woff2",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/notion-regular.woff2",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/openai.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-1.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-2.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-3.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-4.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-5.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-6.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-7.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/ramp.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/notion-editorial/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/notion-editorial/journey.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/notion-editorial/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/notion-editorial/script.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/notion-editorial/style.css",
+      "role": "source"
+    },
+    {
+      "path": "docs/cases/linear-workflow.md",
+      "role": "context"
+    },
+    {
+      "path": "docs/cases/notion-editorial.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/linear-workflow.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/notion-editorial.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/patterns/mobile-media-prioritization.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/linear-workflow-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/linear-workflow-reference.png",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/linear-workflow.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/notion-editorial-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/notion-editorial-reference.png",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/notion-editorial.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/patterns/mobile-media-prioritization.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/linear-workflow.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/cases/notion-editorial.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/patterns/mobile-media-prioritization.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ]
+}

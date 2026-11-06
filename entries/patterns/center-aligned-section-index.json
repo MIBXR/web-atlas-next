@@ -1,0 +1,72 @@
+{
+  "id": "center-aligned-section-index",
+  "order": 94,
+  "title": "章节中心定位的侧边索引",
+  "category": "导航与状态",
+  "experienceTypes": [
+    "micro-motion",
+    "structure"
+  ],
+  "summary": "点击时让阅读目标落在视口中心。",
+  "mechanism": "侧边索引按视口中心更新当前章节；点击索引时，将目标章节的中心对齐视口中心。指针或焦点进入索引区时，显示标签并降低正文的强调程度。",
+  "trigger": "点击索引或聚焦索引区",
+  "effect": "跳转位置和当前章节清楚。",
+  "useCases": [
+    "章节高度明确的作品长页"
+  ],
+  "avoid": [
+    "只给无文字的小点且无法键盘操作"
+  ],
+  "constraints": [
+    "索引强调时正文仍可辨认，小屏改为可读菜单。",
+    "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+  ],
+  "composition": {
+    "role": "support",
+    "pairsWellWith": [
+      "native-document-reading"
+    ],
+    "conflicts": []
+  },
+  "parameters": [
+    {
+      "name": "来源定位",
+      "value": "450ms swing / 标签350ms",
+      "note": "内容透明度降为0.2"
+    }
+  ],
+  "prompt": "为【目标页面/组件】实现「章节中心定位的侧边索引」。侧边索引按视口中心更新，点击将目标章中心对齐；指针/焦点进入索引显示标签并降低内容强调。触发：点击索引或聚焦索引区。可见结果：跳转位置和当前章节清楚。适用任务：章节高度明确的作品长页。索引强调时正文仍可辨认，小屏改为可读菜单。键盘：索引button或链接有完整章节名，焦点显示标签，键盘可跳到每章。减少动态：停用自动推进与大幅运动，手动选择即时完成，终态内容及状态说明保持可见。",
+  "sources": [
+    {
+      "caseId": "monument-valley-game",
+      "locator": "entries/cases/monument-valley-game.json#interaction/1",
+      "observation": "桌面左侧章节索引：点击以450ms swing将章节中心对齐视口中心；悬停或键盘进入索引时，标签350ms出现、内容降至0.2透明度。",
+      "evidence": "adapted",
+      "referenceUrl": "https://www.monumentvalleygame.com/mv1",
+      "capturedAt": "2026-10-07",
+      "focus": {
+        "target": ".section-nav.visible",
+        "label": "桌面章节侧边索引",
+        "instruction": "点桌面左侧章节名，看目标章的中心对齐视口；把指针移入索引，会展开标签并降低正文强调。",
+        "prepare": [
+          {
+            "waitFor": "body[data-entry=\"ready\"]"
+          },
+          {
+            "click": ".section-nav a[href=\"#download\"]"
+          }
+        ],
+        "viewport": "wide"
+      }
+    }
+  ],
+  "sourceFiles": [
+    "demos/cases/monument-valley-game/app.js",
+    "demos/cases/monument-valley-game/fidelity.md",
+    "demos/cases/monument-valley-game/index.html",
+    "demos/cases/monument-valley-game/style.css",
+    "entries/cases/monument-valley-game.json",
+    "docs/cases/monument-valley-game.md"
+  ],
+  "preview": "previews/patterns/center-aligned-section-index.jpg"
+}

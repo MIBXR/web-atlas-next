@@ -1,0 +1,22 @@
+const esc = value => String(value ?? '').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
+const docHref = file => `docs.html?file=${encodeURIComponent(file)}`;
+const elementLabels={color:'配色角色',typography:'字体排版',layout:'布局留白',imagery:'图像图标',shape:'线条形状',hierarchy:'信息层级',motion:'动效反馈',coherence:'协调逻辑',scroll:'滚动结构'};
+const composition = e => `<dl class="element-map">${Object.entries(e.composition||{}).map(([k,v])=>`<div class="${k==='coherence'?'coherence':''}"><dt>${elementLabels[k]||esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>`;
+const themeModeLabels={fixed:'固定主题',system:'跟随系统',manual:'手动切换','system-and-manual':'系统 + 手动'};
+const soundKindLabels={none:'无网站配乐',background:'背景音乐',video:'媒体声音',external:'外部音乐入口',interactive:'操作／演奏声音'};
+const behaviors=e=>`<div class="behavior-block"><span class="behavior-label">显示主题</span><h3>${esc(themeModeLabels[e.themeBehavior.mode])}</h3><p>${esc(e.themeBehavior.control)}</p><p>${esc(e.themeBehavior.designReason)}</p></div><div class="behavior-block"><span class="behavior-label">声音与交互</span><h3>${esc(soundKindLabels[e.soundBehavior.kind])}</h3><p>${esc(e.soundBehavior.control)}</p>${e.soundBehavior.interactionRole?`<p>${esc(e.soundBehavior.interactionRole)}</p>`:''}</div>`;
+const list = values => `<ul>${values.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+const swatches = e => `<div class="swatches">${e.tokens.palette.map(x=>`<span class="swatch"><i style="background:${esc(x)}"></i>${esc(x)}</span>`).join('')}</div>`;
+const externalIcon = () => '';
+const typeLabels = { visual: '视觉巧思', 'micro-motion': '微动效', 'page-motion': '页面动效', sound: '声音巧思', structure: '内容与组织' };
+
+export function renderDetailNotes({entries, patterns, id}) {
+  const e = entries.find(entry => entry.id === id);
+  const documents = [[e.research,'调研记录'],[e.fidelity,'复现范围与差异'],[e.assetManifest,'素材来源清单'],[e.fidelity&&`demos/cases/${e.id}/LICENSES.md`,'许可原文索引']].filter(([file])=>file);
+  function caseLinks(id) {
+    const related = patterns.filter(pattern => pattern.sources.some(source => source.caseId === id));
+    if (!related.length) return '';
+    return `<section class="case-patterns" aria-labelledby="case-patterns-heading"><div class="prompt-head"><h2 id="case-patterns-heading">关联巧思</h2><a href="patterns.html#patterns?source=${encodeURIComponent(id)}">按来源浏览全部 ${related.length} 项</a></div><p>这些机制可独立借用，触发条件、约束与组合建议见各项详情。</p><ul>${related.map(pattern => `<li><a href="patterns.html#pattern/${encodeURIComponent(pattern.id)}?source=${encodeURIComponent(id)}">${esc(pattern.title)}</a><span>${(pattern.experienceTypes || []).map(type => esc(typeLabels[type])).join(' · ') || esc(pattern.category)}</span></li>`).join('')}</ul></section>`;
+  }
+  return {notes:`<section><h2>从要素看风格</h2><a class="element-lab-link" href="lab.html?style=${e.id}">调配这个风格的设计要素</a>${composition(e)}</section><section><h2>设计机制</h2>${list(e.principles)}<h3>设计重点</h3><p>${esc(e.productFocus)}</p>${e.theme?`<h3>主题与情绪</h3><p>${esc(e.theme)}</p>`:''}</section><section><h2>页面交互</h2>${list(e.interaction)}${behaviors(e)}</section><section><h2>约束与适用场景</h2>${list(e.constraints)}${e.useCases.length?`<h3>适合</h3><p>${e.useCases.map(esc).join(' / ')}</p>`:''}${e.avoid.length?`<h3>谨慎使用</h3><p>${e.avoid.map(esc).join(' / ')}</p>`:''}</section><section><h2>设计参数</h2>${swatches(e)}<p><b>字体</b> · ${esc(e.tokens.type)}<br><b>布局</b> · ${esc(e.tokens.layout)}<br><b>动效</b> · ${esc(e.tokens.motion)}</p></section><section><div class="prompt-head"><h2>可复用 Prompt</h2><button class="copy-button" id="copy-prompt">复制 Prompt</button></div><textarea class="prompt-box" aria-label="可复用 Prompt" readonly>${esc(e.prompt)}</textarea><details><summary>负面约束 / Negative Prompt</summary><p>${esc(e.negativePrompt)}</p></details><h3>改造练习</h3><p>${esc(e.exercise)}</p></section>${caseLinks(e.id)}<section><h2>来源与证据</h2>${e.sources.map(s=>`<div class="source-item"><span class="source-badge">${esc(s.type)}</span><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)} ${externalIcon(s.url)}</a><small>${esc(s.note)}</small></div>`).join('')}<p>${e.referenceUrl?`${e.category==='示范作品'?'来源归档':e.studyScope==='visual-adaptation'?'官方资料采集':'参考站采集'}：${esc(e.capturedAt)}。`:`理论来源核验：${esc(e.theoryVerifiedAt)}。`}</p></section><section><h2>相关文档</h2><ul>${documents.map(([file,label])=>`<li><a href="${esc(file.endsWith('.md')?docHref(file):file)}" target="_blank">${label}</a></li>`).join('')}</ul></section>`};
+}

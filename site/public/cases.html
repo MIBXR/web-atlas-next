@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>跳转到案例</title>
+<script>
+  var p = new URLSearchParams(location.search);
+  var categories = { products: "产品", games: "游戏/IP", classics: "经典风格", showcases: "示范作品", culture: "艺术/文化" };
+  var q = new URLSearchParams();
+  if (p.get("q")) q.set("q", p.get("q"));
+  if (p.get("country") && p.get("country") !== "all") q.set("country", p.get("country"));
+  if (p.get("sort") === "title") q.set("sort", "title");
+  if (p.get("dir") === "desc") q.set("dir", "desc");
+  var category = p.get("category");
+  if (category === "favorites") { q.set("fav", "1"); category = p.get("type"); }
+  if (categories[category]) q.set("category", categories[category]);
+  var hash = decodeURIComponent(location.hash.slice(1));
+  var route = hash.startsWith("style/") ? "/cases/" + encodeURIComponent(hash.slice(6)) : hash === "compare" ? "/compare" : "/cases";
+  location.replace("./#" + route + (q.size ? "?" + q : ""));
+</script>

@@ -1,0 +1,7 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>跳转到 Agent 工作流</title>
+<script>
+  var id = decodeURIComponent(location.hash.slice(1));
+  location.replace("./#/tools/workflow" + (id ? "?case=" + encodeURIComponent(id) : ""));
+</script>

@@ -1,0 +1,411 @@
+{
+  "schemaVersion": 1,
+  "id": "load-completion-brand-marker",
+  "pattern": {
+    "id": "load-completion-brand-marker",
+    "order": 98,
+    "title": "资源完成后品牌标记退场",
+    "category": "加载与媒体",
+    "experienceTypes": [
+      "page-motion"
+    ],
+    "summary": "等待真实图片就绪，不虚构漫长的加载进度。",
+    "mechanism": "关键图片加载期间显示轻量的品牌旋转标记；load 完成后，载入层与主图通过淡化完成交接。加载失败时仍可继续阅读页面。",
+    "trigger": "首屏资源加载完成",
+    "effect": "品牌识别贯穿短暂等待。",
+    "useCases": [
+      "海报与现场照片首屏"
+    ],
+    "avoid": [
+      "用长时间显示的虚假百分比进度营造仪式感"
+    ],
+    "constraints": [
+      "仅等待当前首图加载；旋转标记不表示实际数值进度，避免再叠加一套通用欢迎流程。",
+      "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+    ],
+    "composition": {
+      "role": "support",
+      "pairsWellWith": [
+        "photo-crossfade-cycle"
+      ],
+      "conflicts": []
+    },
+    "parameters": [
+      {
+        "name": "DESIGN SIGHT来源",
+        "value": "50px蓝标 / 300ms退场",
+        "note": "public common.js/CSS依据"
+      },
+      {
+        "name": "Fuji Rock来源",
+        "value": "32px橙标 / 1200ms淡化",
+        "note": "load完成交接"
+      }
+    ],
+    "prompt": "为【目标页面/组件】实现「资源完成后品牌标记退场」。关键图片加载期间显示轻量品牌旋转标记，load完成后载入层与主图淡化交接；失败可继续读页。触发：首屏资源完成。可见结果：品牌识别贯穿短暂等待。适用任务：海报与现场照片首屏。仅等待当前首图，旋转标记不是实际数值进度，避免再叠一套通用欢迎。键盘：加载说明可读，失败时继续/重试按钮可聚焦，不困住焦点。减少动态：旋转改为静止标识，就绪后即时显示主图。",
+    "sources": [
+      {
+        "caseId": "design-sight",
+        "locator": "entries/cases/design-sight.json#interaction/0",
+        "observation": "首次加载完成：全屏白色与蓝色50px旋转标记，300ms退场。 在海报加载期间保持机构识别。",
+        "evidence": "inferred",
+        "referenceUrl": "https://www.2121designsight.jp/",
+        "capturedAt": "2026-10-07",
+        "focus": {
+          "target": "#entry-loader:not([hidden])",
+          "label": "资源就绪前的蓝色品牌标记",
+          "instruction": "看海报准备期间的白色加载层与蓝色旋转标记，资源就绪后它会退出；点“重播”重新载入。",
+          "phase": "loading"
+        }
+      },
+      {
+        "caseId": "fuji-rock",
+        "locator": "entries/cases/fuji-rock.json#interaction/0",
+        "observation": "素材载入完成：32px橙色旋转标记退出，遮层与主图1200ms线性淡化。 让真实现场图准备完毕后平稳进入。",
+        "evidence": "observed",
+        "referenceUrl": "https://www.fujirockfestival.com/",
+        "capturedAt": "2026-10-07",
+        "focus": {
+          "target": "#loader:not([hidden])",
+          "label": "现场照片前的橙色加载标记",
+          "instruction": "看现场照片准备期间的橙色旋转标记，素材就绪后遮层与主图一起淡入交接；点“重播”重新载入。",
+          "phase": "loading"
+        }
+      }
+    ],
+    "sourceFiles": [
+      "demos/cases/design-sight/app.js",
+      "demos/cases/design-sight/fidelity.md",
+      "demos/cases/design-sight/index.html",
+      "demos/cases/design-sight/style.css",
+      "demos/cases/fuji-rock/app.js",
+      "demos/cases/fuji-rock/fidelity.md",
+      "demos/cases/fuji-rock/index.html",
+      "demos/cases/fuji-rock/style.css",
+      "entries/cases/design-sight.json",
+      "entries/cases/fuji-rock.json",
+      "docs/cases/design-sight.md",
+      "docs/cases/fuji-rock.md"
+    ],
+    "preview": "previews/patterns/load-completion-brand-marker.jpg"
+  },
+  "sourceCases": [
+    {
+      "id": "design-sight",
+      "title": "21_21 DESIGN SIGHT：海报与四列档案",
+      "paths": {
+        "bundle": "agent/cases/design-sight.json",
+        "demo": "demos/cases/design-sight/index.html"
+      }
+    },
+    {
+      "id": "fuji-rock",
+      "title": "Fuji Rock：现场照片与节日导览",
+      "paths": {
+        "bundle": "agent/cases/fuji-rock.json",
+        "demo": "demos/cases/fuji-rock/index.html"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "prompts/patterns/load-completion-brand-marker.md",
+      "role": "prompt",
+      "content": "# 资源完成后品牌标记退场 · 复用 Prompt\n\n[结构化条目](../../entries/patterns/load-completion-brand-marker.json)\n\n为【目标页面/组件】实现「资源完成后品牌标记退场」。关键图片加载期间显示轻量品牌旋转标记，load完成后载入层与主图淡化交接；失败可继续读页。触发：首屏资源完成。可见结果：品牌识别贯穿短暂等待。适用任务：海报与现场照片首屏。仅等待当前首图，旋转标记不是实际数值进度，避免再叠一套通用欢迎。键盘：加载说明可读，失败时继续/重试按钮可聚焦，不困住焦点。减少动态：旋转改为静止标识，就绪后即时显示主图。\n\n## 制作约束\n\n- 仅等待当前首图加载；旋转标记不表示实际数值进度，避免再叠加一套通用欢迎流程。\n- 迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/design-sight/app.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/design-sight/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/A-POC_2121_G3_2026_JAXAproject_KV_W1280H720px_ToGO-thumb-1280xauto-8340.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/about_directors-thumb-500x333-5880.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/about_top-thumb-630xauto-5883.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/events_261025-thumb-630xauto-8334.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/img_symbol.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/jp_map-thumb-500x326-7547.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/research_kyoto-01-thumb-630xauto-8320.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/slide_hojoki-thumb-1280xauto-8283.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/time_topweb-thumb-630xauto-8306.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/top_information-thumb-630xauto-7221.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/topweb_hojoki-thumb-630xauto-8245.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/topweb_type_xvii-thumb-630xauto-8332.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/design-sight/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/design-sight/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/design-sight/source/assets/source-style.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/design-sight/source/assets/tour_architecture-thumb-500x333-8287.jpg",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/design-sight/style.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/fuji-rock/app.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/4AS4QwyCS1efKr65S46uaPdnyKlI2c2PJ46xsn4spc.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/4AS4QwyCS1efKr65S46uaPdnyKlI2c2PJ46xsn4ssp.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/aC8sy0ycHbxdRqtlOkZQXy8CrGnlxFEKz3yPwGxJ.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/aTIiCxTF0FbTasM3Dpxb7B9pdYwG5HI5l4x2tLfjpc.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/aTIiCxTF0FbTasM3Dpxb7B9pdYwG5HI5l4x2tLfjsp.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/buy_ticket.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/logo_mountain.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/logo_type.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/nav_icon02.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/nav_icon04.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/nav_icon05.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/nav_icon06.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/nav_icon11.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/punav_icon07.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/punav_icon08.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/punav_icon09.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/punav_icon10.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/teHObwbhgXgjKLqX8HrBRJln7mxMNiwc5nSEcBsA.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/W2upzapTzUVTHJJK0lsN7vMw4gUaVuSQWU6Z2qUb.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/wtdrdF0xM8yaZQoCtKBNOnud4e7Zf5LgOWNPfXVJpc.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/wtdrdF0xM8yaZQoCtKBNOnud4e7Zf5LgOWNPfXVJsp.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/assets/xQh5p3rAKkRkA04nH6TGqX7Pnp7hYgJ947xpjHyJ.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/fuji-rock/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/fuji-rock/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/fuji-rock/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/fuji-rock/source/assets/source-style.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/fuji-rock/source/screenshots/fuji-rock-menu-source.jpg",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/fuji-rock/style.css",
+      "role": "source"
+    },
+    {
+      "path": "docs/cases/design-sight.md",
+      "role": "context"
+    },
+    {
+      "path": "docs/cases/fuji-rock.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/design-sight.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/fuji-rock.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/patterns/load-completion-brand-marker.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/design-sight-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/design-sight-reference.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/design-sight.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/fuji-rock-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/fuji-rock-reference.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/fuji-rock.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/patterns/load-completion-brand-marker.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/design-sight.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/cases/fuji-rock.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/patterns/load-completion-brand-marker.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ]
+}

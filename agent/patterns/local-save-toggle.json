@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "id": "local-save-toggle",
+  "pattern": {
+    "id": "local-save-toggle",
+    "order": 57,
+    "title": "可取消的本地收藏",
+    "category": "交互反馈",
+    "experienceTypes": [
+      "structure"
+    ],
+    "summary": "清楚显示保存在当前浏览器的收藏状态。",
+    "mechanism": "每条内容使用可反复切换的收藏按钮，记录条目 ID，并恢复当前浏览器中的收藏状态。",
+    "trigger": "收藏或取消收藏",
+    "effect": "列表中的选择可在回访时继续使用。",
+    "useCases": [
+      "轻量资料收藏与学习清单"
+    ],
+    "avoid": [
+      "把本地状态说成跨设备账户同步"
+    ],
+    "constraints": [
+      "隔离存储键，存储失败时仍可操作；按钮文字明确显示收藏或取消。",
+      "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+    ],
+    "composition": {
+      "role": "accent",
+      "pairsWellWith": [],
+      "conflicts": []
+    },
+    "parameters": [],
+    "prompt": "为【目标页面/组件】实现「可取消的本地收藏」。每条内容使用可反复切换的收藏按钮，记录条目ID并恢复当前浏览器的状态。触发：收藏或取消收藏。可见结果：列表中的选择可在回访时继续使用。适用任务：轻量资料收藏与学习清单。隔离存储键，失败时仍能操作，按钮文字明确显示收藏或取消。键盘：收藏按钮提供完整内容名称与aria-pressed；键盘激活等同点击。减少动态：停用自动推进与大幅运动，手动选择即时完成，终态内容及状态说明保持可见。",
+    "sources": [
+      {
+        "caseId": "swiss-grid",
+        "locator": "entries/cases/swiss-grid.json#interaction/1",
+        "observation": "收藏按钮将展览编号存到当前浏览器，状态可再次取消。",
+        "evidence": "adapted",
+        "focus": {
+          "target": ".event .save",
+          "label": "活动行的收藏按钮",
+          "instruction": "点活动右侧的收藏按钮，再点一次取消；这个状态会保存在当前浏览器。"
+        }
+      }
+    ],
+    "sourceFiles": [
+      "demos/cases/swiss-grid/index.html",
+      "entries/cases/swiss-grid.json",
+      "docs/cases/swiss-grid.md"
+    ],
+    "preview": "previews/patterns/local-save-toggle.jpg"
+  },
+  "sourceCases": [
+    {
+      "id": "swiss-grid",
+      "title": "瑞士设计：编辑网格",
+      "paths": {
+        "bundle": "agent/cases/swiss-grid.json",
+        "demo": "demos/cases/swiss-grid/index.html"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "prompts/patterns/local-save-toggle.md",
+      "role": "prompt",
+      "content": "# 可取消的本地收藏 · 复用 Prompt\n\n[结构化条目](../../entries/patterns/local-save-toggle.json)\n\n为【目标页面/组件】实现「可取消的本地收藏」。每条内容使用可反复切换的收藏按钮，记录条目ID并恢复当前浏览器的状态。触发：收藏或取消收藏。可见结果：列表中的选择可在回访时继续使用。适用任务：轻量资料收藏与学习清单。隔离存储键，失败时仍能操作，按钮文字明确显示收藏或取消。键盘：收藏按钮提供完整内容名称与aria-pressed；键盘激活等同点击。减少动态：停用自动推进与大幅运动，手动选择即时完成，终态内容及状态说明保持可见。\n\n## 制作约束\n\n- 隔离存储键，存储失败时仍可操作；按钮文字明确显示收藏或取消。\n- 迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/swiss-grid/index.html",
+      "role": "source"
+    },
+    {
+      "path": "docs/cases/swiss-grid.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/swiss-grid.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/patterns/local-save-toggle.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/swiss-grid-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/swiss-grid.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/patterns/local-save-toggle.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/swiss-grid.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/patterns/local-save-toggle.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ]
+}

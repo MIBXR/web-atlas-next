@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>跳转到巧思</title>
+<script>
+  var parts = location.hash.slice(1).split("?");
+  var hash = decodeURIComponent(parts[0]);
+  var p = new URLSearchParams(parts[1]);
+  var q = new URLSearchParams();
+  ["q", "category", "source"].forEach(function (key) { if (p.get(key) && p.get(key) !== "all") q.set(key, p.get(key)); });
+  if (p.get("type") && p.get("type") !== "all") q.set("experience", p.get("type"));
+  if (p.get("favorites") === "1") q.set("fav", "1");
+  if (p.get("sort") === "title") q.set("sort", "title");
+  if (p.get("dir") === "desc") q.set("dir", "desc");
+  var route = hash.startsWith("pattern/") ? "/patterns/" + encodeURIComponent(hash.slice(8)) : "/patterns";
+  location.replace("./#" + route + (q.size ? "?" + q : ""));
+</script>

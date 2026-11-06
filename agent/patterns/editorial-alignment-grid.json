@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "id": "editorial-alignment-grid",
+  "pattern": {
+    "id": "editorial-alignment-grid",
+    "order": 55,
+    "title": "共享对齐线的编辑网格",
+    "category": "视觉构成",
+    "experienceTypes": [
+      "visual"
+    ],
+    "summary": "用共同基线对齐标题、日期和操作入口。",
+    "mechanism": "先按内容角色建立列网格，再将标题、日期、类别和操作入口反复对齐；非对称留白也遵循共同的对齐线。",
+    "effect": "不同密度的信息仍保持便于扫读的对应关系。",
+    "useCases": [
+      "日程、展览与课程索引"
+    ],
+    "avoid": [
+      "为保持海报外形裁切正文"
+    ],
+    "constraints": [
+      "手机上将跨栏布局改为单列，保留完整日期和操作入口。",
+      "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+    ],
+    "composition": {
+      "role": "foundation",
+      "pairsWellWith": [
+        "restrained-signal-color",
+        "aligned-metadata-rows"
+      ],
+      "conflicts": []
+    },
+    "parameters": [
+      {
+        "name": "本地网格",
+        "value": "12 栏 / 32px 间距",
+        "note": "原创示范选择，非历史固定规范"
+      }
+    ],
+    "prompt": "为【目标页面/组件】实现「共享对齐线的编辑网格」。先按内容角色建立列网格，再让标题、日期、类别和行动反复对齐；非对称留白仍服从共同线。可见结果：不同密度的信息保持可扫描关系。适用任务：日程、展览与课程索引。手机从跨栏折为单列，保留完整日期和行动。键盘：保留语义标题、顺序阅读与图像替代文字；装饰不进入Tab顺序。减少动态：布局与内容保持可读；不为静态构成增加自动运动。",
+    "sources": [
+      {
+        "caseId": "swiss-grid",
+        "locator": "entries/cases/swiss-grid.json#composition/layout",
+        "observation": "12 栏、32px 基础间距、横向日程列表；手机为单列",
+        "evidence": "adapted",
+        "focus": {
+          "target": ".hero",
+          "label": "编辑网格与基础间距",
+          "instruction": "比较主标题、右侧红色图版和底部元数据的共同对齐线，再向下看日程延续同一网格。"
+        }
+      }
+    ],
+    "sourceFiles": [
+      "demos/cases/swiss-grid/index.html",
+      "entries/cases/swiss-grid.json",
+      "docs/cases/swiss-grid.md"
+    ],
+    "preview": "previews/patterns/editorial-alignment-grid.jpg"
+  },
+  "sourceCases": [
+    {
+      "id": "swiss-grid",
+      "title": "瑞士设计：编辑网格",
+      "paths": {
+        "bundle": "agent/cases/swiss-grid.json",
+        "demo": "demos/cases/swiss-grid/index.html"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "prompts/patterns/editorial-alignment-grid.md",
+      "role": "prompt",
+      "content": "# 共享对齐线的编辑网格 · 复用 Prompt\n\n[结构化条目](../../entries/patterns/editorial-alignment-grid.json)\n\n为【目标页面/组件】实现「共享对齐线的编辑网格」。先按内容角色建立列网格，再让标题、日期、类别和行动反复对齐；非对称留白仍服从共同线。可见结果：不同密度的信息保持可扫描关系。适用任务：日程、展览与课程索引。手机从跨栏折为单列，保留完整日期和行动。键盘：保留语义标题、顺序阅读与图像替代文字；装饰不进入Tab顺序。减少动态：布局与内容保持可读；不为静态构成增加自动运动。\n\n## 制作约束\n\n- 手机上将跨栏布局改为单列，保留完整日期和操作入口。\n- 迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/swiss-grid/index.html",
+      "role": "source"
+    },
+    {
+      "path": "docs/cases/swiss-grid.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/swiss-grid.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/patterns/editorial-alignment-grid.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/swiss-grid-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/swiss-grid.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/patterns/editorial-alignment-grid.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/swiss-grid.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/patterns/editorial-alignment-grid.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "schemaVersion": 1,
+  "id": "98-css",
+  "material": {
+    "id": "98-css",
+    "order": 2,
+    "title": "98.css · 复古桌面组件",
+    "type": "component-library",
+    "category": "组件与效果",
+    "demo": "demos/materials/98-css/index.html",
+    "preview": "previews/materials/98-css.png",
+    "research": "docs/materials/98-css.md",
+    "sourceFiles": [
+      "demos/materials/98-css/index.html",
+      "demos/materials/98-css/demo/demo.css",
+      "demos/materials/98-css/demo/demo.js"
+    ],
+    "summary": "用真实的 Windows 98 风格 CSS 组合设置窗口、可筛选素材目录与可暂停的进度演示；保留复古边框，同时提高文字与触控可用性。",
+    "install": "npm install 98.css@0.1.21",
+    "demoNote": "原库提供 CSS，示例代码负责标签切换、筛选与进度演示。",
+    "tags": [
+      "98.css",
+      "Windows 98",
+      "复古",
+      "CSS",
+      "桌面隐喻",
+      "窗口",
+      "表单",
+      "目录",
+      "进度条"
+    ],
+    "useCases": [
+      "怀旧主题作品与小型展品",
+      "私人档案或游戏道具目录",
+      "带桌面隐喻的工具与教程"
+    ],
+    "avoid": [
+      "以复古为理由使用过小文字和触控区域",
+      "将 CSS 库当作完整操作系统或业务框架",
+      "用模拟进度证明真实下载或安装完成"
+    ],
+    "constraints": [
+      "固定 98.css 0.1.21；原库仅有 CSS，本地 JavaScript 实现行为。",
+      "适配层将原库控件字号从 11px 提高为 14px，辅助信息不低于 12px；不以缩放还原旧屏幕。",
+      "CSS 为 MIT；随包 MS Sans Serif 与 Bold 字体来自 lou，采用 CC BY-SA 3.0，需保留独立署名与许可。",
+      "模拟进度每 240ms 增加 2%。",
+      "页面隐藏或切换演示时，进度暂停，返回后需用户继续；减少动态时改为手动步进。",
+      "静态后备保留样式和说明；没有 JavaScript 时应用、筛选和演示计时不执行。"
+    ],
+    "upstream": {
+      "repository": "jdan/98.css",
+      "url": "https://github.com/jdan/98.css/tree/517d174b30392d39e068ef4eca457da66a189f8f",
+      "commit": "517d174b30392d39e068ef4eca457da66a189f8f",
+      "version": "0.1.21",
+      "verifiedAt": "2026-10-16"
+    },
+    "license": {
+      "name": "MIT（CSS） / CC BY-SA 3.0（字体）",
+      "url": "https://github.com/jdan/98.css/blob/517d174b30392d39e068ef4eca457da66a189f8f/LICENSE",
+      "scope": "Jordan Scales 的 CSS 为 MIT；lou 的 MS Sans Serif 与 Bold 字体为 CC BY-SA 3.0。",
+      "notes": "CSS、字体保持原始字节，并分别保存原始许可及来源。字体不归入 MIT；再分发或修改字体按其独立条款处理。"
+    },
+    "sources": [
+      {
+        "title": "98.css 固定版本源码",
+        "url": "https://github.com/jdan/98.css/tree/517d174b30392d39e068ef4eca457da66a189f8f",
+        "note": "确认 CSS-only 架构、字体文件和许可边界。",
+        "evidence": "source"
+      },
+      {
+        "title": "98.css 官方组件文档",
+        "url": "https://jdan.github.io/98.css/",
+        "note": "浏览器确认原生复选框可选中；文档提供窗口、表格、状态栏、进度与语义要求。",
+        "evidence": "observed"
+      },
+      {
+        "title": "98.css 0.1.21 npm 元数据",
+        "url": "https://registry.npmjs.org/98.css/0.1.21",
+        "note": "确认稳定分发版本与完整 gitHead。",
+        "evidence": "source"
+      },
+      {
+        "title": "固定版本 CSS 参数",
+        "url": "https://github.com/jdan/98.css/blob/517d174b30392d39e068ef4eca457da66a189f8f/style.css",
+        "note": "默认 11px 控件、窗口与面板类名、分段进度；提高字号为本地适配。",
+        "evidence": "source"
+      },
+      {
+        "title": "MS Sans Serif 字体许可",
+        "url": "https://github.com/jdan/98.css/blob/517d174b30392d39e068ef4eca457da66a189f8f/fonts/src/ms-sans-serif/license.txt",
+        "note": "lou / FontStruct，CC BY-SA 3.0；独立于 CSS MIT。",
+        "evidence": "source"
+      },
+      {
+        "title": "MS Sans Serif Bold 字体许可",
+        "url": "https://github.com/jdan/98.css/blob/517d174b30392d39e068ef4eca457da66a189f8f/fonts/src/ms-sans-serif-bold/license.txt",
+        "note": "粗体的独立原始署名与许可。",
+        "evidence": "source"
+      }
+    ],
+    "demos": [
+      {
+        "id": "settings",
+        "title": "设置窗口",
+        "component": "window / title-bar / form / tabs",
+        "summary": "在外观与选项间切换，应用桌面配色与留白并重置。",
+        "entrypoint": "demos/materials/98-css/index.html?demo=settings",
+        "parameters": [
+          {
+            "name": "桌面配色",
+            "value": "青绿 / 蓝灰 / 紫红",
+            "note": "三种色值为本地场景选择，不是上游主题 API。"
+          },
+          {
+            "name": "显示说明 / 紧凑留白",
+            "value": "原生 checkbox",
+            "note": "使用原库表单样式，具体开关行为为本地组合。"
+          }
+        ]
+      },
+      {
+        "id": "catalog",
+        "title": "素材目录",
+        "component": "sunken-panel / table / highlighted",
+        "summary": "输入名称筛选三项示例，选中后查看用途并测试空结果。",
+        "entrypoint": "demos/materials/98-css/index.html?demo=catalog",
+        "parameters": [
+          {
+            "name": "filter",
+            "value": "名称关键词",
+            "note": "筛选为本地 JavaScript；官方仅提供输入与列表样式。"
+          },
+          {
+            "name": "highlighted",
+            "value": "选中行",
+            "note": "官方表格选中样式，键盘条目按钮由本地提供。"
+          }
+        ]
+      },
+      {
+        "id": "progress",
+        "title": "传输进度",
+        "component": "progress-indicator / segmented",
+        "summary": "切换实心或分段进度，开始、暂停、单步和重置。",
+        "entrypoint": "demos/materials/98-css/index.html?demo=progress",
+        "parameters": [
+          {
+            "name": "value",
+            "value": "0–100%",
+            "note": "通过宽度表现官方进度样式；数值与 ARIA 由本地代码同步。"
+          },
+          {
+            "name": "tick",
+            "value": "240ms / +2%",
+            "note": "本地演示计时，手动每步 10%；不是性能测量。"
+          },
+          {
+            "name": "segmented",
+            "value": "开启 / 关闭",
+            "note": "原库分段进度类名。"
+          }
+        ]
+      }
+    ],
+    "prompt": "使用固定版本 98.css 0.1.21，为当前任务构建一个有实际用途的复古设置窗口、素材目录或进度界面。使用原库 window、title-bar、status-bar、sunken-panel、table 和 progress-indicator 样式，行为由小量原生 JavaScript 实现。所有控件保留语义与可访问名称，标签键盘方向导航，最终文本至少 12px，扩大触控区域，窄屏自然重排，不缩小整个界面。真实任务连接真实进度；若使用教学模拟须明确标注，允许暂停、重置、手动前进，后台与减少动态时停下持续变化。保存 MIT CSS 与 CC BY-SA 3.0 字体的独立署名许可，自托管所需文件，提供静态后备。"
+  },
+  "documents": [
+    {
+      "path": "docs/materials/98-css.md",
+      "role": "research",
+      "content": "# 98.css：带有桌面记忆的 CSS 组件\n\n[来源、版本、许可与使用边界](../../entries/materials/98-css.json)\n\n[本地工作台](../../demos/materials/98-css/index.html) · [结构化资料](../../entries/materials/98-css.json) · [官方完整文档](https://jdan.github.io/98.css/)\n\n## 能力与演示范围\n\n[官方文档](https://jdan.github.io/98.css/)明确说明，98.css 以语义化 HTML 配合 CSS，不提供 JavaScript 行为。窗口边框、蓝色标题栏、凹陷面板、表单、表格和进度条由 98.css 提供；本地标签切换、筛选、应用设置与模拟进度由原创代码实现。\n\n| 用法 | 原库构成 | 本地组合与可操作状态 |\n| --- | --- | --- |\n| 设置窗口 | window / title-bar / status-bar、原生表单 | 外观和选项两页；应用配色、说明与留白；恢复默认 |\n| 素材目录 | sunken-panel、table、highlighted | 名称筛选、选中摘要、无结果分支 |\n| 传输进度 | progress-indicator、segmented | 实心和分段切换、开始、暂停、10% 步进、重置与完成 |\n\n官方浏览器观察确认标准复选框可选中。源码显示默认控件为 11px；本地适配 CSS 将控件提高到 14px、辅助文字至少 12px，按钮至少 36px 高，并扩大标签点击区域。\n\n## 参数与接入\n\n接入方式见结构化条目；将样式及相邻字体一并部署；本页无 CDN、框架或构建器依赖。每个独立目录包含 HTML、适配 CSS、原创 JavaScript、官方 CSS 与字体，Agent 构建提供完整文件路径与角色。\n\n`index.html?demo=settings`、`?demo=catalog`、`?demo=progress` 定位三种用法。`theme=light`／`theme=dark` 指定外层说明主题；同源嵌入跟随 Atlas 主题，窗口舞台保持青绿与灰色。\n\n窗口类和分段进度来自[固定版本样式](https://github.com/jdan/98.css/blob/517d174b30392d39e068ef4eca457da66a189f8f/style.css)。三套桌面颜色、留白开关、每 240ms 增加 2% 和手动每次 10% 都是本地演示参数。进度来自本地计时器与手动步进。\n\n## 输入、动态与后备\n\n标签支持左右、Home、End；表单和目录条目使用标准控件，指针与触摸点击触发相同操作。减少动态时，进度通过手动步进更新；页面隐藏或切换用法时暂停，返回后不自动续播。没有声音，窗口舞台保留固定配色，外层说明跟随 Atlas 主题。\n\n`..?fallback=1` 可查看主动关闭交互的静态首屏；无 JavaScript 时保留样式、原生设置首屏和来源说明，应用等操作不执行。CSS 缺失时仍可阅读语义化内容，但无法呈现复古外观。\n\n字体与 CSS 的许可分别收录在 [许可索引](../../demos/materials/98-css/LICENSES.md)。\n"
+    },
+    {
+      "path": "prompts/materials/98-css.md",
+      "role": "prompt",
+      "content": "# 98.css · 复古桌面组件 · 复用 Prompt\n\n[结构化条目](../../entries/materials/98-css.json)\n\n使用固定版本 98.css 0.1.21，为当前任务构建一个有实际用途的复古设置窗口、素材目录或进度界面。使用原库 window、title-bar、status-bar、sunken-panel、table 和 progress-indicator 样式，行为由小量原生 JavaScript 实现。所有控件保留语义与可访问名称，标签键盘方向导航，最终文本至少 12px，扩大触控区域，窄屏自然重排，不缩小整个界面。真实任务连接真实进度；若使用教学模拟须明确标注，允许暂停、重置、手动前进，后台与减少动态时停下持续变化。保存 MIT CSS 与 CC BY-SA 3.0 字体的独立署名许可，自托管所需文件，提供静态后备。\n\n## 制作约束\n\n- 固定 98.css 0.1.21；原库仅有 CSS，本地 JavaScript 实现行为。\n- 适配层将原库控件字号从 11px 提高为 14px，辅助信息不低于 12px；不以缩放还原旧屏幕。\n- CSS 为 MIT；随包 MS Sans Serif 与 Bold 字体来自 lou，采用 CC BY-SA 3.0，需保留独立署名与许可。\n- 模拟进度每 240ms 增加 2%。\n- 页面隐藏或切换演示时，进度暂停，返回后需用户继续；减少动态时改为手动步进。\n- 静态后备保留样式和说明；没有 JavaScript 时应用、筛选和演示计时不执行。\n"
+    },
+    {
+      "path": "demos/materials/98-css/LICENSES.md",
+      "role": "license",
+      "content": "# 98.css 许可索引\n\n[来源与固定版本](../../../entries/materials/98-css.json)。\n\n| 文件 | 归属与许可原文 |\n| --- | --- |\n| [98.css](vendor/98.css@0.1.21/98.css) | Jordan Scales · [MIT](vendor/98.css@0.1.21/LICENSE-98-css.txt)。相对引用已按本库目录调整。 |\n| MS Sans Serif 字体 | lou · [CC BY-SA 3.0](fonts/LICENSE-ms-sans-serif.txt) |\n| MS Sans Serif Bold 字体 | lou · [CC BY-SA 3.0](fonts/LICENSE-ms-sans-serif-bold.txt) |\n\n四份字体文件保存在 `fonts/`，上游 source map 保存在 `source/vendor/98.css.map`。\n"
+    },
+    {
+      "path": "demos/materials/98-css/fonts/LICENSE-ms-sans-serif-bold.txt",
+      "role": "license",
+      "content": "The FontStruction “MS Sans Serif Bold”\n(https://fontstruct.com/fontstructions/show/1384862) by “lou” is licensed\nunder a Creative Commons Attribution Share Alike license\n(http://creativecommons.org/licenses/by-sa/3.0/).\n"
+    },
+    {
+      "path": "demos/materials/98-css/fonts/LICENSE-ms-sans-serif.txt",
+      "role": "license",
+      "content": "The FontStruction “MS Sans Serif”\n(https://fontstruct.com/fontstructions/show/1384746) by “lou” is licensed\nunder a Creative Commons Attribution Share Alike license\n(http://creativecommons.org/licenses/by-sa/3.0/).\n"
+    },
+    {
+      "path": "demos/materials/98-css/vendor/98.css@0.1.21/LICENSE-98-css.txt",
+      "role": "license",
+      "content": "Copyright 2020 Jordan Scales\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "demos/materials/98-css/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/materials/98-css/demo/demo.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/materials/98-css/demo/demo.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/materials/98-css/fonts/LICENSE-ms-sans-serif-bold.txt",
+      "role": "license"
+    },
+    {
+      "path": "demos/materials/98-css/fonts/LICENSE-ms-sans-serif.txt",
+      "role": "license"
+    },
+    {
+      "path": "demos/materials/98-css/fonts/ms_sans_serif.woff",
+      "role": "font"
+    },
+    {
+      "path": "demos/materials/98-css/fonts/ms_sans_serif.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/materials/98-css/fonts/ms_sans_serif_bold.woff",
+      "role": "font"
+    },
+    {
+      "path": "demos/materials/98-css/fonts/ms_sans_serif_bold.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/materials/98-css/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/materials/98-css/source/vendor/98.css.map",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/98-css/vendor/98.css@0.1.21/98.css",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/98-css/vendor/98.css@0.1.21/LICENSE-98-css.txt",
+      "role": "license"
+    },
+    {
+      "path": "docs/materials/98-css.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/materials/98-css.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/materials/98-css.png",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/materials/98-css.md",
+      "role": "context"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ],
+  "sourceFiles": [
+    "demos/materials/98-css/index.html",
+    "demos/materials/98-css/demo/demo.css",
+    "demos/materials/98-css/demo/demo.js"
+  ]
+}

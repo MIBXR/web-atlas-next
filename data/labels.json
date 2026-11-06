@@ -1,0 +1,84 @@
+{
+  "cases": {
+    "category": {
+      "产品": "产品与平台",
+      "游戏/IP": "游戏与 IP",
+      "经典风格": "经典设计语言",
+      "示范作品": "示范作品",
+      "艺术/文化": "艺术与文化"
+    },
+    "composition": {
+      "color": "配色角色",
+      "typography": "字体排版",
+      "layout": "布局留白",
+      "imagery": "图像图标",
+      "shape": "线条形状",
+      "hierarchy": "信息层级",
+      "motion": "动效反馈",
+      "coherence": "协调逻辑",
+      "scroll": "滚动结构"
+    },
+    "themeBehavior.mode": {
+      "fixed": "固定主题",
+      "system": "跟随系统",
+      "manual": "手动切换",
+      "system-and-manual": "系统 + 手动"
+    },
+    "soundBehavior.kind": {
+      "none": "无网站配乐",
+      "background": "背景音乐",
+      "video": "媒体声音",
+      "external": "外部音乐入口",
+      "interactive": "操作／演奏声音"
+    }
+  },
+  "patterns": {
+    "experienceTypes": {
+      "visual": "视觉巧思",
+      "micro-motion": "微动效",
+      "page-motion": "页面动效",
+      "sound": "声音巧思",
+      "structure": "内容与组织"
+    },
+    "composition.role": {
+      "foundation": "主要结构",
+      "support": "辅助机制",
+      "accent": "局部强调"
+    },
+    "sources[].evidence": {
+      "observed": "实访观察",
+      "adapted": "练习适配",
+      "inferred": "设计推断"
+    }
+  },
+  "materials": {
+    "type": {
+      "component-library": "组件库",
+      "agent-skill": "Agent Skill",
+      "prompt-kit": "提示词套件",
+      "image": "图像",
+      "sound": "声音",
+      "font": "字体",
+      "poster": "海报"
+    },
+    "gallery[].kind": {
+      "style": "风格样张",
+      "work": "作品节选",
+      "theme": "主题预览"
+    }
+  },
+  "groups": {
+    "path": {
+      "docs/guide.md": "项目指南",
+      "docs/agent.md": "项目指南",
+      "docs/": "研究方法与索引",
+      "docs/cases/": "案例研究",
+      "docs/patterns/": "巧思研究",
+      "docs/materials/": "素材使用",
+      "prompts/": "复用 Prompt",
+      "README.md": "项目说明",
+      "CONTRIBUTING.md": "项目说明",
+      "AGENTS.md": "项目说明"
+    }
+  }
+}

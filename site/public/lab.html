@@ -1,0 +1,10 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>跳转到设计实验室</title>
+<script>
+  var q = new URLSearchParams();
+  var style = new URLSearchParams(location.search).get("style");
+  if (style) q.set("style", style);
+  if (location.hash) q.set("h", decodeURIComponent(location.hash.slice(1)));
+  location.replace("./#/tools/lab" + (q.size ? "?" + q : ""));
+</script>

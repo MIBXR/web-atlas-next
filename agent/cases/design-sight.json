@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 1,
+  "id": "design-sight",
+  "entry": {
+    "id": "design-sight",
+    "order": 23,
+    "title": "21_21 DESIGN SIGHT：海报与四列档案",
+    "subtitle": "日本设计文化机构 · 当前官方海报局部还原",
+    "category": "艺术/文化",
+    "country": "日本",
+    "edition": "日本版 / 2026-10-07主页快照",
+    "implementation": "reference-study",
+    "referenceUrl": "https://www.2121designsight.jp/",
+    "referencePreview": "previews/cases/design-sight-reference.jpg",
+    "fidelity": "demos/cases/design-sight/fidelity.md",
+    "assetManifest": "demos/cases/design-sight/assets-manifest.json",
+    "tags": [
+      "日本",
+      "艺术",
+      "设计展览",
+      "真实还原",
+      "海报",
+      "四列档案",
+      "蓝色标识"
+    ],
+    "summary": "展览海报主导首屏；蓝色机构标识与四个档案栏目将视觉各异的展览组织在一起，兼顾作品展示与访问信息。",
+    "accent": "#0090df",
+    "background": "#f3f3f3",
+    "principles": [
+      "展览自己的海报保持完整，机构不再用营销大标题重复解释。",
+      "固定白色机构导航与蓝色标识，提供稳定的回看和语言切换入口。",
+      "四列分别承载机构、Gallery 1&2、Gallery 3和Documents；栏目之间对齐，栏目内部图像按原比例展开。",
+      "浅灰底色与白色内容块区分层次，蓝色标题和橙色NEW提供导航与更新提示。"
+    ],
+    "productFocus": "设计文化机构的展览、研究档案、建筑与访问信息；首屏先呈现展览，后续分类帮助查询与回看。",
+    "interaction": [
+      "首次加载完成：全屏白色与蓝色50px旋转标记，300ms退场。 在海报加载期间保持机构识别。",
+      "海报自动切换：6000ms间隔与1000ms淡化，指针经过不暂停。 保留展览视觉的完整阅读时间。",
+      "手机打开菜单／关闭：64px栏下的白色导航立即显示，hamburger350ms形变；固定页面并恢复原浏览位置。 小屏将机构入口与长档案分开，关闭后继续阅读。",
+      "手机展开栏目／页面回顶：四列分别先显示1／2／1／1项，“更多”即时展开；回顶按钮超过100px以200ms出现。 缩短首屏密度，档案仍可按需读全。",
+      "悬停档案与分类时，标志／工具链接提供50ms反馈，分类以300ms完成蓝白切换，文章以300ms显示阴影。用蓝色与轻微的深度变化提示选择，不覆盖海报。"
+    ],
+    "theme": "机构蓝标识、白色导览、全幅展览海报、浅灰四列档案；图像风格随展览改变，网站的组织规则持续统一。",
+    "constraints": [
+      "明确记录2026-10-07当前日本官网，展期及休馆是快照，不作为实时访问信息。",
+      "首屏不裁成通用两列hero：使用官方1280×720海报，以16:9完整铺开。",
+      "档案图片包含竖海报与横照片，保留各自比例，不强行统一卡片高度。",
+      "官方Logo与展览图像只用于个人本地学习，品牌与作品权利保留。",
+      "四列在760px以下变单列；菜单和轮播提供键盘、焦点与reduced-motion。",
+      "本地保留海报轮播与加载完成后的遮罩退场；不运行原CMS、统计或购票后端。",
+      "原站桌面全程与菜单已验证。原站手机DevTools视口调用重试后仍被保存权限拦截，手机行为由公开响应式脚本/CSS确认并在本地实测，不宣称原站手机操作已经通过。"
+    ],
+    "useCases": [
+      "设计展览/建筑机构",
+      "海报主导的文化活动",
+      "长期内容档案"
+    ],
+    "avoid": [
+      "以统一圆角SaaS卡片覆盖展览海报",
+      "强制裁齐所有档案缩略图",
+      "把临时展期做成永久事实"
+    ],
+    "tokens": {
+      "palette": [
+        "#0090df",
+        "#ffffff",
+        "#f3f3f3",
+        "#ff9900",
+        "#444444"
+      ],
+      "type": "机构导航与栏目采用克制无衬线；展览海报原有字体作为作品图像保留",
+      "layout": "固定129px白header → 16:9全幅海报 → 1195px四列档案 → 双栏访问信息",
+      "motion": "两张海报6000ms间隔、1000ms淡化对应官方Slick时序；ease及箭头/暂停为本地适配。聚焦、离屏、后台停轮换，减少动态仅手动；栏目吸顶。"
+    },
+    "sources": [
+      {
+        "title": "21_21 DESIGN SIGHT 官方首页",
+        "url": "https://www.2121designsight.jp/",
+        "type": "实例",
+        "note": "2026-10-07：日本首页完整16:9展览海报、蓝色机构标识、四列档案与访问区域。"
+      },
+      {
+        "title": "21_21 官方：名称与产品Logo设计说明",
+        "url": "https://www.2121designsight.jp/designsight/",
+        "type": "理论",
+        "note": "第一方说明product logo借用日常地址牌形象，连接设计场所与日常视点。"
+      },
+      {
+        "title": "IBM Design Language：Layout overview",
+        "url": "https://www.ibm.com/design/language/layout/overview/",
+        "type": "理论",
+        "note": "比例、尺度、对齐与重复可解释档案构成；不把IBM品牌规范当作机构采用的标准。"
+      },
+      {
+        "title": "W3C WAI：Carousels Tutorial",
+        "url": "https://www.w3.org/WAI/tutorials/carousels/",
+        "type": "规范",
+        "note": "自动轮播应有暂停、手动控制、键盘与当前状态反馈；本地保留6秒自动模式并提供停止。"
+      },
+      {
+        "title": "官方公开交互脚本 · 2026-10-07",
+        "url": "https://www.2121designsight.jp/assets2017/common/js/common.js",
+        "type": "实例",
+        "note": "2026-10-07：固定栏目及50ms链接/Logo反馈有脚本声明；6000ms/1000ms fade来自首页内联Slick配置。未确认完整hover与Vimeo联动。"
+      }
+    ],
+    "prompt": "为[项目]制作基于21_21 DESIGN SIGHT：海报与四列档案的局部交互学习页面。参考https://www.2121designsight.jp/，观察2026-10-07，固定这一次采集的语言/年度页面，完成后作为单一归档快照留存；后续原站变化不改变此案例。不能只借用品牌色后套通用营销模板。配色：蓝色固定机构标识和链接，浅灰承托白色档案，橙色NEW形成更新角色；展览海报拥有自己的配色。 字体：导航/分类标题稳定无衬线；海报中中英文字体作为官方原图保留，避免重排破坏作品。 版式：129px header、全幅16:9海报、4个等宽但内容不等高的竖列；手机单列。 图像：真实方丈记与TYPE-XVII海报、建筑照片、访问地图、研究照片本地化，保留原比例。 形状：机构Logo圆角牌，栏目细蓝边，橙NEW圆；内容块主要矩形。 层级：海报先建立当前展览认知，分类其次，标题/日期/说明依次降低；不是每段都有大标题。 协调：展览视觉彼此不同，以恒定蓝标识、留白、列宽、标题与内容关系统一成机构档案。 关键流程：首次加载完成：全屏白色与蓝色50px旋转标记，300ms退场。 在海报加载期间保持机构识别。 海报自动切换：6000ms间隔与1000ms淡化，指针经过不暂停。 保留展览视觉的完整阅读时间。 手机打开菜单／关闭：64px栏下的白色导航立即显示，hamburger350ms形变；固定页面并恢复原浏览位置。 小屏将机构入口与长档案分开，关闭后继续阅读。 手机展开栏目／页面回顶：四列分别先显示1／2／1／1项，“更多”即时展开；回顶按钮超过100px以200ms出现。 缩短首屏密度，档案仍可按需读全。 悬停档案与分类：标志／工具链接50ms反馈，分类300ms蓝白切换，文章300ms阴影。 用蓝色与微小深度提示选择，不覆盖海报。 主题：原站白底、黑字与蓝色档案导航固定，无系统或手动主题开关。 海报保持原色，白色档案底和小尺度日期服务可读性。 声音：当前首页海报为静图，无音频或独立BGM控制。 通过海报轮换与档案层级形成节奏，不加入没有来源的音乐。 使用真实本地素材与正确比例，记录URL、作者、尺寸、hash和处理方式；无追踪。保留原站的章节交接、出入方向和指针反馈；桌面与390px手机分别实测。减少动态使用即时状态并保留全部内容；键盘与焦点可操作。完整数据库、账号与交易用真实官方外链。所有近似和未验证项在fidelity.md明确，不能用静态截图宣称全流程已还原。",
+    "negativePrompt": "不使用共同SaaS双栏hero模板，不嵌入整站iframe，不伪造官网功能或实时展期，不复制统计/交易脚本，不使用CDN和远程图像运行时依赖。",
+    "demo": "demos/cases/design-sight/index.html",
+    "preview": "previews/cases/design-sight.jpg",
+    "research": "docs/cases/design-sight.md",
+    "exercise": "保持海报不变，将四列间距从50px改为25px，观察栏目密度；再把所有缩略图强制裁成同尺寸，记录丢失的展览信息。",
+    "composition": {
+      "color": "机构标识和链接固定用蓝色，浅灰承托白色档案，橙色NEW提示更新；展览海报拥有自己的配色。",
+      "typography": "导航/分类标题保持无衬线字体；海报中中英文字体作为官方原图保留，避免重排破坏作品。",
+      "layout": "129px header、全幅16:9海报、4个等宽但内容不等高的竖列；手机单列。",
+      "imagery": "真实方丈记与TYPE-XVII海报、建筑照片、访问地图、研究照片本地化，保留原比例。",
+      "shape": "机构Logo采用圆角牌形，栏目配细蓝边，橙NEW为圆形；内容块以矩形为主。",
+      "hierarchy": "海报先建立当前展览认知，分类其次，标题/日期/说明的视觉层级依次降低；不是每段都有大标题。",
+      "motion": "首次加载完成时，全屏白色与蓝色50px旋转标记以300ms退场；海报以6000ms间隔自动切换，并以1000ms淡化，指针经过不暂停；手机打开菜单／关闭时，64px栏下的白色导航立即显示，hamburger以350ms形变，固定页面并恢复原浏览位置；手机展开栏目／页面回顶时，四列分别先显示1／2／1／1项，“更多”即时展开，回顶按钮超过100px以200ms出现；悬停档案与分类时，标志／工具链接提供50ms反馈，分类以300ms完成蓝白切换，文章以300ms显示阴影。",
+      "coherence": "展览视觉彼此不同，固定的蓝色标识、留白、列宽及标题与内容的关系，将它们组织成机构档案。"
+    },
+    "themeBehavior": {
+      "mode": "fixed",
+      "default": "light",
+      "control": "原站白底、黑字与蓝色档案导航固定，无系统或手动主题开关。",
+      "designReason": "海报保持原色，白色档案底和小尺度日期便于阅读。"
+    },
+    "soundBehavior": {
+      "kind": "none",
+      "control": "当前首页海报为静图，无音频或独立BGM控制。",
+      "interactionRole": "通过海报轮换与档案层级形成节奏，不加入没有来源的音乐。"
+    },
+    "capturedAt": "2026-10-07"
+  },
+  "patternIds": [
+    "inline-detail-disclosure",
+    "artwork-caption-separation",
+    "header-below-mobile-navigation",
+    "load-completion-brand-marker",
+    "mixed-ratio-archive-columns",
+    "photo-crossfade-cycle"
+  ],
+  "documents": [
+    {
+      "path": "docs/cases/design-sight.md",
+      "role": "research",
+      "content": "# 21_21 DESIGN SIGHT：海报与四列档案\n\n观察：**2026-10-07**。[真实页面](https://www.2121designsight.jp/)。国家／地区记录参考机构来源。\n\n## 观察范围\n\n观察官网桌面版从入口到页尾及反向返回的过程、两幅海报，以及公开的common.js/style.css/responsive.css。\n\n## 构成与设计逻辑\n\n展览海报主导首屏，蓝色机构标识与四个档案栏目把视觉不同的展览组织在一起。页面兼顾作品展示与访问信息。\n\n本库根据观察分析各构成元素的职责，见下表；时序和动作见交互观察表。\n\n| 元素 | 职责与约束 |\n|---|---|\n| 配色 | 蓝色固定机构标识和链接，浅灰承托白色档案，橙色NEW形成更新角色；展览海报拥有自己的配色。 |\n| 字体 | 导航/分类标题稳定无衬线；海报中中英文字体作为官方原图保留，避免重排破坏作品。 |\n| 排版 | 129px header、全幅16:9海报、4个等宽但内容不等高的竖列；手机单列。 |\n| 图像 | 真实方丈记与TYPE-XVII海报、建筑照片、访问地图、研究照片本地化，保留原比例。 |\n| 形状 | 机构Logo圆角牌，栏目细蓝边，橙NEW圆；内容块主要矩形。 |\n| 层级 | 海报先建立当前展览认知，分类其次，标题/日期/说明依次降低；不是每段都有大标题。 |\n| 整体协调 | 展览视觉彼此不同，以恒定蓝标识、留白、列宽、标题与内容关系统一成机构档案。 |\n\n## 交互观察\n\n| 触发 | 原站响应 | 设计作用 |\n| --- | --- | --- |\n| 首次加载完成 | 全屏白色与蓝色50px旋转标记，300ms退场。 | 在海报加载期间保持机构识别。 |\n| 海报自动切换 | 6000ms间隔与1000ms淡化，指针经过不暂停。 | 保留展览视觉的完整阅读时间。 |\n| 手机打开菜单／关闭 | 64px栏下的白色导航立即显示，hamburger350ms形变；固定页面并恢复原浏览位置。 | 小屏将机构入口与长档案分开，关闭后继续阅读。 |\n| 手机展开栏目／页面回顶 | 四列分别先显示1／2／1／1项，“更多”即时展开；回顶按钮超过100px以200ms出现。 | 缩短首屏密度，档案仍可按需读全。 |\n| 悬停档案与分类 | 标志／工具链接50ms反馈，分类300ms蓝白切换，文章300ms阴影。 | 用蓝色与微小深度提示选择，不覆盖海报。 |\n\n[本地对照与差异](../../demos/cases/design-sight/fidelity.md)\n"
+    },
+    {
+      "path": "prompts/cases/design-sight.md",
+      "role": "prompt",
+      "content": "# 21_21 DESIGN SIGHT：海报与四列档案 · 复用 Prompt\n\n由 [结构化案例](../../entries/cases/design-sight.json) 自动生成。参考观察与具体边界见 [调研](../../docs/cases/design-sight.md)。\n\n## 正向 Prompt\n\n为[项目]制作基于21_21 DESIGN SIGHT：海报与四列档案的局部交互学习页面。参考https://www.2121designsight.jp/，观察2026-10-07，固定这一次采集的语言/年度页面，完成后作为单一归档快照留存；后续原站变化不改变此案例。不能只借用品牌色后套通用营销模板。配色：蓝色固定机构标识和链接，浅灰承托白色档案，橙色NEW形成更新角色；展览海报拥有自己的配色。 字体：导航/分类标题稳定无衬线；海报中中英文字体作为官方原图保留，避免重排破坏作品。 版式：129px header、全幅16:9海报、4个等宽但内容不等高的竖列；手机单列。 图像：真实方丈记与TYPE-XVII海报、建筑照片、访问地图、研究照片本地化，保留原比例。 形状：机构Logo圆角牌，栏目细蓝边，橙NEW圆；内容块主要矩形。 层级：海报先建立当前展览认知，分类其次，标题/日期/说明依次降低；不是每段都有大标题。 协调：展览视觉彼此不同，以恒定蓝标识、留白、列宽、标题与内容关系统一成机构档案。 关键流程：首次加载完成：全屏白色与蓝色50px旋转标记，300ms退场。 在海报加载期间保持机构识别。 海报自动切换：6000ms间隔与1000ms淡化，指针经过不暂停。 保留展览视觉的完整阅读时间。 手机打开菜单／关闭：64px栏下的白色导航立即显示，hamburger350ms形变；固定页面并恢复原浏览位置。 小屏将机构入口与长档案分开，关闭后继续阅读。 手机展开栏目／页面回顶：四列分别先显示1／2／1／1项，“更多”即时展开；回顶按钮超过100px以200ms出现。 缩短首屏密度，档案仍可按需读全。 悬停档案与分类：标志／工具链接50ms反馈，分类300ms蓝白切换，文章300ms阴影。 用蓝色与微小深度提示选择，不覆盖海报。 主题：原站白底、黑字与蓝色档案导航固定，无系统或手动主题开关。 海报保持原色，白色档案底和小尺度日期服务可读性。 声音：当前首页海报为静图，无音频或独立BGM控制。 通过海报轮换与档案层级形成节奏，不加入没有来源的音乐。 使用真实本地素材与正确比例，记录URL、作者、尺寸、hash和处理方式；无追踪。保留原站的章节交接、出入方向和指针反馈；桌面与390px手机分别实测。减少动态使用即时状态并保留全部内容；键盘与焦点可操作。完整数据库、账号与交易用真实官方外链。所有近似和未验证项在fidelity.md明确，不能用静态截图宣称全流程已还原。\n\n## 负向约束\n\n不使用共同SaaS双栏hero模板，不嵌入整站iframe，不伪造官网功能或实时展期，不复制统计/交易脚本，不使用CDN和远程图像运行时依赖。\n\n## 制作约束\n\n- 明确记录2026-10-07当前日本官网，展期及休馆是快照，不作为实时访问信息。\n- 首屏不裁成通用两列hero：使用官方1280×720海报，以16:9完整铺开。\n- 档案图片包含竖海报与横照片，保留各自比例，不强行统一卡片高度。\n- 官方Logo与展览图像只用于个人本地学习，品牌与作品权利保留。\n- 四列在760px以下变单列；菜单和轮播提供键盘、焦点与reduced-motion。\n- 本地保留海报轮播与加载完成后的遮罩退场；不运行原CMS、统计或购票后端。\n- 原站桌面全程与菜单已验证。原站手机DevTools视口调用重试后仍被保存权限拦截，手机行为由公开响应式脚本/CSS确认并在本地实测，不宣称原站手机操作已经通过。\n\n## 检查方法\n\n保持海报不变，将四列间距从50px改为25px，观察栏目密度；再把所有缩略图强制裁成同尺寸，记录丢失的展览信息。\n\n[查看 Demo](../../demos/cases/design-sight/index.html) · [返回案例库](../../cases.html#style/design-sight)\n"
+    },
+    {
+      "path": "demos/cases/design-sight/fidelity.md",
+      "role": "fidelity",
+      "content": "# 21_21 DESIGN SIGHT：海报与四列档案：复现范围\n\n## 对照结论与差异原因\n\n原作公开 CSS／common.js 与本地均对应载入完成、海报切换、手机菜单和栏目展开；原站桌面浏览及本地手机操作有记录。同视口原作/本地画面与终态的成对结论未记录，1:1 结论未建立。\n\n| 差异或删减 | 原因 |\n| --- | --- |\n| 本地增加暂停、后台／离屏停止及减少动态即时操作 | 让自动海报可暂停，并在非前台停止。 |\n| 原站手机现场操作未完成 | DevTools 视口调用重试后仍被保存权限拦截；响应式行为依据公开脚本／CSS。 |\n| 删减记录 | 现有记录未列出额外删减及原因。 |\n\n页面结构、档案布局、切换与菜单调度由本库自行实现，样式和时长依据公开 CSS／脚本；海报等素材沿用原作。\n\n[案例条目](../../../entries/cases/design-sight.json) · [研究](../../../docs/cases/design-sight.md) · [Prompt](../../../prompts/cases/design-sight.md)\n\n| 机制 | 本地差异与依据 |\n| --- | --- |\n| 首次加载完成 | 依据公开common.js和CSS；不是定时假进度。 |\n| 海报自动切换 | 本地另加暂停与后台／离屏停止。 |\n| 手机打开菜单／关闭 | 手机结构和时长由公开responsive.css/common.js核对。 |\n| 手机展开栏目／页面回顶 | 减少动态即时操作，桌面保留完整列。 |\n| 悬停档案与分类 | 样式依据原站公开CSS。 |\n\n原站桌面全程与菜单已验证。原站手机DevTools视口调用重试后仍被保存权限拦截，手机行为由公开响应式脚本/CSS确认并在本地实测，不宣称原站手机操作已经通过。\n\n## 复刻未使用的原站素材\n\n- `source/assets/tour_architecture-thumb-500x333-8287.jpg`\n"
+    },
+    {
+      "path": "demos/cases/design-sight/assets-manifest.json",
+      "role": "asset-manifest",
+      "content": "{\n  \"purpose\": \"官方公开网页资产用于个人本地学习；不代表商用授权\",\n  \"assets\": [\n    {\n      \"file\": \"assets/img_symbol.png\",\n      \"sourceUrl\": \"https://www.2121designsight.jp/assets2017/common/imgs/img_symbol.png\",\n      \"bytes\": 5107,\n      \"width\": 426,\n      \"height\": 118,\n      \"type\": \"image/png\",\n      \"use\": \"官方页面已观察到的标识/海报/缩略图，对应局部复现\",\n      \"rights\": \"21_21 DESIGN SIGHT 及作品原作者：仅限个人本地设计学习，标识及作品版权保留。\",\n      \"sha256\": \"ce999753f19b59fd53be11861925811a9e37be5c78c89ce69969c5bb509c211e\"\n    },\n    {\n      \"file\": \"assets/slide_hojoki-thumb-1280xauto-8283.jpg\",\n      \"sourceUrl\": \"https://www.2121designsight.jp/top/jp/assets_c/2026/07/slide_hojoki-thumb-1280xauto-8283.jpg\",\n      \"bytes\": 622044,\n      \"width\": 1280,\n      \"height\": 720,\n      \"type\": \"image/jpeg\",\n      \"use\": \"官方页面已观察到的标识/海报/缩略图，对应局部复现\",\n      \"rights\": \"21_21 DESIGN SIGHT 及作品原作者：仅限个人本地设计学习，标识及作品版权保留。\",\n      \"sha256\": \"1fef9a68f7dc8a48e2db43eb134003b451345c3285713a78ef27b30f15dbaba8\"\n    },\n    {\n      \"file\": \"assets/A-POC_2121_G3_2026_JAXAproject_KV_W1280H720px_ToGO-thumb-1280xauto-8340.jpg\",\n      \"sourceUrl\": \"https://www.2121designsight.jp/top/jp/assets_c/2026/09/A-POC_2121_G3_2026_JAXAproject_KV_W1280H720px_ToGO-thumb-1280xauto-8340.jpg\",\n      \"bytes\": 877705,\n      \"width\": 1280,\n      \"height\": 720,\n      \"type\": \"image/jpeg\",\n      \"use\": \"官方页面已观察到的标识/海报/缩略图，对应局部复现\",\n      \"rights\": \"21_21 DESIGN SIGHT 及作品原作者：仅限个人本地设计学习，标识及作品版权保留。\",\n      \"sha256\": \"face730bf3f06da2c7cbad1128b52ef736bddc2b91d11827ee727870fb2fe30a\"\n    },\n    {\n      \"file\": \"assets/top_information-thumb-630xauto-7221.jpg\",\n      \"sourceUrl\": \"https://www.2121designsight.jp/top/jp/assets_c/2021/07/top_information-thumb-630xauto-7221.jpg\",\n      \"bytes\": 245621,\n      \"width\": 630,\n      \"height\": 473,\n      \"type\": \"image/jpeg\",\n      \"use\": \"官方页面已观察到的标识/海报/缩略图，对应局部复现\",\n      \"rights\": \"21_21 DESIGN SIGHT 及作品原作者：仅限个人本地设计学习，标识及作品版权保留。\",\n      \"sha256\": \"bb4ea2ae0555e9c33e04a1f404d393163aa2200f24c4ddf35aa31e0a3fe6c472\"\n    },\n    {\n      \"file\": \"assets/jp_map-thumb-500x326-7547.jpg\",\n      \"sourceUrl\": \"https://www.2121designsight.jp/top/jp/assets_c/2023/05/jp_map-thumb-500x326-7547.jpg\",\n      \"bytes\": 42535,\n      \"width\": 500,\n      \"height\": 326,\n      \"type\": \"image/jpeg\",\n      \"use\": \"官方页面已观察到的标识/海报/缩略图，对应局部复现\",\n      \"rights\": \"21_21 DESIGN SIGHT 及作品原作者：仅限个人本地设计学习，标识及作品版权保留。\",\n      \"sha256\": \"fc0c3323cefa62e0f03fd6872eb625f6c32cf239e19a4c774baff90371263830\"\n    },\n    {\n      \"file\": \"assets/about_top-thumb-630xauto-5883.jpg\",\n      \"sourceUrl\": \"https://www.2121designsight.jp/top/jp/assets_c/2017/03/about_top-thumb-630xauto-5883.jpg\",\n      \"bytes\": 32658,\n      \"width\": 630,\n      \"height\": 369,\n      \"type\": \"image/jpeg\",\n      \"use\": \"官方页面已观察到的标识/海报/缩略图，对应局部复现\",\n      \"rights\": \"21_21 DESIGN SIGHT 及作品原作者：仅限个人本地设计学习，标识及作品版权保留。\",\n      \"sha256\": \"0687caa44470f4cb978fe4dbf4bc540001dbdf5805fbebe9bae3063127648db0\"\n    },\n    {\n      \"file\": \"assets/about_directors-thumb-500x333-5880.jpg\",\n      \"sourceUrl\": \"https://www.2121designsight.jp/top/jp/assets_c/2017/03/about_directors-thumb-500x333-5880.jpg\",\n      \"bytes\": 169350,\n      \"width\": 500,\n      \"height\": 333,\n      \"type\": \"image/jpeg\",\n      \"use\": \"官方页面已观察到的标识/海报/缩略图，对应局部复现\",\n      \"rights\": \"21_21 DESIGN SIGHT 及作品原作者：仅限个人本地设计学习，标识及作品版权保留。\",\n      \"sha256\": \"0970ca2b5b2c114f1a944b2514ca03810e2735ddf9c3b7369028987a519d939c\"\n    },\n    {\n      \"file\": \"source/assets/tour_architecture-thumb-500x333-8287.jpg\",\n      \"sourceUrl\": \"https://www.2121designsight.jp/top/jp/assets_c/2026/07/tour_architecture-thumb-500x333-8287.jpg\",\n      \"bytes\": 93502,\n      \"width\": 500,\n      \"height\": 333,\n      \"type\": \"image/jpeg\",\n      \"use\": \"官方页面已观察到的标识/海报/缩略图，对应局部复现\",\n      \"rights\": \"21_21 DESIGN SIGHT 及作品原作者：仅限个人本地设计学习，标识及作品版权保留。\",\n      \"sha256\": \"603850ae486f995073c7451ecf09d28791bd3a487f00d6dc3418de119d9badb9\"\n    },\n    {\n      \"file\": \"assets/topweb_hojoki-thumb-630xauto-8245.jpg\",\n      \"sourceUrl\": \"https://www.2121designsight.jp/top/jp/assets_c/2026/03/topweb_hojoki-thumb-630xauto-8245.jpg\",\n      \"bytes\": 79266,\n      \"width\": 630,\n      \"height\": 891,\n      \"type\": \"image/jpeg\",\n      \"use\": \"官方页面已观察到的标识/海报/缩略图，对应局部复现\",\n      \"rights\": \"21_21 DESIGN SIGHT 及作品原作者：仅限个人本地设计学习，标识及作品版权保留。\",\n      \"sha256\": \"7cc57625e67d5184eac22bae4b4d291b006391630438dd91e9b5989fcd3bc102\"\n    },\n    {\n      \"file\": \"assets/events_261025-thumb-630xauto-8334.jpg\",\n      \"sourceUrl\": \"https://www.2121designsight.jp/top/jp/assets_c/2026/09/events_261025-thumb-630xauto-8334.jpg\",\n      \"bytes\": 26074,\n      \"width\": 630,\n      \"height\": 362,\n      \"type\": \"image/jpeg\",\n      \"use\": \"官方页面已观察到的标识/海报/缩略图，对应局部复现\",\n      \"rights\": \"21_21 DESIGN SIGHT 及作品原作者：仅限个人本地设计学习，标识及作品版权保留。\",\n      \"sha256\": \"ae2553ecb07721e88b23423d9799e46913d27c1bc09946e3821dabc4489990b0\"\n    },\n    {\n      \"file\": \"assets/time_topweb-thumb-630xauto-8306.jpg\",\n      \"sourceUrl\": \"https://www.2121designsight.jp/top/jp/assets_c/2026/08/time_topweb-thumb-630xauto-8306.jpg\",\n      \"bytes\": 27594,\n      \"width\": 630,\n      \"height\": 630,\n      \"type\": \"image/jpeg\",\n      \"use\": \"官方页面已观察到的标识/海报/缩略图，对应局部复现\",\n      \"rights\": \"21_21 DESIGN SIGHT 及作品原作者：仅限个人本地设计学习，标识及作品版权保留。\",\n      \"sha256\": \"1f3deae2d5d66d16653a6f3d4569c5318b28f83bc8e260b183c10c8157a288ef\"\n    },\n    {\n      \"file\": \"assets/topweb_type_xvii-thumb-630xauto-8332.jpg\",\n      \"sourceUrl\": \"https://www.2121designsight.jp/top/jp/assets_c/2026/09/topweb_type_xvii-thumb-630xauto-8332.jpg\",\n      \"bytes\": 165118,\n      \"width\": 630,\n      \"height\": 892,\n      \"type\": \"image/jpeg\",\n      \"use\": \"官方页面已观察到的标识/海报/缩略图，对应局部复现\",\n      \"rights\": \"21_21 DESIGN SIGHT 及作品原作者：仅限个人本地设计学习，标识及作品版权保留。\",\n      \"sha256\": \"09005d14e42553a201e2d2571f16b618ad947faccd2f519b492a72a694f9991d\"\n    },\n    {\n      \"file\": \"assets/research_kyoto-01-thumb-630xauto-8320.jpg\",\n      \"sourceUrl\": \"https://www.2121designsight.jp/top/jp/assets_c/2026/09/research_kyoto-01-thumb-630xauto-8320.jpg\",\n      \"bytes\": 68664,\n      \"width\": 630,\n      \"height\": 420,\n      \"type\": \"image/jpeg\",\n      \"use\": \"官方页面已观察到的标识/海报/缩略图，对应局部复现\",\n      \"rights\": \"21_21 DESIGN SIGHT 及作品原作者：仅限个人本地设计学习，标识及作品版权保留。\",\n      \"sha256\": \"85f6f9be8cc351de738ce15897d190a0e13f700121696d31470691a6a8ea99d9\"\n    },\n    {\n      \"file\": \"source/assets/source-style.css\",\n      \"sourceUrl\": \"https://www.2121designsight.jp/assets2017/style.css\",\n      \"bytes\": 42784,\n      \"type\": \"text/css\",\n      \"use\": \"研究原站配色与版式；不被本地HTML加载\",\n      \"rights\": \"21_21 DESIGN SIGHT 及作品原作者：仅限个人本地设计学习，标识及作品版权保留。\",\n      \"sha256\": \"d5aede0c3dd6e032fa3c67e02a063a18b04dcd1ec3c53462409941782c1c1763\"\n    }\n  ]\n}\n"
+    },
+    {
+      "path": "demos/cases/design-sight/LICENSES.md",
+      "role": "license",
+      "content": "# 许可与出处\n\n| 许可原文或权利记录 | 覆盖范围 |\n| --- | --- |\n| [assets-manifest.json](assets-manifest.json) | `assets/*.jpg` 的来源与权利记录 |\n| [assets-manifest.json](assets-manifest.json) | `assets/img_symbol.png` 的来源与权利记录 |\n| [assets-manifest.json](assets-manifest.json) | `source/assets/source-style.css` 的来源与权利记录 |\n| [assets-manifest.json](assets-manifest.json) | `source/assets/tour_architecture-thumb-500x333-8287.jpg` 的来源与权利记录 |\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/design-sight/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/design-sight/app.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/design-sight/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/A-POC_2121_G3_2026_JAXAproject_KV_W1280H720px_ToGO-thumb-1280xauto-8340.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/about_directors-thumb-500x333-5880.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/about_top-thumb-630xauto-5883.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/events_261025-thumb-630xauto-8334.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/img_symbol.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/jp_map-thumb-500x326-7547.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/research_kyoto-01-thumb-630xauto-8320.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/slide_hojoki-thumb-1280xauto-8283.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/time_topweb-thumb-630xauto-8306.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/top_information-thumb-630xauto-7221.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/topweb_hojoki-thumb-630xauto-8245.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/assets/topweb_type_xvii-thumb-630xauto-8332.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/design-sight/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/design-sight/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/design-sight/source/assets/source-style.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/design-sight/source/assets/tour_architecture-thumb-500x333-8287.jpg",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/design-sight/style.css",
+      "role": "source"
+    },
+    {
+      "path": "docs/cases/design-sight.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/design-sight.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/design-sight-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/design-sight-reference.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/design-sight.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/design-sight.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ],
+  "webNotes": {
+    "format": "text/html",
+    "renderer": "scripts/detail-notes.mjs",
+    "content": "<section><h2>从要素看风格</h2><a class=\"element-lab-link\" href=\"lab.html?style=design-sight\">调配这个风格的设计要素</a><dl class=\"element-map\"><div class=\"\"><dt>配色角色</dt><dd>机构标识和链接固定用蓝色，浅灰承托白色档案，橙色NEW提示更新；展览海报拥有自己的配色。</dd></div><div class=\"\"><dt>字体排版</dt><dd>导航/分类标题保持无衬线字体；海报中中英文字体作为官方原图保留，避免重排破坏作品。</dd></div><div class=\"\"><dt>布局留白</dt><dd>129px header、全幅16:9海报、4个等宽但内容不等高的竖列；手机单列。</dd></div><div class=\"\"><dt>图像图标</dt><dd>真实方丈记与TYPE-XVII海报、建筑照片、访问地图、研究照片本地化，保留原比例。</dd></div><div class=\"\"><dt>线条形状</dt><dd>机构Logo采用圆角牌形，栏目配细蓝边，橙NEW为圆形；内容块以矩形为主。</dd></div><div class=\"\"><dt>信息层级</dt><dd>海报先建立当前展览认知，分类其次，标题/日期/说明的视觉层级依次降低；不是每段都有大标题。</dd></div><div class=\"\"><dt>动效反馈</dt><dd>首次加载完成时，全屏白色与蓝色50px旋转标记以300ms退场；海报以6000ms间隔自动切换，并以1000ms淡化，指针经过不暂停；手机打开菜单／关闭时，64px栏下的白色导航立即显示，hamburger以350ms形变，固定页面并恢复原浏览位置；手机展开栏目／页面回顶时，四列分别先显示1／2／1／1项，“更多”即时展开，回顶按钮超过100px以200ms出现；悬停档案与分类时，标志／工具链接提供50ms反馈，分类以300ms完成蓝白切换，文章以300ms显示阴影。</dd></div><div class=\"coherence\"><dt>协调逻辑</dt><dd>展览视觉彼此不同，固定的蓝色标识、留白、列宽及标题与内容的关系，将它们组织成机构档案。</dd></div></dl></section><section><h2>设计机制</h2><ul><li>展览自己的海报保持完整，机构不再用营销大标题重复解释。</li><li>固定白色机构导航与蓝色标识，提供稳定的回看和语言切换入口。</li><li>四列分别承载机构、Gallery 1&amp;2、Gallery 3和Documents；栏目之间对齐，栏目内部图像按原比例展开。</li><li>浅灰底色与白色内容块区分层次，蓝色标题和橙色NEW提供导航与更新提示。</li></ul><h3>设计重点</h3><p>设计文化机构的展览、研究档案、建筑与访问信息；首屏先呈现展览，后续分类帮助查询与回看。</p><h3>主题与情绪</h3><p>机构蓝标识、白色导览、全幅展览海报、浅灰四列档案；图像风格随展览改变，网站的组织规则持续统一。</p></section><section><h2>页面交互</h2><ul><li>首次加载完成：全屏白色与蓝色50px旋转标记，300ms退场。 在海报加载期间保持机构识别。</li><li>海报自动切换：6000ms间隔与1000ms淡化，指针经过不暂停。 保留展览视觉的完整阅读时间。</li><li>手机打开菜单／关闭：64px栏下的白色导航立即显示，hamburger350ms形变；固定页面并恢复原浏览位置。 小屏将机构入口与长档案分开，关闭后继续阅读。</li><li>手机展开栏目／页面回顶：四列分别先显示1／2／1／1项，“更多”即时展开；回顶按钮超过100px以200ms出现。 缩短首屏密度，档案仍可按需读全。</li><li>悬停档案与分类时，标志／工具链接提供50ms反馈，分类以300ms完成蓝白切换，文章以300ms显示阴影。用蓝色与轻微的深度变化提示选择，不覆盖海报。</li></ul><div class=\"behavior-block\"><span class=\"behavior-label\">显示主题</span><h3>固定主题</h3><p>原站白底、黑字与蓝色档案导航固定，无系统或手动主题开关。</p><p>海报保持原色，白色档案底和小尺度日期便于阅读。</p></div><div class=\"behavior-block\"><span class=\"behavior-label\">声音与交互</span><h3>无网站配乐</h3><p>当前首页海报为静图，无音频或独立BGM控制。</p><p>通过海报轮换与档案层级形成节奏，不加入没有来源的音乐。</p></div></section><section><h2>约束与适用场景</h2><ul><li>明确记录2026-10-07当前日本官网，展期及休馆是快照，不作为实时访问信息。</li><li>首屏不裁成通用两列hero：使用官方1280×720海报，以16:9完整铺开。</li><li>档案图片包含竖海报与横照片，保留各自比例，不强行统一卡片高度。</li><li>官方Logo与展览图像只用于个人本地学习，品牌与作品权利保留。</li><li>四列在760px以下变单列；菜单和轮播提供键盘、焦点与reduced-motion。</li><li>本地保留海报轮播与加载完成后的遮罩退场；不运行原CMS、统计或购票后端。</li><li>原站桌面全程与菜单已验证。原站手机DevTools视口调用重试后仍被保存权限拦截，手机行为由公开响应式脚本/CSS确认并在本地实测，不宣称原站手机操作已经通过。</li></ul><h3>适合</h3><p>设计展览/建筑机构 / 海报主导的文化活动 / 长期内容档案</p><h3>谨慎使用</h3><p>以统一圆角SaaS卡片覆盖展览海报 / 强制裁齐所有档案缩略图 / 把临时展期做成永久事实</p></section><section><h2>设计参数</h2><div class=\"swatches\"><span class=\"swatch\"><i style=\"background:#0090df\"></i>#0090df</span><span class=\"swatch\"><i style=\"background:#ffffff\"></i>#ffffff</span><span class=\"swatch\"><i style=\"background:#f3f3f3\"></i>#f3f3f3</span><span class=\"swatch\"><i style=\"background:#ff9900\"></i>#ff9900</span><span class=\"swatch\"><i style=\"background:#444444\"></i>#444444</span></div><p><b>字体</b> · 机构导航与栏目采用克制无衬线；展览海报原有字体作为作品图像保留<br><b>布局</b> · 固定129px白header → 16:9全幅海报 → 1195px四列档案 → 双栏访问信息<br><b>动效</b> · 两张海报6000ms间隔、1000ms淡化对应官方Slick时序；ease及箭头/暂停为本地适配。聚焦、离屏、后台停轮换，减少动态仅手动；栏目吸顶。</p></section><section><div class=\"prompt-head\"><h2>可复用 Prompt</h2><button class=\"copy-button\" id=\"copy-prompt\">复制 Prompt</button></div><textarea class=\"prompt-box\" aria-label=\"可复用 Prompt\" readonly>为[项目]制作基于21_21 DESIGN SIGHT：海报与四列档案的局部交互学习页面。参考https://www.2121designsight.jp/，观察2026-10-07，固定这一次采集的语言/年度页面，完成后作为单一归档快照留存；后续原站变化不改变此案例。不能只借用品牌色后套通用营销模板。配色：蓝色固定机构标识和链接，浅灰承托白色档案，橙色NEW形成更新角色；展览海报拥有自己的配色。 字体：导航/分类标题稳定无衬线；海报中中英文字体作为官方原图保留，避免重排破坏作品。 版式：129px header、全幅16:9海报、4个等宽但内容不等高的竖列；手机单列。 图像：真实方丈记与TYPE-XVII海报、建筑照片、访问地图、研究照片本地化，保留原比例。 形状：机构Logo圆角牌，栏目细蓝边，橙NEW圆；内容块主要矩形。 层级：海报先建立当前展览认知，分类其次，标题/日期/说明依次降低；不是每段都有大标题。 协调：展览视觉彼此不同，以恒定蓝标识、留白、列宽、标题与内容关系统一成机构档案。 关键流程：首次加载完成：全屏白色与蓝色50px旋转标记，300ms退场。 在海报加载期间保持机构识别。 海报自动切换：6000ms间隔与1000ms淡化，指针经过不暂停。 保留展览视觉的完整阅读时间。 手机打开菜单／关闭：64px栏下的白色导航立即显示，hamburger350ms形变；固定页面并恢复原浏览位置。 小屏将机构入口与长档案分开，关闭后继续阅读。 手机展开栏目／页面回顶：四列分别先显示1／2／1／1项，“更多”即时展开；回顶按钮超过100px以200ms出现。 缩短首屏密度，档案仍可按需读全。 悬停档案与分类：标志／工具链接50ms反馈，分类300ms蓝白切换，文章300ms阴影。 用蓝色与微小深度提示选择，不覆盖海报。 主题：原站白底、黑字与蓝色档案导航固定，无系统或手动主题开关。 海报保持原色，白色档案底和小尺度日期服务可读性。 声音：当前首页海报为静图，无音频或独立BGM控制。 通过海报轮换与档案层级形成节奏，不加入没有来源的音乐。 使用真实本地素材与正确比例，记录URL、作者、尺寸、hash和处理方式；无追踪。保留原站的章节交接、出入方向和指针反馈；桌面与390px手机分别实测。减少动态使用即时状态并保留全部内容；键盘与焦点可操作。完整数据库、账号与交易用真实官方外链。所有近似和未验证项在fidelity.md明确，不能用静态截图宣称全流程已还原。</textarea><details><summary>负面约束 / Negative Prompt</summary><p>不使用共同SaaS双栏hero模板，不嵌入整站iframe，不伪造官网功能或实时展期，不复制统计/交易脚本，不使用CDN和远程图像运行时依赖。</p></details><h3>改造练习</h3><p>保持海报不变，将四列间距从50px改为25px，观察栏目密度；再把所有缩略图强制裁成同尺寸，记录丢失的展览信息。</p></section><section class=\"case-patterns\" aria-labelledby=\"case-patterns-heading\"><div class=\"prompt-head\"><h2 id=\"case-patterns-heading\">关联巧思</h2><a href=\"patterns.html#patterns?source=design-sight\">按来源浏览全部 6 项</a></div><p>这些机制可独立借用，触发条件、约束与组合建议见各项详情。</p><ul><li><a href=\"patterns.html#pattern/inline-detail-disclosure?source=design-sight\">原位展开次级信息</a><span>内容与组织</span></li><li><a href=\"patterns.html#pattern/artwork-caption-separation?source=design-sight\">作品原图与图下题注分工</a><span>内容与组织</span></li><li><a href=\"patterns.html#pattern/header-below-mobile-navigation?source=design-sight\">顶栏下展开并恢复阅读位置</a><span>微动效 · 内容与组织</span></li><li><a href=\"patterns.html#pattern/load-completion-brand-marker?source=design-sight\">资源完成后品牌标记退场</a><span>页面动效</span></li><li><a href=\"patterns.html#pattern/mixed-ratio-archive-columns?source=design-sight\">等宽栏目保留不同图像比例</a><span>视觉巧思</span></li><li><a href=\"patterns.html#pattern/photo-crossfade-cycle?source=design-sight\">给摄影留阅读时间的淡化轮换</a><span>页面动效</span></li></ul></section><section><h2>来源与证据</h2><div class=\"source-item\"><span class=\"source-badge\">实例</span><a href=\"https://www.2121designsight.jp/\" target=\"_blank\" rel=\"noopener noreferrer\">21_21 DESIGN SIGHT 官方首页 </a><small>2026-10-07：日本首页完整16:9展览海报、蓝色机构标识、四列档案与访问区域。</small></div><div class=\"source-item\"><span class=\"source-badge\">理论</span><a href=\"https://www.2121designsight.jp/designsight/\" target=\"_blank\" rel=\"noopener noreferrer\">21_21 官方：名称与产品Logo设计说明 </a><small>第一方说明product logo借用日常地址牌形象，连接设计场所与日常视点。</small></div><div class=\"source-item\"><span class=\"source-badge\">理论</span><a href=\"https://www.ibm.com/design/language/layout/overview/\" target=\"_blank\" rel=\"noopener noreferrer\">IBM Design Language：Layout overview </a><small>比例、尺度、对齐与重复可解释档案构成；不把IBM品牌规范当作机构采用的标准。</small></div><div class=\"source-item\"><span class=\"source-badge\">规范</span><a href=\"https://www.w3.org/WAI/tutorials/carousels/\" target=\"_blank\" rel=\"noopener noreferrer\">W3C WAI：Carousels Tutorial </a><small>自动轮播应有暂停、手动控制、键盘与当前状态反馈；本地保留6秒自动模式并提供停止。</small></div><div class=\"source-item\"><span class=\"source-badge\">实例</span><a href=\"https://www.2121designsight.jp/assets2017/common/js/common.js\" target=\"_blank\" rel=\"noopener noreferrer\">官方公开交互脚本 · 2026-10-07 </a><small>2026-10-07：固定栏目及50ms链接/Logo反馈有脚本声明；6000ms/1000ms fade来自首页内联Slick配置。未确认完整hover与Vimeo联动。</small></div><p>参考站采集：2026-10-07。</p></section><section><h2>相关文档</h2><ul><li><a href=\"docs.html?file=docs%2Fcases%2Fdesign-sight.md\" target=\"_blank\">调研记录</a></li><li><a href=\"docs.html?file=demos%2Fcases%2Fdesign-sight%2Ffidelity.md\" target=\"_blank\">复现范围与差异</a></li><li><a href=\"demos/cases/design-sight/assets-manifest.json\" target=\"_blank\">素材来源清单</a></li><li><a href=\"docs.html?file=demos%2Fcases%2Fdesign-sight%2FLICENSES.md\" target=\"_blank\">许可原文索引</a></li></ul></section>"
+  }
+}

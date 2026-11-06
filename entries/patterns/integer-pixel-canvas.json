@@ -1,0 +1,57 @@
+{
+  "id": "integer-pixel-canvas",
+  "order": 65,
+  "title": "整数像素与有限色板",
+  "category": "视觉构成",
+  "experienceTypes": [
+    "visual"
+  ],
+  "summary": "从绘制尺度建立像素世界的统一性。",
+  "mechanism": "在小画布内用整数坐标与有限色板绘制轮廓，放大时保持 pixelated 边缘；正文单独使用可读字体。",
+  "trigger": "场景以整数倍率缩放时",
+  "effect": "像素边缘与地图物件保持清楚。",
+  "useCases": [
+    "微型世界与游戏风格导览"
+  ],
+  "avoid": [
+    "对高分辨率照片套滤镜冒充像素"
+  ],
+  "constraints": [
+    "窄屏优先保留完整地图，不将中文长文压为像素小字。",
+    "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+  ],
+  "composition": {
+    "role": "foundation",
+    "pairsWellWith": [
+      "spatial-navigation-map"
+    ],
+    "conflicts": []
+  },
+  "parameters": [
+    {
+      "name": "原创画布",
+      "value": "128×128 / 16 色",
+      "note": "参考 PICO-8 的明确约束，并非全部像素艺术的定义。"
+    }
+  ],
+  "prompt": "为【目标页面/组件】实现「整数像素与有限色板」。在小画布内用整数坐标与有限色板绘制轮廓，放大保持pixelated边缘；正文单独用可读字体。触发：场景以整数倍率缩放时。可见结果：像素边缘与地图物件保持清楚。适用任务：微型世界与游戏风格导览。窄屏以完整地图优先，不将中文长文压为像素小字。键盘：保留语义标题、顺序阅读与图像替代文字；装饰不进入Tab顺序。减少动态：布局与内容保持可读；不为静态构成增加自动运动。",
+  "sources": [
+    {
+      "caseId": "pixel-world",
+      "locator": "entries/cases/pixel-world.json#composition/imagery",
+      "observation": "128×128原生Canvas与原创像素地点构成可探索世界。",
+      "evidence": "adapted",
+      "focus": {
+        "target": "#map",
+        "label": "128 像素的小岛",
+        "instruction": "看海岸、树木与建筑沿整数像素排列，再点击地图地点或用方向键移动角色。"
+      }
+    }
+  ],
+  "sourceFiles": [
+    "demos/cases/pixel-world/index.html",
+    "entries/cases/pixel-world.json",
+    "docs/cases/pixel-world.md"
+  ],
+  "preview": "previews/patterns/integer-pixel-canvas.jpg"
+}

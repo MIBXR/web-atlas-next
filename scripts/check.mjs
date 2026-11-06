@@ -1,0 +1,89 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {execFileSync} from 'node:child_process';
+import {assertRepositoryLineEndings} from './check-line-endings.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+assertRepositoryLineEndings(root);
+const entries=fs.readdirSync(path.join(root,'entries/cases')).filter(x=>x.endsWith('.json')).map(file=>JSON.parse(fs.readFileSync(path.join(root,'entries/cases',file),'utf8')));
+const patterns=fs.readdirSync(path.join(root,'entries/patterns')).filter(x=>x.endsWith('.json')).map(file=>JSON.parse(fs.readFileSync(path.join(root,'entries/patterns',file),'utf8')));
+const patternsById=new Map(patterns.map(pattern=>[pattern.id,pattern]));
+const snapshots=fs.readdirSync(path.join(root,'entries/materials')).filter(name=>name.endsWith('.json')).map(name=>JSON.parse(fs.readFileSync(path.join(root,'entries/materials',name),'utf8')).snapshotPath).filter(Boolean);
+const failures=[];
+const materials=fs.readdirSync(path.join(root,'entries/materials')).filter(name=>name.endsWith('.json')).map(name=>JSON.parse(fs.readFileSync(path.join(root,'entries/materials',name),'utf8')));
+for(const [kind,items] of [['cases',entries],['patterns',patterns],['materials',materials]]){
+  const seen=new Map();
+  for(const item of items){
+    const file='entries/'+kind+'/'+item.id+'.json';
+    if(!Number.isInteger(item.order)){failures.push('order: '+file+': expected integer');continue;}
+    if(seen.has(item.order))failures.push('order: '+file+': '+item.order+' already used by '+seen.get(item.order));
+    seen.set(item.order,item.id);
+  }
+}
+const gitFiles=(...args)=>execFileSync('git',['ls-files','-z',...args],{cwd:root,encoding:'utf8'}).split('\0').filter(Boolean);
+for(const record of gitFiles('--eol')){
+  const separator=record.indexOf('\t'),metadata=record.slice(0,separator),file=record.slice(separator+1);
+  if(!/\battr\/-text\b/.test(metadata)&&/\b(?:i|w)\/crlf\b/.test(metadata))failures.push('line endings: '+file+': expected LF; '+metadata.trim().replace(/\s+/g,' '));
+}
+for(const file of gitFiles('-ci','--exclude-standard'))failures.push('ignored file: '+file+': tracked file matches ignore rules');
+// Files over 50 MiB fail unless the owner approved them here, with the reason.
+const endfield='original site video, kept byte-for-byte';
+const oversizeAllowed=new Map([
+  ['demos/cases/endfield-industrial/assets/20260710-b37e139e9494bd716410c7fa8a7f39ca.mp4',endfield],
+  ['demos/cases/endfield-industrial/assets/20260901-a92f49a53810d0a162584a10daa9de39.mp4',endfield],
+  ['demos/cases/endfield-industrial/assets/video-01.1e0eb1.mp4',endfield],
+  ['demos/cases/endfield-industrial/assets/video-02.9ab299.mp4',endfield],
+  ['demos/cases/endfield-industrial/assets/video-03.422a72.mp4',endfield],
+  ['demos/cases/endfield-industrial/assets/video-enter.88cbb6.mp4',endfield],
+]);
+const oversizeNotes=[];
+for(const file of new Set(gitFiles('--cached','--others','--exclude-standard'))){
+  const stat=fs.statSync(path.join(root,file),{throwIfNoEntry:false});
+  if(!stat?.isFile()||stat.size<=52428800)continue;
+  const message='file size: '+file+': '+stat.size+' bytes exceeds 50 MiB (52428800 bytes)';
+  if(oversizeAllowed.has(file))oversizeNotes.push(message+' (allowed: '+oversizeAllowed.get(file)+')');else failures.push(message);
+}
+if(oversizeNotes.length)console.warn(oversizeNotes.join('\n'));
+for(const entry of entries){
+  if(entry.patternIds===undefined)continue;
+  const file='entries/cases/'+entry.id+'.json';
+  for(const id of entry.patternIds){
+    const pattern=patternsById.get(id);
+    if(!pattern)failures.push('entry references: '+file+': patternIds references unknown pattern '+id);
+    else if(!pattern.sources.some(source=>source.caseId===entry.id))failures.push('entry references: '+file+': patternIds '+id+' has no sources[].caseId backlink');
+  }
+  for(const pattern of patterns)if(pattern.sources.some(source=>source.caseId===entry.id)&&!entry.patternIds.includes(pattern.id))failures.push('entry references: '+file+': patternIds is missing source pattern '+pattern.id);
+}
+const local=ref=>ref&&!/^(?:[a-z][a-z\d+.-]*:|\/\/|#)/i.test(ref);
+const resolve=(dir,ref)=>ref.startsWith('/')?path.join(root,ref):path.resolve(dir,ref);
+function checkCSS(label,css,dir){
+  for(const match of css.matchAll(/url\(\s*["']?([^"')\s]+)["']?\s*\)/g)){
+    const ref=decodeURIComponent(match[1]);if(local(ref)&&!fs.existsSync(resolve(dir,ref.split(/[?#]/)[0])))failures.push(label+': missing stylesheet asset '+ref);
+  }
+}
+function checkRefs(label,html,dir){
+  for(const tag of html.matchAll(/<(?:script|img|link|source|video|audio|iframe)\b[^>]*>/g)){
+    for(const match of tag[0].matchAll(/(?:src|href|poster|data-src)=(["'])(.+?)\1/g)){
+      const ref=decodeURIComponent(match[2]);if(!local(ref))continue;const file=ref==='/src/main.tsx'?path.join(root,'site/src/main.tsx'):resolve(dir,ref.split(/[?#]/)[0]);
+      if(!fs.existsSync(file))failures.push(label+': missing local asset '+ref);
+      else if(tag[0].startsWith('<link')&&file.endsWith('.css'))checkCSS(label,fs.readFileSync(file,'utf8'),path.dirname(file));
+    }
+    const srcset=tag[0].match(/srcset=(["'])(.+?)\1/)?.[2];
+    if(srcset&&!srcset.startsWith('data:'))for(const [,ref] of srcset.matchAll(/(?:^|,)\s*(\S*[^\s,])(?:\s+[^,]*)?(?=,|$)/g)){if(local(ref)&&!fs.existsSync(resolve(dir,ref.split(/[?#]/)[0])))failures.push(label+': missing srcset asset '+ref);}
+  }
+  for(const style of html.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/g))checkCSS(label,style[1],dir);
+  for(const style of html.matchAll(/\bstyle=(["'])(.*?)\1/g))checkCSS(label,style[2],dir);
+}
+function visit(directory,styles=false){
+  if(snapshots.includes(path.relative(root,directory).split(path.sep).join('/')+'/'))return;
+  for(const item of fs.readdirSync(directory,{withFileTypes:true})){
+    const file=path.join(directory,item.name);
+    if(item.isDirectory()){if(item.name!=='source')visit(file,styles);}
+    else if(item.name.endsWith('.html'))checkRefs(path.relative(root,file),fs.readFileSync(file,'utf8'),directory);
+    else if(styles&&item.name.endsWith('.css'))checkCSS(path.relative(root,file),fs.readFileSync(file,'utf8'),directory);
+  }
+}
+for(const entry of entries)for(const key of ['demo','research','preview'])if(entry[key]&&!fs.existsSync(path.join(root,entry[key])))failures.push(entry.id+': missing '+entry[key]);
+checkRefs('site/index.html',fs.readFileSync(path.join(root,'site/index.html'),'utf8'),path.join(root,'site/public'));
+visit(path.join(root,'demos/cases'));visit(path.join(root,'demos/materials'));visit(path.join(root,'site/public'),true);visit(path.join(root,'site/runtime'),true);visit(path.join(root,'site/icons'),true);visit(path.join(root,'scripts/templates'),true);
+if(failures.length){console.error(failures.join('\n'));process.exitCode=1;}else console.log('PASS: '+entries.length+' entries; case subpages, material demos and site local references resolve; line endings, ignored tracked files, entry references and file sizes pass.');

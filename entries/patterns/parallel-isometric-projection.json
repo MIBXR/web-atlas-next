@@ -1,0 +1,58 @@
+{
+  "id": "parallel-isometric-projection",
+  "order": 48,
+  "title": "统一等轴投影与三面明度",
+  "category": "视觉构成",
+  "experienceTypes": [
+    "visual"
+  ],
+  "summary": "用一个坐标规则构成整个微型世界。",
+  "mechanism": "全部体块共享30°平行轴与比例，顶/左/右使用统一明度方向，路径与植物提供尺度。",
+  "effect": "多个对象属于同一可理解空间。",
+  "useCases": [
+    "基础设施与园区系统示意"
+  ],
+  "avoid": [
+    "混入透视消失点或声称实时3D"
+  ],
+  "constraints": [
+    "固定二维SVG不能代替可旋转3D或工程验收图。",
+    "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+  ],
+  "composition": {
+    "role": "foundation",
+    "pairsWellWith": [
+      "exploded-layer-view",
+      "layer-focus-dimming"
+    ],
+    "conflicts": []
+  },
+  "parameters": [],
+  "prompt": "为【目标页面/组件】实现「统一等轴投影与三面明度」。全部体块共享30°平行轴与比例，顶/左/右使用统一明度方向，路径与植物提供尺度。可见结果：多个对象属于同一可理解空间。适用任务：基础设施与园区系统示意。固定二维SVG不能代替可旋转3D或工程验收图。键盘：保留语义标题、顺序阅读与图像替代文字；装饰不进入Tab顺序。减少动态：布局与内容保持可读；不为静态构成增加自动运动。",
+  "sources": [
+    {
+      "caseId": "isometric-3d",
+      "locator": "entries/cases/isometric-3d.json#composition/shape",
+      "observation": "平行边、统一30°方向和几何积木建立一致空间规则。",
+      "evidence": "adapted",
+      "focus": {
+        "target": "#island",
+        "label": "等轴方向与三面明度",
+        "instruction": "比较建筑、地基与阶梯的平行边、统一斜向和三面明度，观察它们怎样共用同一空间规则。",
+        "prepare": [
+          {
+            "click": "[data-layer=all]"
+          }
+        ]
+      }
+    }
+  ],
+  "sourceFiles": [
+    "demos/cases/isometric-3d/index.html",
+    "demos/cases/isometric-3d/script.js",
+    "demos/cases/isometric-3d/style.css",
+    "entries/cases/isometric-3d.json",
+    "docs/cases/isometric-3d.md"
+  ],
+  "preview": "previews/patterns/parallel-isometric-projection.jpg"
+}

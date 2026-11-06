@@ -1,0 +1,71 @@
+{
+  "id": "half-paper-category-label",
+  "order": 118,
+  "title": "图像与半幅纸签分类",
+  "category": "视觉构成",
+  "experienceTypes": [
+    "visual"
+  ],
+  "summary": "图像展示作品，半幅浅纸签让类别清楚可读。",
+  "mechanism": "五类专题完整保留，将左半幅的作品图像与右半幅的淡纸标签并置，类别独立竖排；手机按源站换图并重新编排，图像与标签指向同一真实目的地。",
+  "effect": "图像风格和类别名称同时可辨认，文字不依赖复杂纹样的局部对比。",
+  "useCases": [
+    "器物/书画/人物等文化专题",
+    "能解释图像与分类关系的展览导航"
+  ],
+  "avoid": [
+    "对大量长标题强行竖排",
+    "将分类名称烧入图片，导致无法重排"
+  ],
+  "constraints": [
+    "以2026-10-09指定源页面为范围，区分来源观察、复现和迁移选择。",
+    "保留图像真实来源/尺寸/hash与版权归属；不能用教学示意替代定义性机制。",
+    "正式业务、未取到的状态和外部服务见对应案例fidelity与state-matrix。"
+  ],
+  "composition": {
+    "role": "support",
+    "pairsWellWith": [
+      "artwork-caption-separation",
+      "restrained-signal-color"
+    ],
+    "conflicts": []
+  },
+  "parameters": [
+    {
+      "name": "源专题类别",
+      "value": "器物、书画、文化、人物、展览",
+      "note": "准确类目以本页可读文字为准；五类全部保留。"
+    },
+    {
+      "name": "标签范围",
+      "value": "右半纸签，文字竖排",
+      "note": "源CSS与实际桌面/手机图片。"
+    }
+  ],
+  "prompt": "为【目标页面/组件】实现「图像与半幅纸签分类」。完整五类专题将左半作品图像与右半淡纸标签并置，类别独立竖排；手机按源站换图并重新编排，图像与标签作为同一真实目的地。 源专题类别：陶瓷、书画、文化、青铜器、工艺。准确类目以本页可读文字为准；五类全部保留。 标签范围：右半纸签，文字竖排。源CSS与实际桌面/手机图片。 以原站DOM/CSS/真实状态矩阵验证，素材本地化并保留出处、尺寸与许可；减少动态保留手动状态，业务通过原站入口使用。",
+  "sources": [
+    {
+      "caseId": "palace-museum",
+      "locator": "entries/cases/palace-museum.json#composition/shape",
+      "observation": "源端观察：矩形章节与专题图像上右半幅浅纸签并置，竖排类目为独立可读文字。",
+      "evidence": "observed",
+      "referenceUrl": "https://www.dpm.org.cn/Explore.html",
+      "capturedAt": "2026-10-09",
+      "focus": {
+        "target": ".explore2 .lt",
+        "label": "图像右半幅的纸签分类",
+        "instruction": "比较图像与右半幅浅纸签的并置，竖排类目作为独立文字承接图像内容。"
+      }
+    }
+  ],
+  "sourceFiles": [
+    "entries/cases/palace-museum.json",
+    "docs/cases/palace-museum.md",
+    "demos/cases/palace-museum/fidelity.md",
+    "demos/cases/palace-museum/index.html",
+    "demos/cases/palace-museum/style.css",
+    "demos/cases/palace-museum/app.js",
+    "demos/cases/palace-museum/source/state-matrix.md"
+  ],
+  "preview": "previews/patterns/half-paper-category-label.jpg"
+}

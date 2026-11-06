@@ -1,0 +1,12 @@
+/* Web Atlas 原站的绿色强调色，按 Arc foundation.css 的 data-accent 变体写法定义浅深两套。
+   --accent-2 为次级强调，--accent-mark 为标记色；强调色底上的文字用 --accent-foreground。 */
+:root[data-accent="atlas-green"] {
+  --accent: #4b6118; --accent-strong: #4b6118; --accent-subtle: #eef6d2; --accent-foreground: #ffffff;
+  --accent-2: #5f7a1f; --accent-mark: #d4ef76;
+  --control-on: #4b6118; --control-thumb-on: #fff; --control-glyph: #fff; --control-fill: #4b6118;
+}
+:root[data-theme="dark"][data-accent="atlas-green"] {
+  --accent: #d4ef76; --accent-strong: #d4ef76; --accent-subtle: #2a3320; --accent-foreground: #1d2608;
+  --accent-2: #bcd86a; --accent-mark: #526438;
+  --control-on: #526438; --control-thumb-on: #fff; --control-glyph: #fff; --control-fill: #526438;
+}

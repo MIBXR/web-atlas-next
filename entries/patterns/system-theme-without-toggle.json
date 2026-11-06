@@ -1,0 +1,77 @@
+{
+  "id": "system-theme-without-toggle",
+  "order": 72,
+  "title": "跟随系统的媒体与文字主题",
+  "category": "视觉构成",
+  "experienceTypes": [
+    "visual"
+  ],
+  "summary": "按系统偏好换配色，不虚构手动按钮。",
+  "mechanism": "根据 prefers-color-scheme 选用对应的表面、文字与产品截图；主题范围以实际有变体的区域为准。",
+  "trigger": "系统深浅偏好改变",
+  "effect": "界面适应环境且图像保持合理配色。",
+  "useCases": [
+    "已有双版本资产的营销页"
+  ],
+  "avoid": [
+    "宣称来源页面支持其未提供的手动主题功能"
+  ],
+  "constraints": [
+    "ChatGPT 手机保留浅色界面图；Claude 主题的数值依据为公共 CSS。",
+    "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+  ],
+  "composition": {
+    "role": "foundation",
+    "pairsWellWith": [
+      "semantic-theme-roles"
+    ],
+    "conflicts": []
+  },
+  "parameters": [],
+  "prompt": "为【目标页面/组件】实现「跟随系统的媒体与文字主题」。根据prefers-color-scheme选用对应的表面、文字与产品截图；主题范围明确到实际有变体的区域。触发：系统深浅偏好改变。可见结果：界面适应环境且图像保持合理配色。适用任务：已有双版本资产的营销页。ChatGPT 手机保留浅色界面图；Claude 主题的数值依据为公共 CSS。键盘：保留语义标题、顺序阅读与图像替代文字；装饰不进入Tab顺序。减少动态：布局与内容保持可读；不为静态构成增加自动运动。",
+  "sources": [
+    {
+      "caseId": "chatgpt-platform",
+      "locator": "entries/cases/chatgpt-platform.json#themeBehavior/control",
+      "observation": "跟随 prefers-color-scheme；页面没有全局手动主题按钮，桌面产品界面随系统换深浅，手机保持原站的浅色界面图。",
+      "evidence": "observed",
+      "referenceUrl": "https://chatgpt.com/zh-Hans-CN/overview/",
+      "capturedAt": "2026-10-07",
+      "focus": {
+        "target": "#showcase",
+        "label": "跟随系统的产品截图",
+        "instruction": "切换系统明暗外观，观察桌面产品窗口的深浅截图；页面没有手动主题按钮，手机使用固定浅色界面。",
+        "viewport": "wide"
+      }
+    },
+    {
+      "caseId": "claude-platform",
+      "locator": "entries/cases/claude-platform.json#themeBehavior/control",
+      "observation": "公共 CSS root 根据 prefers-color-scheme 使用奶油浅色/近黑深色；首页没有核实到手动全局按钮。官方 Cowork 视频自身保持素材配色。",
+      "evidence": "inferred",
+      "referenceUrl": "https://claude.com/",
+      "capturedAt": "2026-10-07",
+      "focus": {
+        "target": ".hero",
+        "label": "跟随系统的页面主题",
+        "instruction": "在系统中切换浅色与深色外观，对比页面表面和文字。这个来源没有手动主题按钮，Cowork 影片保持原色。"
+      }
+    }
+  ],
+  "sourceFiles": [
+    "demos/cases/chatgpt-platform/fidelity.md",
+    "demos/cases/chatgpt-platform/fonts.css",
+    "demos/cases/chatgpt-platform/index.html",
+    "demos/cases/chatgpt-platform/motion-data.js",
+    "demos/cases/chatgpt-platform/script.js",
+    "demos/cases/chatgpt-platform/style.css",
+    "demos/cases/claude-platform/fidelity.md",
+    "demos/cases/claude-platform/index.html",
+    "demos/cases/claude-platform/journey.js",
+    "demos/cases/claude-platform/script.js",
+    "demos/cases/claude-platform/style.css",
+    "entries/cases/chatgpt-platform.json",
+    "entries/cases/claude-platform.json"
+  ],
+  "preview": "previews/patterns/system-theme-without-toggle.jpg"
+}

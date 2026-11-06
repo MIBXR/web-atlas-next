@@ -1,0 +1,404 @@
+{
+  "schemaVersion": 1,
+  "id": "capability-bento-hierarchy",
+  "pattern": {
+    "id": "capability-bento-hierarchy",
+    "order": 10,
+    "title": "以跨列比例表达能力层次",
+    "category": "内容组织",
+    "experienceTypes": [
+      "visual"
+    ],
+    "summary": "按产品权重分配不同面积。",
+    "mechanism": "根据功能关系设置跨列主能力、并列辅助能力或通栏协作能力，图文各有稳定位置。",
+    "effect": "面积与排列说明能力之间的层级。",
+    "useCases": [
+      "多能力产品介绍"
+    ],
+    "avoid": [
+      "所有功能无差别铺成同尺寸卡墙"
+    ],
+    "constraints": [
+      "手机重排仍保留能力顺序，不把面积当唯一信息提示。",
+      "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+    ],
+    "composition": {
+      "role": "foundation",
+      "pairsWellWith": [
+        "native-horizontal-shelf"
+      ],
+      "conflicts": []
+    },
+    "parameters": [],
+    "prompt": "为【目标页面/组件】实现「以跨列比例表达能力层次」。根据功能关系设置跨列主能力、并列辅助能力或通栏协作能力，图文各有稳定位置。可见结果：面积与排列说明能力之间的层级。适用任务：多能力产品介绍。手机重排仍保留能力顺序，不把面积当唯一信息提示。键盘：保留语义标题、顺序阅读与图像替代文字；装饰不进入Tab顺序。减少动态：布局与内容保持可读；不为静态构成增加自动运动。",
+    "sources": [
+      {
+        "caseId": "stripe-platform",
+        "locator": "entries/cases/stripe-platform.json#composition/layout",
+        "observation": "1266px内容框；48px段落式首屏；产品矩阵首行Payments跨两列、Billing一列同高，随后不同产品区；4列指标与左右案例。",
+        "evidence": "observed",
+        "referenceUrl": "https://stripe.com/",
+        "capturedAt": "2026-10-07",
+        "focus": {
+          "target": ".bento",
+          "label": "产品矩阵的主次比例",
+          "instruction": "对比 Payments 的跨列主卡与旁侧 Billing，再往下看其余产品怎样组成矩阵。"
+        }
+      },
+      {
+        "caseId": "notion-editorial",
+        "locator": "entries/cases/notion-editorial.json#composition/layout",
+        "observation": "语言提示/导航 → 动作胶囊/头像/桌面产品视频 → 标识条带 → 两列+通栏 Bento → 五用途 → 团队故事 → 结束行动 → 页尾。",
+        "evidence": "observed",
+        "referenceUrl": "https://www.notion.com/",
+        "capturedAt": "2026-10-07",
+        "focus": {
+          "target": "#features",
+          "label": "两列与通栏能力卡",
+          "instruction": "对比 Capture、Find 两张并排卡与下方通栏 Automate，查看图文比例如何表达能力关系。"
+        }
+      }
+    ],
+    "sourceFiles": [
+      "demos/cases/notion-editorial/fidelity.md",
+      "demos/cases/notion-editorial/index.html",
+      "demos/cases/notion-editorial/journey.js",
+      "demos/cases/notion-editorial/script.js",
+      "demos/cases/notion-editorial/style.css",
+      "demos/cases/stripe-platform/fidelity.md",
+      "demos/cases/stripe-platform/index.html",
+      "demos/cases/stripe-platform/journey.js",
+      "demos/cases/stripe-platform/script.js",
+      "demos/cases/stripe-platform/style.css",
+      "demos/cases/stripe-platform/wave.js",
+      "entries/cases/notion-editorial.json",
+      "entries/cases/stripe-platform.json",
+      "docs/cases/notion-editorial.md",
+      "docs/cases/stripe-platform.md"
+    ],
+    "preview": "previews/patterns/capability-bento-hierarchy.jpg"
+  },
+  "sourceCases": [
+    {
+      "id": "notion-editorial",
+      "title": "Notion — 插画与真实工作空间",
+      "paths": {
+        "bundle": "agent/cases/notion-editorial.json",
+        "demo": "demos/cases/notion-editorial/index.html"
+      }
+    },
+    {
+      "id": "stripe-platform",
+      "title": "Stripe — 彩带与金融产品矩阵",
+      "paths": {
+        "bundle": "agent/cases/stripe-platform.json",
+        "demo": "demos/cases/stripe-platform/index.html"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "prompts/patterns/capability-bento-hierarchy.md",
+      "role": "prompt",
+      "content": "# 以跨列比例表达能力层次 · 复用 Prompt\n\n[结构化条目](../../entries/patterns/capability-bento-hierarchy.json)\n\n为【目标页面/组件】实现「以跨列比例表达能力层次」。根据功能关系设置跨列主能力、并列辅助能力或通栏协作能力，图文各有稳定位置。可见结果：面积与排列说明能力之间的层级。适用任务：多能力产品介绍。手机重排仍保留能力顺序，不把面积当唯一信息提示。键盘：保留语义标题、顺序阅读与图像替代文字；装饰不进入Tab顺序。减少动态：布局与内容保持可读；不为静态构成增加自动运动。\n\n## 制作约束\n\n- 手机重排仍保留能力顺序，不把面积当唯一信息提示。\n- 迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/automate.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/capture.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/figma.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/find.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/hero.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/hero.mp4",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/logo.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/mobile.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/notion-bold.woff2",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/notion-regular.woff2",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/openai.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-1.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-2.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-3.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-4.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-5.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-6.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-7.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/ramp.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/notion-editorial/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/notion-editorial/journey.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/notion-editorial/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/notion-editorial/script.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/notion-editorial/style.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets/enterprise-hertz.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets/enterprise-instacart.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets/enterprise-lemonde.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets/enterprise-urbn.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets/kettle.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets/logo.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets/payments-bg.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets/sohne.woff2",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets/stripe-wave-renderer.js",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets/terminal.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets/wave-geometry-worker.js",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets/wave-palette.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets/wave-provenance.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/stripe-platform/assets/wave.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/stripe-platform/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/stripe-platform/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/stripe-platform/journey.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/stripe-platform/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/stripe-platform/script.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/stripe-platform/source/extract-wave.mjs",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/stripe-platform/source/README.md",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/stripe-platform/style.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/stripe-platform/three-LICENSE.txt",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/stripe-platform/wave.js",
+      "role": "source"
+    },
+    {
+      "path": "docs/cases/notion-editorial.md",
+      "role": "context"
+    },
+    {
+      "path": "docs/cases/stripe-platform.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/notion-editorial.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/stripe-platform.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/patterns/capability-bento-hierarchy.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/notion-editorial-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/notion-editorial-reference.png",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/notion-editorial.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/stripe-platform-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/stripe-platform-reference.png",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/stripe-platform.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/patterns/capability-bento-hierarchy.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/notion-editorial.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/cases/stripe-platform.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/patterns/capability-bento-hierarchy.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ]
+}

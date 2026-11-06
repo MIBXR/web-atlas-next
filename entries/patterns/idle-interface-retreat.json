@@ -1,0 +1,72 @@
+{
+  "id": "idle-interface-retreat",
+  "order": 31,
+  "title": "闲置时控件退隐、操作时恢复",
+  "category": "导航与状态",
+  "experienceTypes": [
+    "micro-motion"
+  ],
+  "summary": "在观看状态让界面暂时让出画面。",
+  "mechanism": "指针移动或触摸唤醒控件，短暂闲置后模糊淡出；焦点仍在操作区时保持可见。Tab 可立即唤醒控件；减少动态时控件保持可见。",
+  "trigger": "闲置、指针移动、触摸或聚焦",
+  "effect": "纯观看与可操作状态可以来回切换。",
+  "useCases": [
+    "沉浸影片舞台"
+  ],
+  "avoid": [
+    "键盘焦点已存在却把控件隐藏"
+  ],
+  "constraints": [
+    "聚焦时不隐藏控件是本地可达性补充；触摸至少能先唤醒控件，再操作。",
+    "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+  ],
+  "composition": {
+    "role": "support",
+    "pairsWellWith": [
+      "blurred-layered-video-handoff"
+    ],
+    "conflicts": []
+  },
+  "parameters": [
+    {
+      "name": "来源闲置",
+      "value": "3s等待 / 0.8s退隐",
+      "note": "控制层时间"
+    }
+  ],
+  "prompt": "为【目标页面/组件】实现「闲置时控件退隐、操作时恢复」。指针移动或触摸唤醒控件，闲置短时间后模糊淡出；焦点仍在操作区时保持可见。触发：闲置、指针移动、触摸或聚焦。可见结果：纯观看与可操作状态有可逆切换。适用任务：沉浸影片舞台。聚焦不隐藏为本地可达性补充，触摸至少能唤醒再操作。键盘：焦点在控件时不退隐，Tab立即唤醒并保持明显焦点。减少动态：控件保持可见，不使用模糊退隐。",
+  "sources": [
+    {
+      "caseId": "zelda-world",
+      "locator": "entries/cases/zelda-world.json#interaction/3",
+      "observation": "鼠标移动或触摸唤醒界面，3秒闲置后0.8秒模糊淡出；键盘焦点保留控件为本地补充。",
+      "evidence": "adapted",
+      "referenceUrl": "https://www.nintendo.com/jp/zelda/totk/world/index.html",
+      "capturedAt": "2026-10-07",
+      "focus": {
+        "target": ".chapters",
+        "label": "闲置退隐的章节控件",
+        "instruction": "移动指针唤醒底部目录，停止操作后看它模糊退隐；按 Tab 也能唤醒。",
+        "prepare": [
+          {
+            "click": "#entry-gate:not([hidden]):not([data-phase]) [data-enter=\"off\"]",
+            "waitFor": "body:has(#entry-gate[hidden])"
+          },
+          {
+            "click": ".chapters a[href=\"#world-3\"]:not([aria-current=\"true\"])",
+            "waitFor": ".world-stage[data-scene=\"3\"]"
+          }
+        ]
+      }
+    }
+  ],
+  "sourceFiles": [
+    "demos/cases/zelda-world/fidelity.md",
+    "demos/cases/zelda-world/index.html",
+    "demos/cases/zelda-world/script.js",
+    "demos/cases/zelda-world/style.css",
+    "entries/cases/zelda-world.json",
+    "docs/cases/zelda-world.md"
+  ],
+  "preview": "previews/patterns/idle-interface-retreat.jpg"
+}

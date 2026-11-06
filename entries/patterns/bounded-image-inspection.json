@@ -1,0 +1,81 @@
+{
+  "id": "bounded-image-inspection",
+  "order": 119,
+  "title": "公开边界内的瓦片细察",
+  "category": "交互反馈",
+  "experienceTypes": [
+    "structure"
+  ],
+  "summary": "让图像从全貌到局部，再明确回到总览。",
+  "mechanism": "独立全视口画布使用真实DeepZoom瓦片，并提供Leaflet坐标缩放、惯性拖动和加减控件；匿名缩放范围与登录提醒防止把低清CSS放大误称为高清。画布聚焦后可用方向键平移，加减按钮保留缩放边界的禁用状态。",
+  "trigger": "主动加减、滚轮缩放、拖动或键盘平移",
+  "effect": "用户按公开瓦片的真实精度细察图像，并了解匿名浏览的缩放边界与更高清的官方入口。",
+  "useCases": [
+    "艺术图像、地图和文化遗产细读",
+    "有明确像素精度的工程图检查"
+  ],
+  "avoid": [
+    "低分辨率预览却宣称无限高清",
+    "用图像缩放拦截整个页面的正常滚动"
+  ],
+  "constraints": [
+    "以2026-10-09指定源页面为范围，来源观察、复现和迁移选择分开。",
+    "保留图像真实来源/尺寸/hash与版权归属；不能用教学示意替代定义性机制。",
+    "正式业务、未取到的状态和外部服务见对应案例fidelity与state-matrix。"
+  ],
+  "composition": {
+    "role": "support",
+    "pairsWellWith": [
+      "artwork-caption-separation",
+      "inline-detail-disclosure"
+    ],
+    "conflicts": []
+  },
+  "parameters": [
+    {
+      "name": "源匿名地图范围",
+      "value": "minZoom9.75 / maxZoom12",
+      "note": "源maxNativeZoom15的65%/80%；不访问更高匿名未授权级别。"
+    },
+    {
+      "name": "源瓦片/逻辑尺寸",
+      "value": "1024px；21515×15796逻辑像素",
+      "note": "本地包含公开 level10/11/12 的 9 张瓦片。"
+    }
+  ],
+  "prompt": "为【目标页面/组件】实现「公开边界内的瓦片细察」。独立全视口画布使用真实DeepZoom瓦片与Leaflet坐标缩放、惯性拖动和加减控件；匿名缩放范围与登录提醒防止把低清CSS放大误称为高清。 源匿名地图范围：minZoom9.75 / maxZoom12。源maxNativeZoom15的65%/80%；不访问更高匿名未授权级别。 源瓦片/逻辑尺寸：1024px；21515×15796逻辑像素。本地包含公开 level10/11/12 的 9 张瓦片。 以原站DOM/CSS/真实状态矩阵验证，素材本地化并保留出处、尺寸与许可；减少动态保留手动状态，业务通过原站入口使用。",
+  "sources": [
+    {
+      "caseId": "digital-dunhuang",
+      "locator": "entries/cases/digital-dunhuang.json#interaction/3",
+      "observation": "壁画：莫高窟257窟主室西壁采用源站Leaflet 1.7.1与DeepZoom 2.0.0，21515×15796逻辑像素、1024瓦片，匿名minZoom9.75/maxZoom12，公开level10–12共9瓦片实际取得。",
+      "evidence": "observed",
+      "referenceUrl": "https://www.e-dunhuang.com/showmural/10.0001/0001/0001/0257/0001/0003/01",
+      "capturedAt": "2026-10-09",
+      "focus": {
+        "target": "#mural",
+        "label": "第 257 窟西壁的瓦片细察",
+        "instruction": "拖动画面并用左上角加减按钮缩放，观察公开瓦片范围内的壁画细节；更高分辨率入口由原站提供。",
+        "entrypoint": "demos/cases/digital-dunhuang/viewer.html",
+        "prepare": [
+          {
+            "click": ".leaflet-control-zoom-in"
+          }
+        ]
+      }
+    }
+  ],
+  "sourceFiles": [
+    "entries/cases/digital-dunhuang.json",
+    "docs/cases/digital-dunhuang.md",
+    "demos/cases/digital-dunhuang/fidelity.md",
+    "demos/cases/digital-dunhuang/index.html",
+    "demos/cases/digital-dunhuang/style.css",
+    "demos/cases/digital-dunhuang/app.js",
+    "demos/cases/digital-dunhuang/source/state-matrix.md",
+    "demos/cases/digital-dunhuang/viewer.html",
+    "demos/cases/digital-dunhuang/viewer.css",
+    "demos/cases/digital-dunhuang/viewer.js"
+  ],
+  "preview": "previews/patterns/bounded-image-inspection.jpg"
+}

@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "id": "full-bleed-photography-brand",
+  "pattern": {
+    "id": "full-bleed-photography-brand",
+    "order": 107,
+    "title": "全幅摄影与巨大完整字标",
+    "category": "视觉构成",
+    "experienceTypes": [
+      "visual"
+    ],
+    "summary": "图像建立情境，字标建立身份。",
+    "mechanism": "摄影铺满约一个视口，完整品牌字标叠于图上，简短专题文字与行动入口置于边缘；通过普通滚动更换专题。",
+    "effect": "作品世界成为首要感受。",
+    "useCases": [
+      "以摄影为主视觉的艺术馆网站与作品集"
+    ],
+    "avoid": [
+      "把全幅摄影裁成通用的小圆角卡片"
+    ],
+    "constraints": [
+      "手机使用稳定视口单位和正确的图像版本，字标保持原比例，行动入口有足够的对比度。",
+      "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+    ],
+    "composition": {
+      "role": "foundation",
+      "pairsWellWith": [
+        "photo-edge-text-contrast",
+        "fullscreen-photography-menu",
+        "native-document-reading"
+      ],
+      "conflicts": []
+    },
+    "parameters": [],
+    "prompt": "为【目标页面/组件】实现「全幅摄影与巨大完整字标」。摄影铺满约一个视口，完整品牌字标叠于图上，简短专题文字与行动定位边缘；普通滚动更换专题。可见结果：作品世界成为首要感受。适用任务：强摄影艺术馆与作品集。手机使用稳定视口单位和正确图像版本，字标保持原比例，行动有足够对比。键盘：保留语义标题、顺序阅读与图像替代文字；装饰不进入Tab顺序。减少动态：布局与内容保持可读；不为静态构成增加自动运动。",
+    "sources": [
+      {
+        "caseId": "rijksmuseum-art",
+        "locator": "entries/cases/rijksmuseum-art.json#interaction/0",
+        "observation": "进入与连续上下浏览：巨大的官方字标覆盖全幅照片，浏览采用原生连续滚动。 图像先传递艺术馆的世界，后续展览逐渐替换观看内容。",
+        "evidence": "observed",
+        "referenceUrl": "https://www.rijksmuseum.nl/en",
+        "capturedAt": "2026-10-07",
+        "focus": {
+          "target": ".hero",
+          "label": "全幅摄影上的巨大字标",
+          "instruction": "看完整机构字标覆盖全幅摄影，继续往下滚动，后续展览照片逐渐接替首屏。"
+        }
+      }
+    ],
+    "sourceFiles": [
+      "demos/cases/rijksmuseum-art/fidelity.md",
+      "demos/cases/rijksmuseum-art/index.html",
+      "demos/cases/rijksmuseum-art/script.js",
+      "demos/cases/rijksmuseum-art/style.css",
+      "entries/cases/rijksmuseum-art.json",
+      "docs/cases/rijksmuseum-art.md"
+    ],
+    "preview": "previews/patterns/full-bleed-photography-brand.jpg"
+  },
+  "sourceCases": [
+    {
+      "id": "rijksmuseum-art",
+      "title": "Rijksmuseum · 全幅摄影与巨大字标",
+      "paths": {
+        "bundle": "agent/cases/rijksmuseum-art.json",
+        "demo": "demos/cases/rijksmuseum-art/index.html"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "prompts/patterns/full-bleed-photography-brand.md",
+      "role": "prompt",
+      "content": "# 全幅摄影与巨大完整字标 · 复用 Prompt\n\n[结构化条目](../../entries/patterns/full-bleed-photography-brand.json)\n\n为【目标页面/组件】实现「全幅摄影与巨大完整字标」。摄影铺满约一个视口，完整品牌字标叠于图上，简短专题文字与行动定位边缘；普通滚动更换专题。可见结果：作品世界成为首要感受。适用任务：强摄影艺术馆与作品集。手机使用稳定视口单位和正确图像版本，字标保持原比例，行动有足够对比。键盘：保留语义标题、顺序阅读与图像替代文字；装饰不进入Tab顺序。减少动态：布局与内容保持可读；不为静态构成增加自动运动。\n\n## 制作约束\n\n- 手机使用稳定视口单位和正确的图像版本，字标保持原比例，行动入口有足够的对比度。\n- 迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/assets/chintz.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/assets/de-kooning.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/assets/family.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/assets/founder.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/assets/hero-desktop.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/assets/hero-mobile.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/assets/hero.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/assets/ing.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/assets/kpn.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/assets/logo.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/assets/lottery.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/assets/rijks-bold.woff2",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/assets/rijks-normal.woff2",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/script.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/rijksmuseum-art/style.css",
+      "role": "source"
+    },
+    {
+      "path": "docs/cases/rijksmuseum-art.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/rijksmuseum-art.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/patterns/full-bleed-photography-brand.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/rijksmuseum-art-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/rijksmuseum-art-reference.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/rijksmuseum-art.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/patterns/full-bleed-photography-brand.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/rijksmuseum-art.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/patterns/full-bleed-photography-brand.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ]
+}

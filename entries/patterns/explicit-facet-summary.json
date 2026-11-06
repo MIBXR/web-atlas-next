@@ -1,0 +1,80 @@
+{
+  "id": "explicit-facet-summary",
+  "order": 120,
+  "title": "分面条件在列表前显式呈现",
+  "category": "导航与状态",
+  "experienceTypes": [
+    "structure"
+  ],
+  "summary": "先说明筛选依据，再展示剩下的资料。",
+  "mechanism": "遗址、形制、时代三个维度各保留一个条件，已选条件可在已选行中移除；URL保存选择，结果由19个公开源响应的成员集交集决定，返回时可恢复选择。",
+  "trigger": "选择条件、提交关键词或移除单项",
+  "effect": "用户能看清当前候选范围由哪些条件决定，并逐步放宽条件找回资料。",
+  "useCases": [
+    "文物、文献和研究资料库",
+    "具有真实多维元数据的目录"
+  ],
+  "avoid": [
+    "给没有元数据的图片强加风格分面"
+  ],
+  "constraints": [
+    "以2026-10-09指定源页面为范围，区分来源观察、复现和迁移选择。",
+    "保留图像真实来源/尺寸/hash与版权归属；不能用教学示意替代定义性机制。",
+    "正式业务、未取到的状态和外部服务见对应案例fidelity与state-matrix。"
+  ],
+  "composition": {
+    "role": "support",
+    "pairsWellWith": [
+      "filter-count-feedback",
+      "aligned-metadata-rows"
+    ],
+    "conflicts": []
+  },
+  "parameters": [
+    {
+      "name": "源分面维度",
+      "value": "遗址4/形制4/时代11，共19项",
+      "note": "每个单条件均取得源HTML/hash与成员集，见filter-evidence.json。"
+    },
+    {
+      "name": "固定档案集",
+      "value": "32项；北魏254/257/麦积127",
+      "note": "保留源目录与首页固定30统计的差异。"
+    }
+  ],
+  "prompt": "为【目标页面/组件】实现「分面条件在列表前显式呈现」。遗址、形制、时代三个维度各保留一个条件，已选行可再次移除；URL保存选择，结果由19个公开源响应成员集交集决定，返回可恢复选择。 源分面维度：遗址4/形制4/时代11，共19项。每个单条件均取得源HTML/hash与成员集，见filter-evidence.json。 固定档案集：32项；北魏254/257/麦积127。保留源目录与首页固定30统计的差异。 以原站DOM/CSS/真实状态矩阵验证，素材本地化并保留出处、尺寸与许可；减少动态保留手动状态，业务通过原站入口使用。",
+  "sources": [
+    {
+      "caseId": "digital-dunhuang",
+      "locator": "entries/cases/digital-dunhuang.json#interaction/2",
+      "observation": "条件反馈：点击原条件可移除，已选条件行显示并可取消，折叠筛选耗时1000ms；北魏实测254、257、麦积127三项，叠加榆林窟为零项，浏览器返回恢复。",
+      "evidence": "adapted",
+      "referenceUrl": "https://www.e-dunhuang.com/section.htm",
+      "capturedAt": "2026-10-09",
+      "focus": {
+        "target": "#ttsx",
+        "label": "列表上方的已选分面条件",
+        "instruction": "点“北魏”等筛选条件，观察已选条件行和列表数量；点击已选条件可移除，再叠加其他条件比较结果。",
+        "entrypoint": "demos/cases/digital-dunhuang/section.html",
+        "prepare": [
+          {
+            "click": "[data-facet-value=北魏]"
+          }
+        ]
+      }
+    }
+  ],
+  "sourceFiles": [
+    "entries/cases/digital-dunhuang.json",
+    "docs/cases/digital-dunhuang.md",
+    "demos/cases/digital-dunhuang/fidelity.md",
+    "demos/cases/digital-dunhuang/index.html",
+    "demos/cases/digital-dunhuang/style.css",
+    "demos/cases/digital-dunhuang/app.js",
+    "demos/cases/digital-dunhuang/source/state-matrix.md",
+    "demos/cases/digital-dunhuang/section.html",
+    "demos/cases/digital-dunhuang/catalogue.js",
+    "demos/cases/digital-dunhuang/filter-evidence.json"
+  ],
+  "preview": "previews/patterns/explicit-facet-summary.jpg"
+}

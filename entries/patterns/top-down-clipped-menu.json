@@ -1,0 +1,104 @@
+{
+  "id": "top-down-clipped-menu",
+  "order": 75,
+  "title": "从上向下裁切的菜单",
+  "category": "导航与状态",
+  "experienceTypes": [
+    "page-motion"
+  ],
+  "summary": "用一个进入方向组织菜单项目。",
+  "mechanism": "菜单面板从顶部向下裁切进入，项目依次错峰出现；关闭时反向收束，背景阅读状态随关闭恢复。",
+  "trigger": "手机打开/关闭菜单",
+  "effect": "菜单形成边界清楚的导航场景。",
+  "useCases": [
+    "精简全屏品牌导航"
+  ],
+  "avoid": [
+    "在关闭面板上仍留下可聚焦链接"
+  ],
+  "constraints": [
+    "时长依据来源公共模块，源端手机实时未验证，实施时检查快速反向。",
+    "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+  ],
+  "composition": {
+    "role": "support",
+    "pairsWellWith": [
+      "last-request-transition"
+    ],
+    "conflicts": []
+  },
+  "parameters": [
+    {
+      "name": "来源裁切",
+      "value": "800ms入 / 400ms退",
+      "note": "公共Navbar依据"
+    },
+    {
+      "name": "来源项目",
+      "value": "320ms起、每项80ms",
+      "note": "交错项目时间"
+    }
+  ],
+  "prompt": "为目标页面实现从上向下裁切的菜单：面板从顶部向下进入，项目按短间隔交错，关闭反向收束。面板高度按实际内容确定，保持 Escape、焦点返回和关闭后的原阅读位置；减少动态直接到达可操作状态。",
+  "sources": [
+    {
+      "caseId": "claude-platform",
+      "locator": "entries/cases/claude-platform.json#interaction/1",
+      "observation": "桌面菜单 pointer enter 展开，pointer leave 150ms 延迟关闭，其他导航降低强调；手机菜单 800ms 顶到下 clip 进入、400ms 退出，项目 320ms 起每项80ms交错。",
+      "evidence": "inferred",
+      "referenceUrl": "https://claude.com/",
+      "capturedAt": "2026-10-07",
+      "focus": {
+        "target": ".menu.mobile-open:not([hidden])",
+        "label": "顶部裁切的手机菜单",
+        "instruction": "点右上角关闭，再重新打开菜单，观察面板向下展开和条目错峰进入。",
+        "prepare": [
+          {
+            "click": ".hamburger[aria-expanded=false]",
+            "waitFor": ".menu.mobile-open:not([hidden])"
+          }
+        ],
+        "viewport": "mobile"
+      }
+    },
+    {
+      "caseId": "uiarc-platform",
+      "locator": "entries/cases/uiarc-platform.json#interaction/7",
+      "observation": "手机菜单通过 Radix Dialog 在顶栏下方展开，460ms 向下裁切，条目延迟 90ms 起、40ms 错峰；关闭使用 240ms 反向裁切，背景 320／240ms 淡化与 5px 模糊。Escape 返回触发按钮，Examples 关闭后滚动并聚焦展示区。",
+      "evidence": "observed",
+      "referenceUrl": "https://uiarc.dev/",
+      "capturedAt": "2026-11-01",
+      "focus": {
+        "target": ".mobile-menu[role=dialog][data-state=open]",
+        "label": "向下展开的手机菜单",
+        "instruction": "用右上角关闭按钮收起，再点顶栏菜单，观察面板向下裁切和条目依次进入。",
+        "prepare": [
+          {
+            "waitFor": "#menu-trigger[data-state]"
+          },
+          {
+            "click": "#menu-trigger[data-state=closed]",
+            "waitFor": ".mobile-menu[role=dialog][data-state=open]"
+          }
+        ],
+        "viewport": "mobile"
+      }
+    }
+  ],
+  "sourceFiles": [
+    "demos/cases/claude-platform/fidelity.md",
+    "demos/cases/claude-platform/index.html",
+    "demos/cases/claude-platform/journey.js",
+    "demos/cases/claude-platform/script.js",
+    "demos/cases/claude-platform/style.css",
+    "entries/cases/claude-platform.json",
+    "entries/cases/uiarc-platform.json",
+    "docs/cases/uiarc-platform.md",
+    "demos/cases/uiarc-platform/index.html",
+    "demos/cases/uiarc-platform/app.js",
+    "demos/cases/uiarc-platform/style.css",
+    "demos/cases/uiarc-platform/source/components.tsx",
+    "demos/cases/uiarc-platform/fidelity.md"
+  ],
+  "preview": "previews/patterns/top-down-clipped-menu.jpg"
+}

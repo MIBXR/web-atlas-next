@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "id": "avatar-pile-personality",
+  "pattern": {
+    "id": "avatar-pile-personality",
+    "order": 24,
+    "title": "组合头像表达团队人格",
+    "category": "视觉构成",
+    "experienceTypes": [
+      "visual"
+    ],
+    "summary": "用一组独立头像为工具加入团队气质。",
+    "mechanism": "多张真实且经授权的头像在小范围内叠放，组成一个稳定的装饰层；在手机上将头像调整到标题上方，文字仍是主要信息。",
+    "effect": "团队主题有可识别的人格化线索。",
+    "useCases": [
+      "协作与创作产品"
+    ],
+    "avoid": [
+      "无关头像遮住标题和行动"
+    ],
+    "constraints": [
+      "头像只作装饰时不重复读屏，使用真实对应的授权素材。",
+      "迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。"
+    ],
+    "composition": {
+      "role": "foundation",
+      "pairsWellWith": [
+        "measured-width-action-pill"
+      ],
+      "conflicts": []
+    },
+    "parameters": [],
+    "prompt": "为【目标页面/组件】实现「组合头像表达团队人格」。多张真实授权头像以小范围叠放组成一个稳定装饰层，手机调整到标题上方，文字仍是主要信息。可见结果：团队主题有可识别的人格化线索。适用任务：协作与创作产品。头像只作装饰时不重复读屏，使用真实对应的授权素材。键盘：保留语义标题、顺序阅读与图像替代文字；装饰不进入Tab顺序。减少动态：布局与内容保持可读；不为静态构成增加自动运动。",
+    "sources": [
+      {
+        "caseId": "notion-editorial",
+        "locator": "entries/cases/notion-editorial.json#interaction/1",
+        "observation": "桌面官方产品视频静音循环，可暂停；手机保留上方七个头像 pile，当前页面隐藏 hero 媒体区而不是塞入桌面视频。",
+        "evidence": "adapted",
+        "referenceUrl": "https://www.notion.com/",
+        "capturedAt": "2026-10-07",
+        "focus": {
+          "target": ".avatar-piles",
+          "label": "七组头像拼贴",
+          "instruction": "看标题上方七组真实头像怎样以不同倾角和重叠关系组成团队群像。",
+          "viewport": "mobile"
+        }
+      }
+    ],
+    "sourceFiles": [
+      "demos/cases/notion-editorial/fidelity.md",
+      "demos/cases/notion-editorial/index.html",
+      "demos/cases/notion-editorial/journey.js",
+      "demos/cases/notion-editorial/script.js",
+      "demos/cases/notion-editorial/style.css",
+      "entries/cases/notion-editorial.json",
+      "docs/cases/notion-editorial.md"
+    ],
+    "preview": "previews/patterns/avatar-pile-personality.jpg"
+  },
+  "sourceCases": [
+    {
+      "id": "notion-editorial",
+      "title": "Notion — 插画与真实工作空间",
+      "paths": {
+        "bundle": "agent/cases/notion-editorial.json",
+        "demo": "demos/cases/notion-editorial/index.html"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "prompts/patterns/avatar-pile-personality.md",
+      "role": "prompt",
+      "content": "# 组合头像表达团队人格 · 复用 Prompt\n\n[结构化条目](../../entries/patterns/avatar-pile-personality.json)\n\n为【目标页面/组件】实现「组合头像表达团队人格」。多张真实授权头像以小范围叠放组成一个稳定装饰层，手机调整到标题上方，文字仍是主要信息。可见结果：团队主题有可识别的人格化线索。适用任务：协作与创作产品。头像只作装饰时不重复读屏，使用真实对应的授权素材。键盘：保留语义标题、顺序阅读与图像替代文字；装饰不进入Tab顺序。减少动态：布局与内容保持可读；不为静态构成增加自动运动。\n\n## 制作约束\n\n- 头像只作装饰时不重复读屏，使用真实对应的授权素材。\n- 迁移时替换为有使用权的素材与真实内容，来源快照的数值需按目标任务重新验证。\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/automate.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/capture.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/figma.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/find.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/hero.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/hero.mp4",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/logo.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/mobile.jpg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/notion-bold.woff2",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/notion-regular.woff2",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/openai.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-1.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-2.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-3.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-4.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-5.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-6.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/pile-7.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/assets/ramp.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/notion-editorial/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/notion-editorial/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/notion-editorial/journey.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/notion-editorial/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/notion-editorial/script.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/notion-editorial/style.css",
+      "role": "source"
+    },
+    {
+      "path": "docs/cases/notion-editorial.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/notion-editorial.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/patterns/avatar-pile-personality.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/notion-editorial-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/notion-editorial-reference.png",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/notion-editorial.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/patterns/avatar-pile-personality.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/notion-editorial.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/patterns/avatar-pile-personality.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ]
+}
