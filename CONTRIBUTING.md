@@ -147,9 +147,9 @@ Web Atlas 与 Motion Atlas 是姊妹站，内容互不交叉。基础导航、�
 | --- | --- |
 | `site/index.html` | 站点 HTML 入口与首帧主题设置 |
 | `site/src/` | Web Atlas 配置、三类详情、网页 Demo 舞台与来源定位 |
-| `site/core/` | hash 路由、搜索、主题与收藏存储、滚动管理和 Markdown 渲染 |
+| `site/core/` | hash 路由、搜索、主题与收藏存储、滚动管理和 Markdown 渲染，实验室的方案、导出与机制示意逻辑（`site/core/lab/`），Agent 工作流检索（`site/core/workflow.ts`） |
 | `site/lib/` | 剪贴板反馈和动效 Token |
-| `site/ui/` | 外壳、总览、列表、详情布局、文档、收藏、比较及通用展示块 |
+| `site/ui/` | 外壳、总览、列表、详情布局、文档、收藏、比较及通用展示块、设计实验室（`site/ui/lab/`）与 Agent 工作流（`site/ui/workflow/`） |
 | `site/registry/` | Arc UI 源码、foundation 样式与 `ARC-UI-LICENSE` |
 | `site/vite/` | 内容挂载和 `virtual:atlas-data` 插件 |
 | `site/public/` | 旧地址兼容入口页与站点图标 |
@@ -179,7 +179,7 @@ Web Atlas 与 Motion Atlas 是姊妹站，内容互不交叉。基础导航、�
 | `#/materials/<id>?demo=<样例>` | 素材详情与样例选择 |
 | `#/docs?path=<文件>&h=<章节>` | 文档阅读与章节定位；`dq` 搜索文档标题与路径 |
 | `#/favorites`、`#/compare?ids=a,b,c` | 收藏与案例比较 |
-| `#/tools/lab`、`#/tools/workflow` | 设计实验室与 Agent 工作流，显示“规划中”占位页 |
+| `#/tools/lab`、`#/tools/workflow` | 设计实验室与 Agent 工作流 |
 
 兼容入口页通过 `location.replace` 转入以下路由。
 
@@ -192,8 +192,8 @@ Web Atlas 与 Motion Atlas 是姊妹站，内容互不交叉。基础导航、�
 | `patterns.html#pattern/<id>?…`、`patterns.html#patterns?…`；无 hash | `#/patterns/<id>?…`、`#/patterns?…`；`#/patterns`；保留 `q/category/source/sort/dir`，`type` 映射为 `experience`，`favorites=1` 映射为 `fav=1` |
 | `materials.html#material/<id>?…`、`materials.html#materials?…`；无 hash | `#/materials/<id>?…`、`#/materials?…`；`#/materials`；保留 `q/category/type/sort/dir`，`favorites=1` 映射为 `fav=1` |
 | `docs.html?file=<文件>#<章节>`；无参数 | `#/docs?path=<文件>&h=<章节>`；`#/docs` |
-| `lab.html?style=<id>#<章节>` | `#/tools/lab?style=<id>&h=<章节>`，参数保存在占位页地址中 |
-| `agent.html#<id>` | `#/tools/workflow?case=<id>`，案例 id 保存在占位页地址中 |
+| `lab.html?style=<id>&embed=home#<章节>` | `#/tools/lab?style=<id>&embed=home&h=<章节>` |
+| `agent.html#<id>` | `#/tools/workflow?case=<id>`，预填案例搜索 |
 
 ### 设计语言与交互
 

@@ -123,12 +123,12 @@ export function PromptBlock({ title, text, note }: { title: string; text?: strin
   );
 }
 
-export function CodeLine({ text, label = "复制" }: { text?: string; label?: string }) {
+export function CodeLine({ text, label = "复制", onCopyError }: { text?: string; label?: string; onCopyError?: () => void }) {
   if (!has(text)) return null;
   return (
     <div className="codeline">
       <pre>{text}</pre>
-      <CopyButton value={text!} label={label} />
+      <CopyButton value={text!} label={label} onCopyError={onCopyError} />
     </div>
   );
 }

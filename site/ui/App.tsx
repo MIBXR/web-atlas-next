@@ -14,7 +14,8 @@ import { DetailPage } from "./DetailPage";
 import { DocsPage } from "./DocsPage";
 import { ComparePage } from "./ComparePage";
 import { FavoritesPage } from "./FavoritesPage";
-import { FuturePage } from "./FuturePage";
+import { LabPage } from "./lab/LabPage";
+import { WorkflowPage } from "./workflow/WorkflowPage";
 
 function Router() {
   const route = useRoute();
@@ -29,7 +30,8 @@ function Router() {
   if (first === "docs") return <DocsPage />;
   if (first === "compare") return <ComparePage />;
   if (first === "favorites") return <FavoritesPage />;
-  if (first === "tools" && second) return <FuturePage id={second} />;
+  if (first === "tools" && second === "lab") return <LabPage />;
+  if (first === "tools" && second === "workflow") return <WorkflowPage />;
   return <HomePage />;
 }
 
@@ -41,7 +43,9 @@ export function mountAtlas(config: AtlasConfig) {
   installScrollGuard();
   function Root() {
     const value = useMemo(() => config, []);
-    return <AtlasContext.Provider value={value}><Shell><Router /></Shell></AtlasContext.Provider>;
+    const route = useRoute();
+    const embed = route.path === "/tools/lab" && route.params.get("embed") === "home";
+    return <AtlasContext.Provider value={value}>{embed ? <Router /> : <Shell><Router /></Shell>}</AtlasContext.Provider>;
   }
   createRoot(document.getElementById("root")!).render(<Root />);
 }

@@ -52,7 +52,7 @@ node scripts/atlas.mjs material-export web-design-engineer --out ../design-skill
 - `agent/materials/<id>.json`：完整 `material`、文档原文、运行文件清单与 `sourceFiles`，可独立导出。
 - [轻量 skill](https://github.com/MIBXR/mibxr-skills/tree/main/skills/web-atlas)：发现最新目录，在同一会话版本中筛选、读取与导出。
 
-在线站提供相同的资料路径。部署索引的 `source.commit` 与 `source.baseUrl` 指向构建时传入的完整 GitHub 提交，把文件相对路径接在此基址后取得原始文件。条目详情通过“Agent 资料包”下载对应的 `agent/<类别>/<id>.json`；Agent 工作流入口显示“规划中”占位页。探索最新内容时通过 skill 创建新会话。网站播放所用的 HTML／CSS 会转换素材地址，文档会加 UTF-8 标记；取材使用固定提交的原始 Git 文件。
+在线站提供相同的资料路径。部署索引的 `source.commit` 与 `source.baseUrl` 指向构建时传入的完整 GitHub 提交，把文件相对路径接在此基址后取得原始文件。条目详情通过“Agent 资料包”下载对应的 `agent/<类别>/<id>.json`；Agent 工作流（`#/tools/workflow`）检索案例索引，下载案例包 JSON 或复制 Agent 入口。探索最新内容时通过 skill 创建新会话。网站播放所用的 HTML／CSS 会转换素材地址，文档会加 UTF-8 标记；取材使用固定提交的原始 Git 文件。
 
 各目录按需读取：案例命令读取案例目录，巧思命令读取巧思目录，素材命令读取素材目录；读取巧思来源时再取得所需案例包。本地命令和 skill 提供 `pattern-search`、`pattern-show`、`pattern-export`。本地命令读取当前工作区的 `agent/`；配套 skill 的详情与导出使用同一会话固定的 Git 提交，指定版本时使用 `--ref <完整提交SHA>`。
 

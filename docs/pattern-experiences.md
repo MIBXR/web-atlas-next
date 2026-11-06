@@ -22,17 +22,17 @@
 
 封面来自该巧思对应的真实区域与交互状态。同一案例中的标题、菜单、摄影或局部控件分别取景，完整来源 Demo 保留原有浏览与交互。声音通过来源自己的控件启用。
 
-## 机制观察与取材
+## 共享本地示意的取材依据
 
-从巧思详情进入完整来源 Demo，按条目记录的位置观察机制；参数、约束与来源证据保存在巧思条目和资料包中。
+设计实验室“巧思机制实验”章节集中展示五种机制，逻辑位于 [site/core/lab/playground/](../site/core/lab/playground/)，界面位于 [site/ui/lab/](../site/ui/lab/)。示意用少量内容解释设计作用，完整来源、参数与证据由巧思包和来源案例提供。
 
-| 机制 | 取材巧思 | 观察内容 |
+| 示意 | 取材巧思 | 保留的机制与适配边界 |
 | --- | --- | --- |
-| 视觉强调 | [单一信号色集中强调](../entries/patterns/restrained-signal-color.json) | 强调色怎样区分阅读重点与行动入口。 |
-| 局部反馈 | [按压与聚焦改变容器形状](../entries/patterns/state-shape-feedback.json) | 按压、聚焦与返回时形状和状态怎样配合。 |
-| 方向转场 | [按方向侧向裁切交接整章](../entries/patterns/directional-section-wipe.json) | 遮罩覆盖、内容替换与遮罩退出的方向和顺序。 |
-| 主动声音 | [声音主动启用与随时停止](../entries/patterns/sound-opt-in.json) | 静音、主动启用、操作触发与关闭的状态关系。 |
-| 单开内容 | [单开内容与图像联动](../entries/patterns/single-open-accordion.json) | 当前项展开、其余项收起与图像联动的组织方式。 |
+| 视觉强调 | [单一信号色集中强调](../entries/patterns/restrained-signal-color.json) | 用强调色区分阅读重点；下划线与可调圆角是本地补充。 |
+| 局部反馈 | [按压与聚焦改变容器形状](../entries/patterns/state-shape-feedback.json) | 形状与状态共同反馈；本地浮起、圆角和时长用于比较，未沿用来源 CTA 或资源卡的具体曲线与尺寸。 |
+| 方向转场 | [按方向侧向裁切交接整章](../entries/patterns/directional-section-wipe.json) | 遮罩覆盖、内容替换、遮罩退出的方向交接；三章内容与可调时长是本地教学构成，不替代原案例整屏舞台。 |
+| 主动声音 | [声音主动启用与随时停止](../entries/patterns/sound-opt-in.json) | 默认静音、用户启用、操作触发、关闭与后台停止；合成短音是本地反馈，未使用来源 BGM、人物语音或操作音轨。 |
+| 单开内容 | [单开内容与图像联动](../entries/patterns/single-open-accordion.json) | 当前项展开、其余项收起，正文仍在正常文档流；本地未实现图像联动，也未重现来源的展开曲线。 |
 
 ## 来源与证据
 

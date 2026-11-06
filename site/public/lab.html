@@ -5,6 +5,8 @@
   var q = new URLSearchParams();
   var style = new URLSearchParams(location.search).get("style");
   if (style) q.set("style", style);
+  var embed = new URLSearchParams(location.search).get("embed");
+  if (embed) q.set("embed", embed);
   if (location.hash) q.set("h", decodeURIComponent(location.hash.slice(1)));
   location.replace("./#/tools/lab" + (q.size ? "?" + q : ""));
 </script>

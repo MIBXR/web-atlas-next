@@ -67,9 +67,9 @@ const config: AtlasConfig = {
     patterns: e => <PatternDetail e={e} />,
     materials: e => <MaterialDetail e={e} />,
   },
-  futureTools: [
-    { id: "lab", title: "设计实验室", description: "调配配色、字体、布局等设计要素，导出配置和 Prompt。", icon: <FlaskConical /> },
-    { id: "workflow", title: "Agent 工作流", description: "按需求挑选条目，下载资料目录并生成交给 Agent 的 Prompt。", icon: <Workflow /> },
+  tools: [
+    { id: "lab", title: "设计实验室", description: "亲手切换方案，调配颜色、字体与留白，观察这些元素怎样配合。", icon: <FlaskConical /> },
+    { id: "workflow", title: "Agent 工作流", description: "围绕需求比较设计方向，再取得完整说明、Prompt、研究与源码，作为构建依据。", icon: <Workflow /> },
   ],
   // Demo 中“返回参考库”指向原站 index.html#style/<id>。
   legacyHash: hash => {
