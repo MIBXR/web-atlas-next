@@ -10,7 +10,7 @@
 **44 个案例**　·　**187 个巧思**　·　**14 个素材**
 <!-- atlas-counts:end -->
 
-[打开首页](https://web-atlas.mibxranime.chatgpt.site) · [案例库](https://web-atlas.mibxranime.chatgpt.site/cases.html) · [巧思库](https://web-atlas.mibxranime.chatgpt.site/patterns.html) · [素材库](https://web-atlas.mibxranime.chatgpt.site/materials.html) · [设计实验室](https://web-atlas.mibxranime.chatgpt.site/lab.html) · [Agent 工作流](https://web-atlas.mibxranime.chatgpt.site/agent.html) · [文档中心](https://web-atlas.mibxranime.chatgpt.site/docs.html) · [完整索引](docs/cases/README.md)
+[打开首页](https://web-atlas-library.mibxranime.chatgpt.site) · [案例库](https://web-atlas-library.mibxranime.chatgpt.site/cases.html) · [巧思库](https://web-atlas-library.mibxranime.chatgpt.site/patterns.html) · [素材库](https://web-atlas-library.mibxranime.chatgpt.site/materials.html) · [设计实验室](https://web-atlas-library.mibxranime.chatgpt.site/lab.html) · [Agent 工作流](https://web-atlas-library.mibxranime.chatgpt.site/agent.html) · [文档中心](https://web-atlas-library.mibxranime.chatgpt.site/docs.html) · [完整索引](docs/cases/README.md)
 
 ![Web Atlas 实际 Demo 全景](docs/readme/cover.webp)
 

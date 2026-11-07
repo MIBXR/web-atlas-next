@@ -14,7 +14,7 @@ Web Atlas 提供可亲手体验的案例、巧思与素材，条目按实际内�
 - **试验**：在设计实验室中调整配色、字体、布局、留白、形状、图形、层级、质感与动效，直接观察画面变化；深浅主题按背景、表面、文字与强调角色协调变化，JSON 和 Prompt 导出保留实际选择。
 - **Agent 工作流**：入口为 `#/tools/workflow`，检索案例索引，下载案例包 JSON 或复制 Agent 入口。
 - **复用**：复制案例 Prompt，将品牌、内容和资产换为自己的输入；约束与负向 Prompt 一起使用。
-- **Agent 选型**：调用 [web-atlas skill](https://github.com/MIBXR/mibxr-skills/tree/main/skills/web-atlas)，先了解最新目录，再围绕需求迭代筛选，自动取得完整说明、文档和源码。也可从 [Agent 入口](https://web-atlas.mibxranime.chatgpt.site/agent.html) 直接取指定案例。
+- **Agent 选型**：调用 [web-atlas skill](https://github.com/MIBXR/mibxr-skills/tree/main/skills/web-atlas)，先了解最新目录，再围绕需求迭代筛选，自动取得完整说明、文档和源码。也可从 [Agent 入口](https://web-atlas-library.mibxranime.chatgpt.site/agent.html) 直接取指定案例。
 - **桌面与手机**：桌面侧栏可收起，悬停图标显示名称与数量；手机通过顶部导航抽屉切换页面，列表筛选放在底部抽屉。详情在宽屏并排展示舞台与拆解，窄屏上下排列。
 - **主题与声音**：网站支持跟随系统／浅色／深色，偏好保存在本地；每个案例说明原站的主题方式、音乐或媒体声音及其交互作用，固定品牌主题保留原貌。
 - **收藏**：收藏与备份见“[收藏与迁移](#收藏与迁移)”。
