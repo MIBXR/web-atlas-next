@@ -28,7 +28,7 @@ export function WorkflowPage() {
   useEffect(() => { if(catalog?.entries.some(entry => entry.id===selected))setQuery(selected!); },[catalog,selected]);
   return <div className="page wf-page">
     <header className="page-head"><div><h1>Agent 工作流</h1><p className="muted">按真实需求找完整案例，也能单独检索设计巧思，组合适合项目的机制。取得 Prompt、研究、复现边界和源码，据此完成实现。</p>
-      {catalog && <p className="muted small wf-stats">{catalog.entryCount} 个案例 · {catalog.patterns?.patternCount ?? 0} 条设计巧思 · {workflowVersion(catalog)}</p>}
+      {catalog && <p className="muted small wf-stats">{catalog.entryCount} 个案例 · {catalog.patterns?.patternCount ?? 0} 条设计巧思{workflowVersion(catalog) && ` · ${workflowVersion(catalog)}`}</p>}
     </div></header>
     <div className="detail-sections">
       <Section id="start" title="先探索，再围绕需求选方向">

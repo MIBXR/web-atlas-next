@@ -27,7 +27,7 @@ export function agentEntryText(catalog: WorkflowCatalog, entry: WorkflowEntry, c
 }
 
 export function workflowVersion(catalog: WorkflowCatalog) {
-  return catalog.source?.commit?`GIT ${catalog.source.commit.slice(0,12)} / SCHEMA 1`:'SOURCE-BACKED / SCHEMA 1';
+  return catalog.source?.commit ? `版本 ${catalog.source.commit.slice(0, 12)}` : '';
 }
 
 export const skillExample = "$web-atlas 我还没决定网站的设计方向，先介绍有哪些案例。\n接下来根据我的产品、用户和页面任务，和我一起筛选几个候选。\n确定方向后，自动读取完整说明、文档和源码，再完成实现。\n也可以单独探索设计巧思：给我一个清晰的页面基础，\n再选择来自不同案例的悬停反馈和滚动叙事，说明各自职责与组合约束。";
