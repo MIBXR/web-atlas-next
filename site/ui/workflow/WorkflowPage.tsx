@@ -8,6 +8,7 @@ import { Dialog, DialogContent } from '@/registry/components/dialog/dialog';
 import { CodeBlock } from '@/registry/components/code-block/code-block';
 import { agentEntryText, cliExample, findWorkflowEntries, materialExample, skillExample, workflowVersion, type WorkflowCatalog } from '@/core/workflow';
 import { href, useRoute } from '@/core/router';
+import { openText } from '@/core/open-text';
 import { CodeLine, Prose, Section } from '../blocks';
 import { ExternalLink } from '../icons';
 import './workflow.css';
@@ -40,9 +41,9 @@ export function WorkflowPage() {
       </Section>
       <Section id="patterns" title="设计巧思检索">
         <p className="prose">按体验类型、功能用途和来源案例筛选独立机制，查看触发、效果、约束与来源。skill 的 <code>pattern-search</code>、<code>pattern-show</code> 与 <code>pattern-export</code> 使用同一会话版本，可用 <code>pattern-search --type page-motion</code> 筛选页面动效并取得来源案例与源码。</p>
-        <div className="wf-actions"><LinkButton variant="secondary" size="sm"  href={href('/patterns')}>浏览设计巧思</LinkButton><LinkButton variant="secondary" size="sm"  href="agent/patterns/index.json">查看巧思索引 JSON</LinkButton></div>
+        <div className="wf-actions"><LinkButton variant="secondary" size="sm"  href={href('/patterns')}>浏览设计巧思</LinkButton><LinkButton variant="secondary" size="sm"  href="agent/patterns/index.json" onClick={openText}>查看巧思索引 JSON</LinkButton></div>
       </Section>
-      <Section id="cases" title="案例检索与取材" aside={<a href="agent/catalog.json">查看结构化索引 JSON</a>}>
+      <Section id="cases" title="案例检索与取材" aside={<a href="agent/catalog.json" onClick={openText}>查看结构化索引 JSON</a>}>
         <Prose text="按品牌、布局、场景或交互关键词搜索案例，可预览、下载 JSON 案例包或复制 Agent 入口。案例包包含设计资料、页面说明、文档原文，以及源码和媒体路径。" />
         <div className="search-wrap"><SearchField id="agent-query" label="搜索 Agent 案例" placeholder="试试 Linear、网格、产品、手绘…" value={query} onValueChange={setQuery} /></div>
         {!state && <Skeleton lines={5} label="正在读取案例索引…" />}
@@ -70,7 +71,7 @@ export function WorkflowPage() {
       <Section id="material-workflow" title="组件与内容素材">
         <p className="prose">在<a href={href('/materials')}>素材库</a>操作样例，通过 Skill 读取使用说明、版本、许可证与完整 Demo。案例、巧思和素材共用同一取材会话。</p>
         <pre className="wf-material-code">{materialExample}</pre>
-        <p className="prose">直接读取 <a href="agent/materials/index.json">素材目录</a>，或<a href="agent/materials/shaders.json">下载 Shaders 资料包</a>。更多组件与作者预设请到来源查看；浏览器不支持 WebGPU 时，Demo 显示明确标注的静态参考。</p>
+        <p className="prose">直接读取 <a href="agent/materials/index.json" onClick={openText}>素材目录</a>，或<a href="agent/materials/shaders.json" onClick={openText}>下载 Shaders 资料包</a>。更多组件与作者预设请到来源查看；浏览器不支持 WebGPU 时，Demo 显示明确标注的静态参考。</p>
       </Section>
     </div>
     <Dialog open={fallback!==undefined} onOpenChange={open => { if(!open)setFallback(undefined); }}><DialogContent title="手动复制的 Agent 入口" description="已显示并选中文字，请按 Ctrl+C 复制；按 Escape 收起。" onOpenAutoFocus={event => {

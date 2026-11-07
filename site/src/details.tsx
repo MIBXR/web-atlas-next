@@ -8,6 +8,7 @@ import { Combobox } from "@/registry/components/combobox/combobox";
 import { Select } from "@/registry/components/select/select";
 import { ChevronLeft, ChevronRight, Columns2, Crosshair, ExternalLink, Volume2, VolumeX, X } from "@/ui/icons";
 import { href, navigate, useRoute, withParams } from "@/core/router";
+import { openText, TEXT_FILE } from "@/core/open-text";
 import type { Entry } from "@/core/types";
 import { Bullets, CodeLine, DocLinks, EntryLinks, has, SourceList, useEvidenceLabel, KV, Palette, ParamTable, PromptBlock, Prose, RelatedEntries, Section, Sources } from "@/ui/blocks";
 import { DetailLayout, GalleryStage } from "@/ui/DetailPage";
@@ -121,7 +122,7 @@ export function CaseDetail({ e }: { e: Entry }) {
       <Section id="sources" title="来源证据"><Sources items={e.sources} /></Section>
       <Section id="docs" title="研究文档与资料">
         <DocLinks docs={[{ label: "研究拆解", path: e.$.research }, { label: "复刻对照", path: e.$.fidelity }, { label: "许可说明", path: e.$.licenses }, { label: "Prompt 原文", path: e.$.prompt }]} />
-        {e.assetManifest ? <p><LinkButton variant="ghost" size="sm"  href={e.assetManifest} target="_blank" rel="noopener">素材来源清单 JSON <ExternalLink aria-hidden="true" /></LinkButton></p> : null}
+        {e.assetManifest ? <p><LinkButton variant="ghost" size="sm"  href={e.assetManifest} target="_blank" rel="noopener" onClick={openText}>素材来源清单 JSON <ExternalLink aria-hidden="true" /></LinkButton></p> : null}
       </Section>
     </DetailLayout>
   );
@@ -251,7 +252,7 @@ function FileList({ files }: { files?: string[] }) {
         const p = f.replace(/\\/g, "/");
         const target = p.endsWith(".md") ? href("/docs", { path: p }) : p.startsWith("entries/") ? href("/" + p.replace(/^entries\//, "").replace(/\.json$/, "")) : p;
         const external = !p.endsWith(".md") && !p.startsWith("entries/");
-        return <li key={f}><a href={target} target={external ? "_blank" : undefined} rel={external ? "noopener" : undefined} className="mono">{p}</a></li>;
+        return <li key={f}><a href={target} target={external ? "_blank" : undefined} rel={external ? "noopener" : undefined} className="mono" onClick={external && TEXT_FILE.test(p) ? openText : undefined}>{p}</a></li>;
       })}
     </ul>
   );

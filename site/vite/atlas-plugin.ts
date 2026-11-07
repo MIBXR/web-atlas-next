@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import sirv from "sirv";
+import type { OutgoingHttpHeader, OutgoingHttpHeaders } from "node:http";
 import type { Plugin } from "vite";
 
 const VIRTUAL = "virtual:atlas-data";
@@ -18,6 +19,18 @@ export function atlasContent(root: string): Plugin {
       return `export default JSON.parse(${JSON.stringify(JSON.stringify(data))});`;
     },
     configureServer(server) {
+      server.middlewares.use((_req, res, next) => {
+        const utf8 = <T,>(value: T) => typeof value === "string" && /^(text\/(markdown|javascript|css|plain)|application\/json)(;|$)/i.test(value) && !/charset\s*=/i.test(value) ? `${value}; charset=utf-8` : value;
+        const setHeader = res.setHeader;
+        res.setHeader = function(name, value) { return setHeader.call(this, name, name.toLowerCase() === "content-type" ? utf8(value) : value); };
+        const writeHead = res.writeHead.bind(res);
+        res.writeHead = function(statusCode: number, statusMessage?: string | OutgoingHttpHeaders | OutgoingHttpHeader[], headers?: OutgoingHttpHeaders | OutgoingHttpHeader[]) {
+          const values = typeof statusMessage === "object" ? statusMessage : headers;
+          if (values && !Array.isArray(values)) for (const name of Object.keys(values)) if (name.toLowerCase() === "content-type") values[name] = utf8(values[name]);
+          return writeHead(statusCode, typeof statusMessage === "string" ? statusMessage : undefined, typeof statusMessage === "object" ? statusMessage : headers);
+        };
+        next();
+      });
       const dataDirectory = path.join(root, "data");
       server.watcher.add(dataDirectory);
       server.watcher.on("change", file => {
