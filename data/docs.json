@@ -2760,6 +2760,24 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/beautiful-article/LICENSES.md",
+    "title": "LICENSES",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/hallmark-skill/LICENSES.md",
+    "title": "LICENSES",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/web-design-engineer/LICENSES.md",
+    "title": "LICENSES",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "prompts/cases/linear-workflow.md",
     "title": "Linear — 深色产品开发系统 · 复用 Prompt",
     "group": "复用 Prompt"

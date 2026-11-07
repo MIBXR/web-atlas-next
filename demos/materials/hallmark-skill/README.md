@@ -7,7 +7,7 @@
 Made by Together AI.
 
 <p align="center">
-  <img src="site/OG-hallmark.png" alt="Hallmark, the design skill that ends AI slop" />
+  <img src="https://raw.githubusercontent.com/Nutlope/hallmark/4f6a46c6dc325d40ab268c93e25c7b96676ebccd/site/OG-hallmark.png" alt="Hallmark, the design skill that ends AI slop" />
 </p>
 
 Hallmark holds a hard floor and then gets out of the way. It deals three themes from a catalog of fifty materials, builds the page around what the visitor came to do, and lints the result in a real browser against the tells that read as machine-made: the eyebrow above every heading, tracked-capital labels, one coloured word in a headline, a page of empty frames or nothing but photographs, a hero that misses its screen, an email sign-up at the end of every page, a form that says thanks without sending anything. A fresh-context reviewer gets the last word.
@@ -27,11 +27,11 @@ The gates come in tiers. The **Floor** never ships (contrast, focus, reduced mot
 
 <table>
   <tr>
-    <td width="20%"><a href="https://www.usehallmark.com/themes/dusk/"><img src="docs/screenshots/dusk.jpg" alt="Dusk theme: Closewise, bank reconciliation" /></a></td>
-    <td width="20%"><a href="https://www.usehallmark.com/themes/cobalt/"><img src="docs/screenshots/cobalt.jpg" alt="Cobalt theme: Relay, a webhook API" /></a></td>
-    <td width="20%"><a href="https://www.usehallmark.com/themes/studio/"><img src="docs/screenshots/studio.jpg" alt="Studio theme: Field Office, an identity studio" /></a></td>
-    <td width="20%"><a href="https://www.usehallmark.com/themes/atelier/"><img src="docs/screenshots/atelier.jpg" alt="Atelier theme: Maison Orla, a fragrance atelier" /></a></td>
-    <td width="20%"><a href="https://www.usehallmark.com/themes/ribbon/"><img src="docs/screenshots/ribbon.jpg" alt="Ribbon theme: Lull, a sleep sounds app" /></a></td>
+    <td width="20%"><a href="https://www.usehallmark.com/themes/dusk/"><img src="https://raw.githubusercontent.com/Nutlope/hallmark/4f6a46c6dc325d40ab268c93e25c7b96676ebccd/docs/screenshots/dusk.jpg" alt="Dusk theme: Closewise, bank reconciliation" /></a></td>
+    <td width="20%"><a href="https://www.usehallmark.com/themes/cobalt/"><img src="https://raw.githubusercontent.com/Nutlope/hallmark/4f6a46c6dc325d40ab268c93e25c7b96676ebccd/docs/screenshots/cobalt.jpg" alt="Cobalt theme: Relay, a webhook API" /></a></td>
+    <td width="20%"><a href="https://www.usehallmark.com/themes/studio/"><img src="https://raw.githubusercontent.com/Nutlope/hallmark/4f6a46c6dc325d40ab268c93e25c7b96676ebccd/docs/screenshots/studio.jpg" alt="Studio theme: Field Office, an identity studio" /></a></td>
+    <td width="20%"><a href="https://www.usehallmark.com/themes/atelier/"><img src="https://raw.githubusercontent.com/Nutlope/hallmark/4f6a46c6dc325d40ab268c93e25c7b96676ebccd/docs/screenshots/atelier.jpg" alt="Atelier theme: Maison Orla, a fragrance atelier" /></a></td>
+    <td width="20%"><a href="https://www.usehallmark.com/themes/ribbon/"><img src="https://raw.githubusercontent.com/Nutlope/hallmark/4f6a46c6dc325d40ab268c93e25c7b96676ebccd/docs/screenshots/ribbon.jpg" alt="Ribbon theme: Lull, a sleep sounds app" /></a></td>
   </tr>
   <tr>
     <td><b>Dusk</b><br/><sub>Closewise, bank reconciliation</sub></td>
@@ -41,11 +41,11 @@ The gates come in tiers. The **Floor** never ships (contrast, focus, reduced mot
     <td><b>Ribbon</b><br/><sub>Lull, a sleep sounds app</sub></td>
   </tr>
   <tr>
-    <td width="20%"><a href="https://www.usehallmark.com/themes/furrow/"><img src="docs/screenshots/furrow.jpg" alt="Furrow theme: Fieldbook, farm records" /></a></td>
-    <td width="20%"><a href="https://www.usehallmark.com/themes/dose/"><img src="docs/screenshots/dose.jpg" alt="Dose theme: Tandem, a family medication app" /></a></td>
-    <td width="20%"><a href="https://www.usehallmark.com/themes/refract/"><img src="docs/screenshots/refract.jpg" alt="Refract theme: Bellwater Lido, an outdoor pool" /></a></td>
-    <td width="20%"><a href="https://www.usehallmark.com/themes/vantage/"><img src="docs/screenshots/vantage.jpg" alt="Vantage theme: Swath, construction site scans" /></a></td>
-    <td width="20%"><a href="https://www.usehallmark.com/themes/hedgerow/"><img src="docs/screenshots/hedgerow.jpg" alt="Hedgerow theme: Five Mile Gin, a distillery" /></a></td>
+    <td width="20%"><a href="https://www.usehallmark.com/themes/furrow/"><img src="https://raw.githubusercontent.com/Nutlope/hallmark/4f6a46c6dc325d40ab268c93e25c7b96676ebccd/docs/screenshots/furrow.jpg" alt="Furrow theme: Fieldbook, farm records" /></a></td>
+    <td width="20%"><a href="https://www.usehallmark.com/themes/dose/"><img src="https://raw.githubusercontent.com/Nutlope/hallmark/4f6a46c6dc325d40ab268c93e25c7b96676ebccd/docs/screenshots/dose.jpg" alt="Dose theme: Tandem, a family medication app" /></a></td>
+    <td width="20%"><a href="https://www.usehallmark.com/themes/refract/"><img src="https://raw.githubusercontent.com/Nutlope/hallmark/4f6a46c6dc325d40ab268c93e25c7b96676ebccd/docs/screenshots/refract.jpg" alt="Refract theme: Bellwater Lido, an outdoor pool" /></a></td>
+    <td width="20%"><a href="https://www.usehallmark.com/themes/vantage/"><img src="https://raw.githubusercontent.com/Nutlope/hallmark/4f6a46c6dc325d40ab268c93e25c7b96676ebccd/docs/screenshots/vantage.jpg" alt="Vantage theme: Swath, construction site scans" /></a></td>
+    <td width="20%"><a href="https://www.usehallmark.com/themes/hedgerow/"><img src="https://raw.githubusercontent.com/Nutlope/hallmark/4f6a46c6dc325d40ab268c93e25c7b96676ebccd/docs/screenshots/hedgerow.jpg" alt="Hedgerow theme: Five Mile Gin, a distillery" /></a></td>
   </tr>
   <tr>
     <td><b>Furrow</b><br/><sub>Fieldbook, farm records</sub></td>
@@ -56,11 +56,11 @@ The gates come in tiers. The **Floor** never ships (contrast, focus, reduced mot
   </tr>
 </table>
 
-Ten of the fifty. A theme is a material, not a plan: it never says what a page contains or in what order, so two prompts in one theme make two different pages. Each is one file of at most 8 KB in [`references/themes/`](skills/hallmark/references/themes/) with a picture beside it; a build reads exactly one. See them all at [usehallmark.com](https://www.usehallmark.com).
+Ten of the fifty. A theme is a material, not a plan: it never says what a page contains or in what order, so two prompts in one theme make two different pages. Each is one file of at most 8 KB in [`references/themes/`](https://github.com/Nutlope/hallmark/blob/4f6a46c6dc325d40ab268c93e25c7b96676ebccd/skills/hallmark/references/themes) with a picture beside it; a build reads exactly one. See them all at [usehallmark.com](https://www.usehallmark.com).
 
 ## Custom
 
-Say **custom** and Hallmark drops the themes: no plan, no components, no palette recipe, only the floor, the gates and a short direction in [`direction.md`](skills/hallmark/references/direction.md) to find one idea that only this client has and let it run the page.
+Say **custom** and Hallmark drops the themes: no plan, no components, no palette recipe, only the floor, the gates and a short direction in [`direction.md`](https://github.com/Nutlope/hallmark/blob/4f6a46c6dc325d40ab268c93e25c7b96676ebccd/skills/hallmark/references/direction.md) to find one idea that only this client has and let it run the page.
 
 ## How a build runs
 
@@ -105,7 +105,7 @@ npx skills add nutlope/hallmark -g
 
 ## Inspired by
 
-[Impeccable](https://github.com/pbakaus/impeccable) · [frontend-design](https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design) · [Open Design](https://github.com/nexu-io/open-design) · [Kami](https://github.com/tw93/kami) · [taste-skill](https://github.com/Leonxlnx/taste-skill) · [huashu-design](https://github.com/alchaincyf/huashu-design) · [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) · [Emil Kowalski's skills](https://github.com/emilkowalski/skills) · [Web Interface Guidelines](https://github.com/vercel-labs/web-interface-guidelines)
+[Impeccable](https://github.com/pbakaus/impeccable) · [frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) · [Open Design](https://github.com/nexu-io/open-design) · [Kami](https://github.com/tw93/kami) · [taste-skill](https://github.com/Leonxlnx/taste-skill) · [huashu-design](https://github.com/alchaincyf/huashu-design) · [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) · [Emil Kowalski's skills](https://github.com/emilkowalski/skills) · [Web Interface Guidelines](https://github.com/vercel-labs/web-interface-guidelines)
 
 ## Licence
 
