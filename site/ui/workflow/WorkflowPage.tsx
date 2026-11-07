@@ -3,13 +3,15 @@ import { useEffect, useRef, useState } from 'react';
 import { SearchField } from '@/registry/components/search-field/search-field';
 import { Skeleton } from '@/registry/components/skeleton/skeleton';
 import { EmptyState } from '@/registry/components/empty-state/empty-state';
-import { CopyButton } from '@/ui/CopyButton';
+import { ButtonGroup } from '@/registry/components/button-group/button-group';
+import { useCopyFeedback } from '@/lib/use-copy-feedback';
 import { Dialog, DialogContent } from '@/registry/components/dialog/dialog';
 import { CodeBlock } from '@/registry/components/code-block/code-block';
 import { agentEntryText, cliExample, findWorkflowEntries, materialExample, skillExample, workflowVersion, type WorkflowCatalog } from '@/core/workflow';
 import { href, useRoute } from '@/core/router';
 import { openText } from '@/core/open-text';
 import { CodeLine, Prose, Section } from '../blocks';
+import { Check, CircleAlert, Copy } from 'lucide-react';
 import { ExternalLink } from '../icons';
 import './workflow.css';
 
@@ -17,6 +19,7 @@ export function WorkflowPage() {
   const route=useRoute(), selected=route.params.get('case');
   const [state,setState]=useState<{catalog: WorkflowCatalog} | {error: string} | null>(null);
   const [query,setQuery]=useState(''), [fallback,setFallback]=useState<string>();
+  const { state: copyState, activeKey, copy } = useCopyFeedback();
   const code=useRef<HTMLDivElement>(null);
   const catalog=state && 'catalog' in state?state.catalog:null;
   const entries=catalog?findWorkflowEntries(catalog,query):[];
@@ -53,7 +56,11 @@ export function WorkflowPage() {
             const text=agentEntryText(catalog,entry,location.href);
             return <article className="card card-list" key={entry.id} data-case={entry.id}>
               <div className="card-body"><p className="card-sub">{entry.category} · {entry.country || '未确认'}</p><h3>{entry.title}</h3><p className="card-summary">{entry.summary}</p><code>{entry.id}</code></div>
-              <div className="card-actions"><LinkButton variant="secondary" size="sm"  href={href(`/cases/${entry.id}`)}>预览案例</LinkButton><LinkButton variant="secondary" size="sm"  href={entry.paths.bundle} download={`${entry.id}-context.json`}>下载案例包 JSON</LinkButton><CopyButton value={text} label="复制 Agent 入口" onCopyError={() => setFallback(text)} /></div>
+              <div className="card-actions"><ButtonGroup label="案例操作" size="sm" items={[
+                { id: "preview", label: "预览案例", href: href(`/cases/${entry.id}`) },
+                { id: "download", label: "下载案例包 JSON", onSelect: () => { const a = document.createElement("a"); a.href = entry.paths.bundle; a.download = `${entry.id}-context.json`; a.click(); } },
+                { id: "copy", label: activeKey === entry.id && copyState === "copied" ? "已复制" : activeKey === entry.id && copyState === "error" ? "复制失败" : "复制 Agent 入口", reserve: ["复制 Agent 入口", "已复制", "复制失败"], icon: activeKey === entry.id && copyState === "copied" ? <Check aria-hidden="true" /> : activeKey === entry.id && copyState === "error" ? <CircleAlert aria-hidden="true" /> : <Copy aria-hidden="true" />, onSelect: async () => { if (!await copy(text, entry.id)) setFallback(text); } },
+              ]} /></div>
             </article>;
           })}</div>
         </>}

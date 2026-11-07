@@ -1,9 +1,6 @@
-import { Button } from "@/registry/components/button/button";
-import { LinkButton } from "@/ui/LinkButton";
 // Web Demo 舞台：显示比例、重播、新标签页、原站对照，以及巧思在来源案例中的定位（CONTENT.md 6.1）。
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import SegmentedControl from "@/registry/components/segmented-control/segmented-control";
-import { Columns2, Crosshair, ExternalLink, RotateCcw } from "@/ui/icons";
 
 export type Viewport = "fit" | "wide" | "mobile";
 const WIDTH: Record<Exclude<Viewport, "fit">, number> = { wide: 1440, mobile: 390 };
@@ -83,26 +80,6 @@ export function ViewportControl({ value, onChange }: { value: Viewport; onChange
       options={[{ value: "fit", label: "适应" }, { value: "wide", label: "桌面" }, { value: "mobile", label: "手机" }]}
     /></div>
   );
-}
-
-export function StageToolbar({ children }: { children: ReactNode }) {
-  return <div className="stage-toolbar">{children}</div>;
-}
-
-export function ReplayButton({ onClick, label = "重播" }: { onClick: () => void; label?: string }) {
-  return <Button variant="secondary" size="sm"  onClick={onClick} aria-label={label} title={label}><RotateCcw /><span className="stage-action-label">{label}</span></Button>;
-}
-
-export function OpenButton({ url }: { url: string }) {
-  return <LinkButton variant="secondary" size="sm"  href={url} target="_blank" rel="noopener" aria-label="在新标签页打开" title="在新标签页打开"><ExternalLink /><span className="stage-action-label">新标签页</span></LinkButton>;
-}
-
-export function CompareToggle({ on, onChange }: { on: boolean; onChange: (v: boolean) => void }) {
-  return <Button variant={on ? "primary" : "secondary"} size="sm"  aria-pressed={on} onClick={() => onChange(!on)} aria-label="原站对照" title="原站截图与复刻并排对照"><Columns2 /><span className="stage-action-label">原站对照</span></Button>;
-}
-
-export function LocateButton({ onClick }: { onClick: () => void }) {
-  return <Button variant="secondary" size="sm"  onClick={onClick} aria-label="重新定位" title="重新定位"><Crosshair /><span className="stage-action-label">重新定位</span></Button>;
 }
 
 /* ---------- 巧思定位 ---------- */

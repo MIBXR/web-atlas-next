@@ -6,14 +6,15 @@ import { Carousel } from "@/registry/components/carousel/carousel";
 import { Dialog, DialogContent } from "@/registry/components/dialog/dialog";
 import { Combobox } from "@/registry/components/combobox/combobox";
 import { Select } from "@/registry/components/select/select";
-import { ChevronLeft, ChevronRight, Columns2, Crosshair, ExternalLink, Volume2, VolumeX, X } from "@/ui/icons";
+import { ChevronLeft, ChevronRight, Columns2, Crosshair, ExternalLink, RotateCcw, Volume2, VolumeX, X } from "@/ui/icons";
+import { StageToolbar } from "@/ui/StageToolbar";
 import { href, navigate, useRoute, withParams } from "@/core/router";
 import { openText, TEXT_FILE } from "@/core/open-text";
 import type { Entry } from "@/core/types";
 import { Bullets, CodeLine, DocLinks, EntryLinks, has, SourceList, useEvidenceLabel, KV, Palette, ParamTable, PromptBlock, Prose, RelatedEntries, Section, Sources } from "@/ui/blocks";
 import { DetailLayout, GalleryStage } from "@/ui/DetailPage";
 import { byId, useAtlas } from "@/ui/context";
-import { CompareToggle, DemoFrame, LocateButton, OpenButton, ReplayButton, StageToolbar, useLocator, ViewportControl, type Focus, type Viewport } from "./stage";
+import { DemoFrame, useLocator, ViewportControl, type Focus, type Viewport } from "./stage";
 
 type L = Record<string, any>;
 /** labels.json 没有收录、但页面上会直接显示的枚举值。 */
@@ -36,12 +37,11 @@ function CaseStage({ e }: { e: Entry }) {
   const compare = route.params.get("ref") === "1" && !!e.referencePreview;
   return (
     <div className="stage">
-      <StageToolbar>
-        <ViewportControl value={viewport} onChange={setViewport} />
-        <ReplayButton onClick={() => setReload(n => n + 1)} />
-        {e.referencePreview ? <CompareToggle on={compare} onChange={on => navigate(withParams(route, { ref: on ? "1" : null }), { replace: true })} /> : null}
-        <OpenButton url={e.demo} />
-      </StageToolbar>
+      <StageToolbar viewport={<ViewportControl value={viewport} onChange={setViewport} />} items={[
+        { id: "replay", label: "重播", icon: <RotateCcw aria-hidden="true" />, onSelect: () => setReload(n => n + 1) },
+        ...(e.referencePreview ? [{ id: "compare", label: compare ? "退出对照" : "原站对照", reserve: ["原站对照", "退出对照"], icon: <Columns2 aria-hidden="true" />, onSelect: () => navigate(withParams(route, { ref: compare ? null : "1" }), { replace: true }) }] : []),
+        { id: "open", label: "新标签页", icon: <ExternalLink aria-hidden="true" />, onSelect: () => window.open(e.demo, "_blank", "noopener") },
+      ]} />
       <div className={compare ? "stage-split" : "stage-single"}>
         {compare ? (
           <figure className="reference-shot">
@@ -173,17 +173,15 @@ function PatternStage({ e, sources }: { e: Entry; sources: { caseId: string; foc
   if (!src) return null;
   return (
     <div className="stage">
-      <StageToolbar>
-        {sources.length > 1 ? (
+      <StageToolbar viewport={<ViewportControl value={viewport} onChange={setViewport} />} content={sources.length > 1 ? (
           <div className="picker picker-source">
             <Select label="来源案例" value={sel.caseId} onValueChange={v => navigate(withParams(route, { source: v, view: null }), { replace: true })} options={sources.map(s => ({ value: s.caseId, label: `来源：${byId(data.cases, s.caseId)?.title ?? s.caseId}` }))} />
           </div>
-        ) : null}
-        <ViewportControl value={viewport} onChange={setViewport} />
-        <LocateButton onClick={relocate} />
-        <ReplayButton onClick={() => setReload(n => n + 1)} />
-        <OpenButton url={src} />
-      </StageToolbar>
+        ) : null} items={[
+        { id: "replay", label: "重播", icon: <RotateCcw aria-hidden="true" />, onSelect: () => setReload(n => n + 1) },
+        { id: "locate", label: "重新定位", icon: <Crosshair aria-hidden="true" />, onSelect: relocate },
+        { id: "open", label: "新标签页", icon: <ExternalLink aria-hidden="true" />, onSelect: () => window.open(src, "_blank", "noopener") },
+      ]} />
       <div className="locate-note">
         <Crosshair aria-hidden="true" />
         <div>
@@ -271,21 +269,19 @@ function MaterialStage({ e }: { e: Entry }) {
   const go = (d?: L) => d && navigate(withParams(route, { demo: d.id }), { replace: true });
   return (
     <div className="stage">
-      <StageToolbar>
-        {demos.length > 1 ? (
+      <StageToolbar viewport={<ViewportControl value={viewport} onChange={setViewport} />} content={demos.length > 1 ? (
           <div className="demo-picker">
-            <Button variant="secondary" size="sm"  aria-label="上一个样例" disabled={i <= 0} onClick={() => go(demos[i - 1])}><ChevronLeft /></Button>
+            <Button variant="secondary" size="md" aria-label="上一个样例" disabled={i <= 0} onClick={() => go(demos[i - 1])}><ChevronLeft /></Button>
             <div className="picker picker-demo">
               <Combobox label={`样例（${i + 1}/${demos.length}）`} placeholder="搜索样例" value={cur?.id ?? ""} onValueChange={v => go(demos.find(d => d.id === v))} options={demos.map(d => ({ value: d.id, label: d.group ? `${d.group} · ${d.title}` : d.title, keywords: [d.component ?? "", d.id] }))} />
             </div>
             <span className="picker-count muted">{i + 1}/{demos.length}</span>
-            <Button variant="secondary" size="sm"  aria-label="下一个样例" disabled={i >= demos.length - 1} onClick={() => go(demos[i + 1])}><ChevronRight /></Button>
+            <Button variant="secondary" size="md" aria-label="下一个样例" disabled={i >= demos.length - 1} onClick={() => go(demos[i + 1])}><ChevronRight /></Button>
           </div>
-        ) : null}
-        <ViewportControl value={viewport} onChange={setViewport} />
-        <ReplayButton onClick={() => setReload(n => n + 1)} />
-        <OpenButton url={src} />
-      </StageToolbar>
+        ) : null} items={[
+        { id: "replay", label: "重播", icon: <RotateCcw aria-hidden="true" />, onSelect: () => setReload(n => n + 1) },
+        { id: "open", label: "新标签页", icon: <ExternalLink aria-hidden="true" />, onSelect: () => window.open(src, "_blank", "noopener") },
+      ]} />
       {cur ? <div className="locate-note"><div><strong>{cur.title}</strong>{cur.component ? <span className="mono">{cur.component}</span> : null}<span>{cur.summary}</span></div></div> : null}
       <div className="stage-single"><div className="stage-demo">
         <DemoFrame src={src} viewport={viewport} reloadKey={reload} title={`${e.title} 样例`} />
