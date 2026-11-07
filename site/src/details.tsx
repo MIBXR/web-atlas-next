@@ -357,17 +357,20 @@ function Gallery({ e }: { e: Entry }) {
   return (
     <>
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent {...galleryAnimation} title={images[index]!.caption} onOpenAutoFocus={event => { event.preventDefault(); carousel.current?.querySelector<HTMLElement>('[role="group"]')?.focus({ preventScroll: true }); }}>
-          <div ref={carousel}>
-            <Carousel key={settled ? "ready" : "opening"} label={`${e.title}画廊`} className="gallery-carousel" index={index} onIndexChange={setIndex} slideLabel={(i, count) => `第 ${i + 1} 张，共 ${count} 张`}>
-              {images.map(image => <figure className="gallery-slide" key={image.path}>
+        <DialogContent {...galleryAnimation} title="素材画廊" description={e.title} className="gallery-dialog" onOpenAutoFocus={event => { event.preventDefault(); carousel.current?.querySelector<HTMLElement>('[role="group"]')?.focus({ preventScroll: true }); }}>
+          <div ref={carousel} className="gallery-content">
+            <Carousel key={settled ? "ready" : "opening"} label={`${e.title}画廊`} className="gallery-carousel" index={index} onIndexChange={setIndex} slideSize="100cqw" slideLabel={(i, count) => `第 ${i + 1} 张，共 ${count} 张`}>
+              {images.map(image => <figure key={image.path}>
                 <img src={image.path} alt={image.caption} loading="lazy" />
-                <div className="gallery-actions">
-                  <LinkButton variant="ghost" size="sm" href={image.path} target="_blank" rel="noopener">原图 <ExternalLink aria-hidden="true" /></LinkButton>
-                  {image.replicaPage ? <LinkButton variant="ghost" size="sm" href={image.replicaPage} target="_blank" rel="noopener">复刻页 <ExternalLink aria-hidden="true" /></LinkButton> : null}
-                  {image.sourceUrl ? <LinkButton variant="ghost" size="sm" href={image.sourceUrl} target="_blank" rel="noopener">出处 <ExternalLink aria-hidden="true" /></LinkButton> : null}
-                </div>
-                {image.license ? <p className="muted small">{image.license}</p> : null}
+                <figcaption>
+                  <p>{image.caption}</p>
+                  <div className="gallery-modal-links">
+                    <LinkButton variant="ghost" size="sm" href={image.path} target="_blank" rel="noopener">原图 <ExternalLink aria-hidden="true" /></LinkButton>
+                    {image.replicaPage ? <LinkButton variant="ghost" size="sm" href={image.replicaPage} target="_blank" rel="noopener">复刻页 <ExternalLink aria-hidden="true" /></LinkButton> : null}
+                    {image.sourceUrl ? <LinkButton variant="ghost" size="sm" href={image.sourceUrl} target="_blank" rel="noopener">出处 <ExternalLink aria-hidden="true" /></LinkButton> : null}
+                  </div>
+                  {image.license ? <p className="muted small">{image.license}</p> : null}
+                </figcaption>
               </figure>)}
             </Carousel>
           </div>

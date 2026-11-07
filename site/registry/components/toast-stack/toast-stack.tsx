@@ -77,7 +77,7 @@ const BORDER = 2;
 /** A swipe this far right has faded most of the way out. */
 const SWIPE_FADE = 280;
 const EMPTY: ToastRecord[] = [];
-const typeLabels: Record<ToastType, string> = { success: "Success", info: "Info", warning: "Warning", error: "Error", loading: "In progress" };
+const typeLabels: Record<ToastType, string> = { success: "成功", info: "消息", warning: "提醒", error: "错误", loading: "进行中" };
 const icons = { success: CircleCheck, info: Info, warning: TriangleAlert, error: CircleX };
 
 const standard = [...motionTokens.ease.standard] as [number, number, number, number];
@@ -383,7 +383,7 @@ function ToastItem({ toast, target, expanded, front, hidden, paused, reduce, sto
             <button type="button" className={styles.action} onClick={runAction}>{toast.action.label}</button>
           </motion.div> : null}
         </AnimatePresence>
-        <button ref={closeRef} type="button" className={styles.close} aria-label="Dismiss notification" onClick={() => store.dismiss(id)}>
+        <button ref={closeRef} type="button" className={styles.close} aria-label="关闭消息" onClick={() => store.dismiss(id)}>
           <X width={16} height={16} strokeWidth={1.75} aria-hidden="true" />
         </button>
       </motion.div>
@@ -391,7 +391,7 @@ function ToastItem({ toast, target, expanded, front, hidden, paused, reduce, sto
   </motion.li>;
 }
 
-export function ToastStack({ label = "Notifications", position = "bottom-right", contained = false, visibleToasts = 3, hotkey = true, className }: ToastStackProps) {
+export function ToastStack({ label = "提示消息", position = "bottom-right", contained = false, visibleToasts = 3, hotkey = true, className }: ToastStackProps) {
   const store = useStore();
   const toasts = useSyncExternalStore(store.subscribe, store.getSnapshot, getServerSnapshot);
   const reduce = !!useReducedMotion();

@@ -145,17 +145,17 @@ export function CodeBlock({ code, filename, language = "tsx", maxLines }: CodeBl
   const expandLabels = [`展开全部 ${lineCount} 行`, "收起"] as const;
 
   return (
-    <section className={styles.block} aria-label={filename ? `${filename} 源码` : `${displayLanguage} 源码`} style={maxLines ? { "--code-lines": maxLines } as CSSProperties : undefined}>
+    <section className={styles.block} aria-label={filename ? `${filename} 源代码` : `${displayLanguage} 源代码`} style={maxLines ? { "--code-lines": maxLines } as CSSProperties : undefined}>
       <header className={styles.header}>
         <div className={styles.file}>
           <FileCode2 size={16} strokeWidth={1.75} aria-hidden="true" />
-          <FileName name={filename ?? "源码"} reduced={reduced} />
+          <FileName name={filename ?? "源代码"} reduced={reduced} />
           <span className={styles.language}>{displayLanguage}</span>
         </div>
-        <CopyButton value={code} label="复制" />
+        <CopyButton value={code} label="复制代码" />
       </header>
       <motion.div className={styles.viewport} style={{ height }}>
-        <pre ref={preRef} id={preId} className={styles.pre} tabIndex={0} aria-label="可选中的源码">
+        <pre ref={preRef} id={preId} className={styles.pre} tabIndex={0} aria-label="可选择的源代码">
           <AnimatePresence initial={false} mode="popLayout">
             <motion.code key={code} className={styles.code} initial={reduced ? false : { opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={reduced ? { opacity: 0, transition: { duration: 0 } } : { opacity: 0, transition: textExit }} transition={reduced ? { duration: 0 } : textEnter}>{highlight(code, displayLanguage)}</motion.code>
           </AnimatePresence>

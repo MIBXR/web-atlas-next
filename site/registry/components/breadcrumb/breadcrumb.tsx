@@ -13,7 +13,7 @@ export interface BreadcrumbItem {
 }
 export interface BreadcrumbProps { items: BreadcrumbItem[]; ariaLabel?: string }
 /** Crumbs present on first render stay still; crumbs added later slide in from the path before them. */
-export function Breadcrumb({ items, ariaLabel = "Breadcrumb" }: BreadcrumbProps) {
+export function Breadcrumb({ items, ariaLabel = "位置" }: BreadcrumbProps) {
   const reduced = useReducedMotion() ?? false;
   const still = { duration: 0 };
   const path = items.map(item => item.label).join("/");

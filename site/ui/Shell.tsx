@@ -52,7 +52,7 @@ function ThemeControl({ compact }: { compact: boolean }) {
   const pref = useTheme();
   const theme = pref === "system" ? effectiveTheme() : pref;
   const system = (
-    <Button variant="secondary" size="sm" className="theme-system" aria-pressed={pref === "system"} aria-label="跟随系统主题" onClick={() => switchTheme(pref === "system" ? theme : "system")}>
+    <Button variant={pref === "system" ? "primary" : "secondary"} size="sm" className="theme-system" aria-pressed={pref === "system"} aria-label="跟随系统主题" onClick={() => switchTheme(pref === "system" ? theme : "system")}>
       <Monitor />
     </Button>
   );

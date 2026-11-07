@@ -144,7 +144,7 @@ export default function Toast({ title, description, open = true, onOpenChange, d
         <button
           className={styles.close}
           type="button"
-          aria-label="Dismiss notification"
+          aria-label="关闭提示"
           onClick={() => dismiss(0)}
         >
           <X width={16} height={16} strokeWidth={2} aria-hidden="true" />

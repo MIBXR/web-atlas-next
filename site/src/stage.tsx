@@ -98,7 +98,7 @@ export function OpenButton({ url }: { url: string }) {
 }
 
 export function CompareToggle({ on, onChange }: { on: boolean; onChange: (v: boolean) => void }) {
-  return <Button variant="secondary" size="sm"  aria-pressed={on} onClick={() => onChange(!on)} aria-label="原站对照" title="原站截图与复刻并排对照"><Columns2 /><span className="stage-action-label">原站对照</span></Button>;
+  return <Button variant={on ? "primary" : "secondary"} size="sm"  aria-pressed={on} onClick={() => onChange(!on)} aria-label="原站对照" title="原站截图与复刻并排对照"><Columns2 /><span className="stage-action-label">原站对照</span></Button>;
 }
 
 export function LocateButton({ onClick }: { onClick: () => void }) {

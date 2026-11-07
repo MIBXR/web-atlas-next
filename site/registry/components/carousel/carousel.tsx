@@ -50,7 +50,7 @@ const project = (velocity: number, rate = .995) => velocity / 1000 * rate / (1 -
 /** Past an edge every pixel costs more, like pulling against elastic. */
 const rubber = (overshoot: number, dimension: number) => overshoot * dimension * .55 / (dimension + .55 * overshoot);
 const unrubber = (distance: number, dimension: number) => distance * dimension / (.55 * Math.max(1, dimension - distance));
-const defaultSlideLabel = (index: number, count: number) => `${index + 1} of ${count}`;
+const defaultSlideLabel = (index: number, count: number) => `第 ${index + 1} 张，共 ${count} 张`;
 const subscribeNothing = () => () => {};
 
 const iconIn: TargetAndTransition = { opacity: 0, scale: .6, filter: `blur(${motionTokens.blur.subtle}px)` };
@@ -292,10 +292,10 @@ export function Carousel({ label, children, index: controlledIndex, defaultIndex
 
   const rootStyle = { "--carousel-slide": slideSize, "--carousel-start": startIndex } as CSSProperties;
 
-  return <section ref={rootRef} className={[styles.root, className].filter(Boolean).join(" ")} style={rootStyle} aria-roledescription="carousel" aria-label={label} onKeyDown={onKeyDown}
+  return <section ref={rootRef} className={[styles.root, className].filter(Boolean).join(" ")} style={rootStyle} aria-roledescription="轮播" aria-label={label} onKeyDown={onKeyDown}
     onFocus={event => setFocusPaused(event.target !== playRef.current && event.target.matches(":focus-visible"))}
     onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setFocusPaused(false); }}>
-    <div ref={viewportRef} className={styles.viewport} role="group" aria-label="Slides" tabIndex={0} data-dragging={dragging || undefined}
+    <div ref={viewportRef} className={styles.viewport} role="group" aria-label="图片" tabIndex={0} data-dragging={dragging || undefined}
       onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={event => finish(event, false)} onPointerCancel={event => finish(event, true)}
       onPointerEnter={event => { if (event.pointerType === "mouse") setHovered(true); }} onPointerLeave={() => setHovered(false)}
       onClickCapture={event => { if (swallowClick.current) { event.preventDefault(); event.stopPropagation(); swallowClick.current = false; } }}
@@ -305,20 +305,20 @@ export function Carousel({ label, children, index: controlledIndex, defaultIndex
       </motion.div>
     </div>
     {count > 1 && <div className={styles.controls}>
-      {canRotate && <button ref={playRef} type="button" className={styles.control} aria-label={playing ? "Pause slide rotation" : "Start slide rotation"} onClick={toggleRotation}>
+      {canRotate && <button ref={playRef} type="button" className={styles.control} aria-label={playing ? "暂停轮播" : "开始轮播"} onClick={toggleRotation}>
         <span className={styles.iconSlot}><AnimatePresence initial={false}>
           <motion.span key={playing ? "pause" : "play"} className={styles.icon} initial={reduced ? { opacity: 0 } : iconIn} animate={iconRest} exit={reduced ? { opacity: 0, transition: { duration: motionTokens.duration.instant } } : iconOut} transition={reduced ? { duration: motionTokens.duration.instant } : iconEnter}>
             {playing ? <Pause size={15} strokeWidth={1.75} fill="currentColor" aria-hidden="true" /> : <Play size={15} strokeWidth={1.75} fill="currentColor" aria-hidden="true" />}
           </motion.span>
         </AnimatePresence></span>
       </button>}
-      <div className={styles.tabs} role="tablist" aria-label="Choose a slide">
+      <div className={styles.tabs} role="tablist" aria-label="选择图片">
         {slides.map((_, i) => <Dot key={i} index={i} last={last} progress={progress} drain={drains[i]!} selected={i === index} label={slideLabel(i, count)} controls={`${id}-slide-${i}`}
           tabRef={node => { tabRefs.current[i] = node; }} onSelect={() => select(i)} />)}
       </div>
       <div className={styles.arrows}>
-        <button type="button" className={styles.control} aria-label="Previous slide" aria-disabled={index === 0} onClick={() => { if (target.current > 0) select(target.current - 1); }}><ChevronLeft size={18} strokeWidth={1.75} aria-hidden="true" /></button>
-        <button type="button" className={styles.control} aria-label="Next slide" aria-disabled={index === last} onClick={() => { if (target.current < last) select(target.current + 1); }}><ChevronRight size={18} strokeWidth={1.75} aria-hidden="true" /></button>
+        <button type="button" className={styles.control} aria-label="上一张" aria-disabled={index === 0} onClick={() => { if (target.current > 0) select(target.current - 1); }}><ChevronLeft size={18} strokeWidth={1.75} aria-hidden="true" /></button>
+        <button type="button" className={styles.control} aria-label="下一张" aria-disabled={index === last} onClick={() => { if (target.current < last) select(target.current + 1); }}><ChevronRight size={18} strokeWidth={1.75} aria-hidden="true" /></button>
       </div>
     </div>}
     <span className={styles.visuallyHidden} aria-live="polite" aria-atomic="true">{announcement}</span>
@@ -329,7 +329,7 @@ export function Carousel({ label, children, index: controlledIndex, defaultIndex
 function Slide({ id, index, progress, active, label, children }: { id: string; index: number; progress: MotionValue<number>; active: boolean; label: string; children: ReactNode }) {
   const scale = useTransform(progress, [index - 1, index, index + 1], [SCALE, 1, SCALE]);
   const opacity = useTransform(progress, [index - 1, index, index + 1], [DIM, 1, DIM]);
-  return <motion.div id={id} className={styles.slide} role="tabpanel" aria-roledescription="slide" aria-label={label} inert={!active} style={{ scale, opacity }}>{children}</motion.div>;
+  return <motion.div id={id} className={styles.slide} role="tabpanel" aria-roledescription="图片" aria-label={label} inert={!active} style={{ scale, opacity }}>{children}</motion.div>;
 }
 
 /** Each indicator grows toward a pill as the track nears its slide, so the pill hands over continuously instead of hopping. */

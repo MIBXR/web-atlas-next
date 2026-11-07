@@ -123,11 +123,11 @@ export function ListPage({ kind }: { kind: Kind }) {
           <Button variant="secondary" size="sm"  aria-label={s.dir === "asc" ? "正序，点按切换为反序" : "反序，点按切换为正序"} title={s.dir === "asc" ? "正序" : "反序"} onClick={() => set({ dir: s.dir === "asc" ? "desc" : null })}>
             {s.dir === "asc" ? <ArrowUpNarrowWide /> : <ArrowDownWideNarrow />}
           </Button>
-          <Button variant="secondary" size="sm"  aria-pressed={s.favOnly} onClick={() => set({ fav: s.favOnly ? null : "1" })}><Star fill={s.favOnly ? "currentColor" : "none"} /><span>只看收藏</span></Button>
+          <Button variant={s.favOnly ? "primary" : "secondary"} size="sm"  aria-pressed={s.favOnly} onClick={() => set({ fav: s.favOnly ? null : "1" })}><Star fill={s.favOnly ? "currentColor" : "none"} /><span>只看收藏</span></Button>
           <span className="toolbar-spacer" />
           <div className="view-toggle" role="group" aria-label="布局">
-            <Button variant="secondary" size="sm"  aria-pressed={view === "grid"} aria-label="卡片" onClick={() => set({ view: null })}><LayoutGrid /></Button>
-            <Button variant="secondary" size="sm"  aria-pressed={view === "list"} aria-label="列表" onClick={() => set({ view: "list" })}><List /></Button>
+            <Button variant={view === "grid" ? "primary" : "secondary"} size="sm"  aria-pressed={view === "grid"} aria-label="卡片" onClick={() => set({ view: null })}><LayoutGrid /></Button>
+            <Button variant={view === "list" ? "primary" : "secondary"} size="sm"  aria-pressed={view === "list"} aria-label="列表" onClick={() => set({ view: "list" })}><List /></Button>
           </div>
         </div>
         {active.length ? (

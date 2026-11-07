@@ -79,7 +79,7 @@ function Selection({ layoutId, reduced }: { layoutId: string; reduced: boolean }
   return <motion.span aria-hidden="true" layoutId={layoutId} className={styles.selection} transition={reduced ? still : motionTokens.spring.morph} />;
 }
 
-export function TreeView({ nodes, defaultExpandedIds = [], expandedIds, onExpandedChange, onSelect, "aria-label": ariaLabel = "File tree" }: TreeViewProps) {
+export function TreeView({ nodes, defaultExpandedIds = [], expandedIds, onExpandedChange, onSelect, "aria-label": ariaLabel = "文档目录" }: TreeViewProps) {
   const reduced = useReducedMotion() ?? false;
   const selectionLayoutId = `tree-selection-${useId()}`;
   const [internalExpanded, setInternalExpanded] = useState(() => new Set(defaultExpandedIds));
