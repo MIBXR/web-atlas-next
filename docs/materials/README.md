@@ -1,6 +1,6 @@
 # 内容素材使用说明
 
-[浏览素材库](../../materials.html) · [Agent 取材](../agent.md#内容素材取材) · [维护规范](../../CONTRIBUTING.md#三类组织规范)
+[浏览素材库](https://web-atlas-library.mibxranime.chatgpt.site/#/materials) · [Agent 取材](../agent.md#内容素材取材) · [维护规范](../../CONTRIBUTING.md#三类组织规范)
 
 | 素材 | 中文使用说明 |
 | --- | --- |

@@ -1,12 +1,12 @@
 # Arc UI · 组件平台的产品官网
 
-[案例入口](../../cases.html#style/uiarc-platform) · [独立网页](../../demos/cases/uiarc-platform/index.html) · [对照结果](../../demos/cases/uiarc-platform/fidelity.md)
+[案例入口](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/uiarc-platform) · [独立网页](../../demos/cases/uiarc-platform/index.html) · [对照结果](../../demos/cases/uiarc-platform/fidelity.md)
 
 ## 从效果到取用
 
 官网把“能做什么”和“怎样取得”安排在同一阅读流程中。首屏用一句主张解释 React 组件与 AI 工具的关系，两个行动入口分别通往组件目录和 Pro；客户标识随后补充采用背景。先展示六项高级作品，再展示九项日常免费控件，读者能在了解价格前看到两种内容的实际效果。
 
-原站这些卡片使用录制好的静音产品影片。卡片外围的标题、层级标记和一句机制说明方便检索，影片传达运动细节。页面复刻使用相同媒体，卡片展示的是影片，并非可操作组件。可修改的真实免费组件在独立的 [Arc UI 素材](../../materials.html#material/arc-ui) 中。
+原站这些卡片使用录制好的静音产品影片。卡片外围的标题、层级标记和一句机制说明方便检索，影片传达运动细节。页面复刻使用相同媒体，卡片展示的是影片，并非可操作组件。可修改的真实免费组件在独立的 [Arc UI 素材](https://web-atlas-library.mibxranime.chatgpt.site/#/materials/arc-ui) 中。
 
 ## 品牌面板与界面主题
 
