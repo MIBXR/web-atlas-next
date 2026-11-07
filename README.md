@@ -12,7 +12,13 @@
 
 [打开首页](https://web-atlas-library.mibxranime.chatgpt.site/#/) · [案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases) · [巧思库](https://web-atlas-library.mibxranime.chatgpt.site/#/patterns) · [素材库](https://web-atlas-library.mibxranime.chatgpt.site/#/materials) · [设计实验室](https://web-atlas-library.mibxranime.chatgpt.site/#/tools/lab) · [Agent 工作流](https://web-atlas-library.mibxranime.chatgpt.site/#/tools/workflow) · [文档中心](https://web-atlas-library.mibxranime.chatgpt.site/#/docs)
 
-![Web Atlas 实际 Demo 全景](docs/readme/cover.webp)
+<table>
+<tr>
+<td width="33%" align="center"><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/chatgpt-platform"><img src="previews/cases/chatgpt-platform.jpg" alt="ChatGPT · 产品交互" width="100%"></a><br><sub>ChatGPT · 产品交互</sub></td>
+<td width="33%" align="center"><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/endfield-industrial"><img src="previews/cases/endfield-industrial.jpg" alt="终末地 · 工业档案" width="100%"></a><br><sub>终末地 · 工业档案</sub></td>
+<td width="33%" align="center"><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/rijksmuseum-art"><img src="previews/cases/rijksmuseum-art.jpg" alt="Rijksmuseum · 艺术文化" width="100%"></a><br><sub>Rijksmuseum · 艺术文化</sub></td>
+</tr>
+</table>
 
 </div>
 
@@ -30,14 +36,14 @@
 
 <table>
 <tr>
-<td width="33%" valign="top"><img src="previews/cases/stripe-platform.jpg" alt="Stripe 彩带与金融产品矩阵" width="100%"><br><strong><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/stripe-platform">Stripe</a></strong><br>折叠波带、连续大字叙述与金融产品矩阵。<br><br><a href="prompts/cases/stripe-platform.md">Prompt</a> · <a href="docs/cases/stripe-platform.md">研究</a> · <a href="demos/cases/stripe-platform/">代码</a></td>
-<td width="33%" valign="top"><img src="previews/cases/zenless-zone-zero.jpg" alt="绝区零街头拼贴首页" width="100%"><br><strong><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/zenless-zone-zero">绝区零</a></strong><br>街头拼贴、角色舞台与六章首页导航。<br><br><a href="prompts/cases/zenless-zone-zero.md">Prompt</a> · <a href="docs/cases/zenless-zone-zero.md">研究</a> · <a href="demos/cases/zenless-zone-zero/">代码</a></td>
-<td width="33%" valign="top"><img src="previews/cases/digital-dunhuang.jpg" alt="数字敦煌影像与检索入口" width="100%"><br><strong><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/digital-dunhuang">数字敦煌</a></strong><br>全幅石窟影像、分面检索与壁画瓦片细察。<br><br><a href="prompts/cases/digital-dunhuang.md">Prompt</a> · <a href="docs/cases/digital-dunhuang.md">研究</a> · <a href="demos/cases/digital-dunhuang/">代码</a></td>
+<td width="33%" valign="top"><img src="previews/cases/chatgpt-platform.jpg" alt="ChatGPT — 巨字、飞入拼贴与滚动交接" width="100%"><br><strong><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/chatgpt-platform">ChatGPT</a></strong><br>巨字标题、飞入拼贴与产品窗口随滚动交接。<br><br><a href="prompts/cases/chatgpt-platform.md">Prompt</a> · <a href="docs/cases/chatgpt-platform.md">研究</a> · <a href="demos/cases/chatgpt-platform/">代码</a></td>
+<td width="33%" valign="top"><img src="previews/cases/endfield-industrial.jpg" alt="终末地 · 完整工业科幻门户" width="100%"><br><strong><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/endfield-industrial">终末地</a></strong><br>八章工业科幻门户，干员目录与点云世界观。<br><br><a href="prompts/cases/endfield-industrial.md">Prompt</a> · <a href="docs/cases/endfield-industrial.md">研究</a> · <a href="demos/cases/endfield-industrial/">代码</a></td>
+<td width="33%" valign="top"><img src="previews/cases/rijksmuseum-art.jpg" alt="Rijksmuseum · 全幅摄影与巨大字标" width="100%"><br><strong><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/rijksmuseum-art">Rijksmuseum</a></strong><br>全幅名画摄影配巨大白色字标。<br><br><a href="prompts/cases/rijksmuseum-art.md">Prompt</a> · <a href="docs/cases/rijksmuseum-art.md">研究</a> · <a href="demos/cases/rijksmuseum-art/">代码</a></td>
 </tr>
 <tr>
-<td width="33%" valign="top"><img src="previews/cases/bauhaus-geometry.jpg" alt="包豪斯几何构成实验" width="100%"><br><strong><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/bauhaus-geometry">包豪斯</a></strong><br>用基本几何、有限色盘与预设观察构成关系。<br><br><a href="prompts/cases/bauhaus-geometry.md">Prompt</a> · <a href="docs/cases/bauhaus-geometry.md">研究</a> · <a href="demos/cases/bauhaus-geometry/">代码</a></td>
-<td width="33%" valign="top"><img src="previews/cases/mira-host-photography.jpg" alt="Mira Høst 摄影作品集" width="100%"><br><strong><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/mira-host-photography">Mira Høst</a></strong><br>全幅摄影与衬线标题组织作品集的阅读层级。<br><br><a href="prompts/cases/mira-host-photography.md">Prompt</a> · <a href="docs/cases/mira-host-photography.md">研究</a> · <a href="demos/cases/mira-host-photography/">代码</a></td>
-<td width="33%" valign="top"><img src="previews/cases/animejs-site.jpg" alt="Anime.js 彩虹仪表盘首页" width="100%"><br><strong><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/animejs-site">Anime.js</a></strong><br>彩虹仪表盘与全屏 API 演示呈现动画引擎。<br><br><a href="prompts/cases/animejs-site.md">Prompt</a> · <a href="docs/cases/animejs-site.md">研究</a> · <a href="demos/cases/animejs-site/">代码</a></td>
+<td width="33%" valign="top"><img src="previews/cases/deepseek-harness.jpg" alt="DeepSeek Harness · 可观察的产品演示" width="100%"><br><strong><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/deepseek-harness">DeepSeek Harness</a></strong><br>深色流体主视觉衬托可观察的产品演示。<br><br><a href="prompts/cases/deepseek-harness.md">Prompt</a> · <a href="docs/cases/deepseek-harness.md">研究</a> · <a href="demos/cases/deepseek-harness/">代码</a></td>
+<td width="33%" valign="top"><img src="previews/cases/hallmark.jpg" alt="Hallmark · 设计 skill 官网与五十主题" width="100%"><br><strong><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/hallmark">Hallmark</a></strong><br>真实页面作为手牌发出，五十主题网格。<br><br><a href="prompts/cases/hallmark.md">Prompt</a> · <a href="docs/cases/hallmark.md">研究</a> · <a href="demos/cases/hallmark/">代码</a></td>
+<td width="33%" valign="top"><img src="previews/cases/animejs-site.jpg" alt="Anime.js · JavaScript 动画引擎官网" width="100%"><br><strong><a href="https://web-atlas-library.mibxranime.chatgpt.site/#/cases/animejs-site">Anime.js</a></strong><br>彩环仪表盘与八节全屏 API 演示。<br><br><a href="prompts/cases/animejs-site.md">Prompt</a> · <a href="docs/cases/animejs-site.md">研究</a> · <a href="demos/cases/animejs-site/">代码</a></td>
 </tr>
 </table>
 
