@@ -30,7 +30,7 @@ Reacticle 是用于文章、报告和交互长文的 React 语义化组件库，
 
 ## 关联工作流
 
-[beautiful-article](../../materials.html#material/beautiful-article) 提供来源整理、计划、写作、审阅、修复和交付流程，Reacticle 提供其中的组件与主题实现。主题写作资料见关联技能快照中的 `theme-profiles/`。
+[beautiful-article](https://web-atlas-library.mibxranime.chatgpt.site/#/materials/beautiful-article) 提供来源整理、计划、写作、审阅、修复和交付流程，Reacticle 提供其中的组件与主题实现。主题写作资料见关联技能快照中的 `theme-profiles/`。
 
 ## 本地资源与可访问性
 
