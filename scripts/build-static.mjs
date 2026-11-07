@@ -111,15 +111,11 @@ function normalizeEncodedAt() {
       else if (extensions.has(path.extname(item.name).toLowerCase())) {
         const original = fs.readFileSync(filename, 'utf8');
         const documentPath = path.relative(output, filename).split(path.sep).join('/');
-        let text = original.replace(/[^\s"'`()<>]+/g, fragment => {
+        const text = original.replace(/[^\s"'`()<>]+/g, fragment => {
           if (!/%40/i.test(fragment)) return fragment;
           const reference = localReference(fragment, documentPath);
           return reference && fs.existsSync(path.join(output, reference.canonical)) ? fragment.replace(/%40/gi, '@') : fragment;
         });
-        if (documentPath === 'demos/materials/three-html-render/index.html') {
-          // The import-map alias names a virtual module rather than a physical file.
-          text = text.replace('./vendor/three%400.185.1/three.core.js', './vendor/three@0.185.1/three.core.js');
-        }
         if (text !== original) fs.writeFileSync(filename, text, 'utf8');
       }
     }
