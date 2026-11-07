@@ -47,7 +47,7 @@ export function ElementControls({ model, systemDark, embed, onChange, onReferenc
           <ColorPicker label={label} value={palette[key]} background={palette.bg} onValueChange={value => onChange(key,value)} />
         </div>)}
         {!embed && <p className="muted small" id="contrast-note" data-warn={textRatio < 4.5 || undefined}>
-          {'文字 / 背景 '+textRatio.toFixed(2)+':1；按钮文字 '+buttonRatio.toFixed(2)+':1。'+(textRatio<4.5?'正文读数低于4.5:1，试着调深或调浅文字。':'这两组读数不代表整页无障碍达标。')+'按钮文字自动选择深浅。'}
+          {'文字 / 背景 '+textRatio.toFixed(2)+':1；按钮文字 '+buttonRatio.toFixed(2)+':1。'+(textRatio<4.5?'正文读数低于4.5:1，试着调深或调浅文字。':'可继续调整配色并比较读数。')+'按钮文字自动选择深浅。'}
         </p>}
       </fieldset>
       {controls.filter(control => !embed || control.key === 'type').map(control => <Fragment key={control.key}>

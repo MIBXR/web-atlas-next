@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { notify } from "@/ui/notifications";
 
 export type CopyFeedbackState = "idle" | "copied" | "error";
 
@@ -63,6 +64,7 @@ export function useCopyFeedback(duration = 1900) {
       return true;
     } catch {
       setState("error");
+      notify("复制失败", "error");
       timeout.current = setTimeout(reset, duration);
       return false;
     }

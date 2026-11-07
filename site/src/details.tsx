@@ -1,5 +1,9 @@
+import { Button } from "@/registry/components/button/button";
+import { LinkButton } from "@/ui/LinkButton";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Badge from "@/registry/components/badge/badge";
+import { Carousel } from "@/registry/components/carousel/carousel";
+import { Dialog, DialogContent } from "@/registry/components/dialog/dialog";
 import { Combobox } from "@/registry/components/combobox/combobox";
 import { Select } from "@/registry/components/select/select";
 import { ChevronLeft, ChevronRight, Columns2, Crosshair, ExternalLink, Volume2, VolumeX, X } from "@/ui/icons";
@@ -79,14 +83,14 @@ export function CaseDetail({ e }: { e: Entry }) {
         <Badge>{lab(L, ["cases", "category"], e.category)}</Badge>
         <Badge>{e.country}</Badge>
         {e.capturedAt ? <Badge>采集 {e.capturedAt}</Badge> : null}
-        {e.referenceUrl ? <a className="text-button" href={e.referenceUrl} target="_blank" rel="noopener">原站 <ExternalLink aria-hidden="true" /></a> : null}
+        {e.referenceUrl ? <LinkButton variant="ghost" size="sm"  href={e.referenceUrl} target="_blank" rel="noopener">原站 <ExternalLink aria-hidden="true" /></LinkButton> : null}
       </>}
       stage={<CaseStage e={e} />}
     >
       <Section id="overview" title="概览">
         <Prose text={e.summary} />
         <KV data={{ productFocus: e.productFocus, theme: e.theme, edition: e.edition, implementation: ENUM[e.implementation] ?? e.implementation, studyScope: ENUM[e.studyScope] ?? e.studyScope, theoryVerifiedAt: e.theoryVerifiedAt }} labels={{ productFocus: "设计重点", theme: "主题与情绪", edition: "采集版本", implementation: "实现类别", studyScope: "研究范围", theoryVerifiedAt: "理论核验" }} />
-        {has(e.tags) ? <div className="tag-row">{e.tags.map((t: string) => <a key={t} className="tag" href={href("/cases", { q: t })}>{t}</a>)}</div> : null}
+        {has(e.tags) ? <div className="badge-row">{e.tags.map((t: string) => <a key={t} className="badge-link" href={href("/cases", { q: t })}><Badge>{t}</Badge></a>)}</div> : null}
       </Section>
       <Section id="principles" title="设计机制"><Bullets items={e.principles} /></Section>
       <Section id="interaction" title="交互"><Bullets items={e.interaction} /></Section>
@@ -117,7 +121,7 @@ export function CaseDetail({ e }: { e: Entry }) {
       <Section id="sources" title="来源证据"><Sources items={e.sources} /></Section>
       <Section id="docs" title="研究文档与资料">
         <DocLinks docs={[{ label: "研究拆解", path: e.$.research }, { label: "复刻对照", path: e.$.fidelity }, { label: "许可说明", path: e.$.licenses }, { label: "Prompt 原文", path: e.$.prompt }]} />
-        {e.assetManifest ? <p><a className="text-button" href={e.assetManifest} target="_blank" rel="noopener">素材来源清单 JSON <ExternalLink aria-hidden="true" /></a></p> : null}
+        {e.assetManifest ? <p><LinkButton variant="ghost" size="sm"  href={e.assetManifest} target="_blank" rel="noopener">素材来源清单 JSON <ExternalLink aria-hidden="true" /></LinkButton></p> : null}
       </Section>
     </DetailLayout>
   );
@@ -140,8 +144,8 @@ function PatternSources({ e }: { e: Entry }) {
         internal: true,
         meta: s.capturedAt,
         actions: <>
-          {s.focus ? <button className="text-button" onClick={() => { navigate(withParams(route, { source: s.caseId, view: null }), { replace: true }); window.scrollTo({ top: 0, behavior: "smooth" }); }}><Crosshair aria-hidden="true" /> 在 Demo 中定位</button> : null}
-          {s.referenceUrl ? <a className="text-button" href={s.referenceUrl} target="_blank" rel="noopener">原始参考 <ExternalLink aria-hidden="true" /></a> : null}
+          {s.focus ? <Button variant="ghost" size="sm"  onClick={() => { navigate(withParams(route, { source: s.caseId, view: null }), { replace: true }); window.scrollTo({ top: 0, behavior: "smooth" }); }}><Crosshair aria-hidden="true" /> 在 Demo 中定位</Button> : null}
+          {s.referenceUrl ? <LinkButton variant="ghost" size="sm"  href={s.referenceUrl} target="_blank" rel="noopener">原始参考 <ExternalLink aria-hidden="true" /></LinkButton> : null}
         </>,
         note: <>{ob.title ? <strong>{ob.title}</strong> : null}{ob.note}</>,
       };
@@ -269,12 +273,12 @@ function MaterialStage({ e }: { e: Entry }) {
       <StageToolbar>
         {demos.length > 1 ? (
           <div className="demo-picker">
-            <button className="icon-button" aria-label="上一个样例" disabled={i <= 0} onClick={() => go(demos[i - 1])}><ChevronLeft /></button>
+            <Button variant="secondary" size="sm"  aria-label="上一个样例" disabled={i <= 0} onClick={() => go(demos[i - 1])}><ChevronLeft /></Button>
             <div className="picker picker-demo">
               <Combobox label={`样例（${i + 1}/${demos.length}）`} placeholder="搜索样例" value={cur?.id ?? ""} onValueChange={v => go(demos.find(d => d.id === v))} options={demos.map(d => ({ value: d.id, label: d.group ? `${d.group} · ${d.title}` : d.title, keywords: [d.component ?? "", d.id] }))} />
             </div>
             <span className="picker-count muted">{i + 1}/{demos.length}</span>
-            <button className="icon-button" aria-label="下一个样例" disabled={i >= demos.length - 1} onClick={() => go(demos[i + 1])}><ChevronRight /></button>
+            <Button variant="secondary" size="sm"  aria-label="下一个样例" disabled={i >= demos.length - 1} onClick={() => go(demos[i + 1])}><ChevronRight /></Button>
           </div>
         ) : null}
         <ViewportControl value={viewport} onChange={setViewport} />
@@ -324,8 +328,8 @@ function VigilCompare({ item, onClose }: { item: L; onClose: () => void }) {
     <div className="vigil-compare">
       <header>
         <strong>{item.caption}</strong>
-        {item.compare.sound ? <button className="icon-button" aria-label={muted ? "打开原作声音" : "静音"} onClick={() => setMuted(!muted)}>{muted ? <VolumeX /> : <Volume2 />}</button> : null}
-        <button className="icon-button" aria-label="关闭对照" onClick={onClose}><X /></button>
+        {item.compare.sound ? <Button variant="secondary" size="sm"  aria-label={muted ? "打开原作声音" : "静音"} onClick={() => setMuted(!muted)}>{muted ? <VolumeX /> : <Volume2 />}</Button> : null}
+        <Button variant="secondary" size="sm"  aria-label="关闭对照" onClick={onClose}><X /></Button>
       </header>
       <div className="vigil-pair">
         <figure><figcaption>原作</figcaption><video ref={video} src={item.compare.original} autoPlay loop muted={muted} playsInline /></figure>
@@ -337,23 +341,58 @@ function VigilCompare({ item, onClose }: { item: L; onClose: () => void }) {
 
 function Gallery({ e }: { e: Entry }) {
   const { data } = useAtlas();
-  const [open, setOpen] = useState<L | null>(null);
-  const kinds = [...new Set((e.gallery as L[]).map(g => g.kind))];
+  const images = e.gallery as L[];
+  const [index, setIndex] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [settled, setSettled] = useState(false);
+  const [comparison, setComparison] = useState<L | null>(null);
+  const carousel = useRef<HTMLDivElement>(null);
+  const kinds = [...new Set(images.map(g => g.kind))];
+  // Dialog 缩放结束后重新测量 Carousel，使用最终画幅定位图片。
+  const galleryAnimation = { onAnimationComplete: () => {
+    if (!open || settled) return;
+    setSettled(true);
+    requestAnimationFrame(() => carousel.current?.querySelector<HTMLElement>('[role="group"]')?.focus({ preventScroll: true }));
+  } };
   return (
     <>
-      {open ? <VigilCompare key={open.path} item={open} onClose={() => setOpen(null)} /> : null}
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent {...galleryAnimation} title="素材画廊" description={e.title} className="gallery-dialog" onOpenAutoFocus={event => { event.preventDefault(); carousel.current?.querySelector<HTMLElement>('[role="group"]')?.focus({ preventScroll: true }); }}>
+          <div ref={carousel} className="gallery-content">
+            <Carousel key={settled ? "ready" : "opening"} label={`${e.title}画廊`} className="gallery-carousel" index={index} onIndexChange={setIndex} slideSize="100cqw" slideLabel={(i, count) => `第 ${i + 1} 张，共 ${count} 张`}>
+              {images.map(image => <figure key={image.path}>
+                <img src={image.path} alt={image.caption} loading="lazy" />
+                <figcaption>
+                  <p>{image.caption}</p>
+                  <div className="gallery-modal-links">
+                    <LinkButton variant="ghost" size="sm" href={image.path} target="_blank" rel="noopener">原图 <ExternalLink aria-hidden="true" /></LinkButton>
+                    {image.replicaPage ? <LinkButton variant="ghost" size="sm" href={image.replicaPage} target="_blank" rel="noopener">复刻页 <ExternalLink aria-hidden="true" /></LinkButton> : null}
+                    {image.sourceUrl ? <LinkButton variant="ghost" size="sm" href={image.sourceUrl} target="_blank" rel="noopener">出处 <ExternalLink aria-hidden="true" /></LinkButton> : null}
+                  </div>
+                  {image.license ? <p className="muted small">{image.license}</p> : null}
+                </figcaption>
+              </figure>)}
+            </Carousel>
+          </div>
+        </DialogContent>
+      </Dialog>
+      <Dialog open={comparison !== null} onOpenChange={value => { if (!value) setComparison(null); }}>
+        <DialogContent title="原作与 WebGL 复刻">
+          {comparison ? <VigilCompare key={comparison.path} item={comparison} onClose={() => setComparison(null)} /> : null}
+        </DialogContent>
+      </Dialog>
       {kinds.map(k => (
         <div key={k}>
           {kinds.length > 1 ? <h3 className="sub">{lab(data.labels, ["materials", "gallery[].kind"], k)}</h3> : null}
           <ul className="gallery" style={{ ["--ratio" as string]: e.galleryRatio ?? "4/3", ["--fit" as string]: e.galleryFit ?? "cover" }}>
-            {(e.gallery as L[]).filter(g => g.kind === k).map(g => (
+            {images.filter(g => g.kind === k).map(g => (
               <li key={g.path}>
-                <a href={g.path} target="_blank" rel="noopener"><img src={g.path} alt={g.caption} loading="lazy" /></a>
+                <a href={g.path} target="_blank" rel="noopener" onClick={event => { event.preventDefault(); setIndex(images.indexOf(g)); setSettled(false); setOpen(true); }}><img src={g.path} alt={g.caption} loading="lazy" /></a>
                 <p>{g.caption}</p>
                 <div className="gallery-actions">
-                  {g.compare ? <button className="text-button" onClick={() => setOpen(g)}><Columns2 aria-hidden="true" /> 原作与复刻</button> : null}
-                  {g.replicaPage ? <a className="text-button" href={g.replicaPage} target="_blank" rel="noopener">复刻页 <ExternalLink aria-hidden="true" /></a> : null}
-                  {g.sourceUrl ? <a className="text-button" href={g.sourceUrl} target="_blank" rel="noopener">出处 <ExternalLink aria-hidden="true" /></a> : null}
+                  {g.compare ? <Button variant="ghost" size="sm"  onClick={() => setComparison(g)}><Columns2 aria-hidden="true" /> 原作与复刻</Button> : null}
+                  {g.replicaPage ? <LinkButton variant="ghost" size="sm"  href={g.replicaPage} target="_blank" rel="noopener">复刻页 <ExternalLink aria-hidden="true" /></LinkButton> : null}
+                  {g.sourceUrl ? <LinkButton variant="ghost" size="sm"  href={g.sourceUrl} target="_blank" rel="noopener">出处 <ExternalLink aria-hidden="true" /></LinkButton> : null}
                 </div>
                 {g.license ? <p className="muted small">{g.license}</p> : null}
               </li>
