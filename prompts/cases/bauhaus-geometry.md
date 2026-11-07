@@ -26,4 +26,4 @@
 
 加入第二组不使用原色的材料色板，检验相同几何关系是否仍能表达平衡与张力。
 
-[查看 Demo](../../demos/cases/bauhaus-geometry/index.html) · [返回案例库](../../cases.html#style/bauhaus-geometry)
+[查看 Demo](../../demos/cases/bauhaus-geometry/index.html) · [返回案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/bauhaus-geometry)

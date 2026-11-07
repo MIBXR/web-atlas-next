@@ -311,7 +311,7 @@ a.source-title:hover { color: var(--accent-strong); text-decoration: underline; 
 .vigil-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
 .vigil-pair figure { margin: 0; display: grid; gap: 4px; }
 .vigil-pair figcaption { font-size: var(--ui-xs); color: var(--text-muted); }
-.vigil-pair video, .vigil-pair canvas { width: 100%; max-height: calc(100dvh - 253px); object-fit: contain; background: #000; border-radius: 10px; }
+.vigil-pair video, .vigil-pair img, .vigil-pair canvas { width: 100%; max-height: calc(100dvh - 253px); object-fit: contain; background: #000; border-radius: 10px; }
 
 /* ---------- 文档 ---------- */
 .docs-page { max-width: none; }
@@ -429,7 +429,7 @@ a.source-title:hover { color: var(--accent-strong); text-decoration: underline; 
   .kv-row { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .section, .gallery-stage { padding: var(--space-4); border-radius: 16px; }
   .vigil-pair { grid-template-columns: 1fr; }
-  .vigil-pair video, .vigil-pair canvas { max-height: calc((100dvh - 286px) / 2); }
+  .vigil-pair video, .vigil-pair img, .vigil-pair canvas { max-height: calc((100dvh - 286px) / 2); }
   .detail-head h1 { font-size: 22px; }
 }
 @media (prefers-reduced-motion: reduce) {

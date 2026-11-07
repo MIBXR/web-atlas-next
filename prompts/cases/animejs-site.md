@@ -21,4 +21,4 @@
 
 在两个视口滚动至八节 API 演示，操作拖拽与进度条；比较模块展开、缩减、组装时体积标签的变化，再打开相应代码与文档入口。
 
-[查看 Demo](../../demos/cases/animejs-site/index.html) · [返回案例库](../../cases.html#style/animejs-site)
+[查看 Demo](../../demos/cases/animejs-site/index.html) · [返回案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/animejs-site)

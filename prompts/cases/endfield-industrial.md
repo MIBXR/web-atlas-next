@@ -23,4 +23,4 @@
 
 替换为有使用权的科研设备图像，保留斜线注册大字与竖向类别书脊，检验背景标签与正文在手机上仍有清楚的主次。
 
-[查看 Demo](../../demos/cases/endfield-industrial/index.html) · [返回案例库](../../cases.html#style/endfield-industrial)
+[查看 Demo](../../demos/cases/endfield-industrial/index.html) · [返回案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/endfield-industrial)

@@ -22,4 +22,4 @@
 
 在相同视口对照原站与本地，走完拖放、首次允许、拒绝后允许、两次拒绝和重播；观察角色锚点、终端文字、权限卡与画廊的交接。
 
-[查看 Demo](../../demos/cases/clawd-on-desk/index.html) · [返回案例库](../../cases.html#style/clawd-on-desk)
+[查看 Demo](../../demos/cases/clawd-on-desk/index.html) · [返回案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/clawd-on-desk)

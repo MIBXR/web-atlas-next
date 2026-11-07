@@ -21,4 +21,4 @@
 
 在 1440×1000 与 390×844、DPR 1、相同主题下并排对照原站和本地；走完主题、菜单、影片、复制、两个价格状态和六项 FAQ，结果见 fidelity.md。
 
-[查看 Demo](../../demos/cases/uiarc-platform/index.html) · [返回案例库](../../cases.html#style/uiarc-platform)
+[查看 Demo](../../demos/cases/uiarc-platform/index.html) · [返回案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/uiarc-platform)

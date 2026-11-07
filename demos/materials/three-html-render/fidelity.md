@@ -1,6 +1,6 @@
 # three-html-render：对照结果
 
-在本地 HTTP 下，无头 Edge `155.0.4283.62` 已实测运行真实 WebGL，实际使用 SVG foreignObject polyfill 路径。浏览器有原生 `texElementImage2D` 时走原生路径。
+Edge `155.0.4283.62` 与 Chrome `157.0.8103.38` 在默认参数下使用 SVG foreignObject polyfill 绘制 HTML 面板。原生路径要求 `drawElementImage`、`requestPaint`、`onpaint` 和 WebGL2 的 `texElementImage2D` 齐全。polyfill 保留旧纹理上传接口，并通过 `texElementSubImage2D` 向预先分配的纹理上传快照；布局、paint 事件与交互使用 polyfill 的实现。
 
 1440px 同条件对照中，原作与本地的源页面均为 1440×810，投影矩形均为 `(155.4016, 144.3815, 1129.1948, 628.1824)`；标题计算字号 77px、字重 670、行高 72.38px、字体栈及控制板边界相同。初始画面观察未见明显的构图、黑位、材质或光照差异，保留参考场景的暗部表现。摆动画面的光斑边缘有轻微偏移，取帧时间差为可能原因，未经独立验证。动态画面未达到 1:1。
 

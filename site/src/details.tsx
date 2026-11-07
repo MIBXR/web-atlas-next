@@ -294,6 +294,7 @@ function MaterialStage({ e }: { e: Entry }) {
 function VigilCompare({ item }: { item: L }) {
   const video = useRef<HTMLVideoElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
+  const isImage = /\.(?:jpe?g|png|webp|avif|gif)$/i.test(item.compare.original);
   const [muted, setMuted] = useState(true);
   const [aspectRatio, setAspectRatio] = useState<number>();
   useEffect(() => {
@@ -307,7 +308,7 @@ function VigilCompare({ item }: { item: L }) {
       canvas.current.width = piece.originalWidth;
       canvas.current.height = piece.originalHeight;
       setAspectRatio(piece.originalWidth / piece.originalHeight);
-      const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const still = isImage || matchMedia("(prefers-reduced-motion: reduce)").matches;
       const draw = () => {
         if (!alive || !canvas.current) return;
         r.renderPiece(canvas.current, piece, still ? 0 : video.current?.currentTime ?? 0);
@@ -322,14 +323,14 @@ function VigilCompare({ item }: { item: L }) {
       if (v) { v.pause(); v.removeAttribute("src"); v.load(); }
       load("renderer.js").then(r => c && r.releaseRenderer(c));
     };
-  }, [item]);
+  }, [item, isImage]);
   return (
     <div className="vigil-compare">
-      {item.compare.sound ? <div className="vigil-sound">
+      {!isImage && item.compare.sound ? <div className="vigil-sound">
         <Button variant="secondary" size="sm"  aria-label={muted ? "打开原作声音" : "静音"} onClick={() => setMuted(!muted)}>{muted ? <VolumeX /> : <Volume2 />}</Button>
       </div> : null}
       <div className="vigil-pair">
-        <figure><figcaption>原作</figcaption><video ref={video} style={{ aspectRatio }} src={item.compare.original} autoPlay loop muted={muted} playsInline /></figure>
+        <figure><figcaption>原作</figcaption>{isImage ? <img src={item.compare.original} alt={item.caption} style={{ aspectRatio }} /> : <video ref={video} style={{ aspectRatio }} src={item.compare.original} autoPlay loop muted={muted} playsInline />}</figure>
         <figure><figcaption>WebGL 复刻</figcaption><canvas ref={canvas} style={{ aspectRatio }} /></figure>
       </div>
     </div>

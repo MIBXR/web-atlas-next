@@ -21,4 +21,4 @@
 
 在 ribbon.js 中只改变一个场景参数，观察三角面编组、视差和代码转视频的关系；保持影片数据、文字及操作状态。
 
-[查看 Demo](../../demos/cases/hyperframes-site/index.html) · [返回案例库](../../cases.html#style/hyperframes-site)
+[查看 Demo](../../demos/cases/hyperframes-site/index.html) · [返回案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/hyperframes-site)
