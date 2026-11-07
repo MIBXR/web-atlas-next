@@ -81,18 +81,18 @@ export function LabPage() {
   const coordination=<CoordinationLab model={model} setModel={setModel} embed={embed} systemDark={systemDark} reducedMotion={reducedMotion} onScheme={onScheme} onReference={onReference} onChange={onChange} />;
   if(embed)return <div className="lab-page lab-embed">{coordination}</div>;
   return <div className="page lab-page">
-    <header className="page-head"><div><h1>设计实验室</h1><p className="muted">先调整配色、排版与形状，再分别体验视觉、微动效、页面动效和声音机制，观察它们如何影响内容层级和实际操作。</p></div></header>
+    <header className="page-head"><div><h1>设计实验室</h1><p className="muted">调整配色、排版与形状，体验视觉、微动效、页面动效和声音机制，比较内容层级与操作反馈。</p></div></header>
     <div className="detail-content">
       <SectionNav sections={sections} active={active} />
       <div className="detail-sections" ref={content}>
         <ReadingSection id="framework" />
-        <Section id="lab" title="同样的内容，三种协调方案。">{coordination}</Section>
+        <Section id="lab" title="完整协调方案">{coordination}</Section>
         <PatternLab />
         <ReadingSection id="elements" />
         <ReadingSection id="principles" />
         <ReadingSection id="workflow" />
-        <Section id="prompt" title="把设计要求，写成可以执行的 Prompt。">
-          <Prose text="先使用这份基础约束，再补充案例库中所选风格的专属 Prompt。把方括号中的内容替换为你的项目信息。" />
+        <Section id="prompt" title="设计要求与 Prompt">
+          <Prose text="将方括号中的内容替换为项目信息，并补充所选案例的专属 Prompt。" />
           <PromptBlock title="通用基础 Prompt · 中文" text={basePrompt} />
           <PromptBlock title="当前配置 Prompt" text={currentPrompt(model,systemDark,reducedMotion)} />
           <p className="muted small">若浏览器不允许自动复制，可选中上方文本手动复制。</p>

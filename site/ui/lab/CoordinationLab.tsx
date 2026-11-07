@@ -1,3 +1,4 @@
+import { Button } from "@/registry/components/button/button";
 import { useEffect, useRef, useState } from "react";
 import { Select } from "@/registry/components/select/select";
 import { CodeBlock } from "@/registry/components/code-block/code-block";
@@ -28,17 +29,17 @@ export function CoordinationLab({ model, setModel, systemDark, reducedMotion, em
   },[embed]);
   return (
     <div className="lab-coordination" ref={root} data-embed={embed || undefined}>
-      {!embed && <p className="prose">完整方案会同时改变<strong>配色、字体、形状、留白</strong>。再单独借用一项，观察它与其余元素的关系。混合不一定错误，这里不作审美打分。</p>}
+      {!embed && <p className="prose">完整方案同时改变<strong>配色、字体、形状、留白</strong>。可单独替换一项，比较它与其余元素的组合效果。</p>}
       <div className="lab-controls">
         <div className="lab-scheme"><Select id="scheme-choice" label="选择完整协调方案" options={[
-          {value:'paper',label:embed?'纸页':'纸页 安静 · 阅读'},
-          {value:'friendly',label:embed?'亲和':'亲和 轻松 · 上手'},
-          {value:'tool',label:embed?'工具':'工具 直接 · 扫描'},
+          {value:'paper',label:embed?'纸页':'纸页 · 阅读'},
+          {value:'friendly',label:embed?'亲和':'亲和 · 入门'},
+          {value:'tool',label:embed?'工具':'工具 · 信息浏览'},
         ]} value={model.schemeId} onValueChange={value => onScheme(value as SchemeId)} /></div>
         {!embed && <div className="lab-borrow">
           <Select id="override-element" label="只替换一项" options={Object.entries(labels).map(([value,label]) => ({value,label}))} value={group} onValueChange={value => setGroup(value as Group)} />
           <Select id="borrow-scheme" label="借用自" options={(['friendly','tool','paper'] as const).map(value => ({value,label:names[value]+'方案'}))} value={scheme} onValueChange={value => setScheme(value as SchemeId)} />
-          <button className="pill-button" id="apply-one" type="button" onClick={() => setModel(borrow(model,group,scheme))}>应用单项</button>
+          <Button variant="primary" size="sm"  id="apply-one" type="button" onClick={() => setModel(borrow(model,group,scheme))}>应用单项</Button>
         </div>}
       </div>
       <div className="lab-workspace">

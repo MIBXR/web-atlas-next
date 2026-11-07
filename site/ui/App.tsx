@@ -16,6 +16,8 @@ import { ComparePage } from "./ComparePage";
 import { FavoritesPage } from "./FavoritesPage";
 import { LabPage } from "./lab/LabPage";
 import { WorkflowPage } from "./workflow/WorkflowPage";
+import { ToastStackProvider } from "@/registry/components/toast-stack/toast-stack";
+import { Notifications } from "./notifications";
 
 function Router() {
   const route = useRoute();
@@ -45,7 +47,7 @@ export function mountAtlas(config: AtlasConfig) {
     const value = useMemo(() => config, []);
     const route = useRoute();
     const embed = route.path === "/tools/lab" && route.params.get("embed") === "home";
-    return <AtlasContext.Provider value={value}>{embed ? <Router /> : <Shell><Router /></Shell>}</AtlasContext.Provider>;
+    return <ToastStackProvider><AtlasContext.Provider value={value}>{embed ? <Router /> : <Shell><Router /></Shell>}<Notifications /></AtlasContext.Provider></ToastStackProvider>;
   }
   createRoot(document.getElementById("root")!).render(<Root />);
 }

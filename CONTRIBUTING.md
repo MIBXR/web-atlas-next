@@ -197,7 +197,7 @@ Web Atlas 与 Motion Atlas 是姊妹站，内容互不交叉。基础导航、�
 
 ### 设计语言与交互
 
-站点采用 React、TypeScript strict、Vite、Arc UI 与 lucide-react，依赖版本固定。颜色、圆角、间距和阴影取 Arc foundation Token，Web Atlas 使用绿色强调色。浅色、深色与跟随系统三种主题保存在本地；浅深切换使用 Arc theme-switch 的 split 变体，新外观从页面正中的细缝向两侧展开，减少动态时直接切换。界面使用 SVG 图标，正文、导航、标签和控件的渲染字号至少为 12px；Demo 画面内文字按作品设计确定。
+站点采用 React、TypeScript strict、Vite、Arc UI 与 lucide-react，依赖版本固定。颜色、圆角、间距和阴影取 Arc foundation Token，Web Atlas 使用绿色强调色。站点按钮使用 Arc Button：主要操作为 `primary/sm`，次要操作与纯图标按钮为 `secondary/sm`，文字按钮为 `ghost/sm`；切换类按钮开启时使用 `primary`。链接按钮统一使用 `site/ui/LinkButton.tsx` 复用 Arc 按钮样式类。筛选使用 Arc Checkbox 与 FilterToolbar，静态标签使用 Badge，详情位置使用 Breadcrumb。实验室示例产品使用原生按钮与标签，外观由演示配置驱动。浅色、深色与跟随系统三种主题保存在本地；浅深切换使用 Arc theme-switch 的 split 变体，新外观从页面正中的细缝向两侧展开，减少动态时直接切换。界面使用 SVG 图标，正文、导航、标签和控件的渲染字号至少为 12px；Demo 画面内文字按作品设计确定。
 
 主导航依次为总览、参考库（案例／巧思／素材／文档）、我的（收藏／比较）和工具。桌面侧栏可收起，收起后以图标和 Tooltip 提示名称及数量；手机通过顶部导航抽屉切换页面。主题、侧栏、收藏与比较篮保存在本地。
 
@@ -205,11 +205,13 @@ Web Atlas 与 Motion Atlas 是姊妹站，内容互不交叉。基础导航、�
 
 详情采用 Demo 舞台与拆解双栏。宽屏左侧舞台吸顶，右侧章节条随阅读位置高亮；窄屏上下排列。仅有画廊的素材把画廊放在左栏并随页面滚动。可选字段没有内容时隐藏对应小节。头部提供上一条／下一条、收藏、案例比较和 Agent 资料包下载；比较最多选择三个案例。
 
-网页 Demo 提供适应、桌面 1440px、手机 390px、重播、新标签页与原站截图对照。巧思在完整来源 Demo 中执行准备动作、滚动并框选观察位置四秒，可切换来源和重新定位。素材通过 `demos[].entrypoint` 切换样例；画廊按条目记录展示图片及已有的原作与复刻对照。
+网页 Demo 提供适应、桌面 1440px、手机 390px、重播、新标签页与原站截图对照。巧思在完整来源 Demo 中执行准备动作、滚动并框选观察位置四秒，可切换来源和重新定位。素材通过 `demos[].entrypoint` 切换样例。画廊网格点击图片后打开 Arc Dialog，内置 Carousel 从所点图片开始，支持左右按钮和方向键；原图、出处与复刻页链接随当前图片切换。原作视频与 WebGL 复刻对照也在 Arc Dialog 内打开。
+
+收藏、导入导出、比较超出上限与复制失败通过根部 Arc ToastStack 显示反馈，由 `site/ui/notifications.tsx` 的 `notify` 统一调用；复制成功由按钮自身显示“已复制”。
 
 页面由文档本身滚动，侧栏、工具栏、舞台与章节条使用吸附定位。每条历史记录保存滚动位置，返回列表时恢复；巧思定位只滚动 iframe 内部。来源列表采用证据标签、标题、日期、行内操作与第二行说明的统一布局。
 
-文档目录按标签规则分组，Demo 目录内文档默认折叠；标题取正文一级标题、frontmatter 的 `title/name` 或文件名。宽屏提供目录、正文和章节三栏，章节目录在较窄屏幕放在正文上方，手机阅读时可返回文档目录。Markdown 相对链接与图片以当前文档路径解析。收藏页统一导入、导出三类收藏，导入时合并本库有效 id。
+文档目录使用 Arc tree-view，按标签规则分组，Demo 目录内文档默认折叠；标题取正文一级标题、frontmatter 的 `title/name` 或文件名。当前文档决定选中项，切换文档时自动展开所在分组并在目录滚动区域内定位；分组标题在目录顶部吸附，支持方向键、Home、End、Enter 和空格操作。宽屏提供目录、正文和章节三栏，较窄屏幕在正文上方用 Arc Accordion 展示章节目录。手机文档页随页面滚动，分组标题吸附在顶栏下方；阅读后返回目录时保留当前文档高亮并定位。Markdown 相对链接与图片以当前文档路径解析。收藏页统一导入、导出三类收藏，导入时合并本库有效 id。
 
 ## 观察与实现
 
@@ -308,7 +310,7 @@ Prompt 写明结构、尺度、素材、关键状态及交接、音乐和主题�
 
 可运行素材使用 `demo`、`demoNote` 和非空 `demos`；每个样例包含 `id`、`title`、`summary`、`entrypoint`，可有 `component` 与 `{name,value,note}` 参数数组。字体、声音提供试排或播放样例；图像可使用站内画廊。
 
-资料目录使用 `snapshotPath: demos/materials/<id>/` 与 `snapshotEntry`；`snapshotEntry` 指向主文档，Agent Skill 为 `SKILL.md`。Agent Skill 的 `workflow` 是非空中文步骤数组，`relatedEntries` 是 `{kind: case|material|pattern,id,note}` 数组且关联 id 存在；可运行素材也可记录关联条目，有值时在详情显示。可选 `gallery` 是 `{path,caption,kind,sourceUrl,license,replicaPage,width,height}` 数组，`kind` 为 `work`、`style` 或 `theme`；采用自然比例的画廊必须提供正整数 `width`、`height`，保存图片实际像素尺寸；显式设置 `galleryRatio` 时由展示框预留空间。图片比例不一致时用 `galleryRatio`（如 `16/9`）统一展示框，图片按比例裁切，点开查看原图；有本库复刻页时用 `replicaPage` 指向该页，显示入口链接。`galleryFit` 取 `cover` 或 `contain`，需要完整显示作品时用 `contain`。`gallery[].compare` 保存 `{piece,original,sound}`，用于在点击作品时打开复刻与原作的对比弹窗，`sound` 仅在原作有音轨时设为 `true`。文字详情提供工作流、关联条目、原文主文档与 README；资料目录按目录递归纳入资料包，文件按第三方资源规则保存；图像类型不显示原文快照入口。
+资料目录使用 `snapshotPath: demos/materials/<id>/` 与 `snapshotEntry`；`snapshotEntry` 指向主文档，Agent Skill 为 `SKILL.md`。Agent Skill 的 `workflow` 是非空中文步骤数组，`relatedEntries` 是 `{kind: case|material|pattern,id,note}` 数组且关联 id 存在；可运行素材也可记录关联条目，有值时在详情显示。可选 `gallery` 是 `{path,caption,kind,sourceUrl,license,replicaPage,width,height}` 数组，`kind` 为 `work`、`style` 或 `theme`；采用自然比例的画廊必须提供正整数 `width`、`height`，保存图片实际像素尺寸；显式设置 `galleryRatio` 时由展示框预留空间。图片比例不一致时用 `galleryRatio`（如 `16/9`）统一展示框，图片按比例裁切；有本库复刻页时用 `replicaPage` 指向该页，显示入口链接。`galleryFit` 取 `cover` 或 `contain`，需要完整显示作品时用 `contain`。`gallery[].compare` 保存 `{piece,original,sound}`，提供复刻与原作对比入口，`sound` 仅在原作有音轨时设为 `true`。文字详情提供工作流、关联条目、原文主文档与 README；资料目录按目录递归纳入资料包，文件按第三方资源规则保存；图像类型不显示原文快照入口。
 
 
 ## 新增流程

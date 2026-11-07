@@ -68,8 +68,8 @@ const config: AtlasConfig = {
     materials: e => <MaterialDetail e={e} />,
   },
   tools: [
-    { id: "lab", title: "设计实验室", description: "亲手切换方案，调配颜色、字体与留白，观察这些元素怎样配合。", icon: <FlaskConical /> },
-    { id: "workflow", title: "Agent 工作流", description: "围绕需求比较设计方向，再取得完整说明、Prompt、研究与源码，作为构建依据。", icon: <Workflow /> },
+    { id: "lab", title: "设计实验室", description: "切换设计方案，调整颜色、字体与留白，比较元素组合。", icon: <FlaskConical /> },
+    { id: "workflow", title: "Agent 工作流", description: "检索案例与设计巧思，取得说明、Prompt、研究和源码。", icon: <Workflow /> },
   ],
   // Demo 中“返回参考库”指向原站 index.html#style/<id>。
   legacyHash: hash => {

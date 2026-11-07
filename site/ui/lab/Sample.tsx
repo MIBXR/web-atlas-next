@@ -39,7 +39,7 @@ export function Sample({ state, systemDark, reducedMotion }: { state: LabState; 
           <h3 id="sample-title">把日常的小发现，<br />变成自己的灵感库。</h3>
           <p>随手记录文字与想法，整理成主题，<br />在需要的时候，找回那一刻。</p>
           <div className="lab-sample-actions">
-            <button className="pill-button lab-sample-primary" id="sample-action" type="button" ref={action} aria-expanded={open} aria-controls="sample-compose" onClick={() => setOpen(!open)}>试写一条</button>
+            <button className="lab-sample-primary" id="sample-action" type="button" ref={action} aria-expanded={open} aria-controls="sample-compose" onClick={() => setOpen(!open)}>试写一条</button>
             <a href="#sample-features" onClick={event => { event.preventDefault(); allowScroll(); document.getElementById('sample-features')?.scrollIntoView({behavior:reducedMotion?'instant':'smooth',block:'center'}); }}>浏览功能</a>
           </div>
           <p className="lab-sample-footnote">本地交互示例 · 无需注册</p>
@@ -59,7 +59,7 @@ export function Sample({ state, systemDark, reducedMotion }: { state: LabState; 
         ].map(([path,title,copy]) => <div key={title}><span className="lab-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d={path} /></svg></span><strong>{title}</strong><p>{copy}</p></div>)}
       </div>
       <div className="lab-sample-feedback">
-        <button className="pill-button lab-sample-primary" id="feedback-demo" type="button" onClick={event => {
+        <button className="lab-sample-primary" id="feedback-demo" type="button" onClick={event => {
           const button=event.currentTarget;
           button.classList.remove('lab-feedback-pulse');
           const animated=state.motion&&!reducedMotion;
@@ -74,7 +74,7 @@ export function Sample({ state, systemDark, reducedMotion }: { state: LabState; 
         setNote(text); setMessage('已在本次页面保存。示例笔记已更新；刷新后不会保留。');
       }}>
         <Textarea id="sample-note" ref={textarea} label="写下你今天的一个发现" maxLength={180} placeholder="例如：雨后的路面，让霓虹的颜色多停留了一会儿。" value={draft} onChange={event => setDraft(event.target.value)} />
-        <div className="lab-compose-actions"><button className="pill-button" id="sample-save" type="submit">保存这条发现</button><button className="pill-button" id="sample-cancel" type="button" onClick={close}>返回预览</button><p id="sample-message" role="status" aria-live="polite">{message}</p></div>
+        <div className="lab-compose-actions"><button className="lab-sample-primary" id="sample-save" type="submit">保存这条发现</button><button className="lab-sample-secondary" id="sample-cancel" type="button" onClick={close}>返回预览</button><p id="sample-message" role="status" aria-live="polite">{message}</p></div>
       </form>
     </div>
   );
