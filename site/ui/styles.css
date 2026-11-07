@@ -305,13 +305,13 @@ a.source-title:hover { color: var(--accent-strong); text-decoration: underline; 
 .gallery-modal-links { display: flex; flex-wrap: wrap; gap: 2px; margin-left: calc(-1 * var(--space-3) - 1px); }
 .gallery-actions { display: flex; flex-wrap: wrap; gap: 2px; margin-left: -6px; }
 .gallery-carousel [role="tablist"] { overflow-x: auto; scrollbar-width: none; }
-.vigil-compare { border: 1px solid var(--border); border-radius: 16px; padding: var(--space-3); display: grid; gap: var(--space-3); background: var(--surface-muted); }
-.vigil-compare header { display: flex; align-items: center; gap: var(--space-2); }
-.vigil-compare header strong { flex: 1; }
+.vigil-dialog[role="dialog"] { width: min(1100px, 90vw); }
+.vigil-compare { display: grid; gap: var(--space-3); }
+.vigil-sound { display: flex; justify-content: flex-end; }
 .vigil-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
 .vigil-pair figure { margin: 0; display: grid; gap: 4px; }
 .vigil-pair figcaption { font-size: var(--ui-xs); color: var(--text-muted); }
-.vigil-pair video, .vigil-pair canvas { width: 100%; aspect-ratio: 4 / 5; object-fit: contain; background: #000; border-radius: 10px; }
+.vigil-pair video, .vigil-pair canvas { width: 100%; max-height: calc(100dvh - 253px); object-fit: contain; background: #000; border-radius: 10px; }
 
 /* ---------- 文档 ---------- */
 .docs-page { max-width: none; }
@@ -417,6 +417,7 @@ a.source-title:hover { color: var(--accent-strong); text-decoration: underline; 
 }
 @media (max-width: 640px) {
   .gallery-dialog[role="dialog"] { width: calc(100vw - var(--space-4)); }
+  .vigil-dialog[role="dialog"] { width: calc(100vw - var(--space-4)); }
   .gallery { grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 1fr)); }
   .page { padding-top: var(--space-4); }
   .card-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: var(--space-3); }
@@ -428,6 +429,7 @@ a.source-title:hover { color: var(--accent-strong); text-decoration: underline; 
   .kv-row { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .section, .gallery-stage { padding: var(--space-4); border-radius: 16px; }
   .vigil-pair { grid-template-columns: 1fr; }
+  .vigil-pair video, .vigil-pair canvas { max-height: calc((100dvh - 286px) / 2); }
   .detail-head h1 { font-size: 22px; }
 }
 @media (prefers-reduced-motion: reduce) {

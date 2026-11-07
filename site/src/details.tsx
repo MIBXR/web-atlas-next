@@ -6,7 +6,7 @@ import { Carousel } from "@/registry/components/carousel/carousel";
 import { Dialog, DialogContent } from "@/registry/components/dialog/dialog";
 import { Combobox } from "@/registry/components/combobox/combobox";
 import { Select } from "@/registry/components/select/select";
-import { ChevronLeft, ChevronRight, Columns2, Crosshair, ExternalLink, RotateCcw, Volume2, VolumeX, X } from "@/ui/icons";
+import { ChevronLeft, ChevronRight, Columns2, Crosshair, ExternalLink, RotateCcw, Volume2, VolumeX } from "@/ui/icons";
 import { StageToolbar } from "@/ui/StageToolbar";
 import { href, navigate, useRoute, withParams } from "@/core/router";
 import { openText, TEXT_FILE } from "@/core/open-text";
@@ -291,10 +291,11 @@ function MaterialStage({ e }: { e: Entry }) {
 }
 
 /** 0010-vigil 的原作视频与 WebGL 复刻对照：复刻画面的时间跟随视频 currentTime。 */
-function VigilCompare({ item, onClose }: { item: L; onClose: () => void }) {
+function VigilCompare({ item }: { item: L }) {
   const video = useRef<HTMLVideoElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const [muted, setMuted] = useState(true);
+  const [aspectRatio, setAspectRatio] = useState<number>();
   useEffect(() => {
     let raf = 0, alive = true;
     const base = "demos/materials/0010-vigil/demo/";
@@ -305,6 +306,7 @@ function VigilCompare({ item, onClose }: { item: L; onClose: () => void }) {
       if (!piece) return;
       canvas.current.width = piece.originalWidth;
       canvas.current.height = piece.originalHeight;
+      setAspectRatio(piece.originalWidth / piece.originalHeight);
       const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
       const draw = () => {
         if (!alive || !canvas.current) return;
@@ -323,14 +325,12 @@ function VigilCompare({ item, onClose }: { item: L; onClose: () => void }) {
   }, [item]);
   return (
     <div className="vigil-compare">
-      <header>
-        <strong>{item.caption}</strong>
-        {item.compare.sound ? <Button variant="secondary" size="sm"  aria-label={muted ? "打开原作声音" : "静音"} onClick={() => setMuted(!muted)}>{muted ? <VolumeX /> : <Volume2 />}</Button> : null}
-        <Button variant="secondary" size="sm"  aria-label="关闭对照" onClick={onClose}><X /></Button>
-      </header>
+      {item.compare.sound ? <div className="vigil-sound">
+        <Button variant="secondary" size="sm"  aria-label={muted ? "打开原作声音" : "静音"} onClick={() => setMuted(!muted)}>{muted ? <VolumeX /> : <Volume2 />}</Button>
+      </div> : null}
       <div className="vigil-pair">
-        <figure><figcaption>原作</figcaption><video ref={video} src={item.compare.original} autoPlay loop muted={muted} playsInline /></figure>
-        <figure><figcaption>WebGL 复刻</figcaption><canvas ref={canvas} /></figure>
+        <figure><figcaption>原作</figcaption><video ref={video} style={{ aspectRatio }} src={item.compare.original} autoPlay loop muted={muted} playsInline /></figure>
+        <figure><figcaption>WebGL 复刻</figcaption><canvas ref={canvas} style={{ aspectRatio }} /></figure>
       </div>
     </div>
   );
@@ -374,8 +374,8 @@ function Gallery({ e }: { e: Entry }) {
         </DialogContent>
       </Dialog>
       <Dialog open={comparison !== null} onOpenChange={value => { if (!value) setComparison(null); }}>
-        <DialogContent title="原作与 WebGL 复刻">
-          {comparison ? <VigilCompare key={comparison.path} item={comparison} onClose={() => setComparison(null)} /> : null}
+        <DialogContent title="原作与 WebGL 复刻" description={comparison?.caption} className="vigil-dialog">
+          {comparison ? <VigilCompare key={comparison.path} item={comparison} /> : null}
         </DialogContent>
       </Dialog>
       {kinds.map(k => (
