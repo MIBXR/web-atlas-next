@@ -24,4 +24,4 @@
 
 在同一视口下打开主页面与 baseline.html，逐项观察结构、字体职责、色彩、局部动效与信息层级；区分作者对照说明、源码数值和实际浏览器结果。
 
-[查看 Demo](../../demos/cases/stellar-museum/index.html) · [返回案例库](../../cases.html#style/stellar-museum)
+[查看 Demo](../../demos/cases/stellar-museum/index.html) · [返回案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/stellar-museum)

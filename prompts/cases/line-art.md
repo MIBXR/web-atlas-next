@@ -27,4 +27,4 @@
 
 将建筑线稿改为原创机械产品分解图，让绘制顺序对应支架、外壳、接口，并保持全文始终可读。
 
-[查看 Demo](../../demos/cases/line-art/index.html) · [返回案例库](../../cases.html#style/line-art)
+[查看 Demo](../../demos/cases/line-art/index.html) · [返回案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/line-art)

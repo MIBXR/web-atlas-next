@@ -24,4 +24,4 @@
 
 改变背景映像中的一个静态画面，保持Logo和下载位置，观察天空、建筑和高光是否遮挡标语，再记录控件可以放置的安全区域。
 
-[查看 Demo](../../demos/cases/blue-archive/index.html) · [返回案例库](../../cases.html#style/blue-archive)
+[查看 Demo](../../demos/cases/blue-archive/index.html) · [返回案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/blue-archive)

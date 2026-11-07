@@ -21,4 +21,4 @@
 
 在两种宽度下各打开一张手牌、切换比较 pair 并读到底、用键盘移动分隔线、过滤主题并在对话框前后翻页；对照同材料的两种结构，再到 Bloom 与 Ribbon 主动启停声音。
 
-[查看 Demo](../../demos/cases/hallmark/index.html) · [返回案例库](../../cases.html#style/hallmark)
+[查看 Demo](../../demos/cases/hallmark/index.html) · [返回案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/hallmark)

@@ -24,4 +24,4 @@
 
 把现场照片切换为不同地点，观察橙色header/蓝票据是否仍有清楚的音乐节识别；再打开大菜单检验每层链接是否能被键盘找到。
 
-[查看 Demo](../../demos/cases/fuji-rock/index.html) · [返回案例库](../../cases.html#style/fuji-rock)
+[查看 Demo](../../demos/cases/fuji-rock/index.html) · [返回案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/fuji-rock)

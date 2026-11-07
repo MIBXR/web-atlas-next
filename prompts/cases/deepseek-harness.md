@@ -22,4 +22,4 @@
 
 选用一项真实能力，将输入、执行过程、可交付结果拆成三个阶段；让一个成果物在下一场景继续存在，并保留独立暂停和静态可读状态。
 
-[查看 Demo](../../demos/cases/deepseek-harness/index.html) · [返回案例库](../../cases.html#style/deepseek-harness)
+[查看 Demo](../../demos/cases/deepseek-harness/index.html) · [返回案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/deepseek-harness)

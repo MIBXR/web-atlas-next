@@ -475,7 +475,7 @@ function Qe(e = {}) {
     if (typeof n == "function") n();
     else return;
   }
-  const t = "drawElementImage" in CanvasRenderingContext2D.prototype && "requestPaint" in HTMLCanvasElement.prototype && "onpaint" in HTMLCanvasElement.prototype, o = e.force ?? new URLSearchParams(location.search).has("polyfillHIC");
+  const t = typeof CanvasRenderingContext2D.prototype.drawElementImage === "function" && typeof HTMLCanvasElement.prototype.requestPaint === "function" && "onpaint" in HTMLCanvasElement.prototype && typeof globalThis.WebGL2RenderingContext?.prototype.texElementImage2D === "function", o = e.force ?? new URLSearchParams(location.search).has("polyfillHIC");
   if (t && !o) {
     console.info("[html-in-canvas] Native API detected, polyfill skipped. Add ?polyfillHIC to URL to force.");
     return;
@@ -535,6 +535,17 @@ function Ie() {
     writable: !0,
     value: V
   });
+  for (const context of [globalThis.WebGLRenderingContext, globalThis.WebGL2RenderingContext]) {
+    if (context) y(context.prototype, "texElementSubImage2D", {
+      configurable: !0,
+      writable: !0,
+      value: function(target, level, xoffset, yoffset, element) {
+        const snapshot = C.getCanvas(element);
+        if (!snapshot) throw new DOMException("texElementSubImage2D: no snapshot recorded yet", "InvalidStateError");
+        this.texSubImage2D(target, level, xoffset, yoffset, this.RGBA, this.UNSIGNED_BYTE, snapshot);
+      }
+    });
+  }
 }
 function V(e, t, o, ...n) {
   let s, i, r;
@@ -556,7 +567,8 @@ function V(e, t, o, ...n) {
       "texElementImage2D: no snapshot recorded yet for this element. Call from inside the canvas `onpaint` handler or after at least one `requestPaint()` + rAF cycle.",
       "InvalidStateError"
     );
-  this.texImage2D(e, t, o, s, i, a);
+  this.texImage2D(e, t, o, a.width, a.height, 0, s, i, null);
+  this.texElementSubImage2D(e, t, 0, 0, r);
 }
 function Me() {
   const e = globalThis.GPUQueue;
