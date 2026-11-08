@@ -152,6 +152,12 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/kit-shapes3d.md",
+    "title": "3d scenes",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "docs/cases/retro-80s.md",
     "title": "80年代：合成器面板",
     "group": "案例研究"
@@ -1969,6 +1975,12 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/api.md",
+    "title": "api",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "prompts/cases/apple-product.md",
     "title": "Apple · 滚动产品舞台 · 复用 Prompt",
     "group": "复用 Prompt"
@@ -2095,6 +2107,58 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/scripts/skill/SKILL.md",
+    "title": "ascii.rest",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/SKILL.md",
+    "title": "ascii.rest",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "docs/materials/ascii-rest.md",
+    "title": "ascii.rest · 动画 ASCII 组件库",
+    "group": "素材使用"
+  },
+  {
+    "path": "prompts/materials/ascii-rest.md",
+    "title": "ascii.rest · 动画 ASCII 组件库 · 复用 Prompt",
+    "group": "复用 Prompt"
+  },
+  {
+    "path": "demos/materials/ascii-rest/fidelity.md",
+    "title": "ascii.rest 对照",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/LICENSES.md",
+    "title": "ascii.rest 许可索引",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/README.md",
+    "title": "ascii.rest 源码",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/src/kit/SPEC.md",
+    "title": "ascii.rest/kit: the spec",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/astro.md",
+    "title": "astro",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/materials/hallmark-skill/references/themes/atelier.md",
     "title": "Atelier",
     "group": "素材原文",
@@ -2119,6 +2183,12 @@
   {
     "path": "demos/materials/web-design-engineer/references/style-recipes/balenciaga-post-2017.md",
     "title": "balenciaga-post-2017 — Balenciaga (post-Demna era)",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/banners.md",
+    "title": "banners",
     "group": "素材原文",
     "hidden": true
   },
@@ -2265,6 +2335,12 @@
     "group": "案例研究"
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/cli.md",
+    "title": "cli",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/materials/hallmark-skill/references/themes/cobalt.md",
     "title": "Cobalt",
     "group": "素材原文",
@@ -2285,6 +2361,12 @@
   {
     "path": "demos/materials/web-design-engineer/references/failure-patterns.md",
     "title": "Contextual Failure Patterns",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/CONTRIBUTING.md",
+    "title": "Contributing",
     "group": "素材原文",
     "hidden": true
   },
@@ -2394,6 +2476,12 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/kit-draw.md",
+    "title": "drawing",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/materials/hallmark-skill/references/themes/dusk.md",
     "title": "Dusk",
     "group": "素材原文",
@@ -2402,6 +2490,24 @@
   {
     "path": "demos/materials/hallmark-skill/references/themes/editorial.md",
     "title": "Editorial",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/kit-fx.md",
+    "title": "effects",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/pieces.md",
+    "title": "Every piece",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/examples.md",
+    "title": "examples",
     "group": "素材原文",
     "hidden": true
   },
@@ -2426,6 +2532,12 @@
   {
     "path": "demos/materials/web-design-engineer/references/style-recipes/field-io.md",
     "title": "field-io — Field.io (Generative Motion Identity)",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/kit-field.md",
+    "title": "fields",
     "group": "素材原文",
     "hidden": true
   },
@@ -2527,6 +2639,12 @@
     "path": "demos/cases/genshin-world/fidelity.md",
     "title": "Genshin 复现边界",
     "group": "案例复刻与许可",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/readme.md",
+    "title": "github readme",
+    "group": "素材原文",
     "hidden": true
   },
   {
@@ -2660,6 +2778,12 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/html.md",
+    "title": "html",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/materials/beautiful-article/references/html-output.md",
     "title": "HTML 输出与构建",
     "group": "素材原文",
@@ -2694,8 +2818,20 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/images.md",
+    "title": "image to ascii",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/materials/hallmark-skill/references/imagery.md",
     "title": "Imagery",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/kit-image.md",
+    "title": "images",
     "group": "素材原文",
     "hidden": true
   },
@@ -2712,14 +2848,32 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/install.md",
+    "title": "install",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/materials/hallmark-skill/references/interaction-and-states.md",
     "title": "Interaction and states",
     "group": "素材原文",
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/index.md",
+    "title": "introduction",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/materials/hallmark-skill/references/themes/kiln.md",
     "title": "Kiln",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/examples/kit/README.md",
+    "title": "Kit examples",
     "group": "素材原文",
     "hidden": true
   },
@@ -2732,6 +2886,12 @@
   {
     "path": "demos/materials/hallmark-skill/references/layout.md",
     "title": "Layout",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/kit-compose.md",
+    "title": "layouts",
     "group": "素材原文",
     "hidden": true
   },
@@ -2800,6 +2960,12 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/kit-looks.md",
+    "title": "looks",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/materials/hallmark-skill/references/themes/loom.md",
     "title": "Loom",
     "group": "素材原文",
@@ -2848,6 +3014,18 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/kit-materials.md",
+    "title": "materials",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/kit-math.md",
+    "title": "maths",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/materials/hallmark-skill/references/microinteractions.md",
     "title": "Microinteractions",
     "group": "素材原文",
@@ -2888,6 +3066,12 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/kit-motion.md",
+    "title": "motion",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/materials/web-design-engineer/references/style-recipes/muji-kenya-hara.md",
     "title": "muji-kenya-hara — MUJI / Kenya Hara",
     "group": "素材原文",
@@ -2896,6 +3080,12 @@
   {
     "path": "demos/materials/hallmark-skill/references/themes/newsprint.md",
     "title": "Newsprint",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/nextjs.md",
+    "title": "next.js",
     "group": "素材原文",
     "hidden": true
   },
@@ -2930,6 +3120,12 @@
   {
     "path": "demos/materials/hallmark-skill/references/themes/overprint.md",
     "title": "Overprint",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/kit-particles.md",
+    "title": "particles",
     "group": "素材原文",
     "hidden": true
   },
@@ -3014,6 +3210,18 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/faq.md",
+    "title": "questions",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/quickstart.md",
+    "title": "quick start",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/materials/beautiful-article/references/raw-policy.md",
     "title": "Raw 政策",
     "group": "素材原文",
@@ -3022,6 +3230,12 @@
   {
     "path": "demos/materials/web-design-engineer/references/style-recipes/raycast.md",
     "title": "raycast — Raycast (Productivity Tool)",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/react.md",
+    "title": "react",
     "group": "素材原文",
     "hidden": true
   },
@@ -3056,6 +3270,12 @@
   {
     "path": "demos/materials/arc-ui/source/upstream/README.md",
     "title": "README",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/README.upstream.md",
+    "title": "README.upstream",
     "group": "素材原文",
     "hidden": true
   },
@@ -3268,6 +3488,18 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/svg.md",
+    "title": "svg",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/kit-vector.md",
+    "title": "svg drawings",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/materials/guizang-ppt-skill/references/swiss-layout-lock.md",
     "title": "Swiss Layout Lock",
     "group": "素材原文",
@@ -3276,6 +3508,12 @@
   {
     "path": "demos/materials/guizang-ppt-skill/references/swiss-map-component.md",
     "title": "Swiss Map Component",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/terminal.md",
+    "title": "terminal",
     "group": "素材原文",
     "hidden": true
   },
@@ -3294,6 +3532,12 @@
   {
     "path": "demos/materials/hallmark-skill/references/texture.md",
     "title": "Texture and print artifacts: a budgeted vocabulary",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/kit.md",
+    "title": "the kit",
     "group": "素材原文",
     "hidden": true
   },
@@ -3414,6 +3658,12 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/typescript.md",
+    "title": "typescript",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/materials/hallmark-skill/references/themes/ultraviolet.md",
     "title": "Ultraviolet",
     "group": "素材原文",
@@ -3518,6 +3768,12 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/kit-widgets.md",
+    "title": "widgets",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "prompts/materials/wired-elements.md",
     "title": "Wired Elements · 可操作的手绘草稿 · 复用 Prompt",
     "group": "复用 Prompt"
@@ -3542,6 +3798,18 @@
   {
     "path": "demos/materials/web-design-engineer/references/style-recipes/y2k-retrofuturism.md",
     "title": "y2k-retrofuturism — Y2K / Frutiger Aero Retrofuturism",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/copy.md",
+    "title": "your own copy",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/pieces.md",
+    "title": "your own pieces",
     "group": "素材原文",
     "hidden": true
   }

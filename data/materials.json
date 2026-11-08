@@ -4881,5 +4881,2816 @@
       "agent": "agent/materials/0010-vigil.json",
       "snapshot": "demos/materials/0010-vigil/source/README.md"
     }
+  },
+  {
+    "id": "ascii-rest",
+    "order": 15,
+    "title": "ascii.rest · 动画 ASCII 组件库",
+    "type": "component-library",
+    "category": "组件与效果",
+    "summary": "归档 ascii.rest 0.4.0 的发行库、源码、241 个动画 ASCII 组件与 99 个 Kit 示例，涵盖场景、自然、语言与公司标志、Linux 发行版、界面、数据与物理模拟，一个 HTML 标签即可放进网页。",
+    "tags": [
+      "ASCII",
+      "字符画",
+      "Canvas",
+      "Web Component",
+      "React",
+      "Astro",
+      "生成艺术",
+      "Logo",
+      "加载器",
+      "TypeScript"
+    ],
+    "demo": "demos/materials/ascii-rest/index.html",
+    "preview": "previews/materials/ascii-rest.png",
+    "research": "docs/materials/ascii-rest.md",
+    "demoNote": "ascii.rest 0.4.0",
+    "install": "<script type=\"importmap\">{\"imports\":{\"ascii.rest/element\":\"./vendor/ascii.rest@0.4.0/dist/ascii.js\"}}</script> <script type=\"module\">import \"ascii.rest/element\";</script> <ascii-art piece=\"donut\"></ascii-art>",
+    "upstream": {
+      "repository": "bas3line/ascii",
+      "url": "https://github.com/bas3line/ascii",
+      "version": "0.4.0",
+      "commit": "88165af8d1713e82a50bd03b15f6cd1ffc925f90",
+      "verifiedAt": "2026-11-08"
+    },
+    "license": {
+      "name": "MIT（代码）；SIL OFL 1.1（字体）",
+      "url": "https://github.com/bas3line/ascii/blob/88165af8d1713e82a50bd03b15f6cd1ffc925f90/LICENSE",
+      "scope": "ascii.rest 发行库、源码、组件与 Kit 示例；ascii.rest mono 为 JetBrains Mono 子集，Paper Mono 用于元信息，两款字体均保留 OFL 1.1 原文。",
+      "notes": "保留 bas3line 署名。"
+    },
+    "useCases": [
+      "终端风格、Markdown 风格的极简网页点缀",
+      "加载、进度、图表等字符界面小部件",
+      "技术品牌的语言、公司与发行版标志动画",
+      "页头横幅与 README 动画 SVG",
+      "用 Kit 组合自己的字符动画"
+    ],
+    "avoid": [
+      "需要照片级画面或精确矢量图形的主视觉"
+    ],
+    "constraints": [
+      "固定 ascii.rest 0.4.0 与完整提交，dist 由上游 tsc 构建产出。",
+      "字体与远程地址的本地化改动见 fidelity.md。",
+      "只能在 Node 里运行的 Kit 示例不在样例中，源码保留在 source/examples/。"
+    ],
+    "sources": [
+      {
+        "title": "ascii.rest 固定提交",
+        "url": "https://github.com/bas3line/ascii/tree/88165af8d1713e82a50bd03b15f6cd1ffc925f90",
+        "note": "src、examples、registry 与 skills。",
+        "evidence": "source"
+      },
+      {
+        "title": "ascii.rest 官网",
+        "url": "https://ascii.rest",
+        "note": "官网组件页，作为对照基准。",
+        "evidence": "source"
+      },
+      {
+        "title": "ascii.rest 官方文档",
+        "url": "https://ascii.rest/docs/",
+        "note": "标签、React、Astro、Banner、SVG 与 Kit 文档。",
+        "evidence": "source"
+      }
+    ],
+    "sourceFiles": [
+      "demos/materials/ascii-rest/index.html",
+      "demos/materials/ascii-rest/demo/demo.js",
+      "demos/materials/ascii-rest/demo/demo.css",
+      "demos/materials/ascii-rest/vendor/ascii.rest@0.4.0/dist/ascii.js",
+      "demos/materials/ascii-rest/vendor/ascii.rest@0.4.0/dist/index.js",
+      "demos/materials/ascii-rest/source/README.md"
+    ],
+    "demos": [
+      {
+        "id": "alpine-dawn",
+        "title": "alpine dawn",
+        "component": "<ascii-art piece=\"alpine-dawn\">",
+        "summary": "雪峰在静谧、雾气笼罩的山湖上迎来第一缕晨光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=alpine-dawn",
+        "group": "场景"
+      },
+      {
+        "id": "amer-fort",
+        "title": "amer fort",
+        "component": "<ascii-art piece=\"amer-fort\">",
+        "summary": "夜色中，山上的琥珀堡被金光照亮，倒映在毛塔湖中。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=amer-fort",
+        "group": "场景"
+      },
+      {
+        "id": "aurora-fjord",
+        "title": "aurora fjord",
+        "component": "<ascii-art piece=\"aurora-fjord\">",
+        "summary": "极光帷幕在平静的峡湾上起伏，岸边小屋亮着灯。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=aurora-fjord",
+        "group": "场景"
+      },
+      {
+        "id": "black-prism",
+        "title": "black prism",
+        "component": "<ascii-art piece=\"black-prism\">",
+        "summary": "Vercel 三角形化作玻璃棱镜，将白光分成彩虹。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=black-prism",
+        "group": "场景"
+      },
+      {
+        "id": "cloud-sea",
+        "title": "cloud sea",
+        "component": "<ascii-art piece=\"cloud-sea\">",
+        "summary": "黄昏时，太阳沉入缓缓漂移的橙色云海。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=cloud-sea",
+        "group": "场景"
+      },
+      {
+        "id": "command-city",
+        "title": "command city",
+        "component": "<ascii-art piece=\"command-city\">",
+        "summary": "夜城的林荫大道以路灯勾勒出 Command 键符号。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=command-city",
+        "group": "场景"
+      },
+      {
+        "id": "deep-reef",
+        "title": "deep reef",
+        "component": "<ascii-art piece=\"deep-reef\">",
+        "summary": "光束穿过海水，海带摇曳，鱼群在珊瑚礁上方转向。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=deep-reef",
+        "group": "场景"
+      },
+      {
+        "id": "desert-night",
+        "title": "desert night",
+        "component": "<ascii-art piece=\"desert-night\">",
+        "summary": "无月的沙丘上，一棵孤独的金合欢树立在银河下，流星划过天空。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=desert-night",
+        "group": "场景"
+      },
+      {
+        "id": "earthrise",
+        "title": "earthrise",
+        "component": "<ascii-art piece=\"earthrise\">",
+        "summary": "地球从布满陨石坑的月面地平线上升起，低角度阳光拉出长影。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=earthrise",
+        "group": "场景"
+      },
+      {
+        "id": "edge-orbit",
+        "title": "edge orbit",
+        "component": "<ascii-art piece=\"edge-orbit\">",
+        "summary": "从轨道俯瞰夜晚的地球，Cloudflare 请求沿弧线穿梭于城市之间。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=edge-orbit",
+        "group": "场景"
+      },
+      {
+        "id": "gangaur-ghat",
+        "title": "gangaur ghat",
+        "component": "<ascii-art piece=\"gangaur-ghat\">",
+        "summary": "乌代布尔的夜晚，皮丘拉湖畔的门楼亮着灯，水上漂着油灯。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=gangaur-ghat",
+        "group": "场景"
+      },
+      {
+        "id": "green-storm",
+        "title": "green storm",
+        "component": "<ascii-art piece=\"green-storm\">",
+        "summary": "海上雷暴中，闪电劈出 Supabase 闪电标志的形状。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=green-storm",
+        "group": "场景"
+      },
+      {
+        "id": "jal-mahal",
+        "title": "jal mahal",
+        "component": "<ascii-art piece=\"jal-mahal\">",
+        "summary": "日出时，斋浦尔的水宫仿佛漂浮在雾气笼罩的湖面上。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=jal-mahal",
+        "group": "场景"
+      },
+      {
+        "id": "jungle-falls",
+        "title": "jungle falls",
+        "component": "<ascii-art piece=\"jungle-falls\">",
+        "summary": "雨林峡谷中，层叠瀑布扬起水雾和彩虹，金刚鹦鹉飞过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=jungle-falls",
+        "group": "场景"
+      },
+      {
+        "id": "kite-festival",
+        "title": "kite festival",
+        "component": "<ascii-art piece=\"kite-festival\">",
+        "summary": "桑克兰蒂节的风筝挤满金色天空，下方是斋浦尔的粉色屋顶。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kite-festival",
+        "group": "场景"
+      },
+      {
+        "id": "kyoto-dusk",
+        "title": "kyoto dusk",
+        "component": "<ascii-art piece=\"kyoto-dusk\">",
+        "summary": "黄昏的宝塔立在樱树后，石灯笼照亮树枝。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kyoto-dusk",
+        "group": "场景"
+      },
+      {
+        "id": "lake-pichola",
+        "title": "lake pichola",
+        "component": "<ascii-art piece=\"lake-pichola\">",
+        "summary": "夕阳下，乌代布尔的宫殿在皮丘拉湖上泛着光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=lake-pichola",
+        "group": "场景"
+      },
+      {
+        "id": "lantern-lake",
+        "title": "lantern lake",
+        "component": "<ascii-art piece=\"lantern-lake\">",
+        "summary": "天灯从平静的山湖上升起，其中一盏刚从船上放飞。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=lantern-lake",
+        "group": "场景"
+      },
+      {
+        "id": "lava-wall",
+        "title": "lava wall",
+        "component": "<ascii-art piece=\"lava-wall\">",
+        "summary": "发光的橙色云朵下是一整面熔岩灯墙，摄像头注视着它。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=lava-wall",
+        "group": "场景"
+      },
+      {
+        "id": "marine-drive",
+        "title": "marine drive",
+        "component": "<ascii-art piece=\"marine-drive\">",
+        "summary": "孟买的“皇后项链”在夜色中亮起，路灯沿海湾弯曲排列。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=marine-drive",
+        "group": "场景"
+      },
+      {
+        "id": "misty-forest",
+        "title": "misty forest",
+        "component": "<ascii-art piece=\"misty-forest\">",
+        "summary": "层层松林山脊隐入晨雾，斜射的阳光穿过林间。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=misty-forest",
+        "group": "场景"
+      },
+      {
+        "id": "night-coast",
+        "title": "night coast",
+        "component": "<ascii-art piece=\"night-coast\">",
+        "summary": "月光照着云层和暗海，灯塔的光束不停转动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=night-coast",
+        "group": "场景"
+      },
+      {
+        "id": "night-highway",
+        "title": "night highway",
+        "component": "<ascii-art piece=\"night-highway\">",
+        "summary": "黄昏的沙漠公路向山脉与最后一抹天光疾驰而去。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=night-highway",
+        "group": "场景"
+      },
+      {
+        "id": "ocean-sunset",
+        "title": "ocean sunset",
+        "component": "<ascii-art piece=\"ocean-sunset\">",
+        "summary": "太阳沉落在松林岬角后，云层透亮，起伏的海面闪着光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=ocean-sunset",
+        "group": "场景"
+      },
+      {
+        "id": "planet-scale",
+        "title": "planet scale",
+        "component": "<ascii-art piece=\"planet-scale\">",
+        "summary": "背光的暗色行星被切出 PlanetScale 标志，一颗卫星绕行。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=planet-scale",
+        "group": "场景"
+      },
+      {
+        "id": "prism-city",
+        "title": "prism city",
+        "component": "<ascii-art piece=\"prism-city\">",
+        "summary": "蓝调时刻的城市与河流上方，矗立着黑色尖塔，漂着橙色云朵。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=prism-city",
+        "group": "场景"
+      },
+      {
+        "id": "salt-flat",
+        "title": "salt flat",
+        "component": "<ascii-art piece=\"salt-flat\">",
+        "summary": "Vercel 三角形立在镜面般的盐滩上，太阳从尖端后升起。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=salt-flat",
+        "group": "场景"
+      },
+      {
+        "id": "saturn-rise",
+        "title": "saturn rise",
+        "component": "<ascii-art piece=\"saturn-rise\">",
+        "summary": "土星与光环悬在卫星的龟裂冰面和间歇泉上空。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=saturn-rise",
+        "group": "场景"
+      },
+      {
+        "id": "snow-train",
+        "title": "snow train",
+        "component": "<ascii-art piece=\"snow-train\">",
+        "summary": "雪夜里，亮着灯的列车驶过覆雪的石拱高架桥。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=snow-train",
+        "group": "场景"
+      },
+      {
+        "id": "storm-plains",
+        "title": "storm plains",
+        "component": "<ascii-art piece=\"storm-plains\">",
+        "summary": "黄昏的麦田上方，砧状雷云中闪电忽明忽暗。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=storm-plains",
+        "group": "场景"
+      },
+      {
+        "id": "taj-dawn",
+        "title": "taj dawn",
+        "component": "<ascii-art piece=\"taj-dawn\">",
+        "summary": "日出时，泰姬陵穿过晨雾倒映在水池中。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=taj-dawn",
+        "group": "场景"
+      },
+      {
+        "id": "tokyo-rain",
+        "title": "tokyo rain",
+        "component": "<ascii-art piece=\"tokyo-rain\">",
+        "summary": "东京小巷下着雨，霓虹招牌映亮湿漉漉的路面。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=tokyo-rain",
+        "group": "场景"
+      },
+      {
+        "id": "varanasi-ghats",
+        "title": "varanasi ghats",
+        "component": "<ascii-art piece=\"varanasi-ghats\">",
+        "summary": "恒河畔的黄昏祭礼中，台阶上亮着灯，水上漂着油灯。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=varanasi-ghats",
+        "group": "场景"
+      },
+      {
+        "id": "volcano-night",
+        "title": "volcano night",
+        "component": "<ascii-art piece=\"volcano-night\">",
+        "summary": "火山在夜里喷发，熔岩流淌，火山灰柱中布满闪电。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=volcano-night",
+        "group": "场景"
+      },
+      {
+        "id": "aurora",
+        "title": "aurora",
+        "component": "<ascii-art piece=\"aurora\">",
+        "summary": "繁星下，极光帷幕在树梢上方起伏。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=aurora",
+        "group": "自然"
+      },
+      {
+        "id": "bonsai",
+        "title": "bonsai",
+        "component": "<ascii-art piece=\"bonsai\">",
+        "summary": "盆栽树木落下叶子，再重新长出新叶。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=bonsai",
+        "group": "自然"
+      },
+      {
+        "id": "campfire",
+        "title": "campfire",
+        "component": "<ascii-art piece=\"campfire\">",
+        "summary": "木柴篝火闪动，火星升起，字符越密的地方越热。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=campfire",
+        "group": "自然"
+      },
+      {
+        "id": "cherry-blossom",
+        "title": "cherry blossom",
+        "component": "<ascii-art piece=\"cherry-blossom\">",
+        "summary": "盛开的樱花枝随风飘落花瓣。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=cherry-blossom",
+        "group": "自然"
+      },
+      {
+        "id": "contour-map",
+        "title": "contour map",
+        "component": "<ascii-art piece=\"contour-map\">",
+        "summary": "等高线勾勒出岛屿，山丘的形状缓慢变化。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=contour-map",
+        "group": "自然"
+      },
+      {
+        "id": "fern",
+        "title": "fern",
+        "component": "<ascii-art piece=\"fern\">",
+        "summary": "巴恩斯利蕨逐点长成，随后轻轻摇摆。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=fern",
+        "group": "自然"
+      },
+      {
+        "id": "fireflies",
+        "title": "fireflies",
+        "component": "<ascii-art piece=\"fireflies\">",
+        "summary": "萤火虫飞在夜草上，闪光在虫群中传开。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=fireflies",
+        "group": "自然"
+      },
+      {
+        "id": "fractal-tree",
+        "title": "fractal tree",
+        "component": "<ascii-art piece=\"fractal-tree\">",
+        "summary": "递归分枝的树木在风中摇摆。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=fractal-tree",
+        "group": "自然"
+      },
+      {
+        "id": "landscape",
+        "title": "landscape",
+        "component": "<ascii-art piece=\"landscape\">",
+        "summary": "山脉与湖泊上方的太阳或月亮随当地时间变化。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=landscape",
+        "group": "自然"
+      },
+      {
+        "id": "lightning",
+        "title": "lightning",
+        "component": "<ascii-art piece=\"lightning\">",
+        "summary": "雨中，一道分叉闪电从雷云中劈下。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=lightning",
+        "group": "自然"
+      },
+      {
+        "id": "rain",
+        "title": "rain",
+        "component": "<ascii-art piece=\"rain\">",
+        "summary": "三层远近不同的斜雨落下，溅起水冠与水洼涟漪。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=rain",
+        "group": "自然"
+      },
+      {
+        "id": "ruled-mountains",
+        "title": "ruled mountains",
+        "component": "<ascii-art piece=\"ruled-mountains\">",
+        "summary": "山脉从平行线中隆起，随线条缓缓向前漂移。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=ruled-mountains",
+        "group": "自然"
+      },
+      {
+        "id": "sea-swell",
+        "title": "sea swell",
+        "component": "<ascii-art piece=\"sea-swell\">",
+        "summary": "长浪从小帆船下滚过，将船身托起。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=sea-swell",
+        "group": "自然"
+      },
+      {
+        "id": "snowfall",
+        "title": "snowfall",
+        "component": "<ascii-art piece=\"snowfall\">",
+        "summary": "雪花摇摆着落下，在地面和围栏上堆成积雪。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=snowfall",
+        "group": "自然"
+      },
+      {
+        "id": "sunrise",
+        "title": "sunrise",
+        "component": "<ascii-art piece=\"sunrise\">",
+        "summary": "太阳从海平面升起，在水面拖出闪光的路径。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=sunrise",
+        "group": "自然"
+      },
+      {
+        "id": "wind",
+        "title": "wind",
+        "component": "<ascii-art piece=\"wind\">",
+        "summary": "阵风沿弯曲的线条流动，前端卷起。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=wind",
+        "group": "自然"
+      },
+      {
+        "id": "black-hole",
+        "title": "black hole",
+        "component": "<ascii-art piece=\"black-hole\">",
+        "summary": "黑洞经引力透镜扭曲的吸积盘不断旋转，一侧更亮。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=black-hole",
+        "group": "太空"
+      },
+      {
+        "id": "earth",
+        "title": "earth",
+        "component": "<ascii-art piece=\"earth\">",
+        "summary": "受光的地球转动，大陆轮廓来自五度网格地图。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=earth",
+        "group": "太空"
+      },
+      {
+        "id": "eclipse",
+        "title": "eclipse",
+        "component": "<ascii-art piece=\"eclipse\">",
+        "summary": "月亮滑过太阳，先出现钻石环，再露出日冕。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=eclipse",
+        "group": "太空"
+      },
+      {
+        "id": "galaxy",
+        "title": "galaxy",
+        "component": "<ascii-art piece=\"galaxy\">",
+        "summary": "倾斜的旋涡星系旋转，内侧恒星转得最快。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=galaxy",
+        "group": "太空"
+      },
+      {
+        "id": "moon-phases",
+        "title": "moon phases",
+        "component": "<ascii-art piece=\"moon-phases\">",
+        "summary": "月亮盈亏变化，受光部分的月海颜色更暗。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=moon-phases",
+        "group": "太空"
+      },
+      {
+        "id": "planet",
+        "title": "planet",
+        "component": "<ascii-art piece=\"planet\">",
+        "summary": "带条纹和光环的行星转动，星体与光环互相投下阴影。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=planet",
+        "group": "太空"
+      },
+      {
+        "id": "rocket",
+        "title": "rocket",
+        "component": "<ascii-art piece=\"rocket\">",
+        "summary": "火箭在夜里从发射台升空，再降落回来。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=rocket",
+        "group": "太空"
+      },
+      {
+        "id": "saptarishi",
+        "title": "saptarishi",
+        "component": "<ascii-art piece=\"saptarishi\">",
+        "summary": "闪烁的夜空中，北斗七星按真实位置排列。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=saptarishi",
+        "group": "太空"
+      },
+      {
+        "id": "solar-system",
+        "title": "solar system",
+        "component": "<ascii-art piece=\"solar-system\">",
+        "summary": "四颗行星沿虚线轨道运行，周期遵循开普勒第三定律。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=solar-system",
+        "group": "太空"
+      },
+      {
+        "id": "starfield",
+        "title": "starfield",
+        "component": "<ascii-art piece=\"starfield\">",
+        "summary": "星星从中心向外疾驰，在边缘拉成长线。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=starfield",
+        "group": "太空"
+      },
+      {
+        "id": "three-body",
+        "title": "three-body",
+        "component": "<ascii-art piece=\"three-body\">",
+        "summary": "三个等质量天体共享一条八字形轨道。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=three-body",
+        "group": "太空"
+      },
+      {
+        "id": "aquarium",
+        "title": "aquarium",
+        "component": "<ascii-art piece=\"aquarium\">",
+        "summary": "鱼在水箱中游动、转向，周围有气泡和水草。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=aquarium",
+        "group": "生物"
+      },
+      {
+        "id": "butterfly",
+        "title": "butterfly",
+        "component": "<ascii-art piece=\"butterfly\">",
+        "summary": "蝴蝶沿蜿蜒路径振翅、滑翔。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=butterfly",
+        "group": "生物"
+      },
+      {
+        "id": "cat",
+        "title": "cat",
+        "component": "<ascii-art piece=\"cat\">",
+        "summary": "虎斑猫趴在爪子上熟睡，缓慢呼吸。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=cat",
+        "group": "生物"
+      },
+      {
+        "id": "fox",
+        "title": "fox",
+        "component": "<ascii-art piece=\"fox\">",
+        "summary": "狐狸枕着尾巴熟睡，轻轻呼吸，偶尔睁眼偷看。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=fox",
+        "group": "生物"
+      },
+      {
+        "id": "jellyfish",
+        "title": "jellyfish",
+        "component": "<ascii-art piece=\"jellyfish\">",
+        "summary": "水母收缩身体向上游动，触须稍后跟上。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=jellyfish",
+        "group": "生物"
+      },
+      {
+        "id": "owl",
+        "title": "owl",
+        "component": "<ascii-art piece=\"owl\">",
+        "summary": "树枝上的猫头鹰缓慢眨眼、转头。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=owl",
+        "group": "生物"
+      },
+      {
+        "id": "snake",
+        "title": "snake",
+        "component": "<ascii-art piece=\"snake\">",
+        "summary": "蛇沿 S 形曲线爬行，不时吐出舌头。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=snake",
+        "group": "生物"
+      },
+      {
+        "id": "spider",
+        "title": "spider",
+        "component": "<ascii-art piece=\"spider\">",
+        "summary": "蜘蛛沿丝线降下，再爬回上方。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=spider",
+        "group": "生物"
+      },
+      {
+        "id": "starlings",
+        "title": "starlings",
+        "component": "<ascii-art piece=\"starlings\">",
+        "summary": "椋鸟群盘旋翻转，被飞过的猎隼分开。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=starlings",
+        "group": "生物"
+      },
+      {
+        "id": "whale",
+        "title": "whale",
+        "component": "<ascii-art piece=\"whale\">",
+        "summary": "鲸鱼喷水、弓起背部潜入水中，尾鳍最后消失。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=whale",
+        "group": "生物"
+      },
+      {
+        "id": "analog-clock",
+        "title": "analog clock",
+        "component": "<ascii-art piece=\"analog-clock\">",
+        "summary": "圆形表盘显示当地时间，秒针逐格跳动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=analog-clock",
+        "group": "物件"
+      },
+      {
+        "id": "candle",
+        "title": "candle",
+        "component": "<ascii-art piece=\"candle\">",
+        "summary": "烛台里的蜡烛闪烁着燃尽，随后重新开始。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=candle",
+        "group": "物件"
+      },
+      {
+        "id": "coffee",
+        "title": "coffee",
+        "component": "<ascii-art piece=\"coffee\">",
+        "summary": "碟上的咖啡杯升起卷曲的蒸汽。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=coffee",
+        "group": "物件"
+      },
+      {
+        "id": "ferris-wheel",
+        "title": "ferris wheel",
+        "component": "<ascii-art piece=\"ferris-wheel\">",
+        "summary": "摩天轮在 A 形支架上转动，座舱始终保持竖直。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=ferris-wheel",
+        "group": "物件"
+      },
+      {
+        "id": "hawa-mahal",
+        "title": "hawa mahal",
+        "component": "<ascii-art piece=\"hawa-mahal\">",
+        "summary": "夜晚的斋浦尔风宫，镂空窗格后透出灯光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=hawa-mahal",
+        "group": "物件"
+      },
+      {
+        "id": "hourglass",
+        "title": "hourglass",
+        "component": "<ascii-art piece=\"hourglass\">",
+        "summary": "细沙从沙漏颈部流下，随后沙漏翻转。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=hourglass",
+        "group": "物件"
+      },
+      {
+        "id": "kite",
+        "title": "kite",
+        "component": "<ascii-art piece=\"kite\">",
+        "summary": "菱形风筝乘风飞行，风弱时风筝线松垂。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kite",
+        "group": "物件"
+      },
+      {
+        "id": "lava-lamp",
+        "title": "lava lamp",
+        "component": "<ascii-art piece=\"lava-lamp\">",
+        "summary": "发光玻璃中的蜡团上升、融合，再沉下。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=lava-lamp",
+        "group": "物件"
+      },
+      {
+        "id": "lighthouse",
+        "title": "lighthouse",
+        "component": "<ascii-art piece=\"lighthouse\">",
+        "summary": "礁石上的灯塔向夜海扫出光束。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=lighthouse",
+        "group": "物件"
+      },
+      {
+        "id": "skyline",
+        "title": "skyline",
+        "component": "<ascii-art piece=\"skyline\">",
+        "summary": "夜城的窗户明灭，塔顶信号灯闪烁。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=skyline",
+        "group": "物件"
+      },
+      {
+        "id": "sundial",
+        "title": "sundial",
+        "component": "<ascii-art piece=\"sundial\">",
+        "summary": "斋浦尔的萨姆拉特日晷，阴影随当地时间移动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=sundial",
+        "group": "物件"
+      },
+      {
+        "id": "train",
+        "title": "train",
+        "component": "<ascii-art piece=\"train\">",
+        "summary": "蒸汽火车沿铁轨驶过，后方冒出阵阵烟雾。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=train",
+        "group": "物件"
+      },
+      {
+        "id": "vinyl",
+        "title": "vinyl",
+        "component": "<ascii-art piece=\"vinyl\">",
+        "summary": "从上方俯瞰，唱片在唱臂下转动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=vinyl",
+        "group": "物件"
+      },
+      {
+        "id": "windmill",
+        "title": "windmill",
+        "component": "<ascii-art piece=\"windmill\">",
+        "summary": "荷兰风车的四片格栅翼转动，云朵从旁飘过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=windmill",
+        "group": "物件"
+      },
+      {
+        "id": "cube",
+        "title": "cube",
+        "component": "<ascii-art piece=\"cube\">",
+        "summary": "点描立方体每次转动四分之一圈，并隐藏不可见的边。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=cube",
+        "group": "形体"
+      },
+      {
+        "id": "dna-helix",
+        "title": "dna helix",
+        "component": "<ascii-art piece=\"dna-helix\">",
+        "summary": "带碱基对的双螺旋绕自身轴线转动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=dna-helix",
+        "group": "形体"
+      },
+      {
+        "id": "donut",
+        "title": "donut",
+        "component": "<ascii-art piece=\"donut\">",
+        "summary": "受光的圆环绕两条轴转动，参考 donut.c。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=donut",
+        "group": "形体"
+      },
+      {
+        "id": "glxgears",
+        "title": "glxgears",
+        "component": "<ascii-art piece=\"glxgears\">",
+        "summary": "三个互相啮合的齿轮转动，参考 glxgears。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=glxgears",
+        "group": "形体"
+      },
+      {
+        "id": "gyroscope",
+        "title": "gyroscope",
+        "component": "<ascii-art piece=\"gyroscope\">",
+        "summary": "框架围绕旋转的转子摆动，转子轴线保持不变。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=gyroscope",
+        "group": "形体"
+      },
+      {
+        "id": "heart",
+        "title": "heart",
+        "component": "<ascii-art piece=\"heart\">",
+        "summary": "有光泽的三维心形摇摆，并以双拍节奏跳动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=heart",
+        "group": "形体"
+      },
+      {
+        "id": "icosahedron",
+        "title": "icosahedron",
+        "component": "<ascii-art piece=\"icosahedron\">",
+        "summary": "线框二十面体转动，隐藏的边以虚点表示。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=icosahedron",
+        "group": "形体"
+      },
+      {
+        "id": "mobius-strip",
+        "title": "mobius strip",
+        "component": "<ascii-art piece=\"mobius-strip\">",
+        "summary": "莫比乌斯带在上方光照下旋转、俯仰。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=mobius-strip",
+        "group": "形体"
+      },
+      {
+        "id": "spring",
+        "title": "spring",
+        "component": "<ascii-art piece=\"spring\">",
+        "summary": "重物挂在线圈弹簧上弹跳，线圈随之挤紧。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=spring",
+        "group": "形体"
+      },
+      {
+        "id": "tesseract",
+        "title": "tesseract",
+        "component": "<ascii-art piece=\"tesseract\">",
+        "summary": "四维超立方体旋转，各立方体互相穿过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=tesseract",
+        "group": "形体"
+      },
+      {
+        "id": "torus-knot",
+        "title": "torus knot",
+        "component": "<ascii-art piece=\"torus-knot\">",
+        "summary": "以受光管道绘成的三叶结缓慢转动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=torus-knot",
+        "group": "形体"
+      },
+      {
+        "id": "twisted-ring",
+        "title": "twisted ring",
+        "component": "<ascii-art piece=\"twisted-ring\">",
+        "summary": "方形环扭转四分之三圈，形成只有一个表面的形体。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=twisted-ring",
+        "group": "形体"
+      },
+      {
+        "id": "epicycles",
+        "title": "epicycles",
+        "component": "<ascii-art piece=\"epicycles\">",
+        "summary": "一串旋转圆周的末端描出星形。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=epicycles",
+        "group": "生成图案"
+      },
+      {
+        "id": "flow-field",
+        "title": "flow field",
+        "component": "<ascii-art piece=\"flow-field\">",
+        "summary": "粒子轨迹汇聚成蜿蜒、交汇的流线。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=flow-field",
+        "group": "生成图案"
+      },
+      {
+        "id": "glider-gun",
+        "title": "glider gun",
+        "component": "<ascii-art piece=\"glider-gun\">",
+        "summary": "Gosper 滑翔机枪每 30 代发射一架滑翔机。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=glider-gun",
+        "group": "生成图案"
+      },
+      {
+        "id": "hilbert-curve",
+        "title": "hilbert curve",
+        "component": "<ascii-art piece=\"hilbert-curve\">",
+        "summary": "两条希尔伯特曲线组成闭环，两个亮点沿线奔跑。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=hilbert-curve",
+        "group": "生成图案"
+      },
+      {
+        "id": "julia-set",
+        "title": "julia set",
+        "component": "<ascii-art piece=\"julia-set\">",
+        "summary": "常数 c 绕圈变化，朱利亚集随之改变形状。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=julia-set",
+        "group": "生成图案"
+      },
+      {
+        "id": "langtons-ant",
+        "title": "langton's ant",
+        "component": "<ascii-art piece=\"langtons-ant\">",
+        "summary": "兰顿蚂蚁先呈现秩序，再陷入混沌，最后修出高速公路。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=langtons-ant",
+        "group": "生成图案"
+      },
+      {
+        "id": "mandelbrot",
+        "title": "mandelbrot",
+        "component": "<ascii-art piece=\"mandelbrot\">",
+        "summary": "缓慢放大到海马谷，再缩回原处。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=mandelbrot",
+        "group": "生成图案"
+      },
+      {
+        "id": "maze",
+        "title": "maze",
+        "component": "<ascii-art piece=\"maze\">",
+        "summary": "以回溯法挖出迷宫、求解，再重新生成。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=maze",
+        "group": "生成图案"
+      },
+      {
+        "id": "plasma",
+        "title": "plasma",
+        "component": "<ascii-art piece=\"plasma\">",
+        "summary": "柔和的干涉色斑漂移、脉动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=plasma",
+        "group": "生成图案"
+      },
+      {
+        "id": "reaction-diffusion",
+        "title": "reaction diffusion",
+        "component": "<ascii-art piece=\"reaction-diffusion\">",
+        "summary": "Gray–Scott 反应扩散的斑点和条纹消退后重新生长。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=reaction-diffusion",
+        "group": "生成图案"
+      },
+      {
+        "id": "rule-30",
+        "title": "rule 30",
+        "component": "<ascii-art piece=\"rule-30\">",
+        "summary": "单个细胞按规则 30、90、110 逐行生长。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=rule-30",
+        "group": "生成图案"
+      },
+      {
+        "id": "sierpinski",
+        "title": "sierpinski",
+        "component": "<ascii-art piece=\"sierpinski\">",
+        "summary": "混沌游戏逐点填出谢尔宾斯基三角形。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=sierpinski",
+        "group": "生成图案"
+      },
+      {
+        "id": "voronoi",
+        "title": "voronoi",
+        "component": "<ascii-art piece=\"voronoi\">",
+        "summary": "平面按距各漂移种子最近的区域划分成单元。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=voronoi",
+        "group": "生成图案"
+      },
+      {
+        "id": "bouncing-balls",
+        "title": "bouncing balls",
+        "component": "<ascii-art piece=\"bouncing-balls\">",
+        "summary": "橡皮球越弹越低，落地时被压扁。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=bouncing-balls",
+        "group": "物理"
+      },
+      {
+        "id": "chladni",
+        "title": "chladni plate",
+        "component": "<ascii-art piece=\"chladni\">",
+        "summary": "振动板上的沙粒移向振动的节线。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=chladni",
+        "group": "物理"
+      },
+      {
+        "id": "double-pendulum",
+        "title": "double pendulum",
+        "component": "<ascii-art piece=\"double-pendulum\">",
+        "summary": "混沌双摆的末端留下逐渐消失的轨迹。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=double-pendulum",
+        "group": "物理"
+      },
+      {
+        "id": "falling-sand",
+        "title": "falling sand",
+        "component": "<ascii-art piece=\"falling-sand\">",
+        "summary": "沙粒落下堆积，再从搁板中漏走。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=falling-sand",
+        "group": "物理"
+      },
+      {
+        "id": "flag",
+        "title": "flag",
+        "component": "<ascii-art piece=\"flag\">",
+        "summary": "条纹旗帜在旗杆上起伏，褶皱映出光线。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=flag",
+        "group": "物理"
+      },
+      {
+        "id": "fountain",
+        "title": "fountain",
+        "component": "<ascii-art piece=\"fountain\">",
+        "summary": "喷嘴射出的弧形水流化作水滴落入池中。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=fountain",
+        "group": "物理"
+      },
+      {
+        "id": "harmonograph",
+        "title": "harmonograph",
+        "component": "<ascii-art piece=\"harmonograph\">",
+        "summary": "画笔受两个逐渐衰减的摆控制，向内绕出图案。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=harmonograph",
+        "group": "物理"
+      },
+      {
+        "id": "lorenz",
+        "title": "lorenz attractor",
+        "component": "<ascii-art piece=\"lorenz\">",
+        "summary": "一条洛伦兹轨迹绕过双翼，较早的环线逐渐淡去。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=lorenz",
+        "group": "物理"
+      },
+      {
+        "id": "newtons-cradle",
+        "title": "newton's cradle",
+        "component": "<ascii-art piece=\"newtons-cradle\">",
+        "summary": "五颗悬挂的钢球来回传递一次撞击。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=newtons-cradle",
+        "group": "物理"
+      },
+      {
+        "id": "pendulum-wave",
+        "title": "pendulum wave",
+        "component": "<ascii-art piece=\"pendulum-wave\">",
+        "summary": "从上方俯看，一排摆锤时而同步、时而错开。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=pendulum-wave",
+        "group": "物理"
+      },
+      {
+        "id": "plucked-string",
+        "title": "plucked string",
+        "component": "<ascii-art piece=\"plucked-string\">",
+        "summary": "拨动的琴弦以慢动作振动，谐波逐渐衰减。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=plucked-string",
+        "group": "物理"
+      },
+      {
+        "id": "pond-ripples",
+        "title": "pond ripples",
+        "component": "<ascii-art piece=\"pond-ripples\">",
+        "summary": "雨滴在池塘上激起交叠、消退的圆形波纹。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=pond-ripples",
+        "group": "物理"
+      },
+      {
+        "id": "smoke",
+        "title": "smoke",
+        "component": "<ascii-art piece=\"smoke\">",
+        "summary": "线香的烟雾先笔直上升，再卷曲、变淡。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=smoke",
+        "group": "物理"
+      },
+      {
+        "id": "wave-interference",
+        "title": "wave interference",
+        "component": "<ascii-art piece=\"wave-interference\">",
+        "summary": "波纹槽中的两个波源形成向外展开的静止节线。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=wave-interference",
+        "group": "物理"
+      },
+      {
+        "id": "doom-fire",
+        "title": "doom fire",
+        "component": "<ascii-art piece=\"doom-fire\">",
+        "summary": "PSX 风格的火焰从白热火床上向上蔓延。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=doom-fire",
+        "group": "效果"
+      },
+      {
+        "id": "fireworks",
+        "title": "fireworks",
+        "component": "<ascii-art piece=\"fireworks\">",
+        "summary": "烟花弹升空，炸成牡丹、圆环、垂柳和棕榈形状。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=fireworks",
+        "group": "效果"
+      },
+      {
+        "id": "matrix-rain",
+        "title": "matrix rain",
+        "component": "<ascii-art piece=\"matrix-rain\">",
+        "summary": "字符流不断落下，前端浓密、后方渐淡。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=matrix-rain",
+        "group": "效果"
+      },
+      {
+        "id": "rotozoomer",
+        "title": "rotozoomer",
+        "component": "<ascii-art piece=\"rotozoomer\">",
+        "summary": "砖墙纹理围绕中心旋转、缩放。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=rotozoomer",
+        "group": "效果"
+      },
+      {
+        "id": "sparks",
+        "title": "sparks",
+        "component": "<ascii-art piece=\"sparks\">",
+        "summary": "角磨机抛出火星，划弧弹跳后逐渐冷却。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=sparks",
+        "group": "效果"
+      },
+      {
+        "id": "synthwave",
+        "title": "synthwave",
+        "component": "<ascii-art piece=\"synthwave\">",
+        "summary": "网格向山脊后的条纹太阳滚动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=synthwave",
+        "group": "效果"
+      },
+      {
+        "id": "tunnel",
+        "title": "tunnel",
+        "component": "<ascii-art piece=\"tunnel\">",
+        "summary": "视线飞入弯曲、扭转的瓷砖隧道。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=tunnel",
+        "group": "效果"
+      },
+      {
+        "id": "tv-static",
+        "title": "tv static",
+        "component": "<ascii-art piece=\"tv-static\">",
+        "summary": "老电视的雪花调出测试卡，随后又失去信号。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=tv-static",
+        "group": "效果"
+      },
+      {
+        "id": "big-text",
+        "title": "big text",
+        "component": "<ascii-art piece=\"big-text\">",
+        "summary": "块状字母横幅带着线框阴影，偶有亮光掠过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=big-text",
+        "group": "文字"
+      },
+      {
+        "id": "dissolve",
+        "title": "dissolve",
+        "component": "<ascii-art piece=\"dissolve\">",
+        "summary": "文字碎成尘埃，再凝聚成下一组词。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=dissolve",
+        "group": "文字"
+      },
+      {
+        "id": "glitch",
+        "title": "glitch",
+        "component": "<ascii-art piece=\"glitch\">",
+        "summary": "像素文字短暂撕裂成滑动的切片。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=glitch",
+        "group": "文字"
+      },
+      {
+        "id": "marquee",
+        "title": "marquee",
+        "component": "<ascii-art piece=\"marquee\">",
+        "summary": "滚动 LED 字牌被追逐闪烁的灯泡包围。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=marquee",
+        "group": "文字"
+      },
+      {
+        "id": "morse",
+        "title": "morse",
+        "component": "<ascii-art piece=\"morse\">",
+        "summary": "灯光发送摩斯电码，纸带记录长短信号并解码字母。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=morse",
+        "group": "文字"
+      },
+      {
+        "id": "scramble",
+        "title": "scramble",
+        "component": "<ascii-art piece=\"scramble\">",
+        "summary": "闪动的乱码从左到右逐渐解出短句。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=scramble",
+        "group": "文字"
+      },
+      {
+        "id": "split-flap",
+        "title": "split-flap",
+        "component": "<ascii-art piece=\"split-flap\">",
+        "summary": "出发信息牌的翻片快速翻动，切换到下一行内容。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=split-flap",
+        "group": "文字"
+      },
+      {
+        "id": "typewriter",
+        "title": "typewriter",
+        "component": "<ascii-art piece=\"typewriter\">",
+        "summary": "闪烁光标后，短句轮流被输入、删除。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=typewriter",
+        "group": "文字"
+      },
+      {
+        "id": "wave-text",
+        "title": "wave text",
+        "component": "<ascii-art piece=\"wave-text\">",
+        "summary": "波浪从左向右穿过一行文字。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=wave-text",
+        "group": "文字"
+      },
+      {
+        "id": "boot-log",
+        "title": "boot log",
+        "component": "<ascii-art piece=\"boot-log\">",
+        "summary": "自检先统计内存，随后启动日志滚动而过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=boot-log",
+        "group": "界面"
+      },
+      {
+        "id": "box-frames",
+        "title": "box frames",
+        "component": "<ascii-art piece=\"box-frames\">",
+        "summary": "十二种可取用的边框样式分别标出名称。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=box-frames",
+        "group": "界面"
+      },
+      {
+        "id": "calendar",
+        "title": "calendar",
+        "component": "<ascii-art piece=\"calendar\">",
+        "summary": "以 cal 风格显示当月日历，今天用括号标出，下方时钟跳动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=calendar",
+        "group": "界面"
+      },
+      {
+        "id": "chat",
+        "title": "chat",
+        "component": "<ascii-art piece=\"chat\">",
+        "summary": "聊天气泡依次呈现输入、发送、三点等待和逐字回复。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=chat",
+        "group": "界面"
+      },
+      {
+        "id": "digital-clock",
+        "title": "digital clock",
+        "component": "<ascii-art piece=\"digital-clock\">",
+        "summary": "七段数码管显示当地时间，冒号闪烁。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=digital-clock",
+        "group": "界面"
+      },
+      {
+        "id": "dividers",
+        "title": "dividers",
+        "component": "<ascii-art piece=\"dividers\">",
+        "summary": "展示从朴素到繁复的章节分隔线与装饰。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=dividers",
+        "group": "界面"
+      },
+      {
+        "id": "file-tree",
+        "title": "file tree",
+        "component": "<ascii-art piece=\"file-tree\">",
+        "summary": "目录树逐层展开文件夹，再依次收起。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=file-tree",
+        "group": "界面"
+      },
+      {
+        "id": "form-controls",
+        "title": "form controls",
+        "component": "<ascii-art piece=\"form-controls\">",
+        "summary": "终端风格表单逐个字段填写。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=form-controls",
+        "group": "界面"
+      },
+      {
+        "id": "git-graph",
+        "title": "git graph",
+        "component": "<ascii-art piece=\"git-graph\">",
+        "summary": "git log --graph 滚动显示分支从 main 分出、再合并回来。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=git-graph",
+        "group": "界面"
+      },
+      {
+        "id": "not-found",
+        "title": "not found",
+        "component": "<ascii-art piece=\"not-found\">",
+        "summary": "块状字母 404 下方，一只小幽灵缓缓飘动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=not-found",
+        "group": "界面"
+      },
+      {
+        "id": "pipeline",
+        "title": "pipeline",
+        "component": "<ascii-art piece=\"pipeline\">",
+        "summary": "持续集成逐阶段运行，一次测试失败后恢复全绿。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=pipeline",
+        "group": "界面"
+      },
+      {
+        "id": "progress-bar",
+        "title": "progress bar",
+        "component": "<ascii-art piece=\"progress-bar\">",
+        "summary": "五种进度条以不同速度填充，右侧显示百分比。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=progress-bar",
+        "group": "界面"
+      },
+      {
+        "id": "skeleton",
+        "title": "skeleton",
+        "component": "<ascii-art piece=\"skeleton\">",
+        "summary": "由阴影字符块组成的加载卡片上掠过微光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=skeleton",
+        "group": "界面"
+      },
+      {
+        "id": "spinners",
+        "title": "spinners",
+        "component": "<ascii-art piece=\"spinners\">",
+        "summary": "十二种加载动画并排显示，各自标出名称。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=spinners",
+        "group": "界面"
+      },
+      {
+        "id": "terminal",
+        "title": "terminal",
+        "component": "<ascii-art piece=\"terminal\">",
+        "summary": "Shell 会话依次演示命令输入、输出、滚动与清屏。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=terminal",
+        "group": "界面"
+      },
+      {
+        "id": "bar-chart",
+        "title": "bar chart",
+        "component": "<ascii-art piece=\"bar-chart\">",
+        "summary": "柱形在三组数据间平滑变化，数值随柱顶移动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=bar-chart",
+        "group": "数据"
+      },
+      {
+        "id": "candlesticks",
+        "title": "candlesticks",
+        "component": "<ascii-art piece=\"candlesticks\">",
+        "summary": "上涨为空心蜡烛、下跌为实心蜡烛，最后一根实时形成。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=candlesticks",
+        "group": "数据"
+      },
+      {
+        "id": "cpu-meters",
+        "title": "cpu meters",
+        "component": "<ascii-art piece=\"cpu-meters\">",
+        "summary": "进程列表上方显示 htop 风格的核心、内存和交换空间仪表。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=cpu-meters",
+        "group": "数据"
+      },
+      {
+        "id": "equalizer",
+        "title": "equalizer",
+        "component": "<ascii-art piece=\"equalizer\">",
+        "summary": "频谱柱随节拍弹跳，峰值标记缓慢落下。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=equalizer",
+        "group": "数据"
+      },
+      {
+        "id": "gauge",
+        "title": "gauge",
+        "component": "<ascii-art piece=\"gauge\">",
+        "summary": "半圆表盘的指针每次到达新读数时略微越过目标。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=gauge",
+        "group": "数据"
+      },
+      {
+        "id": "heartbeat",
+        "title": "heartbeat",
+        "component": "<ascii-art piece=\"heartbeat\">",
+        "summary": "心电图轨迹扫过上一轮曲线，同时显示每分钟心跳数。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=heartbeat",
+        "group": "数据"
+      },
+      {
+        "id": "heatmap",
+        "title": "heatmap",
+        "component": "<ascii-art piece=\"heatmap\">",
+        "summary": "贡献日历逐日填充，各周向左滚动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=heatmap",
+        "group": "数据"
+      },
+      {
+        "id": "radar",
+        "title": "radar",
+        "component": "<ascii-art piece=\"radar\">",
+        "summary": "雷达光束带着余辉旋转，目标在两次扫描之间渐淡。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=radar",
+        "group": "数据"
+      },
+      {
+        "id": "sparkline",
+        "title": "sparkline",
+        "component": "<ascii-art piece=\"sparkline\">",
+        "summary": "三条实时块状迷你图向左滚动，右侧显示数值。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=sparkline",
+        "group": "数据"
+      },
+      {
+        "id": "uptime-bar",
+        "title": "uptime bar",
+        "component": "<ascii-art piece=\"uptime-bar\">",
+        "summary": "三项服务的 60 天在线状态条随新一天到来向前滑动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=uptime-bar",
+        "group": "数据"
+      },
+      {
+        "id": "c",
+        "title": "c",
+        "component": "<ascii-art piece=\"c\">",
+        "summary": "蓝色六边形上的 C 不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=c",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "clojure",
+        "title": "clojure",
+        "component": "<ascii-art piece=\"clojure\">",
+        "summary": "绿蓝圆形中的 lambda 符号不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=clojure",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "cpp",
+        "title": "c++",
+        "component": "<ascii-art piece=\"cpp\">",
+        "summary": "蓝色六边形上的 C++ 不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=cpp",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "csharp",
+        "title": "c#",
+        "component": "<ascii-art piece=\"csharp\">",
+        "summary": "紫色六边形上的 C# 不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=csharp",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "css",
+        "title": "css",
+        "component": "<ascii-art piece=\"css\">",
+        "summary": "带数字 3 的蓝色盾牌不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=css",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "dart",
+        "title": "dart",
+        "component": "<ascii-art piece=\"dart\">",
+        "summary": "蓝色与青绿色的飞镖不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=dart",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "elixir",
+        "title": "elixir",
+        "component": "<ascii-art piece=\"elixir\">",
+        "summary": "紫色水滴不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=elixir",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "elm",
+        "title": "elm",
+        "component": "<ascii-art piece=\"elm\">",
+        "summary": "七块七巧板拼成正方形，不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=elm",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "erlang",
+        "title": "erlang",
+        "component": "<ascii-art piece=\"erlang\">",
+        "summary": "括号中的红色 E 不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=erlang",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "go",
+        "title": "go",
+        "component": "<ascii-art piece=\"go\">",
+        "summary": "带速度线的 Go 字样不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=go",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "haskell",
+        "title": "haskell",
+        "component": "<ascii-art piece=\"haskell\">",
+        "summary": "尖括号、lambda 与等号组成的标志不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=haskell",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "html",
+        "title": "html",
+        "component": "<ascii-art piece=\"html\">",
+        "summary": "带数字 5 的橙色盾牌不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=html",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "java",
+        "title": "java",
+        "component": "<ascii-art piece=\"java\">",
+        "summary": "冒着蒸汽的咖啡杯不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=java",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "javascript",
+        "title": "javascript",
+        "component": "<ascii-art piece=\"javascript\">",
+        "summary": "黄色方块上的 JS 不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=javascript",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "julia",
+        "title": "julia",
+        "component": "<ascii-art piece=\"julia\">",
+        "summary": "绿色、红色和紫色的三个圆点不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=julia",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "kotlin",
+        "title": "kotlin",
+        "component": "<ascii-art piece=\"kotlin\">",
+        "summary": "紫色与粉色的 K 不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kotlin",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "lua",
+        "title": "lua",
+        "component": "<ascii-art piece=\"lua\">",
+        "summary": "行星与卫星组成的标志不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=lua",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "ocaml",
+        "title": "ocaml",
+        "component": "<ascii-art piece=\"ocaml\">",
+        "summary": "橙色方块上的骆驼不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=ocaml",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "perl",
+        "title": "perl",
+        "component": "<ascii-art piece=\"perl\">",
+        "summary": "洋葱标志不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=perl",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "php",
+        "title": "php",
+        "component": "<ascii-art piece=\"php\">",
+        "summary": "紫色椭圆中的 PHP 不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=php",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "python",
+        "title": "python",
+        "component": "<ascii-art piece=\"python\">",
+        "summary": "蓝黄双色的两条蛇不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=python",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "r",
+        "title": "r",
+        "component": "<ascii-art piece=\"r\">",
+        "summary": "灰色圆环上的蓝色 R 不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=r",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "ruby",
+        "title": "ruby",
+        "component": "<ascii-art piece=\"ruby\">",
+        "summary": "切割出的红色宝石不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=ruby",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "rust",
+        "title": "rust",
+        "component": "<ascii-art piece=\"rust\">",
+        "summary": "Ferris 橙色的齿轮与 R 不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=rust",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "scala",
+        "title": "scala",
+        "component": "<ascii-art piece=\"scala\">",
+        "summary": "红色螺旋阶梯不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=scala",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "svelte",
+        "title": "svelte",
+        "component": "<ascii-art piece=\"svelte\">",
+        "summary": "绕成 S 的橙色丝带不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=svelte",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "swift",
+        "title": "swift",
+        "component": "<ascii-art piece=\"swift\">",
+        "summary": "橙色方块上的雨燕不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=swift",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "typescript",
+        "title": "typescript",
+        "component": "<ascii-art piece=\"typescript\">",
+        "summary": "蓝色方块上的 TS 不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=typescript",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "zig",
+        "title": "zig",
+        "component": "<ascii-art piece=\"zig\">",
+        "summary": "括号内倾斜的 Z 不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=zig",
+        "group": "语言与工具标志"
+      },
+      {
+        "id": "a0",
+        "title": "a0",
+        "component": "<ascii-art piece=\"a0\">",
+        "summary": "带圆孔的圆润字母 A 不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=a0",
+        "group": "公司标志"
+      },
+      {
+        "id": "agentmail",
+        "title": "agentmail",
+        "component": "<ascii-art piece=\"agentmail\">",
+        "summary": "戴着有檐帽的特工标志不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=agentmail",
+        "group": "公司标志"
+      },
+      {
+        "id": "apple",
+        "title": "apple",
+        "component": "<ascii-art piece=\"apple\">",
+        "summary": "缺了一口的苹果不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=apple",
+        "group": "公司标志"
+      },
+      {
+        "id": "autumn",
+        "title": "autumn",
+        "component": "<ascii-art piece=\"autumn\">",
+        "summary": "以斜线作叶脉的叶片不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=autumn",
+        "group": "公司标志"
+      },
+      {
+        "id": "cloudflare",
+        "title": "cloudflare",
+        "component": "<ascii-art piece=\"cloudflare\">",
+        "summary": "橙色云朵不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=cloudflare",
+        "group": "公司标志"
+      },
+      {
+        "id": "coderabbit",
+        "title": "coderabbit",
+        "component": "<ascii-art piece=\"coderabbit\">",
+        "summary": "橙色圆盘中的坐姿兔子不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=coderabbit",
+        "group": "公司标志"
+      },
+      {
+        "id": "collabute",
+        "title": "collabute",
+        "component": "<ascii-art piece=\"collabute\">",
+        "summary": "黑环内由白渐黑的圆盘不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=collabute",
+        "group": "公司标志"
+      },
+      {
+        "id": "command-code",
+        "title": "command code",
+        "component": "<ascii-art piece=\"command-code\">",
+        "summary": "圆角方框中的 Command 键符号不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=command-code",
+        "group": "公司标志"
+      },
+      {
+        "id": "databuddy",
+        "title": "databuddy",
+        "component": "<ascii-art piece=\"databuddy\">",
+        "summary": "Databuddy 兔子不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=databuddy",
+        "group": "公司标志"
+      },
+      {
+        "id": "greptile",
+        "title": "greptile",
+        "component": "<ascii-art piece=\"greptile\">",
+        "summary": "折成立方体的绿色 G 不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=greptile",
+        "group": "公司标志"
+      },
+      {
+        "id": "gta-vi",
+        "title": "gta vi",
+        "component": "<ascii-art piece=\"gta-vi\">",
+        "summary": "夕阳配色的 Grand Theft Auto VI 字母 VI 不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=gta-vi",
+        "group": "公司标志"
+      },
+      {
+        "id": "helium",
+        "title": "helium",
+        "component": "<ascii-art piece=\"helium\">",
+        "summary": "蓝色六角星号不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=helium",
+        "group": "公司标志"
+      },
+      {
+        "id": "helixdb",
+        "title": "helixdb",
+        "component": "<ascii-art piece=\"helixdb\">",
+        "summary": "两根立柱间呈螺旋排列的阶梯横档不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=helixdb",
+        "group": "公司标志"
+      },
+      {
+        "id": "helmcode",
+        "title": "helmcode",
+        "component": "<ascii-art piece=\"helmcode\">",
+        "summary": "紫色 Helmcode 六边形不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=helmcode",
+        "group": "公司标志"
+      },
+      {
+        "id": "keiki",
+        "title": "keiki",
+        "component": "<ascii-art piece=\"keiki\">",
+        "summary": "摇马标志不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=keiki",
+        "group": "公司标志"
+      },
+      {
+        "id": "mintlify",
+        "title": "mintlify",
+        "component": "<ascii-art piece=\"mintlify\">",
+        "summary": "薄荷绿色的叶中叶不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=mintlify",
+        "group": "公司标志"
+      },
+      {
+        "id": "orchid",
+        "title": "orchid",
+        "component": "<ascii-art piece=\"orchid\">",
+        "summary": "五瓣花不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=orchid",
+        "group": "公司标志"
+      },
+      {
+        "id": "planetscale",
+        "title": "planetscale",
+        "component": "<ascii-art piece=\"planetscale\">",
+        "summary": "被两道笔画切开的圆盘不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=planetscale",
+        "group": "公司标志"
+      },
+      {
+        "id": "playstation",
+        "title": "playstation",
+        "component": "<ascii-art piece=\"playstation\">",
+        "summary": "蓝色 P 立在平放的 S 上，不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=playstation",
+        "group": "公司标志"
+      },
+      {
+        "id": "polar",
+        "title": "polar",
+        "component": "<ascii-art piece=\"polar\">",
+        "summary": "半颗星、横条与圆弧组成的标志不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=polar",
+        "group": "公司标志"
+      },
+      {
+        "id": "supabase",
+        "title": "supabase",
+        "component": "<ascii-art piece=\"supabase\">",
+        "summary": "绿色闪电不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=supabase",
+        "group": "公司标志"
+      },
+      {
+        "id": "supermemory",
+        "title": "supermemory",
+        "component": "<ascii-art piece=\"supermemory\">",
+        "summary": "两道镜像笔画不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=supermemory",
+        "group": "公司标志"
+      },
+      {
+        "id": "vercel",
+        "title": "vercel",
+        "component": "<ascii-art piece=\"vercel\">",
+        "summary": "Vercel 三角形不时掠过亮光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=vercel",
+        "group": "公司标志"
+      },
+      {
+        "id": "almalinux",
+        "title": "almalinux",
+        "component": "<ascii-art piece=\"almalinux\">",
+        "summary": "五个彩色人形围成圆环，不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=almalinux",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "alpine-linux",
+        "title": "alpine linux",
+        "component": "<ascii-art piece=\"alpine-linux\">",
+        "summary": "六边形内的山峰不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=alpine-linux",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "arch-linux",
+        "title": "arch linux",
+        "component": "<ascii-art piece=\"arch-linux\">",
+        "summary": "蓝色拱形标志不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=arch-linux",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "centos",
+        "title": "centos",
+        "component": "<ascii-art piece=\"centos\">",
+        "summary": "四个彩色方块组成星形，不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=centos",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "debian",
+        "title": "debian",
+        "component": "<ascii-art piece=\"debian\">",
+        "summary": "红色旋涡不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=debian",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "deepin",
+        "title": "deepin",
+        "component": "<ascii-art piece=\"deepin\">",
+        "summary": "蓝色圆环中的旋涡不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=deepin",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "elementary-os",
+        "title": "elementary os",
+        "component": "<ascii-art piece=\"elementary-os\">",
+        "summary": "圆环中的 E 不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=elementary-os",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "endeavouros",
+        "title": "endeavouros",
+        "component": "<ascii-art piece=\"endeavouros\">",
+        "summary": "紫色船帆不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=endeavouros",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "fedora",
+        "title": "fedora",
+        "component": "<ascii-art piece=\"fedora\">",
+        "summary": "蓝色气泡中的 F 不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=fedora",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "gentoo",
+        "title": "gentoo",
+        "component": "<ascii-art piece=\"gentoo\">",
+        "summary": "淡紫色 G 不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=gentoo",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "kali-linux",
+        "title": "kali linux",
+        "component": "<ascii-art piece=\"kali-linux\">",
+        "summary": "蓝色龙形标志不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kali-linux",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "linux-mint",
+        "title": "linux mint",
+        "component": "<ascii-art piece=\"linux-mint\">",
+        "summary": "绿色圆形中的 LM 不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=linux-mint",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "manjaro",
+        "title": "manjaro",
+        "component": "<ascii-art piece=\"manjaro\">",
+        "summary": "三个绿色色块不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=manjaro",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "nixos",
+        "title": "nixos",
+        "component": "<ascii-art piece=\"nixos\">",
+        "summary": "由 lambda 符号组成的雪花不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=nixos",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "omarchy",
+        "title": "omarchy",
+        "component": "<ascii-art piece=\"omarchy\">",
+        "summary": "绿色括号组成方形 O，不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=omarchy",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "opensuse",
+        "title": "opensuse",
+        "component": "<ascii-art piece=\"opensuse\">",
+        "summary": "绿色变色龙不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=opensuse",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "pop-os",
+        "title": "pop!_os",
+        "component": "<ascii-art piece=\"pop-os\">",
+        "summary": "青绿色圆形中的 P! 不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=pop-os",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "red-hat",
+        "title": "red hat",
+        "component": "<ascii-art piece=\"red-hat\">",
+        "summary": "戴红帽的人物不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=red-hat",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "rocky-linux",
+        "title": "rocky linux",
+        "component": "<ascii-art piece=\"rocky-linux\">",
+        "summary": "绿色圆形中的山峰不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=rocky-linux",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "tux",
+        "title": "tux",
+        "component": "<ascii-art piece=\"tux\">",
+        "summary": "企鹅 Tux 不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=tux",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "ubuntu",
+        "title": "ubuntu",
+        "component": "<ascii-art piece=\"ubuntu\">",
+        "summary": "橙色的朋友之圈不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=ubuntu",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "void-linux",
+        "title": "void linux",
+        "component": "<ascii-art piece=\"void-linux\">",
+        "summary": "被切开的绿色圆环不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=void-linux",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "zorin-os",
+        "title": "zorin os",
+        "component": "<ascii-art piece=\"zorin-os\">",
+        "summary": "蓝色条纹组成的 Z 不时被扫描线扫过。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=zorin-os",
+        "group": "Linux 发行版"
+      },
+      {
+        "id": "kit-compose-banner-scene",
+        "title": "compose-banner-scene",
+        "component": "banner、over",
+        "summary": "用 over() 把横幅放在海上落日场景顶部下方十二行，横幅行高加倍以适配方格，合并调色板并让天空透过空白字符。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-compose-banner-scene",
+        "group": "Kit · compose"
+      },
+      {
+        "id": "kit-compose-dashboard",
+        "title": "compose-dashboard",
+        "component": "grid",
+        "summary": "将四个图表排成两列网格，各自保留播放器和参数，用带名称的圆角边框与随主题变化的单色保持排列整齐。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-compose-dashboard",
+        "group": "Kit · compose"
+      },
+      {
+        "id": "kit-compose-logos",
+        "title": "compose-logos",
+        "component": "sequence",
+        "summary": "三个标志各显示三秒，以斑块溶解相互过渡并循环，各自的亮光从首次出现时计时，颜色共用调色板。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-compose-logos",
+        "group": "Kit · compose"
+      },
+      {
+        "id": "kit-compose-starfield",
+        "title": "compose-starfield",
+        "component": "banner、layer、named",
+        "summary": "灰色星空上居中放置横幅，金色小船沿底部穿出右侧再从左侧进入，航程与三次横幅亮光合成 9.6 秒循环，星星穿过文字空白。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-compose-starfield",
+        "group": "Kit · compose"
+      },
+      {
+        "id": "kit-core-orbit",
+        "title": "core-orbit",
+        "component": "piece",
+        "summary": "只用 piece() 的字符写入与单格设置绘出卫星绕行行星，每四秒一圈，也可用 orbiting() 直接完成。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-core-orbit",
+        "group": "Kit · core"
+      },
+      {
+        "id": "kit-draw-clock",
+        "title": "draw-clock",
+        "component": "at、circle、label、phase、piece、ray、rect、ring",
+        "summary": "用绘图形状与文字定位手绘带圆角边框的时钟，ring() 排列时标、ray() 绘制指针，时刻固定在十点十分，秒针每分钟转一圈。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-draw-clock",
+        "group": "Kit · draw"
+      },
+      {
+        "id": "kit-draw-gauge",
+        "title": "draw-gauge",
+        "component": "piece、arc、braille、label、line、rect",
+        "summary": "用圆角边框、分隔线和双弧表盘组成终端仪表，旁边的盲文曲线显示同一读数最近八秒的变化，两个正弦信号合成八秒循环。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-draw-gauge",
+        "group": "Kit · draw"
+      },
+      {
+        "id": "kit-draw-sine",
+        "title": "draw-sine",
+        "component": "piece、braille、rect",
+        "summary": "在每格 2×4 点的盲文画布上绘制平滑的正弦与余弦曲线，由 plot() 自动缩放至边框内，每秒移动四分之一周期、四秒循环。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-draw-sine",
+        "group": "Kit · draw"
+      },
+      {
+        "id": "kit-draw-sprite",
+        "title": "draw-sprite",
+        "component": "piece、pixels",
+        "summary": "半块字符画布上，小像素人物在阳光草地中以每秒四次换腿行走，四秒穿过画面并从左侧重入，调色板随浅深主题变化。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-draw-sprite",
+        "group": "Kit · draw"
+      },
+      {
+        "id": "kit-field-moonlit",
+        "title": "field-moonlit",
+        "component": "hash、field",
+        "summary": "用一个场函数绘出月亮、闪星与海浪，空天空返回透明，近处波浪更大，月光以月亮自身的颜色碎落在水面。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-field-moonlit",
+        "group": "Kit · field"
+      },
+      {
+        "id": "kit-field-plasma",
+        "title": "field-plasma",
+        "component": "field",
+        "summary": "四个正弦波经叠加与再次折叠形成从靛蓝到琥珀色的八级等离子图案，每八秒完整循环，也可直接用 plasma()。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-field-plasma",
+        "group": "Kit · field"
+      },
+      {
+        "id": "kit-field-pulse",
+        "title": "field-pulse",
+        "component": "field",
+        "summary": "根据距中心的距离和当前相位，每两秒绘出膨胀回落的光心、向外扩散消退的光环与回声，减少动态时停在三分之一处。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-field-pulse",
+        "group": "Kit · field"
+      },
+      {
+        "id": "kit-field-sea",
+        "title": "field-sea",
+        "component": "field",
+        "summary": "场函数用斜线和波浪线描绘侧视涌浪，水下字符随深度变暗、上方保持透明，浅色页上的浪花以深色墨迹呈现，也可直接用 sea() 或 waves()。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-field-sea",
+        "group": "Kit · field"
+      },
+      {
+        "id": "kit-field-storm",
+        "title": "field-storm",
+        "component": "hash、valueNoise、field",
+        "summary": "按气旋每格的风向选择横、竖或斜笔画，以密度和颜色表达风力，平静处透明，阵风随风暴每八秒转一圈。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-field-storm",
+        "group": "Kit · field"
+      },
+      {
+        "id": "kit-field-window",
+        "title": "field-window",
+        "component": "gradient、piece、drawField",
+        "summary": "用 drawField() 把受光球体绘入 piece() 的边框区域，文字标题位于下方，球外不绘制且无空格的字符梯度保留暗面。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-field-window",
+        "group": "Kit · field"
+      },
+      {
+        "id": "kit-fx-chain-banner",
+        "title": "fx-chain-banner",
+        "component": "banner、chain、rainbow、wave",
+        "summary": "静止横幅依次叠加彩虹色带与波浪摆动，每个效果接收上一个作品，自动合成六秒循环。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-fx-chain-banner",
+        "group": "Kit · fx"
+      },
+      {
+        "id": "kit-fx-chain-card",
+        "title": "fx-chain-card",
+        "component": "chain、outline、shadow、typeIn",
+        "summary": "用 chain() 让命令逐字输入、圆角轮廓随文字长出，再加投影，停留两秒后重新输入。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-fx-chain-card",
+        "group": "Kit · fx"
+      },
+      {
+        "id": "kit-fx-custom-reflection",
+        "title": "fx-custom-reflection",
+        "component": "banner、effect",
+        "summary": "用 effect() 绘制横幅下方浅色、逐行起伏的倒影，Kit 负责播放、尺寸、浅深配色与循环。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-fx-custom-reflection",
+        "group": "Kit · fx"
+      },
+      {
+        "id": "kit-fx-dissolve-donut",
+        "title": "fx-dissolve-donut",
+        "component": "dissolve",
+        "summary": "库中的 donut 每六秒在噪声中溶解、重现，效果直接处理原作品的帧。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-fx-dissolve-donut",
+        "group": "Kit · fx"
+      },
+      {
+        "id": "kit-fx-glint-banner",
+        "title": "fx-glint-banner",
+        "component": "banner、glint",
+        "summary": "橙粉渐变的静止横幅每四秒掠过一次同色系亮光，83 列的扫光约用 2.4 秒。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-fx-glint-banner",
+        "group": "Kit · fx"
+      },
+      {
+        "id": "kit-fx-glitch-logo",
+        "title": "fx-glitch-logo",
+        "component": "glitch",
+        "summary": "Rust 标志每 2.5 秒短暂错位成滑动条带和杂乱字符，同时保留自身亮光，合成五秒循环。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-fx-glitch-logo",
+        "group": "Kit · fx"
+      },
+      {
+        "id": "kit-fx-scan-logo",
+        "title": "fx-scan-logo",
+        "component": "scan",
+        "summary": "扫描线从上向下显露 Go 标志，完整停留后再次扫描，每三秒循环。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-fx-scan-logo",
+        "group": "Kit · fx"
+      },
+      {
+        "id": "kit-fx-type-terminal",
+        "title": "fx-type-terminal",
+        "component": "typeIn",
+        "summary": "光标后三条命令依次输入，停留两秒后重来，未命名的文字源使用首行作为名称。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-fx-type-terminal",
+        "group": "Kit · fx"
+      },
+      {
+        "id": "kit-image-badge",
+        "title": "image-badge",
+        "component": "piece、drawImage、fromImage、imagePalette",
+        "summary": "drawImage() 把闪光的 Python 标志放在输入并回答一行命令的 REPL 旁，五秒循环，用 imagePalette() 保留两种主题下的蓝黄配色。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-image-badge",
+        "group": "Kit · image"
+      },
+      {
+        "id": "kit-image-logo",
+        "title": "image-logo",
+        "component": "fromImage",
+        "summary": "fromImage() 按图像边缘选择字符，将本地 devicon Python 图标绘成保留原色、每五秒闪光的字符画，浏览器也能读取页面可加载的图片或 SVG。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-image-logo",
+        "group": "Kit · image"
+      },
+      {
+        "id": "kit-image-photo",
+        "title": "image-photo",
+        "component": "fromImage",
+        "summary": "将 NASA Goddard 基于月球勘测轨道飞行器影像制作的公有领域满月图自动识别为照片，以灰度字符着色并移除黑色背景，浅色页反转字符密度以表现明暗。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-image-photo",
+        "group": "Kit · image"
+      },
+      {
+        "id": "kit-materials-aquarium",
+        "title": "materials-aquarium",
+        "component": "box、bubbles、emit、fish、glass、grass、ground、inside、picture、sand、shape、water",
+        "summary": "玻璃水箱中铺着沙子、水草摇摆、金鱼往返游动、气泡升起，各部分定位在水内以适应任意水箱尺寸。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-materials-aquarium",
+        "group": "Kit · materials"
+      },
+      {
+        "id": "kit-materials-candle",
+        "title": "materials-candle",
+        "component": "box、ceramic、emit、fire、flame、picture、shape、smoke、solid",
+        "summary": "蜡烛、烛芯与火焰逐层放置，柔光中火苗闪动、细烟卷起，用 on 和 from 连接各部分而无需手动定位。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-materials-candle",
+        "group": "Kit · materials"
+      },
+      {
+        "id": "kit-materials-coffee",
+        "title": "materials-coffee",
+        "component": "emit、inside、mug、picture、shape、steam、water",
+        "summary": "咖啡先绘制、不透明杯身后覆盖，使液体只从杯口露出，inside() 填充杯体并避开把手，蒸汽从杯口升起。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-materials-coffee",
+        "group": "Kit · materials"
+      },
+      {
+        "id": "kit-materials-cola",
+        "title": "materials-cola",
+        "component": "box、bubbles、cup、emit、glass、ice、inside、picture、shape、straw、water",
+        "summary": "可乐杯中气泡上升、两块冰漂在液面、条纹吸管伸入杯中，先绘制的吸管在液体下发生折射。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-materials-cola",
+        "group": "Kit · materials"
+      },
+      {
+        "id": "kit-materials-glass",
+        "title": "materials-glass",
+        "component": "bubbles、cup、emit、glass、inside、picture、shape、water",
+        "summary": "用杯形、材质与内部填充组合出半杯轻轻起伏的水和上升气泡，无需坐标或数学计算。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-materials-glass",
+        "group": "Kit · materials"
+      },
+      {
+        "id": "kit-materials-house",
+        "title": "materials-house",
+        "component": "cloud、emit、ground、grass、house、moon、neon、picture、shape、sky、smoke、starfield、wood",
+        "summary": "星空下的草坪上，小屋窗中亮灯、烟囱冒烟，月亮和漂云在上方，房屋的窗、门与烟囱可分别填充材质或作为发射源。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-materials-house",
+        "group": "Kit · materials"
+      },
+      {
+        "id": "kit-materials-lava-lamp",
+        "title": "materials-lava-lamp",
+        "component": "glass、inside、lamp、lava、metal、picture、shape",
+        "summary": "玻璃球内的熔岩团上升、变圆、下沉，金属顶盖与底座偶尔泛光，灯形各部分分别使用自己的材质。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-materials-lava-lamp",
+        "group": "Kit · materials"
+      },
+      {
+        "id": "kit-materials-rocket",
+        "title": "materials-rocket",
+        "component": "box、emission、emit、ground、material、pattern、picture、shape、sky、starfield",
+        "summary": "用 area.fit() 的点构造火箭外形、material() 着色、emission() 从喷嘴喷射尾焰，并用自定义运动表现推力震动，背景星空取自 Kit。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-materials-rocket",
+        "group": "Kit · materials"
+      },
+      {
+        "id": "kit-materials-tv",
+        "title": "materials-tv",
+        "component": "box、ceramic、glass、ground、picture、shape、solid、texture、wood",
+        "summary": "木地板上的老电视在圆角玻璃屏幕后播放 donut，texture() 将现成作品作为屏幕、窗口或招牌的材质。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-materials-tv",
+        "group": "Kit · materials"
+      },
+      {
+        "id": "kit-math-easing",
+        "title": "math-easing",
+        "component": "piece、tween",
+        "summary": "八种缓动各控制一个点在相同轨道上用两秒移动、每三秒重来，并排呈现回退、弹性超调与弹跳等差异。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-math-easing",
+        "group": "Kit · math"
+      },
+      {
+        "id": "kit-math-galaxy",
+        "title": "math-galaxy",
+        "component": "piece、shadeChar、camera、random",
+        "summary": "随机种子生成两千颗双旋臂恒星，相机每十六秒旋转一圈并以倾斜透视适配网格，字符按落入单元的星光着色。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-math-galaxy",
+        "group": "Kit · math"
+      },
+      {
+        "id": "kit-math-landscape",
+        "title": "math-landscape",
+        "component": "piece、noise、scatter",
+        "summary": "三层山脉在固定种子的天空下滚动，noise() 描述山脊范围、速度与十六秒循环，近山更大、更低、更快并遮住远山。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-math-landscape",
+        "group": "Kit · math"
+      },
+      {
+        "id": "kit-math-pool",
+        "title": "math-pool",
+        "component": "gradient、piece、shadeChar、noise",
+        "summary": "用四秒循环的噪声单元与平滑扰动模拟泳池底部的折射光，反转、增强明暗后以字符梯度和蓝色渐变绘出弯曲光线。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-math-pool",
+        "group": "Kit · math"
+      },
+      {
+        "id": "kit-math-starfield",
+        "title": "math-starfield",
+        "component": "piece、shadeChar、cycle、progress、random、scatter、twinkle",
+        "summary": "固定种子的星空用 scatter() 均匀分布、twinkle() 错开闪烁，每四秒随机选择一条流星路径并缩短减速尾迹，整体八秒循环。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-math-starfield",
+        "group": "Kit · math"
+      },
+      {
+        "id": "kit-particles-banner",
+        "title": "particles-banner",
+        "component": "banner、particles",
+        "summary": "同一渐变横幅既作背景又作粒子发射源，火星从字母升起并由白热冷却到红色。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-particles-banner",
+        "group": "Kit · particles"
+      },
+      {
+        "id": "kit-particles-comet",
+        "title": "particles-comet",
+        "component": "piece、drawParticles、particlesPalette",
+        "summary": "彗星每八秒绕带环行星一圈，移动发射源留下粒子尾迹，drawParticles() 合并系统，particlesPalette() 合并配色，行星绘在闪星上方。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-particles-comet",
+        "group": "Kit · particles"
+      },
+      {
+        "id": "kit-particles-confetti",
+        "title": "particles-confetti",
+        "component": "particles",
+        "summary": "底角两个礼花筒向内上方喷出彩纸，空气阻力使纸片减速、飘落、轻弹后落定，每五秒重播，首帧已是满天彩纸。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-particles-confetti",
+        "group": "Kit · particles"
+      },
+      {
+        "id": "kit-particles-embers",
+        "title": "particles-embers",
+        "component": "particles",
+        "summary": "不用预设手写粒子系统，让火星从线形火源向上散出、受空气减速、摇摆并由黄变红，底部三行字符组成火焰。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-particles-embers",
+        "group": "Kit · particles"
+      },
+      {
+        "id": "kit-particles-fireworks",
+        "title": "particles-fireworks",
+        "component": "particles",
+        "summary": "烟花预设从文字天际线后升空，依次以五种颜色绽放并落到楼后，窗户涂金色，八秒无缝循环。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-particles-fireworks",
+        "group": "Kit · particles"
+      },
+      {
+        "id": "kit-particles-matrix",
+        "title": "particles-matrix",
+        "component": "particles",
+        "summary": "一行 matrix 预设生成落下的字符流，头部闪动、尾迹渐淡，由单个粒子系统为每段尾迹选择字符。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-particles-matrix",
+        "group": "Kit · particles"
+      },
+      {
+        "id": "kit-particles-sand",
+        "title": "particles-sand",
+        "component": "banner、particles",
+        "summary": "横幅的每个字符先各自停留，再碎成沙粒落下、触地停稳，每六秒循环。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-particles-sand",
+        "group": "Kit · particles"
+      },
+      {
+        "id": "kit-particles-snow",
+        "title": "particles-snow",
+        "component": "particles",
+        "summary": "雪花预设在文字小屋和松林后分三层飘落，远雪细慢、近雪大快，风力起伏，松树为绿、窗户为金色，八秒循环。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-particles-snow",
+        "group": "Kit · particles"
+      },
+      {
+        "id": "kit-recipe-looks-aurora",
+        "title": "recipe-looks-aurora",
+        "component": "aurora、stars",
+        "summary": "将极光与稀疏星空两种 looks 相加，极光的调色板同时为两者着色。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-looks-aurora",
+        "group": "Kit · recipe-looks"
+      },
+      {
+        "id": "kit-recipe-looks-contributions",
+        "title": "recipe-looks-contributions",
+        "component": "turbulence",
+        "summary": "以 GitHub 的绿色阶梯色绘制块状噪声单元，呈现贡献图的分级色块。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-looks-contributions",
+        "group": "Kit · recipe-looks"
+      },
+      {
+        "id": "kit-recipe-looks-galaxy",
+        "title": "recipe-looks-galaxy",
+        "component": "galaxy、stars",
+        "summary": "明亮核心周围的双旋臂星系转动，前方散布闪烁的星星。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-looks-galaxy",
+        "group": "Kit · recipe-looks"
+      },
+      {
+        "id": "kit-recipe-looks-heart",
+        "title": "recipe-looks-heart",
+        "component": "heart、plasma",
+        "summary": "用放大的心形遮罩裁出糖果色等离子图案，无空格的字符梯度保留整个心形，其他材料形状也能用作遮罩。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-looks-heart",
+        "group": "Kit · recipe-looks"
+      },
+      {
+        "id": "kit-recipe-looks-hot",
+        "title": "recipe-looks-hot",
+        "component": "plasma",
+        "summary": "用火焰配色的等离子填满自适应大小的 HOT 块状字母，无空格的字符梯度让暗部也保持完整。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-looks-hot",
+        "group": "Kit · recipe-looks"
+      },
+      {
+        "id": "kit-recipe-looks-lava",
+        "title": "recipe-looks-lava",
+        "component": "lavaLamp",
+        "summary": "熔岩团在缓慢热浪扭曲中上升、融合、下沉，以霓虹配色替代熔岩的红色。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-looks-lava",
+        "group": "Kit · recipe-looks"
+      },
+      {
+        "id": "kit-recipe-looks-matrix",
+        "title": "recipe-looks-matrix",
+        "component": "banner、matrix",
+        "summary": "用 behind() 将数字雨置于居中的横幅后，作为文字背景。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-looks-matrix",
+        "group": "Kit · recipe-looks"
+      },
+      {
+        "id": "kit-recipe-looks-plasma",
+        "title": "recipe-looks-plasma",
+        "component": "plasma",
+        "summary": "霓虹配色的等离子以半速播放，浅色页自动反转字符梯度与颜色，使亮部仍显明亮。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-looks-plasma",
+        "group": "Kit · recipe-looks"
+      },
+      {
+        "id": "kit-recipe-looks-sea",
+        "title": "recipe-looks-sea",
+        "component": "sea",
+        "summary": "以一次调用和 ocean 配色绘出从地平线涌向岸边的海浪，远处细、近处浪脊长。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-looks-sea",
+        "group": "Kit · recipe-looks"
+      },
+      {
+        "id": "kit-recipe-looks-snow",
+        "title": "recipe-looks-snow",
+        "component": "banner、snowfall",
+        "summary": "三层雪花落在横幅后，横幅自身的最大宽度使文字保持在 64 列画面内。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-looks-snow",
+        "group": "Kit · recipe-looks"
+      },
+      {
+        "id": "kit-recipe-looks-storm",
+        "title": "recipe-looks-storm",
+        "component": "clouds、rainfall",
+        "summary": "夜色配色下，暗云漂移、雨向左斜落，add() 叠加两种 looks 的光线并保留雨丝。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-looks-storm",
+        "group": "Kit · recipe-looks"
+      },
+      {
+        "id": "kit-recipe-looks-sunset",
+        "title": "recipe-looks-sunset",
+        "component": "above、below、sun、waves",
+        "summary": "above() 把太阳裁在地平线上方，below() 将海浪限制在底部，按画面比例合成夕阳配色的海上落日。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-looks-sunset",
+        "group": "Kit · recipe-looks"
+      },
+      {
+        "id": "kit-recipe-looks-tunnel",
+        "title": "recipe-looks-tunnel",
+        "component": "tunnel",
+        "summary": "环形肋条沿隧道迎面冲来，整体以慢速每十六秒旋转一圈。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-looks-tunnel",
+        "group": "Kit · recipe-looks"
+      },
+      {
+        "id": "kit-recipe-motion-boom",
+        "title": "recipe-motion-boom",
+        "component": "banner、shaking",
+        "summary": "红色横幅不时猛然抖动，shaking() 用文字选项表达 shake() 的数值设置。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-motion-boom",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-motion-bounce",
+        "title": "recipe-motion-bounce",
+        "component": "banner、bouncing",
+        "summary": "横幅在地面弹跳，落下时快、顶点时慢，升起时阴影变窄。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-motion-bounce",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-motion-candle",
+        "title": "recipe-motion-candle",
+        "component": "flame、swaying",
+        "summary": "自带闪动火焰材质的 flame() 从底部随气流摇摆，swaying() 控制倾斜。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-motion-candle",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-motion-cloud",
+        "title": "recipe-motion-cloud",
+        "component": "cloud、drifting、shape、sky、starfield",
+        "summary": "云朵沿闪星夜空向右漂移，穿出一侧后从另一侧进入，天空与云朵分别以形状和材质组成。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-motion-cloud",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-motion-coin",
+        "title": "recipe-motion-coin",
+        "component": "banner、spinning",
+        "summary": "平面横幅像桌上的硬币一样旋转，逐渐缩成细边后露出镜像背面。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-motion-coin",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-motion-donut",
+        "title": "recipe-motion-donut",
+        "component": "spinning、torus",
+        "summary": "一行 spinning(torus()) 将三维圆环放入旋转组，每六秒翻滚一圈并作为场景播放。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-motion-donut",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-motion-earth",
+        "title": "recipe-motion-earth",
+        "component": "planet",
+        "summary": "蓝色大陆星球绕倾斜轴转动，卫星在前后绕行，planet() 将两个球体组合成场景。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-motion-earth",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-motion-heartbeat",
+        "title": "recipe-motion-heartbeat",
+        "component": "heart、pulsing",
+        "summary": "心形以两次快拍加一次停顿的节奏跳动，pulsing() 保留其材质并使形体膨胀。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-motion-heartbeat",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-motion-hello",
+        "title": "recipe-motion-hello",
+        "component": "banner、slideIn",
+        "summary": "横幅从左滑入、弹跳落定，停留两秒后再次滑入。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-motion-hello",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-motion-hover",
+        "title": "recipe-motion-hover",
+        "component": "cube、floating、spinning",
+        "summary": "立方体在转台上旋转，同时上下浮动，展示运动可以互相嵌套。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-motion-hover",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-motion-orbit",
+        "title": "recipe-motion-orbit",
+        "component": "banner、orbiting",
+        "summary": "星星沿压扁的圆形轨道绕横幅运行，下方经过前景、上方绕到背后。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-motion-orbit",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-motion-rec",
+        "title": "recipe-motion-rec",
+        "component": "blinking",
+        "summary": "录制指示灯像相机上的红灯一样缓慢闪烁。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-motion-rec",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-motion-saturn",
+        "title": "recipe-motion-saturn",
+        "component": "planet",
+        "summary": "带条纹与光环的巨行星向观看者倾斜并自转，由一个球体与一个圆环构成场景。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-motion-saturn",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-motion-star",
+        "title": "recipe-motion-star",
+        "component": "growIn、star",
+        "summary": "金色星星从无到有弹出、摇晃落定，停留后再次弹出。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-motion-star",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-widget-bars",
+        "title": "recipe-widget-bars",
+        "component": "barChart",
+        "summary": "根据名称与数值生成各自着色的柱状图，柱形依次长出、略微超调后停留。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-widget-bars",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-widget-card",
+        "title": "recipe-widget-card",
+        "component": "card、floating",
+        "summary": "带标题、分隔线、自动换行正文与轻淡页脚的卡片缓缓浮动，展示部件可直接交给运动函数。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-widget-card",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-widget-clock",
+        "title": "recipe-widget-clock",
+        "component": "clockFace",
+        "summary": "一次调用生成带数字时标的圆形时钟，显示十点十分，红色秒针每分钟转一圈。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-widget-clock",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-widget-compass",
+        "title": "recipe-widget-compass",
+        "component": "at、label、phase、piece、ray、ring",
+        "summary": "用 ring() 排列八方位、at() 找中心、phase() 计算相位，指针每八秒绕表盘转一圈。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-widget-compass",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-widget-countdown",
+        "title": "recipe-widget-countdown",
+        "component": "countdown",
+        "summary": "大字每秒依次显示五到一，再显示 liftoff 并循环。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-widget-countdown",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-widget-dashboard",
+        "title": "recipe-widget-dashboard",
+        "component": "column、gauge、row、sparkline、spinner",
+        "summary": "将一个实时和一个静态仪表并排放在迷你实时曲线与加载动画上方，展示 widgets 作为作品参与组合。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-widget-dashboard",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-widget-marquee",
+        "title": "recipe-widget-marquee",
+        "component": "marquee",
+        "summary": "块状字母沿字牌向左滚动，穿出一端后从另一端进入。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-widget-marquee",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-widget-progress",
+        "title": "recipe-widget-progress",
+        "component": "progressBar",
+        "summary": "进度条以八分之一字符格平滑填充，填满时变绿，再重新开始。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-widget-progress",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-recipe-widget-typewriter",
+        "title": "recipe-widget-typewriter",
+        "component": "typewriter",
+        "summary": "光标后以打字节奏输入文字，按 40 列换行，停留三秒后重新输入。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-recipe-widget-typewriter",
+        "group": "Kit · recipe"
+      },
+      {
+        "id": "kit-shapes3d-boing",
+        "title": "shapes3d-boing",
+        "component": "lines、scene、sphere",
+        "summary": "Amiga 棋盘球绕倾斜轴旋转，每 1.5 秒弹跳并左右漂移，地面网格按透视斜率选择线条字符，三秒循环。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-shapes3d-boing",
+        "group": "Kit · shapes3d"
+      },
+      {
+        "id": "kit-shapes3d-crystal",
+        "title": "shapes3d-crystal",
+        "component": "mesh、scene",
+        "summary": "六个顶点、八个面的长八面体在转台上旋转，各面整体受光、边缘以字符线条相连，亮面延伸到浅色高光。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-shapes3d-crystal",
+        "group": "Kit · shapes3d"
+      },
+      {
+        "id": "kit-shapes3d-cube",
+        "title": "shapes3d-cube",
+        "component": "cube、scene",
+        "summary": "立方体绕两轴翻转，各面用不同字符与橙色明暗填充，十二条边与角点保持单色下的立体感，首帧已露出三个面。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-shapes3d-cube",
+        "group": "Kit · shapes3d"
+      },
+      {
+        "id": "kit-shapes3d-donut",
+        "title": "shapes3d-donut",
+        "component": "scene、torus",
+        "summary": "Kit 一行生成从左上受光且不会被裁切的双轴圆环，在八秒内分别转两圈和一圈，以保持 donut.c 的比例并无缝循环。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-shapes3d-donut",
+        "group": "Kit · shapes3d"
+      },
+      {
+        "id": "kit-shapes3d-galaxy",
+        "title": "shapes3d-galaxy",
+        "component": "points、scene",
+        "summary": "预制的固定种子星云沿双旋臂围绕隆起核心旋转，单元星光相加，使密集核心与旋臂从紫色亮到浅粉色。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-shapes3d-galaxy",
+        "group": "Kit · shapes3d"
+      },
+      {
+        "id": "kit-shapes3d-loader",
+        "title": "shapes3d-loader",
+        "component": "piece、cube、render3d、scenePalette",
+        "summary": "render3d() 在 piece() 网格中绘出三秒旋转一圈的立方体，下方保留一行标签并每 1.5 秒更新圆点，scenePalette() 合并立方体色阶与文字色。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-shapes3d-loader",
+        "group": "Kit · shapes3d"
+      },
+      {
+        "id": "kit-shapes3d-orrery",
+        "title": "shapes3d-orrery",
+        "component": "group、lines、orbit、scene、sphere",
+        "summary": "行星沿绘出的轨道绕太阳运行，卫星绕行星运行，group() 让卫星轨道随行星一起移动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-shapes3d-orrery",
+        "group": "Kit · shapes3d"
+      },
+      {
+        "id": "kit-shapes3d-planet",
+        "title": "shapes3d-planet",
+        "component": "orbit、scene、sphere",
+        "summary": "条纹气态巨行星绕倾斜轴转动，浅色卫星沿倾斜轨道绕行，深度缓冲处理前后遮挡，由两个球体与命名纹理组成。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-shapes3d-planet",
+        "group": "Kit · shapes3d"
+      },
+      {
+        "id": "kit-vector-ball",
+        "title": "vector-ball",
+        "component": "fromSvg",
+        "summary": "自定义时间函数让 SVG 球跳高八行、落地时以底部为原点压扁，升起时阴影缩小，并以 period 定义无缝循环。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-vector-ball",
+        "group": "Kit · vector"
+      },
+      {
+        "id": "kit-vector-coffee",
+        "title": "vector-coffee",
+        "component": "fromSvg",
+        "summary": "trace 从各线起点描出咖啡线条图标，完整停留后擦除，轮廓样式将线条转为字符，color 可指定 currentColor 图标的颜色。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-vector-coffee",
+        "group": "Kit · vector"
+      },
+      {
+        "id": "kit-vector-glass",
+        "title": "vector-glass",
+        "component": "fromSvg",
+        "summary": "用映射让 SVG 杯内水面起伏、三个气泡上升、玻璃掠过亮光，以指定字符描绘水和气泡，也可用 Kit 水与玻璃材质填充同一部分。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-vector-glass",
+        "group": "Kit · vector"
+      },
+      {
+        "id": "kit-vector-heart",
+        "title": "vector-heart",
+        "component": "fromSvg",
+        "summary": "fromSvg() 无需文档对象模型即可读取内联 SVG，以贴合边缘的字符和原始红色绘出心形，通过路径 id 与 pulse 使其跳动。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-vector-heart",
+        "group": "Kit · vector"
+      },
+      {
+        "id": "kit-vector-logo",
+        "title": "vector-logo",
+        "component": "fromSvg",
+        "summary": "圆角方块中镂空的闪电标志像硬币旋转，通过组 id 让方块与闪电同步，单色时省略白色闪电以保持镂空效果。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-vector-logo",
+        "group": "Kit · vector"
+      },
+      {
+        "id": "kit-vector-star",
+        "title": "vector-star",
+        "component": "fromSvg",
+        "summary": "SVG 五角星每四秒被亮带扫过，经过的实心格变为斜线，颜色也随之变亮。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-vector-star",
+        "group": "Kit · vector"
+      },
+      {
+        "id": "kit-vector-tv",
+        "title": "vector-tv",
+        "component": "fromSvg",
+        "summary": "SVG 老电视的屏幕中播放库里的 matrix rain，以屏幕 id 指定填充区域，作品居中并裁切到屏幕形状内。",
+        "entrypoint": "demos/materials/ascii-rest/index.html?demo=kit-vector-tv",
+        "group": "Kit · vector"
+      }
+    ],
+    "prompt": "用 ascii.rest 在网页上放字符动画：页面引入 <script type=\"module\"> 加载 ascii.rest/element，再写 <ascii-art piece=\"组件名\">。文字类组件渲染成 <pre>，颜色与字号随 CSS；场景、标志与发行版渲染成随容器宽度的 <canvas>，加 mono 改为单色文字。用 options 传组件参数，用 fps 调帧率；需要新作品时用 ascii.rest/kit 的 looks、motions 与 widgets 组合，再以 src 指向导出作品的模块。保持等宽字体、行高 1.2 与留白，动画只做点缀。",
+    "$": {
+      "preview": "previews/materials/ascii-rest.png",
+      "research": "docs/materials/ascii-rest.md",
+      "licenses": "demos/materials/ascii-rest/LICENSES.md",
+      "prompt": "prompts/materials/ascii-rest.md",
+      "agent": "agent/materials/ascii-rest.json"
+    }
   }
 ]

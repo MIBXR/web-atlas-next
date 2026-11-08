@@ -1,0 +1,3 @@
+source/** -text -whitespace
+source/README.md text eol=lf
+demo/kit/** -text -whitespace
