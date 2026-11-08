@@ -2,9 +2,9 @@
 
 > A skill for AI agents to **edit and design** any source material (URL / PDF / DOCX / Markdown / plain text / screenshots / pasted notes) into a **beautiful, share-ready article** that is easier to read, archive, and pass around than the original.
 
-[中文文档](./README.zh-CN.md) · [Back to collection root](../../README.md)
+[中文文档](./README.zh-CN.md) · [Back to collection root](https://github.com/ConardLi/garden-skills/blob/2b9a89340b70f632d31c0f1c69fce94a7912423e/README.md)
 
-![Beautiful Article Skill](../../dist/imgs/covers/beautiful-article.webp)
+![Beautiful Article Skill](https://raw.githubusercontent.com/ConardLi/garden-skills/2b9a89340b70f632d31c0f1c69fce94a7912423e/dist/imgs/covers/beautiful-article.webp)
 
 ---
 

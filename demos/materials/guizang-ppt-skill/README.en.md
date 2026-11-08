@@ -65,7 +65,7 @@ Add speaker notes and planned timing to this deck, then help me rehearse it in p
 ## Sponsors and Supporters
 
 <a href="./SPONSORS.md">
-  <img src="https://github.com/user-attachments/assets/81138fad-31b9-49ab-8e38-23b2bc48edc4" alt="360 Security Lobster / Kimi work / Cola Skill Gold Sponsors" width="100%">
+  360 Security Lobster / Kimi work / Cola Skill Gold Sponsors
 </a>
 
 Guizang PPT Skill is supported by **360 Security Lobster**, **Kimi work**, and **Cola Skill** as Gold Sponsors and by [ZhenFund Token Grant](https://zhenfund.feishu.cn/share/base/form/shrcn1lAANF659o7EpWnxlR1VOh?sessionid=). See [SPONSORS.md](./SPONSORS.md) for details.
@@ -190,7 +190,7 @@ Both templates ship with the same presenter runtime. Open a deck and press the b
 
 **Presenter view example**
 
-![Presenter view with current and next slides, speaker notes, timing controls, and audience status](https://github.com/user-attachments/assets/95db62b5-65bb-40af-ac0b-1d415682af88)
+Presenter view with current and next slides, speaker notes, timing controls, and audience status
 
 ### What the speaker sees
 

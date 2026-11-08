@@ -2,9 +2,9 @@
 
 **An AI agent skill that transforms AI-generated web pages from "functional" to "stunning."**
 
-[中文文档](./README.zh-CN.md) · [Back to collection root](../../README.md)
+[中文文档](./README.zh-CN.md) · [Back to collection root](https://github.com/ConardLi/garden-skills/blob/2b9a89340b70f632d31c0f1c69fce94a7912423e/README.md)
 
-![Web Design Skill](../../dist/imgs/covers/web-design-engineer.webp)
+![Web Design Skill](https://raw.githubusercontent.com/ConardLi/garden-skills/2b9a89340b70f632d31c0f1c69fce94a7912423e/dist/imgs/covers/web-design-engineer.webp)
 
 ---
 
@@ -61,7 +61,7 @@ your-project/
 └── ...
 ```
 
-Or use the Claude Code plugin marketplace from the collection root — see the [top-level README](../../README.md#install).
+Or use the Claude Code plugin marketplace from the collection root — see the [top-level README](https://github.com/ConardLi/garden-skills/blob/2b9a89340b70f632d31c0f1c69fce94a7912423e/README.md#install).
 
 The agent will automatically pick up the skill when your request involves visual/interactive front-end work.
 
@@ -132,7 +132,7 @@ The agent will automatically pick up the skill when your request involves visual
 
 The skill ships **25 named recipes**, each tied to a real brand, studio, or designer. Every recipe has a working, full-page artefact in the demo gallery — not a shared template, not a thumbnail mood-board, but the form each recipe was actually designed for: an apothecary product page for Aesop, a trading workstation for Bloomberg Terminal, a Saul-Bass poster for Mid-Century, a Y2K portal for Retrofuturism. Browse by school below, pick the one whose vibe matches your brief, or read the spec file at `references/style-recipes/<recipe>.md`. Click any preview to open the full-resolution 2:1 frame.
 
-> Frames are real artefacts rendered by the live React + Vite gallery at [`demo/web-design-engineer-demo`](../../demo/web-design-engineer-demo/) — same fonts, same palettes, same signature moves as the recipe spec. Each demo is in `src/recipes/<id>.tsx`.
+> Frames are real artefacts rendered by the live React + Vite gallery at `demo/web-design-engineer-demo` — same fonts, same palettes, same signature moves as the recipe spec. Each demo is in `src/recipes/<id>.tsx`.
 
 ### Editorial / Minimalist · 5 recipes
 
@@ -410,13 +410,13 @@ cd demo/web-design-engineer-demo
 npm install && npm run dev    # http://localhost:5181/
 ```
 
-Hash-routed URLs (`#/linear`, `#/aesop`, …) deep-link to any recipe. Press `H` to toggle the recipe HUD, `Esc` to return to the gallery. See the demo's own [README](../../demo/web-design-engineer-demo/README.md) for layout details.
+Hash-routed URLs (`#/linear`, `#/aesop`, …) deep-link to any recipe. Press `H` to toggle the recipe HUD, `Esc` to return to the gallery. See the demo's own README for layout details.
 
 ---
 
 ## Before & after: skill on / off
 
-The repository's [`demo/web-design-demo/`](../../demo/web-design-demo) directory contains side-by-side comparisons of pages generated with and without this skill, using identical prompts. Open [`demo/web-design-demo/demo2/index.html`](../../demo/web-design-demo/demo2/index.html) for a side-by-side viewer.
+The repository's [`demo/web-design-demo/`](https://github.com/ConardLi/garden-skills/blob/2b9a89340b70f632d31c0f1c69fce94a7912423e/demo/web-design-demo) directory contains side-by-side comparisons of pages generated with and without this skill, using identical prompts. Open [`demo/web-design-demo/demo2/index.html`](https://github.com/ConardLi/garden-skills/blob/2b9a89340b70f632d31c0f1c69fce94a7912423e/demo/web-design-demo/demo2/index.html) for a side-by-side viewer.
 
 ### Demo 1: Space Exploration Museum
 
@@ -445,7 +445,7 @@ The repository's [`demo/web-design-demo/`](../../demo/web-design-demo) directory
 | **Motion** | Slow Ken Burns on hero image (24s cycle), film-grain texture overlay |
 | **Navigation** | `mix-blend-mode: difference` masthead — seamless across light/dark sections |
 
-> The original Claude Design system prompt that inspired this skill is preserved at [`dist/prompt/claude-design-system-prompt.md`](../../dist/prompt/claude-design-system-prompt.md).
+> The original Claude Design system prompt that inspired this skill is preserved at [`dist/prompt/claude-design-system-prompt.md`](https://github.com/ConardLi/garden-skills/blob/2b9a89340b70f632d31c0f1c69fce94a7912423e/dist/prompts/claude-design-system-prompt.md).
 
 ---
 

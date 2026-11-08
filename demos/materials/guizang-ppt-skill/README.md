@@ -67,7 +67,7 @@ npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-s
 ## 赞助与支持
 
 <a href="./SPONSORS.md">
-  <img src="https://github.com/user-attachments/assets/81138fad-31b9-49ab-8e38-23b2bc48edc4" alt="360 安全龙虾 / Kimi work / Cola Skill 金牌赞助" width="100%">
+  360 安全龙虾 / Kimi work / Cola Skill 金牌赞助
 </a>
 
 Guizang PPT Skill 的持续迭代获得 **360 安全龙虾**、**Kimi work**、**Cola Skill** 金牌赞助和 [真格 Token Grant](https://zhenfund.feishu.cn/share/base/form/shrcn1lAANF659o7EpWnxlR1VOh?sessionid=) 支持。更多信息见 [SPONSORS.md](./SPONSORS.md)。
@@ -192,7 +192,7 @@ Skill 本身是结构化工作流,Agent 会逐步引导:
 
 **演讲者视图示例**
 
-![演讲者视图示例：当前页、下一页、演讲备注、计时控制与观众屏状态](https://github.com/user-attachments/assets/95db62b5-65bb-40af-ac0b-1d415682af88)
+演讲者视图示例：当前页、下一页、演讲备注、计时控制与观众屏状态
 
 ### 演讲时能看到什么
 

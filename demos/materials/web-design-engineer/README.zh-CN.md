@@ -2,9 +2,9 @@
 
 **一个让 AI 生成网页从"能用"进阶到"惊艳"的 Agent 技能。**
 
-[English](./README.md) · [返回集合首页](../../README.zh-CN.md)
+[English](./README.md) · [返回集合首页](https://github.com/ConardLi/garden-skills/blob/2b9a89340b70f632d31c0f1c69fce94a7912423e/README.zh-CN.md)
 
-![Web Design Skill](../../dist/imgs/covers/web-design-engineer.webp)
+![Web Design Skill](https://raw.githubusercontent.com/ConardLi/garden-skills/2b9a89340b70f632d31c0f1c69fce94a7912423e/dist/imgs/covers/web-design-engineer.webp)
 
 ---
 
@@ -61,7 +61,7 @@ your-project/
 └── ...
 ```
 
-也可以从集合首页通过 Claude Code 插件市场一键安装 —— 参见[根目录 README](../../README.zh-CN.md#%E5%AE%89%E8%A3%85)。
+也可以从集合首页通过 Claude Code 插件市场一键安装 —— 参见[根目录 README](https://github.com/ConardLi/garden-skills/blob/2b9a89340b70f632d31c0f1c69fce94a7912423e/README.zh-CN.md#%E5%AE%89%E8%A3%85)。
 
 当你的请求涉及可视化/交互式前端工作时，Agent 会自动启用此技能。
 
@@ -132,7 +132,7 @@ your-project/
 
 Skill 自带 **25 套有名字的配方**，每套都对应到真实的品牌、工作室或设计师。目录中的每个配方都在 demo 画廊里有一个完整的整页作品 —— 不是共用模板、不是缩略图情绪板，而是每套配方本来就该长成的那种东西：Aesop 是药剂师产品页、Bloomberg Terminal 是交易工作站、Mid-Century 是 Saul Bass 海报、Y2K 是世纪之交的门户网站。按学派浏览下方卡片，挑一套气质契合你 brief 的配方，或者直接读 `references/style-recipes/<recipe>.md` 的 spec 文件。点击任意预览图打开完整分辨率的 2:1 大图。
 
-> 所有截图都是来自 [`demo/web-design-engineer-demo`](../../demo/web-design-engineer-demo/) 这个 React + Vite 画廊的真实渲染 —— 字体、配色、签名手法都和 spec 文件里一致。每个 demo 位于 `src/recipes/<id>.tsx`。
+> 所有截图都是来自 `demo/web-design-engineer-demo` 这个 React + Vite 画廊的真实渲染 —— 字体、配色、签名手法都和 spec 文件里一致。每个 demo 位于 `src/recipes/<id>.tsx`。
 
 ### Editorial / 极简 · 5 套
 
@@ -410,13 +410,13 @@ cd demo/web-design-engineer-demo
 npm install && npm run dev    # http://localhost:5181/
 ```
 
-Hash 路由 URL（`#/linear`、`#/aesop`、…）可深链到任意配方。按 `H` 切换配方 HUD，`Esc` 返回画廊。布局细节见 demo 自己的 [README](../../demo/web-design-engineer-demo/README.md)。
+Hash 路由 URL（`#/linear`、`#/aesop`、…）可深链到任意配方。按 `H` 切换配方 HUD，`Esc` 返回画廊。布局细节见 demo 自己的 README。
 
 ---
 
 ## 启用前后对比：Skill 开 / 关
 
-仓库的 [`demo/web-design-demo/`](../../demo/web-design-demo) 目录包含使用相同提示词、分别在有 Skill 和无 Skill 条件下生成的页面对比。打开 [`demo/web-design-demo/demo2/index.html`](../../demo/web-design-demo/demo2/index.html) 查看对比展示页。
+仓库的 [`demo/web-design-demo/`](https://github.com/ConardLi/garden-skills/blob/2b9a89340b70f632d31c0f1c69fce94a7912423e/demo/web-design-demo) 目录包含使用相同提示词、分别在有 Skill 和无 Skill 条件下生成的页面对比。打开 [`demo/web-design-demo/demo2/index.html`](https://github.com/ConardLi/garden-skills/blob/2b9a89340b70f632d31c0f1c69fce94a7912423e/demo/web-design-demo/demo2/index.html) 查看对比展示页。
 
 ### Demo 1：太空探索博物馆
 
@@ -445,7 +445,7 @@ Hash 路由 URL（`#/linear`、`#/aesop`、…）可深链到任意配方。按 
 | **动效** | Hero 图片的慢速 Ken Burns 动画（24秒周期），胶片噪点纹理叠加 |
 | **导航** | `mix-blend-mode: difference` 顶栏 —— 在深浅背景间无缝过渡 |
 
-> 启发本 Skill 的 Claude Design 原始系统提示词保留在 [`dist/prompt/claude-design-system-prompt.md`](../../dist/prompt/claude-design-system-prompt.md)。
+> 启发本 Skill 的 Claude Design 原始系统提示词保留在 [`dist/prompt/claude-design-system-prompt.md`](https://github.com/ConardLi/garden-skills/blob/2b9a89340b70f632d31c0f1c69fce94a7912423e/dist/prompts/claude-design-system-prompt.md)。
 
 ---
 

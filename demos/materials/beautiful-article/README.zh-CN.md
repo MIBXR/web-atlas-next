@@ -2,9 +2,9 @@
 
 > 一个面向 AI Agent 的 Skill：把任意素材（URL / PDF / DOCX / Markdown / 纯文本 / 截图 / 粘贴材料）**编辑、设计**成一篇**比原文更易读、更便于分享和归档的精美文章**。
 
-[English](./README.md) · [返回集合首页](../../README.zh-CN.md)
+[English](./README.md) · [返回集合首页](https://github.com/ConardLi/garden-skills/blob/2b9a89340b70f632d31c0f1c69fce94a7912423e/README.zh-CN.md)
 
-![Beautiful Article Skill](../../dist/imgs/covers/beautiful-article.webp)
+![Beautiful Article Skill](https://raw.githubusercontent.com/ConardLi/garden-skills/2b9a89340b70f632d31c0f1c69fce94a7912423e/dist/imgs/covers/beautiful-article.webp)
 
 ---
 

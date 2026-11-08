@@ -3,7 +3,7 @@
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/banner-dark.png">
       <source media="(prefers-color-scheme: light)" srcset="./.github/assets/banner-light.png">
-      <img alt="Arc: React components and blocks with motion built in. Free and open source, install with shadcn." src="./.github/assets/banner-light.png" width="100%">
+      <img alt="Arc: React components and blocks with motion built in. Free and open source, install with shadcn." src="https://raw.githubusercontent.com/kuratlielia/arc-library/df3a600fd9ffca85ec8607438b599a4408ab8562/.github/assets/banner-light.png" width="100%">
     </picture>
   </a>
 </p>
@@ -40,7 +40,7 @@ A few favorites, recorded live from [uiarc.dev](https://uiarc.dev). Items marked
 <td width="50%" valign="top">
 <a href="https://uiarc.dev/pro"><picture>
 <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/cover-flow-dark.webp">
-<img alt="Cover flow: A depth rail of photos you can throw, with soft grounded shadows and a quiet reflection." src="./.github/assets/showcase/cover-flow-light.webp" width="100%">
+<img alt="Cover flow: A depth rail of photos you can throw, with soft grounded shadows and a quiet reflection." src="https://raw.githubusercontent.com/kuratlielia/arc-library/df3a600fd9ffca85ec8607438b599a4408ab8562/.github/assets/showcase/cover-flow-light.webp" width="100%">
 </picture></a>
 <br><a href="https://uiarc.dev/pro"><b>Cover flow</b></a> <sup><a href="https://uiarc.dev/pro">Pro</a></sup><br>
 <sub>A depth rail of photos you can throw, with soft grounded shadows and a quiet reflection.</sub>
@@ -48,7 +48,7 @@ A few favorites, recorded live from [uiarc.dev](https://uiarc.dev). Items marked
 <td width="50%" valign="top">
 <a href="https://uiarc.dev/components/donut-chart"><picture>
 <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/donut-chart-dark.webp">
-<img alt="Donut chart: Arcs morph between datasets while the total rolls into the center." src="./.github/assets/showcase/donut-chart-light.webp" width="100%">
+<img alt="Donut chart: Arcs morph between datasets while the total rolls into the center." src="https://raw.githubusercontent.com/kuratlielia/arc-library/df3a600fd9ffca85ec8607438b599a4408ab8562/.github/assets/showcase/donut-chart-light.webp" width="100%">
 </picture></a>
 <br><a href="https://uiarc.dev/components/donut-chart"><b>Donut chart</b></a><br>
 <sub>Arcs morph between datasets while the total rolls into the center.</sub>
@@ -58,7 +58,7 @@ A few favorites, recorded live from [uiarc.dev](https://uiarc.dev). Items marked
 <td width="50%" valign="top">
 <a href="https://uiarc.dev/components/billing-toggle"><picture>
 <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/billing-toggle-dark.webp">
-<img alt="Billing toggle: Monthly and yearly prices roll into each other, savings included." src="./.github/assets/showcase/billing-toggle-light.webp" width="100%">
+<img alt="Billing toggle: Monthly and yearly prices roll into each other, savings included." src="https://raw.githubusercontent.com/kuratlielia/arc-library/df3a600fd9ffca85ec8607438b599a4408ab8562/.github/assets/showcase/billing-toggle-light.webp" width="100%">
 </picture></a>
 <br><a href="https://uiarc.dev/components/billing-toggle"><b>Billing toggle</b></a><br>
 <sub>Monthly and yearly prices roll into each other, savings included.</sub>
@@ -66,7 +66,7 @@ A few favorites, recorded live from [uiarc.dev](https://uiarc.dev). Items marked
 <td width="50%" valign="top">
 <a href="https://uiarc.dev/pro"><picture>
 <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/orbit-logos-dark.webp">
-<img alt="Orbit logos: Integrations orbit your product mark. Filter them by category." src="./.github/assets/showcase/orbit-logos-light.webp" width="100%">
+<img alt="Orbit logos: Integrations orbit your product mark. Filter them by category." src="https://raw.githubusercontent.com/kuratlielia/arc-library/df3a600fd9ffca85ec8607438b599a4408ab8562/.github/assets/showcase/orbit-logos-light.webp" width="100%">
 </picture></a>
 <br><a href="https://uiarc.dev/pro"><b>Orbit logos</b></a> <sup><a href="https://uiarc.dev/pro">Pro</a></sup><br>
 <sub>Integrations orbit your product mark. Filter them by category.</sub>
@@ -76,7 +76,7 @@ A few favorites, recorded live from [uiarc.dev](https://uiarc.dev). Items marked
 <td width="50%" valign="top">
 <a href="https://uiarc.dev/pro"><picture>
 <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/wallet-stack-dark.webp">
-<img alt="Wallet stack: Fan a stack of cards and lift one out to see its activity." src="./.github/assets/showcase/wallet-stack-light.webp" width="100%">
+<img alt="Wallet stack: Fan a stack of cards and lift one out to see its activity." src="https://raw.githubusercontent.com/kuratlielia/arc-library/df3a600fd9ffca85ec8607438b599a4408ab8562/.github/assets/showcase/wallet-stack-light.webp" width="100%">
 </picture></a>
 <br><a href="https://uiarc.dev/pro"><b>Wallet stack</b></a> <sup><a href="https://uiarc.dev/pro">Pro</a></sup><br>
 <sub>Fan a stack of cards and lift one out to see its activity.</sub>
@@ -84,7 +84,7 @@ A few favorites, recorded live from [uiarc.dev](https://uiarc.dev). Items marked
 <td width="50%" valign="top">
 <a href="https://uiarc.dev/components/line-chart"><picture>
 <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/line-chart-dark.webp">
-<img alt="Line chart: Switch the range and the line redraws against the previous period." src="./.github/assets/showcase/line-chart-light.webp" width="100%">
+<img alt="Line chart: Switch the range and the line redraws against the previous period." src="https://raw.githubusercontent.com/kuratlielia/arc-library/df3a600fd9ffca85ec8607438b599a4408ab8562/.github/assets/showcase/line-chart-light.webp" width="100%">
 </picture></a>
 <br><a href="https://uiarc.dev/components/line-chart"><b>Line chart</b></a><br>
 <sub>Switch the range and the line redraws against the previous period.</sub>
@@ -94,7 +94,7 @@ A few favorites, recorded live from [uiarc.dev](https://uiarc.dev). Items marked
 <td width="50%" valign="top">
 <a href="https://uiarc.dev/components/number-field"><picture>
 <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/number-field-dark.webp">
-<img alt="Number field: Bounded steppers that say so when you reach the limit." src="./.github/assets/showcase/number-field-light.webp" width="100%">
+<img alt="Number field: Bounded steppers that say so when you reach the limit." src="https://raw.githubusercontent.com/kuratlielia/arc-library/df3a600fd9ffca85ec8607438b599a4408ab8562/.github/assets/showcase/number-field-light.webp" width="100%">
 </picture></a>
 <br><a href="https://uiarc.dev/components/number-field"><b>Number field</b></a><br>
 <sub>Bounded steppers that say so when you reach the limit.</sub>
@@ -102,7 +102,7 @@ A few favorites, recorded live from [uiarc.dev](https://uiarc.dev). Items marked
 <td width="50%" valign="top">
 <a href="https://uiarc.dev/pro"><picture>
 <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/activity-rings-dark.webp">
-<img alt="Activity rings: Daily goals sweep, count up and trace a second lap past 100%." src="./.github/assets/showcase/activity-rings-light.webp" width="100%">
+<img alt="Activity rings: Daily goals sweep, count up and trace a second lap past 100%." src="https://raw.githubusercontent.com/kuratlielia/arc-library/df3a600fd9ffca85ec8607438b599a4408ab8562/.github/assets/showcase/activity-rings-light.webp" width="100%">
 </picture></a>
 <br><a href="https://uiarc.dev/pro"><b>Activity rings</b></a> <sup><a href="https://uiarc.dev/pro">Pro</a></sup><br>
 <sub>Daily goals sweep, count up and trace a second lap past 100%.</sub>
@@ -689,7 +689,7 @@ Only `arc-foundation` writes `foundation.css`; components and blocks depend on `
 
 ## How releases work
 
-New free components and blocks ship regularly, a few at a time. Each release updates this repository, the `@uiarc` registry and the [changelog](./CHANGELOG.md) together, so the code here always matches what the CLI installs. Watch or star the repository to hear about new items.
+New free components and blocks ship regularly, a few at a time. Each release updates this repository, the `@uiarc` registry and the [changelog](https://github.com/kuratlielia/arc-library/blob/df3a600fd9ffca85ec8607438b599a4408ab8562/CHANGELOG.md) together, so the code here always matches what the CLI installs. Watch or star the repository to hear about new items.
 
 ## Repository layout
 
@@ -716,7 +716,7 @@ Everything in this repository stays free and MIT licensed.
 
 ## Contributing
 
-Bug reports, fixes and component ideas are welcome. Read [CONTRIBUTING.md](./CONTRIBUTING.md) first, and please follow the [code of conduct](./CODE_OF_CONDUCT.md). To report a security issue, see [SECURITY.md](./SECURITY.md).
+Bug reports, fixes and component ideas are welcome. Read [CONTRIBUTING.md](https://github.com/kuratlielia/arc-library/blob/df3a600fd9ffca85ec8607438b599a4408ab8562/CONTRIBUTING.md) first, and please follow the [code of conduct](https://github.com/kuratlielia/arc-library/blob/df3a600fd9ffca85ec8607438b599a4408ab8562/CODE_OF_CONDUCT.md). To report a security issue, see [SECURITY.md](https://github.com/kuratlielia/arc-library/blob/df3a600fd9ffca85ec8607438b599a4408ab8562/SECURITY.md).
 
 ## License
 

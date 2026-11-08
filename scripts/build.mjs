@@ -20,7 +20,7 @@ fs.rmSync(path.join(root, 'prompts'), {recursive:true, force:true});
 fs.mkdirSync(path.join(root, 'prompts/cases'), {recursive:true});
 for (const entry of entries) {
   const prompt = `# ${entry.title} · 复用 Prompt\n\n由 [结构化案例](../../entries/cases/${entry.id}.json) 自动生成。参考观察与具体边界见 [调研](../../${entry.research})。\n\n## 正向 Prompt\n\n${entry.prompt}\n\n## 负向约束\n\n${entry.negativePrompt}\n\n## 制作约束\n\n${entry.constraints.map(item => '- ' + item).join('\n')}\n\n## 检查方法\n\n${entry.exercise}\n\n[查看 Demo](../../${entry.demo}) · [返回案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/${entry.id})\n`;
-  fs.writeFileSync(path.join(root, 'prompts/cases', entry.id + '.md'), prompt, 'utf8');
+  fs.writeFileSync(path.join(root, 'prompts/cases', entry.id + '.md'), prompt.replace(/https:\/\/www\.metmuseum\.org\/en(?=[\u3400-\u9fff])/g, '[$&]($&)'), 'utf8');
 }
 for (const kind of ['patterns', 'materials']) {
   const directory = path.join(root, 'prompts', kind);

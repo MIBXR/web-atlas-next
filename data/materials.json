@@ -1455,6 +1455,7 @@
     "$": {
       "preview": "previews/materials/beautiful-article.webp",
       "research": "docs/materials/beautiful-article.md",
+      "licenses": "demos/materials/beautiful-article/LICENSES.md",
       "prompt": "prompts/materials/beautiful-article.md",
       "agent": "agent/materials/beautiful-article.json",
       "snapshot": "demos/materials/beautiful-article/SKILL.md"
@@ -2090,6 +2091,7 @@
     "$": {
       "preview": "previews/materials/web-design-engineer.jpg",
       "research": "docs/materials/web-design-engineer.md",
+      "licenses": "demos/materials/web-design-engineer/LICENSES.md",
       "prompt": "prompts/materials/web-design-engineer.md",
       "agent": "agent/materials/web-design-engineer.json",
       "snapshot": "demos/materials/web-design-engineer/SKILL.md"
@@ -3836,6 +3838,7 @@
     "$": {
       "preview": "previews/materials/hallmark-skill.jpg",
       "research": "docs/materials/hallmark-skill.md",
+      "licenses": "demos/materials/hallmark-skill/LICENSES.md",
       "prompt": "prompts/materials/hallmark-skill.md",
       "agent": "agent/materials/hallmark-skill.json",
       "snapshot": "demos/materials/hallmark-skill/SKILL.md"

@@ -1,6 +1,6 @@
 # 苏州博物馆：四屏状态与源码对照
 
-固定日2026-10-09，源[中文首页](https://www.szmuseum.com/Home/Index)。本地[四屏门户](index.html)，建议桌面先看`#page3`再上下/反向回看。
+固定日2026-10-09，源[中文首页](https://www.szmuseum.com/Home/Index)。本地[四屏门户](../index.html)，建议桌面先看`#page3`再上下/反向回看。
 
 重要证据边界：官网正常冷加载本次被末尾同步第三方统计资源阻塞，document.readyState持续loading、jQuery.isReady=false、四屏高0。停止加载后仍readyWait1。我们**明确调用了原jQuery.ready()，启动原页面已经注册的初始化**，没有替换源DOM、CSS或插件；下面桌面运行态来自此受控实验和原源码，不推断正常访客必然成功。原Tab为代理新建研究页，未操作用户原Site。
 

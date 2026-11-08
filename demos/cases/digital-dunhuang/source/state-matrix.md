@@ -1,6 +1,6 @@
 # 数字敦煌：逐页状态与源码对照
 
-采集日2026-10-09。源：[首页](https://www.e-dunhuang.com/index.htm)、[洞窟列表](https://www.e-dunhuang.com/section.htm)、[257西壁查看器](https://www.e-dunhuang.com/showmural/10.0001/0001/0001/0257/0001/0003/01)。本地：[首页](index.html)、[列表](../section.html)、[查看器](../viewer.html)。
+采集日2026-10-09。源：[首页](https://www.e-dunhuang.com/index.htm)、[洞窟列表](https://www.e-dunhuang.com/section.htm)、[257西壁查看器](https://www.e-dunhuang.com/showmural/10.0001/0001/0001/0257/0001/0003/01)。本地：[首页](../index.html)、[列表](../section.html)、[查看器](../viewer.html)。
 
 浏览器CDP读取DOM/CSS、插件原文件及Network资源，实际点击、滚动、筛选、加减和拖动。桌面1440×900/1000；手机390×843；独立代理复核真实筛选与瓦片边界。原始截图与日志在仓库外，单一固定快照不冒充实时官方服务。
 
