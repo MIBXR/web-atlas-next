@@ -276,6 +276,7 @@ a.source-title:hover { color: var(--accent-strong); text-decoration: underline; 
 .stage-caption, .reference-shot figcaption { font-size: var(--ui-xs); color: var(--text-muted); }
 .demo-frame { position: relative; height: clamp(420px, calc(100dvh - 230px), 1100px); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--surface-muted); }
 .demo-frame iframe { position: absolute; top: 0; border: 0; transform-origin: 0 0; background: #fff; }
+.demo-frame iframe[data-loading] { background: var(--surface-muted); }
 .demo-frame[data-viewport="mobile"] iframe { box-shadow: 0 0 0 1px var(--border-strong); }
 .locate-box { position: absolute; z-index: 2; pointer-events: none; border: 2px solid var(--accent); border-radius: 8px; box-shadow: 0 0 0 9999px oklch(0% 0 0 / .18); transition: all .08s linear; }
 .locate-box span { position: absolute; left: -2px; bottom: 100%; margin-bottom: 4px; padding: 2px 8px; border-radius: 6px; background: var(--accent); color: var(--accent-foreground); font-size: var(--ui-xs); white-space: nowrap; }
