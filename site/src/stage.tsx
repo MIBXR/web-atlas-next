@@ -59,7 +59,12 @@ export function DemoFrame({ src, viewport, reloadKey, title, box, onFrame, loadi
           src={src}
           title={title}
           style={{ width: target, height, transform: `scale(${scale})`, left: offsetX }}
-          onLoad={ev => { if (!loadingTarget) onFrame?.(ev.currentTarget); }}
+          data-loading=""
+          onLoad={ev => {
+            const iframe = ev.currentTarget;
+            iframe.removeAttribute("data-loading");
+            if (!loadingTarget) onFrame?.(iframe);
+          }}
         />
       ) : null}
       {box ? (
