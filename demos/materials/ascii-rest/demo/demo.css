@@ -1,0 +1,99 @@
+@font-face {
+  font-family: "Paper Mono";
+  src: url("../fonts/paper-mono.woff2") format("woff2");
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+:root {
+  color-scheme: light;
+  --bg: #f5f6f7;
+  --ink: #1e2125;
+  --text: #3b4149;
+  --muted: #5f6873;
+  --well: #eceef0;
+  --mono: "Paper Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --art: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", "ascii.rest mono", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #131518;
+    --ink: #e8ebef;
+    --text: #c3c9d1;
+    --muted: #8c95a1;
+    --well: #1a1d21;
+  }
+}
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scrollbar-gutter: stable; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: .875rem;
+  line-height: 1.65;
+  font-variant-ligatures: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+main {
+  width: calc(min(100% - 2.5rem, 150ch) - 27ch);
+  margin-inline: auto;
+  padding: calc(4rem + .75rem + 2lh) 0 3rem;
+}
+figure { margin: 0; }
+figcaption { display: flex; flex-wrap: wrap; gap: 0 3ch; color: var(--muted); }
+figcaption .category { color: var(--ink); }
+.well {
+  margin-top: 2rem;
+  container-type: size;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--well);
+}
+.well.big {
+  height: auto;
+  aspect-ratio: auto;
+  min-height: 16rem;
+  padding: 2rem 1rem;
+  container-type: inline-size;
+}
+ascii-art { display: contents; }
+.well pre {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--art);
+  font-size: min(13px, calc(92cqi / var(--cols) / .6), calc(88cqb / var(--rows) / 1.2));
+  line-height: 1.2;
+  letter-spacing: 0;
+  white-space: pre;
+  font-variant-ligatures: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.big pre { font-size: min(17px, calc(96cqi / var(--cols) / .6)); }
+.well canvas {
+  --fit: min(calc(var(--cols) * 7.8px), 92cqi, calc(88cqb * var(--cols) / var(--rows) / 2));
+  width: var(--fit) !important;
+}
+.big canvas { --fit: min(calc(var(--cols) * 10.2px), 96cqi); }
+.well.scene, .well.big.scene {
+  display: block;
+  container-type: inline-size;
+  aspect-ratio: auto;
+  min-height: 0;
+  padding: 0;
+  background: var(--ground, #0b0e14);
+}
+.well.scene canvas { width: 100% !important; }
+@media (max-width: 860px) {
+  main { width: min(100% - 2.5rem, 150ch); padding-top: calc(2.5rem + .75rem + 2lh); }
+}
+@media (max-width: 480px) {
+  body { font-size: .8125rem; line-height: 1.6; }
+}

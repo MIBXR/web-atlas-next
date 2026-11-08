@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "repository": "https://github.com/MIBXR/web-atlas-next",
-  "materialCount": 14,
+  "materialCount": 15,
   "materials": [
     {
       "id": "shaders",
@@ -587,6 +587,46 @@
         "bundle": "agent/materials/0010-vigil.json",
         "entry": "entries/materials/0010-vigil.json",
         "preview": "previews/materials/0010-vigil.jpg"
+      }
+    },
+    {
+      "id": "ascii-rest",
+      "title": "ascii.rest · 动画 ASCII 组件库",
+      "type": "component-library",
+      "category": "组件与效果",
+      "summary": "归档 ascii.rest 0.4.0 的发行库、源码、241 个动画 ASCII 组件与 99 个 Kit 示例，涵盖场景、自然、语言与公司标志、Linux 发行版、界面、数据与物理模拟，一个 HTML 标签即可放进网页。",
+      "tags": [
+        "ASCII",
+        "字符画",
+        "Canvas",
+        "Web Component",
+        "React",
+        "Astro",
+        "生成艺术",
+        "Logo",
+        "加载器",
+        "TypeScript"
+      ],
+      "useCases": [
+        "终端风格、Markdown 风格的极简网页点缀",
+        "加载、进度、图表等字符界面小部件",
+        "技术品牌的语言、公司与发行版标志动画",
+        "页头横幅与 README 动画 SVG",
+        "用 Kit 组合自己的字符动画"
+      ],
+      "avoid": [
+        "需要照片级画面或精确矢量图形的主视觉"
+      ],
+      "constraints": [
+        "固定 ascii.rest 0.4.0 与完整提交，dist 由上游 tsc 构建产出。",
+        "字体与远程地址的本地化改动见 fidelity.md。",
+        "只能在 Node 里运行的 Kit 示例不在样例中，源码保留在 source/examples/。"
+      ],
+      "paths": {
+        "bundle": "agent/materials/ascii-rest.json",
+        "demo": "demos/materials/ascii-rest/index.html",
+        "entry": "entries/materials/ascii-rest.json",
+        "preview": "previews/materials/ascii-rest.png"
       }
     }
   ]
