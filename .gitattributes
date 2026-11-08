@@ -30,3 +30,5 @@ demos/materials/guizang-ppt-skill/** -text -whitespace
 
 demos/materials/0010-vigil/demo/media/** -text -whitespace
 site/registry/** -text -whitespace
+demos/materials/shadcn-ui/source/upstream/** -text -whitespace
+demos/materials/heroui/source/upstream/** -text -whitespace

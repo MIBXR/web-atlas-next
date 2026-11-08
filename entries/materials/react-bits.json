@@ -1,0 +1,121 @@
+{
+  "id": "react-bits",
+  "order": 17,
+  "title": "React Bits",
+  "type": "component-library",
+  "category": "组件与效果",
+  "summary": "索引 216 个免费网页动效与交互组件，任务归档样例使用官方 Fuse Button 处理限时撤销。",
+  "tags": [
+    "React",
+    "文字动效",
+    "背景",
+    "微交互",
+    "官方索引",
+    "限时撤销"
+  ],
+  "demo": "demos/materials/react-bits/index.html",
+  "preview": "previews/materials/react-bits.jpg",
+  "research": "docs/materials/react-bits.md",
+  "demoNote": "点击归档后沿按钮轮廓倒计时，期间可点撤销或按 Escape。预览跟随 Web Atlas 的主题。",
+  "install": "npx shadcn@4.23.0 add @react-bits/FuseButton-TS-CSS",
+  "upstream": {
+    "url": "https://reactbits.dev/",
+    "repository": "DavidHDev/react-bits",
+    "commit": "66fd12b4ada49cf1d523309aea6c965eb5123dfa",
+    "verifiedAt": "2026-11-09"
+  },
+  "license": {
+    "name": "MIT + Commons Clause License Condition v1.0",
+    "url": "https://github.com/DavidHDev/react-bits/blob/66fd12b4ada49cf1d523309aea6c965eb5123dfa/LICENSE.md",
+    "scope": "React Bits 上游源码、工具与声音。组件本体的再分发受上游条款限制。",
+    "notes": "Fuse Button 用于任务归档场景，原许可随应用运行包提供。组件通过官方安装入口取得。"
+  },
+  "useCases": [
+    "查找文字动效、交互组件、背景和微交互",
+    "参考任务归档后的限时撤销反馈"
+  ],
+  "avoid": [
+    "把 React Bits 组件本体作为组件包或模板再分发"
+  ],
+  "constraints": [
+    "从官方 Demo 选择安装变体并按许可使用。",
+    "任务归档样例采用官方默认 4 秒撤销窗口。"
+  ],
+  "workflow": [
+    "按文字动效、动画效果、交互组件、微交互或背景查找组件，在官方 Demo 里试用效果和参数。",
+    "根据项目配置选择 JavaScript 或 TypeScript，再选 CSS 或 Tailwind CSS 变体。",
+    "按组件页的命令从 React Bits Registry 安装。手动复制源码时，一并安装组件页列出的依赖。",
+    "在项目页面中导入组件，换上实际内容，调整参数，再在目标主题、屏幕宽度和输入方式下试用。"
+  ],
+  "sources": [
+    {
+      "title": "固定提交源码与许可",
+      "url": "https://github.com/DavidHDev/react-bits/tree/66fd12b4ada49cf1d523309aea6c965eb5123dfa",
+      "note": "官方组件目录和样例源码的版本依据。",
+      "evidence": "source"
+    },
+    {
+      "title": "官方样例目录",
+      "url": "https://reactbits.dev/get-started/index",
+      "note": "216 个免费组件的分类及原版演示入口。",
+      "evidence": "source"
+    },
+    {
+      "title": "Fuse Button 官网样例",
+      "url": "https://reactbits.dev/micro/fuse-button",
+      "note": "操作归档与撤销，观察 4 秒环形引线和按钮状态切换。",
+      "evidence": "observed"
+    },
+    {
+      "title": "Fuse Button TypeScript + CSS 源码",
+      "url": "https://github.com/DavidHDev/react-bits/tree/66fd12b4ada49cf1d523309aea6c965eb5123dfa/src/ts-default/Micro/FuseButton",
+      "note": "任务归档应用使用的官方组件和样式。",
+      "evidence": "source"
+    },
+    {
+      "title": "官方安装说明",
+      "url": "https://reactbits.dev/get-started/installation",
+      "note": "CLI、样式变体与组件获取方式。",
+      "evidence": "source"
+    },
+    {
+      "title": "官网分享图",
+      "url": "https://raw.githubusercontent.com/DavidHDev/react-bits/66fd12b4ada49cf1d523309aea6c965eb5123dfa/public/og.jpg",
+      "note": "封面使用 React Bits 官方品牌分享原图。",
+      "evidence": "source"
+    }
+  ],
+  "demos": [
+    {
+      "id": "undo",
+      "title": "限时撤销",
+      "component": "Fuse Button",
+      "summary": "用官方 Fuse Button 归档任务，环形引线燃烧期间可撤销，到期后保留已归档状态。",
+      "entrypoint": "demos/materials/react-bits/index.html",
+      "parameters": [
+        {
+          "name": "撤销窗口",
+          "value": "4 秒",
+          "note": "沿用官方默认时长，从归档动作开始计时。"
+        }
+      ]
+    },
+    {
+      "id": "official-index",
+      "title": "官方样例索引",
+      "summary": "216 个免费组件按五类分组，每项链接到官方演示。",
+      "entrypoint": "demos/materials/react-bits/demo/catalog.html"
+    }
+  ],
+  "sourceFiles": [
+    "demos/materials/react-bits/index.html",
+    "demos/materials/react-bits/demo/demo.css",
+    "demos/materials/react-bits/demo/theme.js",
+    "demos/materials/react-bits/demo/catalog.html",
+    "demos/materials/react-bits/source/archive.tsx",
+    "demos/materials/react-bits/source/build.mjs",
+    "demos/materials/react-bits/source/package.json",
+    "demos/materials/react-bits/source/package-lock.json"
+  ],
+  "prompt": "在 React 任务页使用官方 Fuse Button。用 onCommit、onUndo 和 onFuseEnd 连接归档、恢复和完成状态。采用 4 秒环形引线，到期保留已归档状态，并随页面主题更新按钮颜色。"
+}

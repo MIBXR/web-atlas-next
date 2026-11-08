@@ -1,0 +1,19 @@
+import { i as e, n as t } from "./jsx-runtime-C1t0izHF.js";
+// node_modules/react-stately/dist/private/utils/useControlledState.mjs
+var n = /* @__PURE__ */ e(t(), 1), r = n.useInsertionEffect ?? n.useLayoutEffect;
+function i(e, t, i) {
+	let [a, o] = (0, n.useState)(e || t), s = (0, n.useRef)(a), c = (0, n.useRef)(e !== void 0), l = e !== void 0;
+	(0, n.useEffect)(() => {
+		c.current, c.current = l;
+	}, [l]);
+	let u = l ? e : a;
+	r(() => {
+		s.current = u;
+	});
+	let [, d] = (0, n.useReducer)(() => ({}), {});
+	return [u, (0, n.useCallback)((e, ...t) => {
+		let n = typeof e == "function" ? e(s.current) : e;
+		Object.is(s.current, n) || (s.current = n, o(n), d(), i?.(n, ...t));
+	}, [i])];
+}
+export { i as t };

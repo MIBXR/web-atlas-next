@@ -1,0 +1,672 @@
+{
+  "id": "heroui",
+  "order": 18,
+  "title": "HeroUI",
+  "type": "component-library",
+  "category": "组件与效果",
+  "summary": "收录 HeroUI 3.2.7 的 73 个 React Web 官方样例，覆盖表单、日期、颜色、导航、数据和浮层。",
+  "tags": [
+    "React",
+    "React Aria",
+    "Tailwind CSS",
+    "表单",
+    "浮层"
+  ],
+  "demo": "demos/materials/heroui/index.html",
+  "preview": "previews/materials/heroui.jpg",
+  "research": "docs/materials/heroui.md",
+  "demoNote": "按名称或分组切换样例，预览跟随 Web Atlas 的主题。弹窗、选择器和日期控件可直接操作。",
+  "install": "npm install @heroui/react@3.2.7 @heroui/styles@3.2.7",
+  "upstream": {
+    "url": "https://heroui.com/",
+    "repository": "heroui-inc/heroui",
+    "version": "3.2.7",
+    "commit": "7cb1642606c6f96f424dad78a961ccf45436be72",
+    "verifiedAt": "2026-11-09"
+  },
+  "license": {
+    "name": "Apache-2.0",
+    "url": "https://github.com/heroui-inc/heroui/blob/7cb1642606c6f96f424dad78a961ccf45436be72/LICENSE",
+    "scope": "HeroUI React Web 发行库、样式与所选官方样例。",
+    "notes": "捆绑依赖的版本与许可见本体许可索引。"
+  },
+  "useCases": [
+    "参考 React Web 的表单、日期范围和颜色选择器",
+    "用复合组件组织浮层、数据表和输入控件"
+  ],
+  "avoid": [
+    "在 HeroUI v2 或 React Native 项目里直接套用 v3 Web 样例"
+  ],
+  "constraints": [
+    "样例使用 React 19 与 Tailwind CSS 4。",
+    "先引入 Tailwind CSS，再引入 @heroui/styles。"
+  ],
+  "workflow": [
+    "按表单、日期、浮层等分组选择样例，切换深浅色观察组件及其浮层。",
+    "在 React 19 与 Tailwind CSS 4 项目安装同版本的组件和样式包。",
+    "按顺序引入 Tailwind CSS 和 @heroui/styles，从样例源码取用复合组件。",
+    "用实际标签、选项和数据替换样例内容，保留输入校验和键盘焦点行为。"
+  ],
+  "sources": [
+    {
+      "title": "v3.2.7 固定源码与许可",
+      "url": "https://github.com/heroui-inc/heroui/tree/7cb1642606c6f96f424dad78a961ccf45436be72",
+      "note": "React Web 组件、样式包、文档样例和 Apache-2.0 许可。",
+      "evidence": "source"
+    },
+    {
+      "title": "React Web 组件目录",
+      "url": "https://heroui.com/en/docs/react/components",
+      "note": "按用途分组的组件及使用说明。",
+      "evidence": "source"
+    },
+    {
+      "title": "Modal 官网样例",
+      "url": "https://heroui.com/en/docs/react/components/modal",
+      "note": "桌面和手机视口打开弹窗并按 Escape 关闭。",
+      "evidence": "observed"
+    },
+    {
+      "title": "官网分享图",
+      "url": "https://raw.githubusercontent.com/heroui-inc/heroui/7cb1642606c6f96f424dad78a961ccf45436be72/apps/docs/public/images/twitter-card.jpg",
+      "note": "封面使用 HeroUI 官方 React Web 分享原图。",
+      "evidence": "source"
+    }
+  ],
+  "demos": [
+    {
+      "id": "card",
+      "title": "Card",
+      "component": "Card",
+      "summary": "查看标题、内容和操作区的组织方式。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=card",
+      "group": "布局"
+    },
+    {
+      "id": "accordion",
+      "title": "Accordion",
+      "component": "Accordion",
+      "summary": "展开内容分组，观察标题与展开状态。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=accordion",
+      "group": "导航"
+    },
+    {
+      "id": "alert",
+      "title": "Alert",
+      "component": "Alert",
+      "summary": "查看提示图标、标题和正文的排布。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=alert",
+      "group": "反馈"
+    },
+    {
+      "id": "alert-dialog",
+      "title": "AlertDialog",
+      "component": "AlertDialog",
+      "summary": "打开确认窗口并尝试取消。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=alert-dialog",
+      "group": "浮层"
+    },
+    {
+      "id": "autocomplete",
+      "title": "Autocomplete",
+      "component": "Autocomplete",
+      "summary": "输入内容，筛选列表中的选项。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=autocomplete",
+      "group": "选择器"
+    },
+    {
+      "id": "avatar",
+      "title": "Avatar",
+      "component": "Avatar",
+      "summary": "查看头像及缺省显示。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=avatar",
+      "group": "媒体"
+    },
+    {
+      "id": "avatar-group",
+      "title": "AvatarGroup",
+      "component": "AvatarGroup",
+      "summary": "查看多个头像的叠放和超额数量。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=avatar-group",
+      "group": "媒体"
+    },
+    {
+      "id": "badge",
+      "title": "Badge",
+      "component": "Badge",
+      "summary": "查看短标签与相邻内容的排布。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=badge",
+      "group": "数据展示"
+    },
+    {
+      "id": "breadcrumbs",
+      "title": "Breadcrumbs",
+      "component": "Breadcrumbs",
+      "summary": "查看分层导航和当前页标记。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=breadcrumbs",
+      "group": "导航"
+    },
+    {
+      "id": "button",
+      "title": "Button",
+      "component": "Button",
+      "summary": "操作基础按钮并观察焦点。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=button",
+      "group": "按钮"
+    },
+    {
+      "id": "button-group",
+      "title": "ButtonGroup",
+      "component": "ButtonGroup",
+      "summary": "查看相邻按钮的组合。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=button-group",
+      "group": "按钮"
+    },
+    {
+      "id": "calendar",
+      "title": "Calendar",
+      "component": "Calendar",
+      "summary": "切换月份并选择日期。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=calendar",
+      "group": "日期与时间"
+    },
+    {
+      "id": "checkbox",
+      "title": "Checkbox",
+      "component": "Checkbox",
+      "summary": "切换复选框的勾选状态。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=checkbox",
+      "group": "表单"
+    },
+    {
+      "id": "checkbox-group",
+      "title": "CheckboxGroup",
+      "component": "CheckboxGroup",
+      "summary": "在一组复选项中选择多个值。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=checkbox-group",
+      "group": "表单"
+    },
+    {
+      "id": "chip",
+      "title": "Chip",
+      "component": "Chip",
+      "summary": "查看简短标签与状态颜色。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=chip",
+      "group": "数据展示"
+    },
+    {
+      "id": "close-button",
+      "title": "CloseButton",
+      "component": "CloseButton",
+      "summary": "查看关闭按钮与焦点样式。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=close-button",
+      "group": "按钮"
+    },
+    {
+      "id": "color-area",
+      "title": "ColorArea",
+      "component": "ColorArea",
+      "summary": "在取色面板中拖动指示点。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=color-area",
+      "group": "颜色"
+    },
+    {
+      "id": "color-field",
+      "title": "ColorField",
+      "component": "ColorField",
+      "summary": "编辑十六进制颜色值。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=color-field",
+      "group": "颜色"
+    },
+    {
+      "id": "color-picker",
+      "title": "ColorPicker",
+      "component": "ColorPicker",
+      "summary": "打开取色浮层并调整颜色。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=color-picker",
+      "group": "颜色"
+    },
+    {
+      "id": "color-slider",
+      "title": "ColorSlider",
+      "component": "ColorSlider",
+      "summary": "拖动滑块改变颜色通道。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=color-slider",
+      "group": "颜色"
+    },
+    {
+      "id": "color-swatch",
+      "title": "ColorSwatch",
+      "component": "ColorSwatch",
+      "summary": "查看颜色样本及其名称。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=color-swatch",
+      "group": "颜色"
+    },
+    {
+      "id": "color-swatch-picker",
+      "title": "ColorSwatchPicker",
+      "component": "ColorSwatchPicker",
+      "summary": "通过色块选择颜色。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=color-swatch-picker",
+      "group": "颜色"
+    },
+    {
+      "id": "combo-box",
+      "title": "ComboBox",
+      "component": "ComboBox",
+      "summary": "输入关键字筛选选项，再选中一项。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=combo-box",
+      "group": "选择器"
+    },
+    {
+      "id": "date-field",
+      "title": "DateField",
+      "component": "DateField",
+      "summary": "编辑分段的日期输入。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=date-field",
+      "group": "日期与时间"
+    },
+    {
+      "id": "date-picker",
+      "title": "DatePicker",
+      "component": "DatePicker",
+      "summary": "打开日历并选择日期。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=date-picker",
+      "group": "日期与时间"
+    },
+    {
+      "id": "date-range-picker",
+      "title": "DateRangePicker",
+      "component": "DateRangePicker",
+      "summary": "用弹出的日历选择起始和结束日期。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=date-range-picker",
+      "group": "日期与时间"
+    },
+    {
+      "id": "description",
+      "title": "Description",
+      "component": "Description",
+      "summary": "查看表单字段下方的说明。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=description",
+      "group": "表单"
+    },
+    {
+      "id": "disclosure",
+      "title": "Disclosure",
+      "component": "Disclosure",
+      "summary": "展开带自定义样式的详情。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=disclosure",
+      "group": "导航"
+    },
+    {
+      "id": "disclosure-group",
+      "title": "DisclosureGroup",
+      "component": "DisclosureGroup",
+      "summary": "在一组折叠内容中展开指定条目。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=disclosure-group",
+      "group": "导航"
+    },
+    {
+      "id": "drawer",
+      "title": "Drawer",
+      "component": "Drawer",
+      "summary": "打开抽屉并操作内部控件。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=drawer",
+      "group": "浮层"
+    },
+    {
+      "id": "dropdown",
+      "title": "Dropdown",
+      "component": "Dropdown",
+      "summary": "打开下拉菜单并选择一项操作。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=dropdown",
+      "group": "列表"
+    },
+    {
+      "id": "error-message",
+      "title": "ErrorMessage",
+      "component": "ErrorMessage",
+      "summary": "查看错误提示的文字和样式。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=error-message",
+      "group": "表单"
+    },
+    {
+      "id": "field-error",
+      "title": "FieldError",
+      "component": "FieldError",
+      "summary": "查看字段校验错误。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=field-error",
+      "group": "表单"
+    },
+    {
+      "id": "fieldset",
+      "title": "Fieldset",
+      "component": "Fieldset",
+      "summary": "查看具有公共标题的字段组。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=fieldset",
+      "group": "表单"
+    },
+    {
+      "id": "form",
+      "title": "Form",
+      "component": "Form",
+      "summary": "填写邮件和密码并观察校验反馈。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=form",
+      "group": "表单"
+    },
+    {
+      "id": "input",
+      "title": "Input",
+      "component": "Input",
+      "summary": "体验单行输入和焦点状态。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=input",
+      "group": "表单"
+    },
+    {
+      "id": "input-group",
+      "title": "InputGroup",
+      "component": "InputGroup",
+      "summary": "查看输入框与附加内容的组合。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=input-group",
+      "group": "表单"
+    },
+    {
+      "id": "input-otp",
+      "title": "InputOTP",
+      "component": "InputOTP",
+      "summary": "逐格输入验证码。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=input-otp",
+      "group": "表单"
+    },
+    {
+      "id": "kbd",
+      "title": "Kbd",
+      "component": "Kbd",
+      "summary": "查看键盘按键提示。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=kbd",
+      "group": "排版"
+    },
+    {
+      "id": "label",
+      "title": "Label",
+      "component": "Label",
+      "summary": "查看文字标签与关联控件。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=label",
+      "group": "表单"
+    },
+    {
+      "id": "link",
+      "title": "Link",
+      "component": "Link",
+      "summary": "查看链接与键盘焦点样式。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=link",
+      "group": "导航"
+    },
+    {
+      "id": "list-box",
+      "title": "ListBox",
+      "component": "ListBox",
+      "summary": "按分组浏览并选中列表项。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=list-box",
+      "group": "列表"
+    },
+    {
+      "id": "meter",
+      "title": "Meter",
+      "component": "Meter",
+      "summary": "查看数值在量程中的位置。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=meter",
+      "group": "反馈"
+    },
+    {
+      "id": "modal",
+      "title": "Modal",
+      "component": "Modal",
+      "summary": "打开模态窗口并查看内部操作。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=modal",
+      "group": "浮层"
+    },
+    {
+      "id": "number-field",
+      "title": "NumberField",
+      "component": "NumberField",
+      "summary": "输入数字或通过按钮改变数值。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=number-field",
+      "group": "表单"
+    },
+    {
+      "id": "pagination",
+      "title": "Pagination",
+      "component": "Pagination",
+      "summary": "查看上一页、下一页和页码的组合。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=pagination",
+      "group": "导航"
+    },
+    {
+      "id": "popover",
+      "title": "Popover",
+      "component": "Popover",
+      "summary": "打开锚定在触发按钮附近的浮层。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=popover",
+      "group": "浮层"
+    },
+    {
+      "id": "progress-bar",
+      "title": "ProgressBar",
+      "component": "ProgressBar",
+      "summary": "查看条形进度和标签。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=progress-bar",
+      "group": "反馈"
+    },
+    {
+      "id": "progress-circle",
+      "title": "ProgressCircle",
+      "component": "ProgressCircle",
+      "summary": "查看环形进度和数值。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=progress-circle",
+      "group": "反馈"
+    },
+    {
+      "id": "radio-group",
+      "title": "RadioGroup",
+      "component": "RadioGroup",
+      "summary": "在一组单选项之间切换。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=radio-group",
+      "group": "表单"
+    },
+    {
+      "id": "range-calendar",
+      "title": "RangeCalendar",
+      "component": "RangeCalendar",
+      "summary": "在日历中选择起始和结束日期。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=range-calendar",
+      "group": "日期与时间"
+    },
+    {
+      "id": "scroll-shadow",
+      "title": "ScrollShadow",
+      "component": "ScrollShadow",
+      "summary": "滚动区域并观察边缘阴影。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=scroll-shadow",
+      "group": "工具"
+    },
+    {
+      "id": "search-field",
+      "title": "SearchField",
+      "component": "SearchField",
+      "summary": "编辑搜索词并尝试清空。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=search-field",
+      "group": "表单"
+    },
+    {
+      "id": "select",
+      "title": "Select",
+      "component": "Select",
+      "summary": "打开列表并选中一个选项。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=select",
+      "group": "选择器"
+    },
+    {
+      "id": "separator",
+      "title": "Separator",
+      "component": "Separator",
+      "summary": "查看分隔线如何组织相邻信息。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=separator",
+      "group": "布局"
+    },
+    {
+      "id": "sheet",
+      "title": "Sheet",
+      "component": "Sheet",
+      "summary": "打开贴边浮层并查看内部布局。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=sheet",
+      "group": "浮层"
+    },
+    {
+      "id": "skeleton",
+      "title": "Skeleton",
+      "component": "Skeleton",
+      "summary": "查看内容加载时的占位。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=skeleton",
+      "group": "反馈"
+    },
+    {
+      "id": "slider",
+      "title": "Slider",
+      "component": "Slider",
+      "summary": "拖动或用方向键调整数值。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=slider",
+      "group": "控件"
+    },
+    {
+      "id": "spinner",
+      "title": "Spinner",
+      "component": "Spinner",
+      "summary": "查看旋转等待指示。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=spinner",
+      "group": "反馈"
+    },
+    {
+      "id": "surface",
+      "title": "Surface",
+      "component": "Surface",
+      "summary": "查看表面的背景和层次。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=surface",
+      "group": "布局"
+    },
+    {
+      "id": "switch",
+      "title": "Switch",
+      "component": "Switch",
+      "summary": "切换开关并观察状态。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=switch",
+      "group": "控件"
+    },
+    {
+      "id": "table",
+      "title": "Table",
+      "component": "Table",
+      "summary": "查看表头与数据行的组织方式。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=table",
+      "group": "数据展示"
+    },
+    {
+      "id": "tabs",
+      "title": "Tabs",
+      "component": "Tabs",
+      "summary": "切换标签页并查看对应内容。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=tabs",
+      "group": "导航"
+    },
+    {
+      "id": "tag-group",
+      "title": "TagGroup",
+      "component": "TagGroup",
+      "summary": "查看成组标签的排布。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=tag-group",
+      "group": "列表"
+    },
+    {
+      "id": "text-area",
+      "title": "TextArea",
+      "component": "TextArea",
+      "summary": "在多行输入区编辑文字。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=text-area",
+      "group": "表单"
+    },
+    {
+      "id": "text-field",
+      "title": "TextField",
+      "component": "TextField",
+      "summary": "查看带标签的单行文字字段。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=text-field",
+      "group": "表单"
+    },
+    {
+      "id": "time-field",
+      "title": "TimeField",
+      "component": "TimeField",
+      "summary": "编辑分段的时间输入。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=time-field",
+      "group": "日期与时间"
+    },
+    {
+      "id": "toast",
+      "title": "Toast",
+      "component": "Toast",
+      "summary": "触发短时通知并查看提示内容。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=toast",
+      "group": "浮层"
+    },
+    {
+      "id": "toggle-button",
+      "title": "ToggleButton",
+      "component": "ToggleButton",
+      "summary": "切换按钮的按下状态。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=toggle-button",
+      "group": "按钮"
+    },
+    {
+      "id": "toggle-button-group",
+      "title": "ToggleButtonGroup",
+      "component": "ToggleButtonGroup",
+      "summary": "在一组开关按钮中切换选中项。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=toggle-button-group",
+      "group": "按钮"
+    },
+    {
+      "id": "toolbar",
+      "title": "Toolbar",
+      "component": "Toolbar",
+      "summary": "操作同一工具栏中的按钮。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=toolbar",
+      "group": "布局"
+    },
+    {
+      "id": "tooltip",
+      "title": "Tooltip",
+      "component": "Tooltip",
+      "summary": "悬停或聚焦触发元素查看提示。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=tooltip",
+      "group": "浮层"
+    },
+    {
+      "id": "typography",
+      "title": "Typography",
+      "component": "Typography",
+      "summary": "查看标题、段落与其他正文样式。",
+      "entrypoint": "demos/materials/heroui/index.html?demo=typography",
+      "group": "排版"
+    }
+  ],
+  "sourceFiles": [
+    "demos/materials/heroui/source/main.tsx",
+    "demos/materials/heroui/source/samples.ts",
+    "demos/materials/heroui/source/styles.css",
+    "demos/materials/heroui/source/vite.config.ts",
+    "demos/materials/heroui/source/package.json",
+    "demos/materials/heroui/source/package-lock.json",
+    "demos/materials/heroui/demo/theme.js"
+  ],
+  "prompt": "用 HeroUI v3 实现 React Web 界面。沿用官方样例的复合组件结构，把标签、描述和校验错误与字段关联，保留对话框和选择器的焦点管理。"
+}

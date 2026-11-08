@@ -1,0 +1,647 @@
+{
+  "id": "shadcn-ui",
+  "order": 16,
+  "title": "shadcn/ui",
+  "type": "component-library",
+  "category": "组件与效果",
+  "summary": "以 Base UI 和 Vega 展示 66 个官方组件样例，以及仪表盘、图标侧栏和登录三个区块。",
+  "tags": [
+    "React",
+    "Tailwind CSS",
+    "Base UI",
+    "Vega",
+    "registry"
+  ],
+  "demo": "demos/materials/shadcn-ui/index.html",
+  "preview": "previews/materials/shadcn-ui.png",
+  "research": "docs/materials/shadcn-ui.md",
+  "demoNote": "按名称或分组切换样例，预览跟随 Web Atlas 的主题。仪表盘、侧栏和登录区块保留各自布局。",
+  "install": "npx shadcn@4.23.0 add accordion",
+  "upstream": {
+    "url": "https://ui.shadcn.com/",
+    "repository": "shadcn-ui/ui",
+    "version": "4.23.0",
+    "commit": "96da9cc7f1aa10580a3741664e2a77c721206c00",
+    "verifiedAt": "2026-11-09"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://github.com/shadcn-ui/ui/blob/96da9cc7f1aa10580a3741664e2a77c721206c00/LICENSE.md",
+    "scope": "shadcn/ui Registry 源码、所选官方样例与 Vega 样式。",
+    "notes": "捆绑依赖的版本与许可见本体许可索引。"
+  },
+  "useCases": [
+    "从组件源码改造表单、导航和数据展示",
+    "参考仪表盘、侧栏与登录区块的组件组织"
+  ],
+  "avoid": [
+    "把样例登录页当作认证流程",
+    "把 Vega 样式和其他 Registry 样式直接混用"
+  ],
+  "constraints": [
+    "样例统一使用 Base UI 与 Vega。",
+    "移用组件时保留示例所需样式和交互依赖。"
+  ],
+  "workflow": [
+    "按组件或区块名称定位样例，切换深浅色并操作控件，查看焦点、浮层与选中状态。",
+    "从样例索引打开对应上游文件，取用 Base UI 组件、Vega 样式和样例所需依赖。",
+    "在项目中选择 Base UI 与 Vega，再用 shadcn CLI 添加对应组件或区块。",
+    "替换示例标签与数据，在目标页面宽度下确认表单和导航的交互。"
+  ],
+  "sources": [
+    {
+      "title": "固定提交源码与 MIT 许可",
+      "url": "https://github.com/shadcn-ui/ui/tree/96da9cc7f1aa10580a3741664e2a77c721206c00",
+      "note": "shadcn CLI 4.23.0 对应提交中的 Base UI Registry、Vega 样式和样例。",
+      "evidence": "source"
+    },
+    {
+      "title": "官网组件目录",
+      "url": "https://ui.shadcn.com/docs/components",
+      "note": "组件用途、样例与安装入口。",
+      "evidence": "source"
+    },
+    {
+      "title": "Accordion 官网样例",
+      "url": "https://ui.shadcn.com/docs/components/base/accordion",
+      "note": "桌面和手机视口打开退货说明，观察标题与内容的展开状态。",
+      "evidence": "observed"
+    },
+    {
+      "title": "官网 Blocks",
+      "url": "https://ui.shadcn.com/blocks",
+      "note": "仪表盘、图标侧栏和登录区块的入口与源码。",
+      "evidence": "source"
+    },
+    {
+      "title": "官网分享图",
+      "url": "https://raw.githubusercontent.com/shadcn-ui/ui/96da9cc7f1aa10580a3741664e2a77c721206c00/apps/v4/public/opengraph-image.png",
+      "note": "封面使用官方发布的深色仪表盘分享原图。",
+      "evidence": "source"
+    }
+  ],
+  "demos": [
+    {
+      "id": "dashboard-01",
+      "title": "Dashboard 01",
+      "component": "Dashboard 01",
+      "summary": "操作侧栏、趋势图与数据表，观察布局在不同宽度下的变化。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=dashboard-01",
+      "group": "区块"
+    },
+    {
+      "id": "accordion",
+      "title": "Accordion",
+      "component": "Accordion",
+      "summary": "展开内容分组，观察标题与展开状态。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=accordion",
+      "group": "布局与排版"
+    },
+    {
+      "id": "alert",
+      "title": "Alert",
+      "component": "Alert",
+      "summary": "查看提示图标、标题和正文的排布。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=alert",
+      "group": "消息与反馈"
+    },
+    {
+      "id": "alert-dialog",
+      "title": "Alert Dialog",
+      "component": "Alert Dialog",
+      "summary": "打开确认窗口并尝试取消。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=alert-dialog",
+      "group": "浮层与菜单"
+    },
+    {
+      "id": "aspect-ratio",
+      "title": "Aspect Ratio",
+      "component": "Aspect Ratio",
+      "summary": "查看图片怎样按比例填满容器。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=aspect-ratio",
+      "group": "布局与排版"
+    },
+    {
+      "id": "attachment",
+      "title": "Attachment",
+      "component": "Attachment",
+      "summary": "查看附件的处理状态与操作位置。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=attachment",
+      "group": "消息与反馈"
+    },
+    {
+      "id": "avatar",
+      "title": "Avatar",
+      "component": "Avatar",
+      "summary": "查看头像及缺省显示。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=avatar",
+      "group": "数据展示"
+    },
+    {
+      "id": "badge",
+      "title": "Badge",
+      "component": "Badge",
+      "summary": "查看短标签与相邻内容的排布。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=badge",
+      "group": "消息与反馈"
+    },
+    {
+      "id": "breadcrumb",
+      "title": "Breadcrumb",
+      "component": "Breadcrumb",
+      "summary": "查看分层导航和当前页标记。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=breadcrumb",
+      "group": "导航"
+    },
+    {
+      "id": "bubble",
+      "title": "Bubble",
+      "component": "Bubble",
+      "summary": "查看聊天气泡的内容布局。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=bubble",
+      "group": "消息与反馈"
+    },
+    {
+      "id": "button",
+      "title": "Button",
+      "component": "Button",
+      "summary": "操作基础按钮并观察焦点。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=button",
+      "group": "表单与输入"
+    },
+    {
+      "id": "button-group",
+      "title": "Button Group",
+      "component": "Button Group",
+      "summary": "查看相邻按钮的组合。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=button-group",
+      "group": "表单与输入"
+    },
+    {
+      "id": "calendar",
+      "title": "Calendar",
+      "component": "Calendar",
+      "summary": "切换月份并选择日期。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=calendar",
+      "group": "数据展示"
+    },
+    {
+      "id": "card",
+      "title": "Card",
+      "component": "Card",
+      "summary": "查看标题、内容和操作区的组织方式。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=card",
+      "group": "布局与排版"
+    },
+    {
+      "id": "carousel",
+      "title": "Carousel",
+      "component": "Carousel",
+      "summary": "浏览轮播中的相邻项目。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=carousel",
+      "group": "导航"
+    },
+    {
+      "id": "chart",
+      "title": "Chart",
+      "component": "Chart",
+      "summary": "查看面积图、柱状图等图表的图例和提示。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=chart",
+      "group": "数据展示"
+    },
+    {
+      "id": "checkbox",
+      "title": "Checkbox",
+      "component": "Checkbox",
+      "summary": "切换复选框的勾选状态。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=checkbox",
+      "group": "表单与输入"
+    },
+    {
+      "id": "code-block",
+      "title": "Code Block",
+      "component": "Code Block",
+      "summary": "查看代码高亮与复制操作。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=code-block",
+      "group": "布局与排版"
+    },
+    {
+      "id": "collapsible",
+      "title": "Collapsible",
+      "component": "Collapsible",
+      "summary": "展开和收起补充内容。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=collapsible",
+      "group": "布局与排版"
+    },
+    {
+      "id": "combobox",
+      "title": "Combobox",
+      "component": "Combobox",
+      "summary": "输入关键字筛选选项，再选中一项。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=combobox",
+      "group": "表单与输入"
+    },
+    {
+      "id": "command",
+      "title": "Command",
+      "component": "Command",
+      "summary": "输入关键字，在命令列表中定位操作。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=command",
+      "group": "导航"
+    },
+    {
+      "id": "context-menu",
+      "title": "Context Menu",
+      "component": "Context Menu",
+      "summary": "在指定区域打开右键菜单。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=context-menu",
+      "group": "浮层与菜单"
+    },
+    {
+      "id": "data-table",
+      "title": "Data Table",
+      "component": "Data Table",
+      "summary": "筛选、排序、选中与翻页，切换列的可见性。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=data-table",
+      "group": "数据展示"
+    },
+    {
+      "id": "date-picker",
+      "title": "Date Picker",
+      "component": "Date Picker",
+      "summary": "打开日历并选择日期。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=date-picker",
+      "group": "表单与输入"
+    },
+    {
+      "id": "dialog",
+      "title": "Dialog",
+      "component": "Dialog",
+      "summary": "打开模态窗口并操作内部字段。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=dialog",
+      "group": "浮层与菜单"
+    },
+    {
+      "id": "direction",
+      "title": "Direction",
+      "component": "Direction",
+      "summary": "查看从右到左排版的卡片。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=direction",
+      "group": "布局与排版"
+    },
+    {
+      "id": "drawer",
+      "title": "Drawer",
+      "component": "Drawer",
+      "summary": "打开抽屉并操作内部控件。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=drawer",
+      "group": "浮层与菜单"
+    },
+    {
+      "id": "dropdown-menu",
+      "title": "Dropdown Menu",
+      "component": "Dropdown Menu",
+      "summary": "打开下拉菜单，浏览分组操作。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=dropdown-menu",
+      "group": "浮层与菜单"
+    },
+    {
+      "id": "empty",
+      "title": "Empty",
+      "component": "Empty",
+      "summary": "查看无数据时的说明和操作入口。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=empty",
+      "group": "消息与反馈"
+    },
+    {
+      "id": "field",
+      "title": "Field",
+      "component": "Field",
+      "summary": "查看表单字段、标签与说明的组合。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=field",
+      "group": "表单与输入"
+    },
+    {
+      "id": "hover-card",
+      "title": "Hover Card",
+      "component": "Hover Card",
+      "summary": "悬停查看触发元素的补充信息。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=hover-card",
+      "group": "浮层与菜单"
+    },
+    {
+      "id": "input",
+      "title": "Input",
+      "component": "Input",
+      "summary": "体验单行输入和焦点状态。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=input",
+      "group": "表单与输入"
+    },
+    {
+      "id": "input-group",
+      "title": "Input Group",
+      "component": "Input Group",
+      "summary": "查看输入框与附加内容的组合。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=input-group",
+      "group": "表单与输入"
+    },
+    {
+      "id": "input-otp",
+      "title": "Input OTP",
+      "component": "Input OTP",
+      "summary": "逐格输入验证码。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=input-otp",
+      "group": "表单与输入"
+    },
+    {
+      "id": "item",
+      "title": "Item",
+      "component": "Item",
+      "summary": "查看图标、文字和尾部操作组成的条目。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=item",
+      "group": "数据展示"
+    },
+    {
+      "id": "kbd",
+      "title": "Kbd",
+      "component": "Kbd",
+      "summary": "查看键盘按键提示。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=kbd",
+      "group": "布局与排版"
+    },
+    {
+      "id": "label",
+      "title": "Label",
+      "component": "Label",
+      "summary": "查看文字标签与关联控件。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=label",
+      "group": "表单与输入"
+    },
+    {
+      "id": "marker",
+      "title": "Marker",
+      "component": "Marker",
+      "summary": "查看消息中的处理状态提示。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=marker",
+      "group": "消息与反馈"
+    },
+    {
+      "id": "menubar",
+      "title": "Menubar",
+      "component": "Menubar",
+      "summary": "打开菜单栏中的各组操作。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=menubar",
+      "group": "导航"
+    },
+    {
+      "id": "message",
+      "title": "Message",
+      "component": "Message",
+      "summary": "查看消息的作者和内容布局。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=message",
+      "group": "消息与反馈"
+    },
+    {
+      "id": "message-scroller",
+      "title": "Message Scroller",
+      "component": "Message Scroller",
+      "summary": "滚动消息列表，使用回到底部的入口。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=message-scroller",
+      "group": "消息与反馈"
+    },
+    {
+      "id": "native-select",
+      "title": "Native Select",
+      "component": "Native Select",
+      "summary": "展开浏览器的原生选择器。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=native-select",
+      "group": "表单与输入"
+    },
+    {
+      "id": "navigation-menu",
+      "title": "Navigation Menu",
+      "component": "Navigation Menu",
+      "summary": "打开导航项，查看下方的链接分组。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=navigation-menu",
+      "group": "导航"
+    },
+    {
+      "id": "pagination",
+      "title": "Pagination",
+      "component": "Pagination",
+      "summary": "查看上一页、下一页和页码的组合。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=pagination",
+      "group": "导航"
+    },
+    {
+      "id": "popover",
+      "title": "Popover",
+      "component": "Popover",
+      "summary": "打开锚定在触发按钮附近的浮层。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=popover",
+      "group": "浮层与菜单"
+    },
+    {
+      "id": "progress",
+      "title": "Progress",
+      "component": "Progress",
+      "summary": "查看条形进度。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=progress",
+      "group": "消息与反馈"
+    },
+    {
+      "id": "questionnaire",
+      "title": "Questionnaire",
+      "component": "Questionnaire",
+      "summary": "操作问卷选项。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=questionnaire",
+      "group": "消息与反馈"
+    },
+    {
+      "id": "radio-group",
+      "title": "Radio Group",
+      "component": "Radio Group",
+      "summary": "在一组单选项之间切换。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=radio-group",
+      "group": "表单与输入"
+    },
+    {
+      "id": "resizable",
+      "title": "Resizable",
+      "component": "Resizable",
+      "summary": "拖动分隔线改变区域宽度。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=resizable",
+      "group": "布局与排版"
+    },
+    {
+      "id": "scroll-area",
+      "title": "Scroll Area",
+      "component": "Scroll Area",
+      "summary": "在限定高度的区域中滚动内容。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=scroll-area",
+      "group": "布局与排版"
+    },
+    {
+      "id": "select",
+      "title": "Select",
+      "component": "Select",
+      "summary": "打开列表并选中一个选项。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=select",
+      "group": "表单与输入"
+    },
+    {
+      "id": "separator",
+      "title": "Separator",
+      "component": "Separator",
+      "summary": "查看分隔线如何组织相邻信息。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=separator",
+      "group": "布局与排版"
+    },
+    {
+      "id": "sheet",
+      "title": "Sheet",
+      "component": "Sheet",
+      "summary": "打开贴边浮层并查看内部布局。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=sheet",
+      "group": "浮层与菜单"
+    },
+    {
+      "id": "sidebar",
+      "title": "Sidebar",
+      "component": "Sidebar",
+      "summary": "查看侧栏及导航项。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=sidebar",
+      "group": "导航"
+    },
+    {
+      "id": "skeleton",
+      "title": "Skeleton",
+      "component": "Skeleton",
+      "summary": "查看内容加载时的占位。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=skeleton",
+      "group": "消息与反馈"
+    },
+    {
+      "id": "slider",
+      "title": "Slider",
+      "component": "Slider",
+      "summary": "拖动或用方向键调整数值。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=slider",
+      "group": "表单与输入"
+    },
+    {
+      "id": "spinner",
+      "title": "Spinner",
+      "component": "Spinner",
+      "summary": "查看旋转等待指示。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=spinner",
+      "group": "消息与反馈"
+    },
+    {
+      "id": "switch",
+      "title": "Switch",
+      "component": "Switch",
+      "summary": "切换开关并观察状态。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=switch",
+      "group": "表单与输入"
+    },
+    {
+      "id": "table",
+      "title": "Table",
+      "component": "Table",
+      "summary": "查看表头与数据行的组织方式。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=table",
+      "group": "数据展示"
+    },
+    {
+      "id": "tabs",
+      "title": "Tabs",
+      "component": "Tabs",
+      "summary": "切换标签页并查看对应内容。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=tabs",
+      "group": "导航"
+    },
+    {
+      "id": "textarea",
+      "title": "Textarea",
+      "component": "Textarea",
+      "summary": "在多行输入区编辑文字。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=textarea",
+      "group": "表单与输入"
+    },
+    {
+      "id": "toast",
+      "title": "Toast",
+      "component": "Toast",
+      "summary": "触发短时通知并查看提示内容。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=toast",
+      "group": "消息与反馈"
+    },
+    {
+      "id": "toggle",
+      "title": "Toggle",
+      "component": "Toggle",
+      "summary": "切换按钮的按下状态。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=toggle",
+      "group": "表单与输入"
+    },
+    {
+      "id": "toggle-group",
+      "title": "Toggle Group",
+      "component": "Toggle Group",
+      "summary": "在一组开关按钮中切换选中项。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=toggle-group",
+      "group": "表单与输入"
+    },
+    {
+      "id": "tooltip",
+      "title": "Tooltip",
+      "component": "Tooltip",
+      "summary": "悬停或聚焦触发元素查看提示。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=tooltip",
+      "group": "浮层与菜单"
+    },
+    {
+      "id": "trace",
+      "title": "Trace",
+      "component": "Trace",
+      "summary": "展开运行步骤及命令输出。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=trace",
+      "group": "消息与反馈"
+    },
+    {
+      "id": "typography",
+      "title": "Typography",
+      "component": "Typography",
+      "summary": "查看标题、段落与其他正文样式。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=typography",
+      "group": "布局与排版"
+    },
+    {
+      "id": "sidebar-07",
+      "title": "Sidebar 07",
+      "component": "Sidebar 07",
+      "summary": "在完整侧栏和仅图标模式之间切换。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=sidebar-07",
+      "group": "区块"
+    },
+    {
+      "id": "login-03",
+      "title": "Login 03",
+      "component": "Login 03",
+      "summary": "查看单栏登录布局并填写本地演示字段。",
+      "entrypoint": "demos/materials/shadcn-ui/index.html?demo=login-03",
+      "group": "区块"
+    }
+  ],
+  "sourceFiles": [
+    "demos/materials/shadcn-ui/source/main.tsx",
+    "demos/materials/shadcn-ui/source/samples.ts",
+    "demos/materials/shadcn-ui/source/styles.css",
+    "demos/materials/shadcn-ui/source/vite.config.ts",
+    "demos/materials/shadcn-ui/source/package.json",
+    "demos/materials/shadcn-ui/source/package-lock.json",
+    "demos/materials/shadcn-ui/demo/theme.js"
+  ],
+  "prompt": "为 React 和 Tailwind CSS 页面选用 shadcn/ui 的 Base UI + Vega 组件。沿用样例的焦点、键盘导航、浮层触发和受控状态。搭建仪表盘时参考 dashboard-01 的侧栏、图表和数据表结构。"
+}

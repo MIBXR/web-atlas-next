@@ -1,0 +1,30 @@
+import { a as e } from "./rolldown-runtime-DUcC5eAW.js";
+import { t } from "./react-D9cguz4v.js";
+import { t as n } from "./useIsoLayoutEffect-B0B6th0o.js";
+import { t as r } from "./useBaseUiId-BwhhMxTY.js";
+// node_modules/@base-ui/react/internals/labelable-provider/useAriaLabelledBy.mjs
+var i = /* @__PURE__ */ e(t(), 1);
+function a(e, t, a, s = !0, c) {
+	let [l, u] = i.useState(), d = r(c ? `${c}-label` : void 0), f = e ?? t ?? l;
+	return n(() => {
+		let n = e || t || !s ? void 0 : o(a.current, d);
+		l !== n && u(n);
+	}), f;
+}
+function o(e, t) {
+	let n = s(e);
+	if (n) return !n.id && t && (n.id = t), n.id || void 0;
+}
+function s(e) {
+	if (!e) return;
+	let t = e.parentElement;
+	if (t && t.tagName === "LABEL") return t;
+	let n = e.id;
+	if (n) {
+		let t = e.nextElementSibling;
+		if (t && t.htmlFor === n) return t;
+	}
+	let r = e.labels;
+	return r && r[0];
+}
+export { a as t };
