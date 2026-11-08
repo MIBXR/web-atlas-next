@@ -1,0 +1,26 @@
+import { d as e } from "./useRenderElement-Bc91YjHo.js";
+import { t } from "./useOnMount-B8XKb65Z.js";
+// node_modules/@base-ui/utils/useTimeout.mjs
+var n = 0, r = class e {
+	static create() {
+		return new e();
+	}
+	currentId = n;
+	start(e, t) {
+		this.clear(), this.currentId = setTimeout(() => {
+			this.currentId = n, t();
+		}, e);
+	}
+	isStarted() {
+		return this.currentId !== n;
+	}
+	clear = () => {
+		this.currentId !== n && (clearTimeout(this.currentId), this.currentId = n);
+	};
+	disposeEffect = () => this.clear;
+};
+function i() {
+	let n = e(r.create).current;
+	return t(n.disposeEffect), n;
+}
+export { i as n, r as t };

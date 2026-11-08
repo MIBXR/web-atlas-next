@@ -1,0 +1,45 @@
+import { i as e, n as t } from "./jsx-runtime-C1t0izHF.js";
+// node_modules/react-aria/dist/private/ssr/SSRProvider.mjs
+var n = /* @__PURE__ */ e(t(), 1), r = {
+	prefix: String(Math.round(Math.random() * 1e10)),
+	current: 0
+}, i = /*#__PURE__*/ n.createContext(r), a = /*#__PURE__*/ n.createContext(!1);
+typeof window < "u" && window.document && window.document.createElement;
+var o = /* @__PURE__ */ new WeakMap();
+function s(e = !1) {
+	let t = (0, n.useContext)(i), r = (0, n.useRef)(null);
+	if (r.current === null && !e) {
+		let e = n.default.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED?.ReactCurrentOwner?.current;
+		if (e) {
+			let n = o.get(e);
+			n == null ? o.set(e, {
+				id: t.current,
+				state: e.memoizedState
+			}) : e.memoizedState !== n.state && (t.current = n.id, o.delete(e));
+		}
+		r.current = ++t.current;
+	}
+	return r.current;
+}
+function c(e) {
+	let t = (0, n.useContext)(i), r = s(!!e), a = `react-aria${t.prefix}`;
+	return e || `${a}-${r}`;
+}
+function l(e) {
+	let t = n.useId(), [i] = (0, n.useState)(m()), a = i ? "react-aria" : `react-aria${r.prefix}`;
+	return e || `${a}-${t}`;
+}
+var u = typeof n.useId == "function" ? l : c;
+function d() {
+	return !1;
+}
+function f() {
+	return !0;
+}
+function p(e) {
+	return () => {};
+}
+function m() {
+	return typeof n.useSyncExternalStore == "function" ? n.useSyncExternalStore(p, d, f) : (0, n.useContext)(a);
+}
+export { u as n, m as t };

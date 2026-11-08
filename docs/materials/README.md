@@ -18,3 +18,6 @@
 | 歸藏 PPT Skill | [杂志风与瑞士风网页演示资料](guizang-ppt-skill.md) |
 | Vigil | [点彩同心带影像](0010-vigil.md) |
 | Anime.js | [动画引擎与 36 个上游样例](animejs.md) |
+| shadcn/ui | [Base UI 组件与 Vega 区块](shadcn-ui.md) |
+| React Bits | [官方样例索引与限时撤销](react-bits.md) |
+| HeroUI | [React Web 样例与接入](heroui.md) |

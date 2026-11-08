@@ -1,0 +1,26 @@
+{
+  "name": "atlas-heroui-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@gravity-ui/icons": "2.23.0",
+    "@heroui/react": "3.2.7",
+    "@heroui/styles": "3.2.7",
+    "@internationalized/date": "3.12.4",
+    "@react-aria/ssr": "3.10.1",
+    "@react-aria/utils": "3.34.1",
+    "react": "19.3.1",
+    "react-aria": "3.53.1",
+    "react-aria-components": "1.22.1",
+    "react-dom": "19.3.1",
+    "tailwindcss": "4.3.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@vitejs/plugin-react": "6.2.1",
+    "vite": "8.3.6"
+  }
+}

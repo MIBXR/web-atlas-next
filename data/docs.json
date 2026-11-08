@@ -1338,6 +1338,24 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/heroui/LICENSES.md",
+    "title": "许可索引",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/react-bits/LICENSES.md",
+    "title": "许可索引",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/shadcn-ui/LICENSES.md",
+    "title": "许可索引",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/cases/apple-product/LICENSES.md",
     "title": "许可与出处",
     "group": "案例复刻与许可",
@@ -1560,6 +1578,24 @@
     "path": "prompts/patterns/specimen-pullout-selection.md",
     "title": "样本阵列的抽出选择 · 复用 Prompt",
     "group": "复用 Prompt"
+  },
+  {
+    "path": "demos/materials/heroui/fidelity.md",
+    "title": "样例对照",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/react-bits/fidelity.md",
+    "title": "样例对照",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/shadcn-ui/fidelity.md",
+    "title": "样例对照",
+    "group": "素材原文",
+    "hidden": true
   },
   {
     "path": "demos/materials/arc-ui/source/README.md",
@@ -2778,6 +2814,16 @@
     "hidden": true
   },
   {
+    "path": "prompts/materials/heroui.md",
+    "title": "HeroUI · 复用 Prompt",
+    "group": "复用 Prompt"
+  },
+  {
+    "path": "docs/materials/heroui.md",
+    "title": "HeroUI · React 组件库",
+    "group": "素材使用"
+  },
+  {
     "path": "demos/materials/ascii-rest/source/skills/ascii-rest/references/docs/html.md",
     "title": "html",
     "group": "素材原文",
@@ -2916,6 +2962,18 @@
   {
     "path": "demos/materials/animejs/vendor/animejs@4.5.0/LICENSE.md",
     "title": "LICENSE",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/heroui/vendor/heroui@3.2.7/dependencies.md",
+    "title": "Licenses",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/shadcn-ui/vendor/shadcn-ui@4.23.0/dependencies.md",
+    "title": "Licenses",
     "group": "素材原文",
     "hidden": true
   },
@@ -3240,6 +3298,16 @@
     "hidden": true
   },
   {
+    "path": "prompts/materials/react-bits.md",
+    "title": "React Bits · 复用 Prompt",
+    "group": "复用 Prompt"
+  },
+  {
+    "path": "docs/materials/react-bits.md",
+    "title": "React Bits · 网页动效与交互组件",
+    "group": "素材使用"
+  },
+  {
     "path": "docs/materials/reacticle.md",
     "title": "Reacticle · 长文排版组件库",
     "group": "素材使用"
@@ -3370,6 +3438,16 @@
     "title": "Section 构建与多 Agent 并行",
     "group": "素材原文",
     "hidden": true
+  },
+  {
+    "path": "prompts/materials/shadcn-ui.md",
+    "title": "shadcn/ui · 复用 Prompt",
+    "group": "复用 Prompt"
+  },
+  {
+    "path": "docs/materials/shadcn-ui.md",
+    "title": "shadcn/ui · React 组件库",
+    "group": "素材使用"
   },
   {
     "path": "prompts/materials/shaders.md",

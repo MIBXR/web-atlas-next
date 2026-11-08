@@ -7692,5 +7692,1466 @@
       "prompt": "prompts/materials/ascii-rest.md",
       "agent": "agent/materials/ascii-rest.json"
     }
+  },
+  {
+    "id": "shadcn-ui",
+    "order": 16,
+    "title": "shadcn/ui",
+    "type": "component-library",
+    "category": "组件与效果",
+    "summary": "以 Base UI 和 Vega 展示 66 个官方组件样例，以及仪表盘、图标侧栏和登录三个区块。",
+    "tags": [
+      "React",
+      "Tailwind CSS",
+      "Base UI",
+      "Vega",
+      "registry"
+    ],
+    "demo": "demos/materials/shadcn-ui/index.html",
+    "preview": "previews/materials/shadcn-ui.png",
+    "research": "docs/materials/shadcn-ui.md",
+    "demoNote": "按名称或分组切换样例，预览跟随 Web Atlas 的主题。仪表盘、侧栏和登录区块保留各自布局。",
+    "install": "npx shadcn@4.23.0 add accordion",
+    "upstream": {
+      "url": "https://ui.shadcn.com/",
+      "repository": "shadcn-ui/ui",
+      "version": "4.23.0",
+      "commit": "96da9cc7f1aa10580a3741664e2a77c721206c00",
+      "verifiedAt": "2026-11-09"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/shadcn-ui/ui/blob/96da9cc7f1aa10580a3741664e2a77c721206c00/LICENSE.md",
+      "scope": "shadcn/ui Registry 源码、所选官方样例与 Vega 样式。",
+      "notes": "捆绑依赖的版本与许可见本体许可索引。"
+    },
+    "useCases": [
+      "从组件源码改造表单、导航和数据展示",
+      "参考仪表盘、侧栏与登录区块的组件组织"
+    ],
+    "avoid": [
+      "把样例登录页当作认证流程",
+      "把 Vega 样式和其他 Registry 样式直接混用"
+    ],
+    "constraints": [
+      "样例统一使用 Base UI 与 Vega。",
+      "移用组件时保留示例所需样式和交互依赖。"
+    ],
+    "workflow": [
+      "按组件或区块名称定位样例，切换深浅色并操作控件，查看焦点、浮层与选中状态。",
+      "从样例索引打开对应上游文件，取用 Base UI 组件、Vega 样式和样例所需依赖。",
+      "在项目中选择 Base UI 与 Vega，再用 shadcn CLI 添加对应组件或区块。",
+      "替换示例标签与数据，在目标页面宽度下确认表单和导航的交互。"
+    ],
+    "sources": [
+      {
+        "title": "固定提交源码与 MIT 许可",
+        "url": "https://github.com/shadcn-ui/ui/tree/96da9cc7f1aa10580a3741664e2a77c721206c00",
+        "note": "shadcn CLI 4.23.0 对应提交中的 Base UI Registry、Vega 样式和样例。",
+        "evidence": "source"
+      },
+      {
+        "title": "官网组件目录",
+        "url": "https://ui.shadcn.com/docs/components",
+        "note": "组件用途、样例与安装入口。",
+        "evidence": "source"
+      },
+      {
+        "title": "Accordion 官网样例",
+        "url": "https://ui.shadcn.com/docs/components/base/accordion",
+        "note": "桌面和手机视口打开退货说明，观察标题与内容的展开状态。",
+        "evidence": "observed"
+      },
+      {
+        "title": "官网 Blocks",
+        "url": "https://ui.shadcn.com/blocks",
+        "note": "仪表盘、图标侧栏和登录区块的入口与源码。",
+        "evidence": "source"
+      },
+      {
+        "title": "官网分享图",
+        "url": "https://raw.githubusercontent.com/shadcn-ui/ui/96da9cc7f1aa10580a3741664e2a77c721206c00/apps/v4/public/opengraph-image.png",
+        "note": "封面使用官方发布的深色仪表盘分享原图。",
+        "evidence": "source"
+      }
+    ],
+    "demos": [
+      {
+        "id": "dashboard-01",
+        "title": "Dashboard 01",
+        "component": "Dashboard 01",
+        "summary": "操作侧栏、趋势图与数据表，观察布局在不同宽度下的变化。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=dashboard-01",
+        "group": "区块"
+      },
+      {
+        "id": "accordion",
+        "title": "Accordion",
+        "component": "Accordion",
+        "summary": "展开内容分组，观察标题与展开状态。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=accordion",
+        "group": "布局与排版"
+      },
+      {
+        "id": "alert",
+        "title": "Alert",
+        "component": "Alert",
+        "summary": "查看提示图标、标题和正文的排布。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=alert",
+        "group": "消息与反馈"
+      },
+      {
+        "id": "alert-dialog",
+        "title": "Alert Dialog",
+        "component": "Alert Dialog",
+        "summary": "打开确认窗口并尝试取消。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=alert-dialog",
+        "group": "浮层与菜单"
+      },
+      {
+        "id": "aspect-ratio",
+        "title": "Aspect Ratio",
+        "component": "Aspect Ratio",
+        "summary": "查看图片怎样按比例填满容器。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=aspect-ratio",
+        "group": "布局与排版"
+      },
+      {
+        "id": "attachment",
+        "title": "Attachment",
+        "component": "Attachment",
+        "summary": "查看附件的处理状态与操作位置。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=attachment",
+        "group": "消息与反馈"
+      },
+      {
+        "id": "avatar",
+        "title": "Avatar",
+        "component": "Avatar",
+        "summary": "查看头像及缺省显示。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=avatar",
+        "group": "数据展示"
+      },
+      {
+        "id": "badge",
+        "title": "Badge",
+        "component": "Badge",
+        "summary": "查看短标签与相邻内容的排布。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=badge",
+        "group": "消息与反馈"
+      },
+      {
+        "id": "breadcrumb",
+        "title": "Breadcrumb",
+        "component": "Breadcrumb",
+        "summary": "查看分层导航和当前页标记。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=breadcrumb",
+        "group": "导航"
+      },
+      {
+        "id": "bubble",
+        "title": "Bubble",
+        "component": "Bubble",
+        "summary": "查看聊天气泡的内容布局。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=bubble",
+        "group": "消息与反馈"
+      },
+      {
+        "id": "button",
+        "title": "Button",
+        "component": "Button",
+        "summary": "操作基础按钮并观察焦点。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=button",
+        "group": "表单与输入"
+      },
+      {
+        "id": "button-group",
+        "title": "Button Group",
+        "component": "Button Group",
+        "summary": "查看相邻按钮的组合。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=button-group",
+        "group": "表单与输入"
+      },
+      {
+        "id": "calendar",
+        "title": "Calendar",
+        "component": "Calendar",
+        "summary": "切换月份并选择日期。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=calendar",
+        "group": "数据展示"
+      },
+      {
+        "id": "card",
+        "title": "Card",
+        "component": "Card",
+        "summary": "查看标题、内容和操作区的组织方式。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=card",
+        "group": "布局与排版"
+      },
+      {
+        "id": "carousel",
+        "title": "Carousel",
+        "component": "Carousel",
+        "summary": "浏览轮播中的相邻项目。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=carousel",
+        "group": "导航"
+      },
+      {
+        "id": "chart",
+        "title": "Chart",
+        "component": "Chart",
+        "summary": "查看面积图、柱状图等图表的图例和提示。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=chart",
+        "group": "数据展示"
+      },
+      {
+        "id": "checkbox",
+        "title": "Checkbox",
+        "component": "Checkbox",
+        "summary": "切换复选框的勾选状态。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=checkbox",
+        "group": "表单与输入"
+      },
+      {
+        "id": "code-block",
+        "title": "Code Block",
+        "component": "Code Block",
+        "summary": "查看代码高亮与复制操作。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=code-block",
+        "group": "布局与排版"
+      },
+      {
+        "id": "collapsible",
+        "title": "Collapsible",
+        "component": "Collapsible",
+        "summary": "展开和收起补充内容。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=collapsible",
+        "group": "布局与排版"
+      },
+      {
+        "id": "combobox",
+        "title": "Combobox",
+        "component": "Combobox",
+        "summary": "输入关键字筛选选项，再选中一项。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=combobox",
+        "group": "表单与输入"
+      },
+      {
+        "id": "command",
+        "title": "Command",
+        "component": "Command",
+        "summary": "输入关键字，在命令列表中定位操作。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=command",
+        "group": "导航"
+      },
+      {
+        "id": "context-menu",
+        "title": "Context Menu",
+        "component": "Context Menu",
+        "summary": "在指定区域打开右键菜单。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=context-menu",
+        "group": "浮层与菜单"
+      },
+      {
+        "id": "data-table",
+        "title": "Data Table",
+        "component": "Data Table",
+        "summary": "筛选、排序、选中与翻页，切换列的可见性。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=data-table",
+        "group": "数据展示"
+      },
+      {
+        "id": "date-picker",
+        "title": "Date Picker",
+        "component": "Date Picker",
+        "summary": "打开日历并选择日期。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=date-picker",
+        "group": "表单与输入"
+      },
+      {
+        "id": "dialog",
+        "title": "Dialog",
+        "component": "Dialog",
+        "summary": "打开模态窗口并操作内部字段。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=dialog",
+        "group": "浮层与菜单"
+      },
+      {
+        "id": "direction",
+        "title": "Direction",
+        "component": "Direction",
+        "summary": "查看从右到左排版的卡片。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=direction",
+        "group": "布局与排版"
+      },
+      {
+        "id": "drawer",
+        "title": "Drawer",
+        "component": "Drawer",
+        "summary": "打开抽屉并操作内部控件。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=drawer",
+        "group": "浮层与菜单"
+      },
+      {
+        "id": "dropdown-menu",
+        "title": "Dropdown Menu",
+        "component": "Dropdown Menu",
+        "summary": "打开下拉菜单，浏览分组操作。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=dropdown-menu",
+        "group": "浮层与菜单"
+      },
+      {
+        "id": "empty",
+        "title": "Empty",
+        "component": "Empty",
+        "summary": "查看无数据时的说明和操作入口。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=empty",
+        "group": "消息与反馈"
+      },
+      {
+        "id": "field",
+        "title": "Field",
+        "component": "Field",
+        "summary": "查看表单字段、标签与说明的组合。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=field",
+        "group": "表单与输入"
+      },
+      {
+        "id": "hover-card",
+        "title": "Hover Card",
+        "component": "Hover Card",
+        "summary": "悬停查看触发元素的补充信息。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=hover-card",
+        "group": "浮层与菜单"
+      },
+      {
+        "id": "input",
+        "title": "Input",
+        "component": "Input",
+        "summary": "体验单行输入和焦点状态。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=input",
+        "group": "表单与输入"
+      },
+      {
+        "id": "input-group",
+        "title": "Input Group",
+        "component": "Input Group",
+        "summary": "查看输入框与附加内容的组合。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=input-group",
+        "group": "表单与输入"
+      },
+      {
+        "id": "input-otp",
+        "title": "Input OTP",
+        "component": "Input OTP",
+        "summary": "逐格输入验证码。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=input-otp",
+        "group": "表单与输入"
+      },
+      {
+        "id": "item",
+        "title": "Item",
+        "component": "Item",
+        "summary": "查看图标、文字和尾部操作组成的条目。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=item",
+        "group": "数据展示"
+      },
+      {
+        "id": "kbd",
+        "title": "Kbd",
+        "component": "Kbd",
+        "summary": "查看键盘按键提示。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=kbd",
+        "group": "布局与排版"
+      },
+      {
+        "id": "label",
+        "title": "Label",
+        "component": "Label",
+        "summary": "查看文字标签与关联控件。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=label",
+        "group": "表单与输入"
+      },
+      {
+        "id": "marker",
+        "title": "Marker",
+        "component": "Marker",
+        "summary": "查看消息中的处理状态提示。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=marker",
+        "group": "消息与反馈"
+      },
+      {
+        "id": "menubar",
+        "title": "Menubar",
+        "component": "Menubar",
+        "summary": "打开菜单栏中的各组操作。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=menubar",
+        "group": "导航"
+      },
+      {
+        "id": "message",
+        "title": "Message",
+        "component": "Message",
+        "summary": "查看消息的作者和内容布局。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=message",
+        "group": "消息与反馈"
+      },
+      {
+        "id": "message-scroller",
+        "title": "Message Scroller",
+        "component": "Message Scroller",
+        "summary": "滚动消息列表，使用回到底部的入口。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=message-scroller",
+        "group": "消息与反馈"
+      },
+      {
+        "id": "native-select",
+        "title": "Native Select",
+        "component": "Native Select",
+        "summary": "展开浏览器的原生选择器。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=native-select",
+        "group": "表单与输入"
+      },
+      {
+        "id": "navigation-menu",
+        "title": "Navigation Menu",
+        "component": "Navigation Menu",
+        "summary": "打开导航项，查看下方的链接分组。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=navigation-menu",
+        "group": "导航"
+      },
+      {
+        "id": "pagination",
+        "title": "Pagination",
+        "component": "Pagination",
+        "summary": "查看上一页、下一页和页码的组合。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=pagination",
+        "group": "导航"
+      },
+      {
+        "id": "popover",
+        "title": "Popover",
+        "component": "Popover",
+        "summary": "打开锚定在触发按钮附近的浮层。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=popover",
+        "group": "浮层与菜单"
+      },
+      {
+        "id": "progress",
+        "title": "Progress",
+        "component": "Progress",
+        "summary": "查看条形进度。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=progress",
+        "group": "消息与反馈"
+      },
+      {
+        "id": "questionnaire",
+        "title": "Questionnaire",
+        "component": "Questionnaire",
+        "summary": "操作问卷选项。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=questionnaire",
+        "group": "消息与反馈"
+      },
+      {
+        "id": "radio-group",
+        "title": "Radio Group",
+        "component": "Radio Group",
+        "summary": "在一组单选项之间切换。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=radio-group",
+        "group": "表单与输入"
+      },
+      {
+        "id": "resizable",
+        "title": "Resizable",
+        "component": "Resizable",
+        "summary": "拖动分隔线改变区域宽度。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=resizable",
+        "group": "布局与排版"
+      },
+      {
+        "id": "scroll-area",
+        "title": "Scroll Area",
+        "component": "Scroll Area",
+        "summary": "在限定高度的区域中滚动内容。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=scroll-area",
+        "group": "布局与排版"
+      },
+      {
+        "id": "select",
+        "title": "Select",
+        "component": "Select",
+        "summary": "打开列表并选中一个选项。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=select",
+        "group": "表单与输入"
+      },
+      {
+        "id": "separator",
+        "title": "Separator",
+        "component": "Separator",
+        "summary": "查看分隔线如何组织相邻信息。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=separator",
+        "group": "布局与排版"
+      },
+      {
+        "id": "sheet",
+        "title": "Sheet",
+        "component": "Sheet",
+        "summary": "打开贴边浮层并查看内部布局。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=sheet",
+        "group": "浮层与菜单"
+      },
+      {
+        "id": "sidebar",
+        "title": "Sidebar",
+        "component": "Sidebar",
+        "summary": "查看侧栏及导航项。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=sidebar",
+        "group": "导航"
+      },
+      {
+        "id": "skeleton",
+        "title": "Skeleton",
+        "component": "Skeleton",
+        "summary": "查看内容加载时的占位。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=skeleton",
+        "group": "消息与反馈"
+      },
+      {
+        "id": "slider",
+        "title": "Slider",
+        "component": "Slider",
+        "summary": "拖动或用方向键调整数值。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=slider",
+        "group": "表单与输入"
+      },
+      {
+        "id": "spinner",
+        "title": "Spinner",
+        "component": "Spinner",
+        "summary": "查看旋转等待指示。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=spinner",
+        "group": "消息与反馈"
+      },
+      {
+        "id": "switch",
+        "title": "Switch",
+        "component": "Switch",
+        "summary": "切换开关并观察状态。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=switch",
+        "group": "表单与输入"
+      },
+      {
+        "id": "table",
+        "title": "Table",
+        "component": "Table",
+        "summary": "查看表头与数据行的组织方式。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=table",
+        "group": "数据展示"
+      },
+      {
+        "id": "tabs",
+        "title": "Tabs",
+        "component": "Tabs",
+        "summary": "切换标签页并查看对应内容。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=tabs",
+        "group": "导航"
+      },
+      {
+        "id": "textarea",
+        "title": "Textarea",
+        "component": "Textarea",
+        "summary": "在多行输入区编辑文字。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=textarea",
+        "group": "表单与输入"
+      },
+      {
+        "id": "toast",
+        "title": "Toast",
+        "component": "Toast",
+        "summary": "触发短时通知并查看提示内容。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=toast",
+        "group": "消息与反馈"
+      },
+      {
+        "id": "toggle",
+        "title": "Toggle",
+        "component": "Toggle",
+        "summary": "切换按钮的按下状态。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=toggle",
+        "group": "表单与输入"
+      },
+      {
+        "id": "toggle-group",
+        "title": "Toggle Group",
+        "component": "Toggle Group",
+        "summary": "在一组开关按钮中切换选中项。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=toggle-group",
+        "group": "表单与输入"
+      },
+      {
+        "id": "tooltip",
+        "title": "Tooltip",
+        "component": "Tooltip",
+        "summary": "悬停或聚焦触发元素查看提示。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=tooltip",
+        "group": "浮层与菜单"
+      },
+      {
+        "id": "trace",
+        "title": "Trace",
+        "component": "Trace",
+        "summary": "展开运行步骤及命令输出。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=trace",
+        "group": "消息与反馈"
+      },
+      {
+        "id": "typography",
+        "title": "Typography",
+        "component": "Typography",
+        "summary": "查看标题、段落与其他正文样式。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=typography",
+        "group": "布局与排版"
+      },
+      {
+        "id": "sidebar-07",
+        "title": "Sidebar 07",
+        "component": "Sidebar 07",
+        "summary": "在完整侧栏和仅图标模式之间切换。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=sidebar-07",
+        "group": "区块"
+      },
+      {
+        "id": "login-03",
+        "title": "Login 03",
+        "component": "Login 03",
+        "summary": "查看单栏登录布局并填写本地演示字段。",
+        "entrypoint": "demos/materials/shadcn-ui/index.html?demo=login-03",
+        "group": "区块"
+      }
+    ],
+    "sourceFiles": [
+      "demos/materials/shadcn-ui/source/main.tsx",
+      "demos/materials/shadcn-ui/source/samples.ts",
+      "demos/materials/shadcn-ui/source/styles.css",
+      "demos/materials/shadcn-ui/source/vite.config.ts",
+      "demos/materials/shadcn-ui/source/package.json",
+      "demos/materials/shadcn-ui/source/package-lock.json",
+      "demos/materials/shadcn-ui/demo/theme.js"
+    ],
+    "prompt": "为 React 和 Tailwind CSS 页面选用 shadcn/ui 的 Base UI + Vega 组件。沿用样例的焦点、键盘导航、浮层触发和受控状态。搭建仪表盘时参考 dashboard-01 的侧栏、图表和数据表结构。",
+    "$": {
+      "preview": "previews/materials/shadcn-ui.png",
+      "research": "docs/materials/shadcn-ui.md",
+      "licenses": "demos/materials/shadcn-ui/LICENSES.md",
+      "prompt": "prompts/materials/shadcn-ui.md",
+      "agent": "agent/materials/shadcn-ui.json"
+    }
+  },
+  {
+    "id": "react-bits",
+    "order": 17,
+    "title": "React Bits",
+    "type": "component-library",
+    "category": "组件与效果",
+    "summary": "索引 216 个免费网页动效与交互组件，任务归档样例使用官方 Fuse Button 处理限时撤销。",
+    "tags": [
+      "React",
+      "文字动效",
+      "背景",
+      "微交互",
+      "官方索引",
+      "限时撤销"
+    ],
+    "demo": "demos/materials/react-bits/index.html",
+    "preview": "previews/materials/react-bits.jpg",
+    "research": "docs/materials/react-bits.md",
+    "demoNote": "点击归档后沿按钮轮廓倒计时，期间可点撤销或按 Escape。预览跟随 Web Atlas 的主题。",
+    "install": "npx shadcn@4.23.0 add @react-bits/FuseButton-TS-CSS",
+    "upstream": {
+      "url": "https://reactbits.dev/",
+      "repository": "DavidHDev/react-bits",
+      "commit": "66fd12b4ada49cf1d523309aea6c965eb5123dfa",
+      "verifiedAt": "2026-11-09"
+    },
+    "license": {
+      "name": "MIT + Commons Clause License Condition v1.0",
+      "url": "https://github.com/DavidHDev/react-bits/blob/66fd12b4ada49cf1d523309aea6c965eb5123dfa/LICENSE.md",
+      "scope": "React Bits 上游源码、工具与声音。组件本体的再分发受上游条款限制。",
+      "notes": "Fuse Button 用于任务归档场景，原许可随应用运行包提供。组件通过官方安装入口取得。"
+    },
+    "useCases": [
+      "查找文字动效、交互组件、背景和微交互",
+      "参考任务归档后的限时撤销反馈"
+    ],
+    "avoid": [
+      "把 React Bits 组件本体作为组件包或模板再分发"
+    ],
+    "constraints": [
+      "从官方 Demo 选择安装变体并按许可使用。",
+      "任务归档样例采用官方默认 4 秒撤销窗口。"
+    ],
+    "workflow": [
+      "按文字动效、动画效果、交互组件、微交互或背景查找组件，在官方 Demo 里试用效果和参数。",
+      "根据项目配置选择 JavaScript 或 TypeScript，再选 CSS 或 Tailwind CSS 变体。",
+      "按组件页的命令从 React Bits Registry 安装。手动复制源码时，一并安装组件页列出的依赖。",
+      "在项目页面中导入组件，换上实际内容，调整参数，再在目标主题、屏幕宽度和输入方式下试用。"
+    ],
+    "sources": [
+      {
+        "title": "固定提交源码与许可",
+        "url": "https://github.com/DavidHDev/react-bits/tree/66fd12b4ada49cf1d523309aea6c965eb5123dfa",
+        "note": "官方组件目录和样例源码的版本依据。",
+        "evidence": "source"
+      },
+      {
+        "title": "官方样例目录",
+        "url": "https://reactbits.dev/get-started/index",
+        "note": "216 个免费组件的分类及原版演示入口。",
+        "evidence": "source"
+      },
+      {
+        "title": "Fuse Button 官网样例",
+        "url": "https://reactbits.dev/micro/fuse-button",
+        "note": "操作归档与撤销，观察 4 秒环形引线和按钮状态切换。",
+        "evidence": "observed"
+      },
+      {
+        "title": "Fuse Button TypeScript + CSS 源码",
+        "url": "https://github.com/DavidHDev/react-bits/tree/66fd12b4ada49cf1d523309aea6c965eb5123dfa/src/ts-default/Micro/FuseButton",
+        "note": "任务归档应用使用的官方组件和样式。",
+        "evidence": "source"
+      },
+      {
+        "title": "官方安装说明",
+        "url": "https://reactbits.dev/get-started/installation",
+        "note": "CLI、样式变体与组件获取方式。",
+        "evidence": "source"
+      },
+      {
+        "title": "官网分享图",
+        "url": "https://raw.githubusercontent.com/DavidHDev/react-bits/66fd12b4ada49cf1d523309aea6c965eb5123dfa/public/og.jpg",
+        "note": "封面使用 React Bits 官方品牌分享原图。",
+        "evidence": "source"
+      }
+    ],
+    "demos": [
+      {
+        "id": "undo",
+        "title": "限时撤销",
+        "component": "Fuse Button",
+        "summary": "用官方 Fuse Button 归档任务，环形引线燃烧期间可撤销，到期后保留已归档状态。",
+        "entrypoint": "demos/materials/react-bits/index.html",
+        "parameters": [
+          {
+            "name": "撤销窗口",
+            "value": "4 秒",
+            "note": "沿用官方默认时长，从归档动作开始计时。"
+          }
+        ]
+      },
+      {
+        "id": "official-index",
+        "title": "官方样例索引",
+        "summary": "216 个免费组件按五类分组，每项链接到官方演示。",
+        "entrypoint": "demos/materials/react-bits/demo/catalog.html"
+      }
+    ],
+    "sourceFiles": [
+      "demos/materials/react-bits/index.html",
+      "demos/materials/react-bits/demo/demo.css",
+      "demos/materials/react-bits/demo/theme.js",
+      "demos/materials/react-bits/demo/catalog.html",
+      "demos/materials/react-bits/source/archive.tsx",
+      "demos/materials/react-bits/source/build.mjs",
+      "demos/materials/react-bits/source/package.json",
+      "demos/materials/react-bits/source/package-lock.json"
+    ],
+    "prompt": "在 React 任务页使用官方 Fuse Button。用 onCommit、onUndo 和 onFuseEnd 连接归档、恢复和完成状态。采用 4 秒环形引线，到期保留已归档状态，并随页面主题更新按钮颜色。",
+    "$": {
+      "preview": "previews/materials/react-bits.jpg",
+      "research": "docs/materials/react-bits.md",
+      "licenses": "demos/materials/react-bits/LICENSES.md",
+      "prompt": "prompts/materials/react-bits.md",
+      "agent": "agent/materials/react-bits.json"
+    }
+  },
+  {
+    "id": "heroui",
+    "order": 18,
+    "title": "HeroUI",
+    "type": "component-library",
+    "category": "组件与效果",
+    "summary": "收录 HeroUI 3.2.7 的 73 个 React Web 官方样例，覆盖表单、日期、颜色、导航、数据和浮层。",
+    "tags": [
+      "React",
+      "React Aria",
+      "Tailwind CSS",
+      "表单",
+      "浮层"
+    ],
+    "demo": "demos/materials/heroui/index.html",
+    "preview": "previews/materials/heroui.jpg",
+    "research": "docs/materials/heroui.md",
+    "demoNote": "按名称或分组切换样例，预览跟随 Web Atlas 的主题。弹窗、选择器和日期控件可直接操作。",
+    "install": "npm install @heroui/react@3.2.7 @heroui/styles@3.2.7",
+    "upstream": {
+      "url": "https://heroui.com/",
+      "repository": "heroui-inc/heroui",
+      "version": "3.2.7",
+      "commit": "7cb1642606c6f96f424dad78a961ccf45436be72",
+      "verifiedAt": "2026-11-09"
+    },
+    "license": {
+      "name": "Apache-2.0",
+      "url": "https://github.com/heroui-inc/heroui/blob/7cb1642606c6f96f424dad78a961ccf45436be72/LICENSE",
+      "scope": "HeroUI React Web 发行库、样式与所选官方样例。",
+      "notes": "捆绑依赖的版本与许可见本体许可索引。"
+    },
+    "useCases": [
+      "参考 React Web 的表单、日期范围和颜色选择器",
+      "用复合组件组织浮层、数据表和输入控件"
+    ],
+    "avoid": [
+      "在 HeroUI v2 或 React Native 项目里直接套用 v3 Web 样例"
+    ],
+    "constraints": [
+      "样例使用 React 19 与 Tailwind CSS 4。",
+      "先引入 Tailwind CSS，再引入 @heroui/styles。"
+    ],
+    "workflow": [
+      "按表单、日期、浮层等分组选择样例，切换深浅色观察组件及其浮层。",
+      "在 React 19 与 Tailwind CSS 4 项目安装同版本的组件和样式包。",
+      "按顺序引入 Tailwind CSS 和 @heroui/styles，从样例源码取用复合组件。",
+      "用实际标签、选项和数据替换样例内容，保留输入校验和键盘焦点行为。"
+    ],
+    "sources": [
+      {
+        "title": "v3.2.7 固定源码与许可",
+        "url": "https://github.com/heroui-inc/heroui/tree/7cb1642606c6f96f424dad78a961ccf45436be72",
+        "note": "React Web 组件、样式包、文档样例和 Apache-2.0 许可。",
+        "evidence": "source"
+      },
+      {
+        "title": "React Web 组件目录",
+        "url": "https://heroui.com/en/docs/react/components",
+        "note": "按用途分组的组件及使用说明。",
+        "evidence": "source"
+      },
+      {
+        "title": "Modal 官网样例",
+        "url": "https://heroui.com/en/docs/react/components/modal",
+        "note": "桌面和手机视口打开弹窗并按 Escape 关闭。",
+        "evidence": "observed"
+      },
+      {
+        "title": "官网分享图",
+        "url": "https://raw.githubusercontent.com/heroui-inc/heroui/7cb1642606c6f96f424dad78a961ccf45436be72/apps/docs/public/images/twitter-card.jpg",
+        "note": "封面使用 HeroUI 官方 React Web 分享原图。",
+        "evidence": "source"
+      }
+    ],
+    "demos": [
+      {
+        "id": "card",
+        "title": "Card",
+        "component": "Card",
+        "summary": "查看标题、内容和操作区的组织方式。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=card",
+        "group": "布局"
+      },
+      {
+        "id": "accordion",
+        "title": "Accordion",
+        "component": "Accordion",
+        "summary": "展开内容分组，观察标题与展开状态。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=accordion",
+        "group": "导航"
+      },
+      {
+        "id": "alert",
+        "title": "Alert",
+        "component": "Alert",
+        "summary": "查看提示图标、标题和正文的排布。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=alert",
+        "group": "反馈"
+      },
+      {
+        "id": "alert-dialog",
+        "title": "AlertDialog",
+        "component": "AlertDialog",
+        "summary": "打开确认窗口并尝试取消。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=alert-dialog",
+        "group": "浮层"
+      },
+      {
+        "id": "autocomplete",
+        "title": "Autocomplete",
+        "component": "Autocomplete",
+        "summary": "输入内容，筛选列表中的选项。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=autocomplete",
+        "group": "选择器"
+      },
+      {
+        "id": "avatar",
+        "title": "Avatar",
+        "component": "Avatar",
+        "summary": "查看头像及缺省显示。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=avatar",
+        "group": "媒体"
+      },
+      {
+        "id": "avatar-group",
+        "title": "AvatarGroup",
+        "component": "AvatarGroup",
+        "summary": "查看多个头像的叠放和超额数量。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=avatar-group",
+        "group": "媒体"
+      },
+      {
+        "id": "badge",
+        "title": "Badge",
+        "component": "Badge",
+        "summary": "查看短标签与相邻内容的排布。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=badge",
+        "group": "数据展示"
+      },
+      {
+        "id": "breadcrumbs",
+        "title": "Breadcrumbs",
+        "component": "Breadcrumbs",
+        "summary": "查看分层导航和当前页标记。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=breadcrumbs",
+        "group": "导航"
+      },
+      {
+        "id": "button",
+        "title": "Button",
+        "component": "Button",
+        "summary": "操作基础按钮并观察焦点。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=button",
+        "group": "按钮"
+      },
+      {
+        "id": "button-group",
+        "title": "ButtonGroup",
+        "component": "ButtonGroup",
+        "summary": "查看相邻按钮的组合。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=button-group",
+        "group": "按钮"
+      },
+      {
+        "id": "calendar",
+        "title": "Calendar",
+        "component": "Calendar",
+        "summary": "切换月份并选择日期。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=calendar",
+        "group": "日期与时间"
+      },
+      {
+        "id": "checkbox",
+        "title": "Checkbox",
+        "component": "Checkbox",
+        "summary": "切换复选框的勾选状态。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=checkbox",
+        "group": "表单"
+      },
+      {
+        "id": "checkbox-group",
+        "title": "CheckboxGroup",
+        "component": "CheckboxGroup",
+        "summary": "在一组复选项中选择多个值。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=checkbox-group",
+        "group": "表单"
+      },
+      {
+        "id": "chip",
+        "title": "Chip",
+        "component": "Chip",
+        "summary": "查看简短标签与状态颜色。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=chip",
+        "group": "数据展示"
+      },
+      {
+        "id": "close-button",
+        "title": "CloseButton",
+        "component": "CloseButton",
+        "summary": "查看关闭按钮与焦点样式。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=close-button",
+        "group": "按钮"
+      },
+      {
+        "id": "color-area",
+        "title": "ColorArea",
+        "component": "ColorArea",
+        "summary": "在取色面板中拖动指示点。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=color-area",
+        "group": "颜色"
+      },
+      {
+        "id": "color-field",
+        "title": "ColorField",
+        "component": "ColorField",
+        "summary": "编辑十六进制颜色值。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=color-field",
+        "group": "颜色"
+      },
+      {
+        "id": "color-picker",
+        "title": "ColorPicker",
+        "component": "ColorPicker",
+        "summary": "打开取色浮层并调整颜色。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=color-picker",
+        "group": "颜色"
+      },
+      {
+        "id": "color-slider",
+        "title": "ColorSlider",
+        "component": "ColorSlider",
+        "summary": "拖动滑块改变颜色通道。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=color-slider",
+        "group": "颜色"
+      },
+      {
+        "id": "color-swatch",
+        "title": "ColorSwatch",
+        "component": "ColorSwatch",
+        "summary": "查看颜色样本及其名称。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=color-swatch",
+        "group": "颜色"
+      },
+      {
+        "id": "color-swatch-picker",
+        "title": "ColorSwatchPicker",
+        "component": "ColorSwatchPicker",
+        "summary": "通过色块选择颜色。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=color-swatch-picker",
+        "group": "颜色"
+      },
+      {
+        "id": "combo-box",
+        "title": "ComboBox",
+        "component": "ComboBox",
+        "summary": "输入关键字筛选选项，再选中一项。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=combo-box",
+        "group": "选择器"
+      },
+      {
+        "id": "date-field",
+        "title": "DateField",
+        "component": "DateField",
+        "summary": "编辑分段的日期输入。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=date-field",
+        "group": "日期与时间"
+      },
+      {
+        "id": "date-picker",
+        "title": "DatePicker",
+        "component": "DatePicker",
+        "summary": "打开日历并选择日期。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=date-picker",
+        "group": "日期与时间"
+      },
+      {
+        "id": "date-range-picker",
+        "title": "DateRangePicker",
+        "component": "DateRangePicker",
+        "summary": "用弹出的日历选择起始和结束日期。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=date-range-picker",
+        "group": "日期与时间"
+      },
+      {
+        "id": "description",
+        "title": "Description",
+        "component": "Description",
+        "summary": "查看表单字段下方的说明。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=description",
+        "group": "表单"
+      },
+      {
+        "id": "disclosure",
+        "title": "Disclosure",
+        "component": "Disclosure",
+        "summary": "展开带自定义样式的详情。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=disclosure",
+        "group": "导航"
+      },
+      {
+        "id": "disclosure-group",
+        "title": "DisclosureGroup",
+        "component": "DisclosureGroup",
+        "summary": "在一组折叠内容中展开指定条目。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=disclosure-group",
+        "group": "导航"
+      },
+      {
+        "id": "drawer",
+        "title": "Drawer",
+        "component": "Drawer",
+        "summary": "打开抽屉并操作内部控件。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=drawer",
+        "group": "浮层"
+      },
+      {
+        "id": "dropdown",
+        "title": "Dropdown",
+        "component": "Dropdown",
+        "summary": "打开下拉菜单并选择一项操作。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=dropdown",
+        "group": "列表"
+      },
+      {
+        "id": "error-message",
+        "title": "ErrorMessage",
+        "component": "ErrorMessage",
+        "summary": "查看错误提示的文字和样式。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=error-message",
+        "group": "表单"
+      },
+      {
+        "id": "field-error",
+        "title": "FieldError",
+        "component": "FieldError",
+        "summary": "查看字段校验错误。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=field-error",
+        "group": "表单"
+      },
+      {
+        "id": "fieldset",
+        "title": "Fieldset",
+        "component": "Fieldset",
+        "summary": "查看具有公共标题的字段组。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=fieldset",
+        "group": "表单"
+      },
+      {
+        "id": "form",
+        "title": "Form",
+        "component": "Form",
+        "summary": "填写邮件和密码并观察校验反馈。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=form",
+        "group": "表单"
+      },
+      {
+        "id": "input",
+        "title": "Input",
+        "component": "Input",
+        "summary": "体验单行输入和焦点状态。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=input",
+        "group": "表单"
+      },
+      {
+        "id": "input-group",
+        "title": "InputGroup",
+        "component": "InputGroup",
+        "summary": "查看输入框与附加内容的组合。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=input-group",
+        "group": "表单"
+      },
+      {
+        "id": "input-otp",
+        "title": "InputOTP",
+        "component": "InputOTP",
+        "summary": "逐格输入验证码。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=input-otp",
+        "group": "表单"
+      },
+      {
+        "id": "kbd",
+        "title": "Kbd",
+        "component": "Kbd",
+        "summary": "查看键盘按键提示。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=kbd",
+        "group": "排版"
+      },
+      {
+        "id": "label",
+        "title": "Label",
+        "component": "Label",
+        "summary": "查看文字标签与关联控件。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=label",
+        "group": "表单"
+      },
+      {
+        "id": "link",
+        "title": "Link",
+        "component": "Link",
+        "summary": "查看链接与键盘焦点样式。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=link",
+        "group": "导航"
+      },
+      {
+        "id": "list-box",
+        "title": "ListBox",
+        "component": "ListBox",
+        "summary": "按分组浏览并选中列表项。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=list-box",
+        "group": "列表"
+      },
+      {
+        "id": "meter",
+        "title": "Meter",
+        "component": "Meter",
+        "summary": "查看数值在量程中的位置。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=meter",
+        "group": "反馈"
+      },
+      {
+        "id": "modal",
+        "title": "Modal",
+        "component": "Modal",
+        "summary": "打开模态窗口并查看内部操作。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=modal",
+        "group": "浮层"
+      },
+      {
+        "id": "number-field",
+        "title": "NumberField",
+        "component": "NumberField",
+        "summary": "输入数字或通过按钮改变数值。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=number-field",
+        "group": "表单"
+      },
+      {
+        "id": "pagination",
+        "title": "Pagination",
+        "component": "Pagination",
+        "summary": "查看上一页、下一页和页码的组合。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=pagination",
+        "group": "导航"
+      },
+      {
+        "id": "popover",
+        "title": "Popover",
+        "component": "Popover",
+        "summary": "打开锚定在触发按钮附近的浮层。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=popover",
+        "group": "浮层"
+      },
+      {
+        "id": "progress-bar",
+        "title": "ProgressBar",
+        "component": "ProgressBar",
+        "summary": "查看条形进度和标签。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=progress-bar",
+        "group": "反馈"
+      },
+      {
+        "id": "progress-circle",
+        "title": "ProgressCircle",
+        "component": "ProgressCircle",
+        "summary": "查看环形进度和数值。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=progress-circle",
+        "group": "反馈"
+      },
+      {
+        "id": "radio-group",
+        "title": "RadioGroup",
+        "component": "RadioGroup",
+        "summary": "在一组单选项之间切换。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=radio-group",
+        "group": "表单"
+      },
+      {
+        "id": "range-calendar",
+        "title": "RangeCalendar",
+        "component": "RangeCalendar",
+        "summary": "在日历中选择起始和结束日期。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=range-calendar",
+        "group": "日期与时间"
+      },
+      {
+        "id": "scroll-shadow",
+        "title": "ScrollShadow",
+        "component": "ScrollShadow",
+        "summary": "滚动区域并观察边缘阴影。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=scroll-shadow",
+        "group": "工具"
+      },
+      {
+        "id": "search-field",
+        "title": "SearchField",
+        "component": "SearchField",
+        "summary": "编辑搜索词并尝试清空。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=search-field",
+        "group": "表单"
+      },
+      {
+        "id": "select",
+        "title": "Select",
+        "component": "Select",
+        "summary": "打开列表并选中一个选项。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=select",
+        "group": "选择器"
+      },
+      {
+        "id": "separator",
+        "title": "Separator",
+        "component": "Separator",
+        "summary": "查看分隔线如何组织相邻信息。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=separator",
+        "group": "布局"
+      },
+      {
+        "id": "sheet",
+        "title": "Sheet",
+        "component": "Sheet",
+        "summary": "打开贴边浮层并查看内部布局。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=sheet",
+        "group": "浮层"
+      },
+      {
+        "id": "skeleton",
+        "title": "Skeleton",
+        "component": "Skeleton",
+        "summary": "查看内容加载时的占位。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=skeleton",
+        "group": "反馈"
+      },
+      {
+        "id": "slider",
+        "title": "Slider",
+        "component": "Slider",
+        "summary": "拖动或用方向键调整数值。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=slider",
+        "group": "控件"
+      },
+      {
+        "id": "spinner",
+        "title": "Spinner",
+        "component": "Spinner",
+        "summary": "查看旋转等待指示。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=spinner",
+        "group": "反馈"
+      },
+      {
+        "id": "surface",
+        "title": "Surface",
+        "component": "Surface",
+        "summary": "查看表面的背景和层次。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=surface",
+        "group": "布局"
+      },
+      {
+        "id": "switch",
+        "title": "Switch",
+        "component": "Switch",
+        "summary": "切换开关并观察状态。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=switch",
+        "group": "控件"
+      },
+      {
+        "id": "table",
+        "title": "Table",
+        "component": "Table",
+        "summary": "查看表头与数据行的组织方式。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=table",
+        "group": "数据展示"
+      },
+      {
+        "id": "tabs",
+        "title": "Tabs",
+        "component": "Tabs",
+        "summary": "切换标签页并查看对应内容。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=tabs",
+        "group": "导航"
+      },
+      {
+        "id": "tag-group",
+        "title": "TagGroup",
+        "component": "TagGroup",
+        "summary": "查看成组标签的排布。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=tag-group",
+        "group": "列表"
+      },
+      {
+        "id": "text-area",
+        "title": "TextArea",
+        "component": "TextArea",
+        "summary": "在多行输入区编辑文字。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=text-area",
+        "group": "表单"
+      },
+      {
+        "id": "text-field",
+        "title": "TextField",
+        "component": "TextField",
+        "summary": "查看带标签的单行文字字段。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=text-field",
+        "group": "表单"
+      },
+      {
+        "id": "time-field",
+        "title": "TimeField",
+        "component": "TimeField",
+        "summary": "编辑分段的时间输入。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=time-field",
+        "group": "日期与时间"
+      },
+      {
+        "id": "toast",
+        "title": "Toast",
+        "component": "Toast",
+        "summary": "触发短时通知并查看提示内容。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=toast",
+        "group": "浮层"
+      },
+      {
+        "id": "toggle-button",
+        "title": "ToggleButton",
+        "component": "ToggleButton",
+        "summary": "切换按钮的按下状态。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=toggle-button",
+        "group": "按钮"
+      },
+      {
+        "id": "toggle-button-group",
+        "title": "ToggleButtonGroup",
+        "component": "ToggleButtonGroup",
+        "summary": "在一组开关按钮中切换选中项。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=toggle-button-group",
+        "group": "按钮"
+      },
+      {
+        "id": "toolbar",
+        "title": "Toolbar",
+        "component": "Toolbar",
+        "summary": "操作同一工具栏中的按钮。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=toolbar",
+        "group": "布局"
+      },
+      {
+        "id": "tooltip",
+        "title": "Tooltip",
+        "component": "Tooltip",
+        "summary": "悬停或聚焦触发元素查看提示。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=tooltip",
+        "group": "浮层"
+      },
+      {
+        "id": "typography",
+        "title": "Typography",
+        "component": "Typography",
+        "summary": "查看标题、段落与其他正文样式。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=typography",
+        "group": "排版"
+      }
+    ],
+    "sourceFiles": [
+      "demos/materials/heroui/source/main.tsx",
+      "demos/materials/heroui/source/samples.ts",
+      "demos/materials/heroui/source/styles.css",
+      "demos/materials/heroui/source/vite.config.ts",
+      "demos/materials/heroui/source/package.json",
+      "demos/materials/heroui/source/package-lock.json",
+      "demos/materials/heroui/demo/theme.js"
+    ],
+    "prompt": "用 HeroUI v3 实现 React Web 界面。沿用官方样例的复合组件结构，把标签、描述和校验错误与字段关联，保留对话框和选择器的焦点管理。",
+    "$": {
+      "preview": "previews/materials/heroui.jpg",
+      "research": "docs/materials/heroui.md",
+      "licenses": "demos/materials/heroui/LICENSES.md",
+      "prompt": "prompts/materials/heroui.md",
+      "agent": "agent/materials/heroui.json"
+    }
   }
 ]

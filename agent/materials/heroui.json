@@ -1,0 +1,1963 @@
+{
+  "schemaVersion": 1,
+  "id": "heroui",
+  "material": {
+    "id": "heroui",
+    "order": 18,
+    "title": "HeroUI",
+    "type": "component-library",
+    "category": "组件与效果",
+    "summary": "收录 HeroUI 3.2.7 的 73 个 React Web 官方样例，覆盖表单、日期、颜色、导航、数据和浮层。",
+    "tags": [
+      "React",
+      "React Aria",
+      "Tailwind CSS",
+      "表单",
+      "浮层"
+    ],
+    "demo": "demos/materials/heroui/index.html",
+    "preview": "previews/materials/heroui.jpg",
+    "research": "docs/materials/heroui.md",
+    "demoNote": "按名称或分组切换样例，预览跟随 Web Atlas 的主题。弹窗、选择器和日期控件可直接操作。",
+    "install": "npm install @heroui/react@3.2.7 @heroui/styles@3.2.7",
+    "upstream": {
+      "url": "https://heroui.com/",
+      "repository": "heroui-inc/heroui",
+      "version": "3.2.7",
+      "commit": "7cb1642606c6f96f424dad78a961ccf45436be72",
+      "verifiedAt": "2026-11-09"
+    },
+    "license": {
+      "name": "Apache-2.0",
+      "url": "https://github.com/heroui-inc/heroui/blob/7cb1642606c6f96f424dad78a961ccf45436be72/LICENSE",
+      "scope": "HeroUI React Web 发行库、样式与所选官方样例。",
+      "notes": "捆绑依赖的版本与许可见本体许可索引。"
+    },
+    "useCases": [
+      "参考 React Web 的表单、日期范围和颜色选择器",
+      "用复合组件组织浮层、数据表和输入控件"
+    ],
+    "avoid": [
+      "在 HeroUI v2 或 React Native 项目里直接套用 v3 Web 样例"
+    ],
+    "constraints": [
+      "样例使用 React 19 与 Tailwind CSS 4。",
+      "先引入 Tailwind CSS，再引入 @heroui/styles。"
+    ],
+    "workflow": [
+      "按表单、日期、浮层等分组选择样例，切换深浅色观察组件及其浮层。",
+      "在 React 19 与 Tailwind CSS 4 项目安装同版本的组件和样式包。",
+      "按顺序引入 Tailwind CSS 和 @heroui/styles，从样例源码取用复合组件。",
+      "用实际标签、选项和数据替换样例内容，保留输入校验和键盘焦点行为。"
+    ],
+    "sources": [
+      {
+        "title": "v3.2.7 固定源码与许可",
+        "url": "https://github.com/heroui-inc/heroui/tree/7cb1642606c6f96f424dad78a961ccf45436be72",
+        "note": "React Web 组件、样式包、文档样例和 Apache-2.0 许可。",
+        "evidence": "source"
+      },
+      {
+        "title": "React Web 组件目录",
+        "url": "https://heroui.com/en/docs/react/components",
+        "note": "按用途分组的组件及使用说明。",
+        "evidence": "source"
+      },
+      {
+        "title": "Modal 官网样例",
+        "url": "https://heroui.com/en/docs/react/components/modal",
+        "note": "桌面和手机视口打开弹窗并按 Escape 关闭。",
+        "evidence": "observed"
+      },
+      {
+        "title": "官网分享图",
+        "url": "https://raw.githubusercontent.com/heroui-inc/heroui/7cb1642606c6f96f424dad78a961ccf45436be72/apps/docs/public/images/twitter-card.jpg",
+        "note": "封面使用 HeroUI 官方 React Web 分享原图。",
+        "evidence": "source"
+      }
+    ],
+    "demos": [
+      {
+        "id": "card",
+        "title": "Card",
+        "component": "Card",
+        "summary": "查看标题、内容和操作区的组织方式。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=card",
+        "group": "布局"
+      },
+      {
+        "id": "accordion",
+        "title": "Accordion",
+        "component": "Accordion",
+        "summary": "展开内容分组，观察标题与展开状态。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=accordion",
+        "group": "导航"
+      },
+      {
+        "id": "alert",
+        "title": "Alert",
+        "component": "Alert",
+        "summary": "查看提示图标、标题和正文的排布。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=alert",
+        "group": "反馈"
+      },
+      {
+        "id": "alert-dialog",
+        "title": "AlertDialog",
+        "component": "AlertDialog",
+        "summary": "打开确认窗口并尝试取消。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=alert-dialog",
+        "group": "浮层"
+      },
+      {
+        "id": "autocomplete",
+        "title": "Autocomplete",
+        "component": "Autocomplete",
+        "summary": "输入内容，筛选列表中的选项。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=autocomplete",
+        "group": "选择器"
+      },
+      {
+        "id": "avatar",
+        "title": "Avatar",
+        "component": "Avatar",
+        "summary": "查看头像及缺省显示。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=avatar",
+        "group": "媒体"
+      },
+      {
+        "id": "avatar-group",
+        "title": "AvatarGroup",
+        "component": "AvatarGroup",
+        "summary": "查看多个头像的叠放和超额数量。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=avatar-group",
+        "group": "媒体"
+      },
+      {
+        "id": "badge",
+        "title": "Badge",
+        "component": "Badge",
+        "summary": "查看短标签与相邻内容的排布。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=badge",
+        "group": "数据展示"
+      },
+      {
+        "id": "breadcrumbs",
+        "title": "Breadcrumbs",
+        "component": "Breadcrumbs",
+        "summary": "查看分层导航和当前页标记。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=breadcrumbs",
+        "group": "导航"
+      },
+      {
+        "id": "button",
+        "title": "Button",
+        "component": "Button",
+        "summary": "操作基础按钮并观察焦点。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=button",
+        "group": "按钮"
+      },
+      {
+        "id": "button-group",
+        "title": "ButtonGroup",
+        "component": "ButtonGroup",
+        "summary": "查看相邻按钮的组合。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=button-group",
+        "group": "按钮"
+      },
+      {
+        "id": "calendar",
+        "title": "Calendar",
+        "component": "Calendar",
+        "summary": "切换月份并选择日期。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=calendar",
+        "group": "日期与时间"
+      },
+      {
+        "id": "checkbox",
+        "title": "Checkbox",
+        "component": "Checkbox",
+        "summary": "切换复选框的勾选状态。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=checkbox",
+        "group": "表单"
+      },
+      {
+        "id": "checkbox-group",
+        "title": "CheckboxGroup",
+        "component": "CheckboxGroup",
+        "summary": "在一组复选项中选择多个值。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=checkbox-group",
+        "group": "表单"
+      },
+      {
+        "id": "chip",
+        "title": "Chip",
+        "component": "Chip",
+        "summary": "查看简短标签与状态颜色。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=chip",
+        "group": "数据展示"
+      },
+      {
+        "id": "close-button",
+        "title": "CloseButton",
+        "component": "CloseButton",
+        "summary": "查看关闭按钮与焦点样式。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=close-button",
+        "group": "按钮"
+      },
+      {
+        "id": "color-area",
+        "title": "ColorArea",
+        "component": "ColorArea",
+        "summary": "在取色面板中拖动指示点。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=color-area",
+        "group": "颜色"
+      },
+      {
+        "id": "color-field",
+        "title": "ColorField",
+        "component": "ColorField",
+        "summary": "编辑十六进制颜色值。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=color-field",
+        "group": "颜色"
+      },
+      {
+        "id": "color-picker",
+        "title": "ColorPicker",
+        "component": "ColorPicker",
+        "summary": "打开取色浮层并调整颜色。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=color-picker",
+        "group": "颜色"
+      },
+      {
+        "id": "color-slider",
+        "title": "ColorSlider",
+        "component": "ColorSlider",
+        "summary": "拖动滑块改变颜色通道。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=color-slider",
+        "group": "颜色"
+      },
+      {
+        "id": "color-swatch",
+        "title": "ColorSwatch",
+        "component": "ColorSwatch",
+        "summary": "查看颜色样本及其名称。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=color-swatch",
+        "group": "颜色"
+      },
+      {
+        "id": "color-swatch-picker",
+        "title": "ColorSwatchPicker",
+        "component": "ColorSwatchPicker",
+        "summary": "通过色块选择颜色。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=color-swatch-picker",
+        "group": "颜色"
+      },
+      {
+        "id": "combo-box",
+        "title": "ComboBox",
+        "component": "ComboBox",
+        "summary": "输入关键字筛选选项，再选中一项。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=combo-box",
+        "group": "选择器"
+      },
+      {
+        "id": "date-field",
+        "title": "DateField",
+        "component": "DateField",
+        "summary": "编辑分段的日期输入。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=date-field",
+        "group": "日期与时间"
+      },
+      {
+        "id": "date-picker",
+        "title": "DatePicker",
+        "component": "DatePicker",
+        "summary": "打开日历并选择日期。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=date-picker",
+        "group": "日期与时间"
+      },
+      {
+        "id": "date-range-picker",
+        "title": "DateRangePicker",
+        "component": "DateRangePicker",
+        "summary": "用弹出的日历选择起始和结束日期。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=date-range-picker",
+        "group": "日期与时间"
+      },
+      {
+        "id": "description",
+        "title": "Description",
+        "component": "Description",
+        "summary": "查看表单字段下方的说明。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=description",
+        "group": "表单"
+      },
+      {
+        "id": "disclosure",
+        "title": "Disclosure",
+        "component": "Disclosure",
+        "summary": "展开带自定义样式的详情。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=disclosure",
+        "group": "导航"
+      },
+      {
+        "id": "disclosure-group",
+        "title": "DisclosureGroup",
+        "component": "DisclosureGroup",
+        "summary": "在一组折叠内容中展开指定条目。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=disclosure-group",
+        "group": "导航"
+      },
+      {
+        "id": "drawer",
+        "title": "Drawer",
+        "component": "Drawer",
+        "summary": "打开抽屉并操作内部控件。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=drawer",
+        "group": "浮层"
+      },
+      {
+        "id": "dropdown",
+        "title": "Dropdown",
+        "component": "Dropdown",
+        "summary": "打开下拉菜单并选择一项操作。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=dropdown",
+        "group": "列表"
+      },
+      {
+        "id": "error-message",
+        "title": "ErrorMessage",
+        "component": "ErrorMessage",
+        "summary": "查看错误提示的文字和样式。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=error-message",
+        "group": "表单"
+      },
+      {
+        "id": "field-error",
+        "title": "FieldError",
+        "component": "FieldError",
+        "summary": "查看字段校验错误。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=field-error",
+        "group": "表单"
+      },
+      {
+        "id": "fieldset",
+        "title": "Fieldset",
+        "component": "Fieldset",
+        "summary": "查看具有公共标题的字段组。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=fieldset",
+        "group": "表单"
+      },
+      {
+        "id": "form",
+        "title": "Form",
+        "component": "Form",
+        "summary": "填写邮件和密码并观察校验反馈。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=form",
+        "group": "表单"
+      },
+      {
+        "id": "input",
+        "title": "Input",
+        "component": "Input",
+        "summary": "体验单行输入和焦点状态。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=input",
+        "group": "表单"
+      },
+      {
+        "id": "input-group",
+        "title": "InputGroup",
+        "component": "InputGroup",
+        "summary": "查看输入框与附加内容的组合。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=input-group",
+        "group": "表单"
+      },
+      {
+        "id": "input-otp",
+        "title": "InputOTP",
+        "component": "InputOTP",
+        "summary": "逐格输入验证码。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=input-otp",
+        "group": "表单"
+      },
+      {
+        "id": "kbd",
+        "title": "Kbd",
+        "component": "Kbd",
+        "summary": "查看键盘按键提示。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=kbd",
+        "group": "排版"
+      },
+      {
+        "id": "label",
+        "title": "Label",
+        "component": "Label",
+        "summary": "查看文字标签与关联控件。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=label",
+        "group": "表单"
+      },
+      {
+        "id": "link",
+        "title": "Link",
+        "component": "Link",
+        "summary": "查看链接与键盘焦点样式。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=link",
+        "group": "导航"
+      },
+      {
+        "id": "list-box",
+        "title": "ListBox",
+        "component": "ListBox",
+        "summary": "按分组浏览并选中列表项。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=list-box",
+        "group": "列表"
+      },
+      {
+        "id": "meter",
+        "title": "Meter",
+        "component": "Meter",
+        "summary": "查看数值在量程中的位置。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=meter",
+        "group": "反馈"
+      },
+      {
+        "id": "modal",
+        "title": "Modal",
+        "component": "Modal",
+        "summary": "打开模态窗口并查看内部操作。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=modal",
+        "group": "浮层"
+      },
+      {
+        "id": "number-field",
+        "title": "NumberField",
+        "component": "NumberField",
+        "summary": "输入数字或通过按钮改变数值。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=number-field",
+        "group": "表单"
+      },
+      {
+        "id": "pagination",
+        "title": "Pagination",
+        "component": "Pagination",
+        "summary": "查看上一页、下一页和页码的组合。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=pagination",
+        "group": "导航"
+      },
+      {
+        "id": "popover",
+        "title": "Popover",
+        "component": "Popover",
+        "summary": "打开锚定在触发按钮附近的浮层。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=popover",
+        "group": "浮层"
+      },
+      {
+        "id": "progress-bar",
+        "title": "ProgressBar",
+        "component": "ProgressBar",
+        "summary": "查看条形进度和标签。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=progress-bar",
+        "group": "反馈"
+      },
+      {
+        "id": "progress-circle",
+        "title": "ProgressCircle",
+        "component": "ProgressCircle",
+        "summary": "查看环形进度和数值。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=progress-circle",
+        "group": "反馈"
+      },
+      {
+        "id": "radio-group",
+        "title": "RadioGroup",
+        "component": "RadioGroup",
+        "summary": "在一组单选项之间切换。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=radio-group",
+        "group": "表单"
+      },
+      {
+        "id": "range-calendar",
+        "title": "RangeCalendar",
+        "component": "RangeCalendar",
+        "summary": "在日历中选择起始和结束日期。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=range-calendar",
+        "group": "日期与时间"
+      },
+      {
+        "id": "scroll-shadow",
+        "title": "ScrollShadow",
+        "component": "ScrollShadow",
+        "summary": "滚动区域并观察边缘阴影。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=scroll-shadow",
+        "group": "工具"
+      },
+      {
+        "id": "search-field",
+        "title": "SearchField",
+        "component": "SearchField",
+        "summary": "编辑搜索词并尝试清空。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=search-field",
+        "group": "表单"
+      },
+      {
+        "id": "select",
+        "title": "Select",
+        "component": "Select",
+        "summary": "打开列表并选中一个选项。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=select",
+        "group": "选择器"
+      },
+      {
+        "id": "separator",
+        "title": "Separator",
+        "component": "Separator",
+        "summary": "查看分隔线如何组织相邻信息。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=separator",
+        "group": "布局"
+      },
+      {
+        "id": "sheet",
+        "title": "Sheet",
+        "component": "Sheet",
+        "summary": "打开贴边浮层并查看内部布局。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=sheet",
+        "group": "浮层"
+      },
+      {
+        "id": "skeleton",
+        "title": "Skeleton",
+        "component": "Skeleton",
+        "summary": "查看内容加载时的占位。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=skeleton",
+        "group": "反馈"
+      },
+      {
+        "id": "slider",
+        "title": "Slider",
+        "component": "Slider",
+        "summary": "拖动或用方向键调整数值。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=slider",
+        "group": "控件"
+      },
+      {
+        "id": "spinner",
+        "title": "Spinner",
+        "component": "Spinner",
+        "summary": "查看旋转等待指示。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=spinner",
+        "group": "反馈"
+      },
+      {
+        "id": "surface",
+        "title": "Surface",
+        "component": "Surface",
+        "summary": "查看表面的背景和层次。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=surface",
+        "group": "布局"
+      },
+      {
+        "id": "switch",
+        "title": "Switch",
+        "component": "Switch",
+        "summary": "切换开关并观察状态。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=switch",
+        "group": "控件"
+      },
+      {
+        "id": "table",
+        "title": "Table",
+        "component": "Table",
+        "summary": "查看表头与数据行的组织方式。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=table",
+        "group": "数据展示"
+      },
+      {
+        "id": "tabs",
+        "title": "Tabs",
+        "component": "Tabs",
+        "summary": "切换标签页并查看对应内容。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=tabs",
+        "group": "导航"
+      },
+      {
+        "id": "tag-group",
+        "title": "TagGroup",
+        "component": "TagGroup",
+        "summary": "查看成组标签的排布。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=tag-group",
+        "group": "列表"
+      },
+      {
+        "id": "text-area",
+        "title": "TextArea",
+        "component": "TextArea",
+        "summary": "在多行输入区编辑文字。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=text-area",
+        "group": "表单"
+      },
+      {
+        "id": "text-field",
+        "title": "TextField",
+        "component": "TextField",
+        "summary": "查看带标签的单行文字字段。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=text-field",
+        "group": "表单"
+      },
+      {
+        "id": "time-field",
+        "title": "TimeField",
+        "component": "TimeField",
+        "summary": "编辑分段的时间输入。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=time-field",
+        "group": "日期与时间"
+      },
+      {
+        "id": "toast",
+        "title": "Toast",
+        "component": "Toast",
+        "summary": "触发短时通知并查看提示内容。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=toast",
+        "group": "浮层"
+      },
+      {
+        "id": "toggle-button",
+        "title": "ToggleButton",
+        "component": "ToggleButton",
+        "summary": "切换按钮的按下状态。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=toggle-button",
+        "group": "按钮"
+      },
+      {
+        "id": "toggle-button-group",
+        "title": "ToggleButtonGroup",
+        "component": "ToggleButtonGroup",
+        "summary": "在一组开关按钮中切换选中项。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=toggle-button-group",
+        "group": "按钮"
+      },
+      {
+        "id": "toolbar",
+        "title": "Toolbar",
+        "component": "Toolbar",
+        "summary": "操作同一工具栏中的按钮。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=toolbar",
+        "group": "布局"
+      },
+      {
+        "id": "tooltip",
+        "title": "Tooltip",
+        "component": "Tooltip",
+        "summary": "悬停或聚焦触发元素查看提示。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=tooltip",
+        "group": "浮层"
+      },
+      {
+        "id": "typography",
+        "title": "Typography",
+        "component": "Typography",
+        "summary": "查看标题、段落与其他正文样式。",
+        "entrypoint": "demos/materials/heroui/index.html?demo=typography",
+        "group": "排版"
+      }
+    ],
+    "sourceFiles": [
+      "demos/materials/heroui/source/main.tsx",
+      "demos/materials/heroui/source/samples.ts",
+      "demos/materials/heroui/source/styles.css",
+      "demos/materials/heroui/source/vite.config.ts",
+      "demos/materials/heroui/source/package.json",
+      "demos/materials/heroui/source/package-lock.json",
+      "demos/materials/heroui/demo/theme.js"
+    ],
+    "prompt": "用 HeroUI v3 实现 React Web 界面。沿用官方样例的复合组件结构，把标签、描述和校验错误与字段关联，保留对话框和选择器的焦点管理。"
+  },
+  "documents": [
+    {
+      "path": "docs/materials/heroui.md",
+      "role": "research",
+      "content": "# HeroUI · React 组件库\n\n[运行样例](../../demos/materials/heroui/index.html) · [素材条目](../../entries/materials/heroui.json) · [对照结果](../../demos/materials/heroui/fidelity.md)\n\n## 预览与操作\n\n在素材详情切换 73 个 React Web 样例。可以筛选组合框选项、打开对话框或在日期范围选择器内选日期。 预览跟随 Web Atlas 的深浅色设置。\n\n## 源码与重建\n\n在 React 19 和 Tailwind CSS 4 项目中安装与样例一致的版本。\n\n```sh\nnpm install @heroui/react@3.2.7 @heroui/styles@3.2.7\n```\n\n在项目样式中依次引入 `tailwindcss` 和 `@heroui/styles`。复合组件的子组件和状态可参考下表中的上游示例。头像预览使用本地占位图。\n\n在本体的 `source/` 中执行 `npm ci` 和 `npm run build`。运行文件写入本体的 `vendor/`，用 HTTP 打开样例入口。\n\n## 样例与源码\n\n| 样例 | 上游样例源码 |\n| --- | --- |\n| [Card](../../demos/materials/heroui/index.html?demo=card) | [源码](../../demos/materials/heroui/source/upstream/demos/en/card/default.tsx) |\n| [Accordion](../../demos/materials/heroui/index.html?demo=accordion) | [源码](../../demos/materials/heroui/source/upstream/demos/en/accordion/basic.tsx) |\n| [Alert](../../demos/materials/heroui/index.html?demo=alert) | [源码](../../demos/materials/heroui/source/upstream/demos/en/alert/basic.tsx) |\n| [AlertDialog](../../demos/materials/heroui/index.html?demo=alert-dialog) | [源码](../../demos/materials/heroui/source/upstream/demos/en/alert-dialog/default.tsx) |\n| [Autocomplete](../../demos/materials/heroui/index.html?demo=autocomplete) | [源码](../../demos/materials/heroui/source/upstream/demos/en/autocomplete/default.tsx) |\n| [Avatar](../../demos/materials/heroui/index.html?demo=avatar) | [源码](../../demos/materials/heroui/source/upstream/demos/en/avatar/basic.tsx) |\n| [AvatarGroup](../../demos/materials/heroui/index.html?demo=avatar-group) | [源码](../../demos/materials/heroui/source/upstream/demos/en/avatar-group/basic.tsx) |\n| [Badge](../../demos/materials/heroui/index.html?demo=badge) | [源码](../../demos/materials/heroui/source/upstream/demos/en/badge/basic.tsx) |\n| [Breadcrumbs](../../demos/materials/heroui/index.html?demo=breadcrumbs) | [源码](../../demos/materials/heroui/source/upstream/demos/en/breadcrumbs/basic.tsx) |\n| [Button](../../demos/materials/heroui/index.html?demo=button) | [源码](../../demos/materials/heroui/source/upstream/demos/en/button/basic.tsx) |\n| [ButtonGroup](../../demos/materials/heroui/index.html?demo=button-group) | [源码](../../demos/materials/heroui/source/upstream/demos/en/button-group/basic.tsx) |\n| [Calendar](../../demos/materials/heroui/index.html?demo=calendar) | [源码](../../demos/materials/heroui/source/upstream/demos/en/calendar/basic.tsx) |\n| [Checkbox](../../demos/materials/heroui/index.html?demo=checkbox) | [源码](../../demos/materials/heroui/source/upstream/demos/en/checkbox/basic.tsx) |\n| [CheckboxGroup](../../demos/materials/heroui/index.html?demo=checkbox-group) | [源码](../../demos/materials/heroui/source/upstream/demos/en/checkbox-group/basic.tsx) |\n| [Chip](../../demos/materials/heroui/index.html?demo=chip) | [源码](../../demos/materials/heroui/source/upstream/demos/en/chip/basic.tsx) |\n| [CloseButton](../../demos/materials/heroui/index.html?demo=close-button) | [源码](../../demos/materials/heroui/source/upstream/demos/en/close-button/default.tsx) |\n| [ColorArea](../../demos/materials/heroui/index.html?demo=color-area) | [源码](../../demos/materials/heroui/source/upstream/demos/en/color-area/basic.tsx) |\n| [ColorField](../../demos/materials/heroui/index.html?demo=color-field) | [源码](../../demos/materials/heroui/source/upstream/demos/en/color-field/basic.tsx) |\n| [ColorPicker](../../demos/materials/heroui/index.html?demo=color-picker) | [源码](../../demos/materials/heroui/source/upstream/demos/en/color-picker/basic.tsx) |\n| [ColorSlider](../../demos/materials/heroui/index.html?demo=color-slider) | [源码](../../demos/materials/heroui/source/upstream/demos/en/color-slider/basic.tsx) |\n| [ColorSwatch](../../demos/materials/heroui/index.html?demo=color-swatch) | [源码](../../demos/materials/heroui/source/upstream/demos/en/color-swatch/basic.tsx) |\n| [ColorSwatchPicker](../../demos/materials/heroui/index.html?demo=color-swatch-picker) | [源码](../../demos/materials/heroui/source/upstream/demos/en/color-swatch-picker/basic.tsx) |\n| [ComboBox](../../demos/materials/heroui/index.html?demo=combo-box) | [源码](../../demos/materials/heroui/source/upstream/demos/en/combo-box/default.tsx) |\n| [DateField](../../demos/materials/heroui/index.html?demo=date-field) | [源码](../../demos/materials/heroui/source/upstream/demos/en/date-field/basic.tsx) |\n| [DatePicker](../../demos/materials/heroui/index.html?demo=date-picker) | [源码](../../demos/materials/heroui/source/upstream/demos/en/date-picker/basic.tsx) |\n| [DateRangePicker](../../demos/materials/heroui/index.html?demo=date-range-picker) | [源码](../../demos/materials/heroui/source/upstream/demos/en/date-range-picker/basic.tsx) |\n| [Description](../../demos/materials/heroui/index.html?demo=description) | [源码](../../demos/materials/heroui/source/upstream/demos/en/description/basic.tsx) |\n| [Disclosure](../../demos/materials/heroui/index.html?demo=disclosure) | [源码](../../demos/materials/heroui/source/upstream/demos/en/disclosure/custom-styles.tsx) |\n| [DisclosureGroup](../../demos/materials/heroui/index.html?demo=disclosure-group) | [源码](../../demos/materials/heroui/source/upstream/demos/en/disclosure-group/custom-styles.tsx) |\n| [Drawer](../../demos/materials/heroui/index.html?demo=drawer) | [源码](../../demos/materials/heroui/source/upstream/demos/en/drawer/basic.tsx) |\n| [Dropdown](../../demos/materials/heroui/index.html?demo=dropdown) | [源码](../../demos/materials/heroui/source/upstream/demos/en/dropdown/default.tsx) |\n| [ErrorMessage](../../demos/materials/heroui/index.html?demo=error-message) | [源码](../../demos/materials/heroui/source/upstream/demos/en/error-message/basic.tsx) |\n| [FieldError](../../demos/materials/heroui/index.html?demo=field-error) | [源码](../../demos/materials/heroui/source/upstream/demos/en/field-error/basic.tsx) |\n| [Fieldset](../../demos/materials/heroui/index.html?demo=fieldset) | [源码](../../demos/materials/heroui/source/upstream/demos/en/fieldset/basic.tsx) |\n| [Form](../../demos/materials/heroui/index.html?demo=form) | [源码](../../demos/materials/heroui/source/upstream/demos/en/form/basic.tsx) |\n| [Input](../../demos/materials/heroui/index.html?demo=input) | [源码](../../demos/materials/heroui/source/upstream/demos/en/input/basic.tsx) |\n| [InputGroup](../../demos/materials/heroui/index.html?demo=input-group) | [源码](../../demos/materials/heroui/source/upstream/demos/en/input-group/default.tsx) |\n| [InputOTP](../../demos/materials/heroui/index.html?demo=input-otp) | [源码](../../demos/materials/heroui/source/upstream/demos/en/input-otp/basic.tsx) |\n| [Kbd](../../demos/materials/heroui/index.html?demo=kbd) | [源码](../../demos/materials/heroui/source/upstream/demos/en/kbd/basic.tsx) |\n| [Label](../../demos/materials/heroui/index.html?demo=label) | [源码](../../demos/materials/heroui/source/upstream/demos/en/label/basic.tsx) |\n| [Link](../../demos/materials/heroui/index.html?demo=link) | [源码](../../demos/materials/heroui/source/upstream/demos/en/link/basic.tsx) |\n| [ListBox](../../demos/materials/heroui/index.html?demo=list-box) | [源码](../../demos/materials/heroui/source/upstream/demos/en/list-box/with-sections.tsx) |\n| [Meter](../../demos/materials/heroui/index.html?demo=meter) | [源码](../../demos/materials/heroui/source/upstream/demos/en/meter/basic.tsx) |\n| [Modal](../../demos/materials/heroui/index.html?demo=modal) | [源码](../../demos/materials/heroui/source/upstream/demos/en/modal/default.tsx) |\n| [NumberField](../../demos/materials/heroui/index.html?demo=number-field) | [源码](../../demos/materials/heroui/source/upstream/demos/en/number-field/basic.tsx) |\n| [Pagination](../../demos/materials/heroui/index.html?demo=pagination) | [源码](../../demos/materials/heroui/source/upstream/demos/en/pagination/basic.tsx) |\n| [Popover](../../demos/materials/heroui/index.html?demo=popover) | [源码](../../demos/materials/heroui/source/upstream/demos/en/popover/basic.tsx) |\n| [ProgressBar](../../demos/materials/heroui/index.html?demo=progress-bar) | [源码](../../demos/materials/heroui/source/upstream/demos/en/progress-bar/basic.tsx) |\n| [ProgressCircle](../../demos/materials/heroui/index.html?demo=progress-circle) | [源码](../../demos/materials/heroui/source/upstream/demos/en/progress-circle/basic.tsx) |\n| [RadioGroup](../../demos/materials/heroui/index.html?demo=radio-group) | [源码](../../demos/materials/heroui/source/upstream/demos/en/radio-group/basic.tsx) |\n| [RangeCalendar](../../demos/materials/heroui/index.html?demo=range-calendar) | [源码](../../demos/materials/heroui/source/upstream/demos/en/range-calendar/basic.tsx) |\n| [ScrollShadow](../../demos/materials/heroui/index.html?demo=scroll-shadow) | [源码](../../demos/materials/heroui/source/upstream/demos/en/scroll-shadow/default.tsx) |\n| [SearchField](../../demos/materials/heroui/index.html?demo=search-field) | [源码](../../demos/materials/heroui/source/upstream/demos/en/search-field/basic.tsx) |\n| [Select](../../demos/materials/heroui/index.html?demo=select) | [源码](../../demos/materials/heroui/source/upstream/demos/en/select/default.tsx) |\n| [Separator](../../demos/materials/heroui/index.html?demo=separator) | [源码](../../demos/materials/heroui/source/upstream/demos/en/separator/basic.tsx) |\n| [Sheet](../../demos/materials/heroui/index.html?demo=sheet) | [源码](../../demos/materials/heroui/source/upstream/demos/en/sheet/basic.tsx) |\n| [Skeleton](../../demos/materials/heroui/index.html?demo=skeleton) | [源码](../../demos/materials/heroui/source/upstream/demos/en/skeleton/basic.tsx) |\n| [Slider](../../demos/materials/heroui/index.html?demo=slider) | [源码](../../demos/materials/heroui/source/upstream/demos/en/slider/default.tsx) |\n| [Spinner](../../demos/materials/heroui/index.html?demo=spinner) | [源码](../../demos/materials/heroui/source/upstream/demos/en/spinner/basic.tsx) |\n| [Surface](../../demos/materials/heroui/index.html?demo=surface) | [源码](../../demos/materials/heroui/source/upstream/demos/en/surface/basic.tsx) |\n| [Switch](../../demos/materials/heroui/index.html?demo=switch) | [源码](../../demos/materials/heroui/source/upstream/demos/en/switch/basic.tsx) |\n| [Table](../../demos/materials/heroui/index.html?demo=table) | [源码](../../demos/materials/heroui/source/upstream/demos/en/table/basic.tsx) |\n| [Tabs](../../demos/materials/heroui/index.html?demo=tabs) | [源码](../../demos/materials/heroui/source/upstream/demos/en/tabs/basic.tsx) |\n| [TagGroup](../../demos/materials/heroui/index.html?demo=tag-group) | [源码](../../demos/materials/heroui/source/upstream/demos/en/tag-group/basic.tsx) |\n| [TextArea](../../demos/materials/heroui/index.html?demo=text-area) | [源码](../../demos/materials/heroui/source/upstream/demos/en/textarea/basic.tsx) |\n| [TextField](../../demos/materials/heroui/index.html?demo=text-field) | [源码](../../demos/materials/heroui/source/upstream/demos/en/textfield/basic.tsx) |\n| [TimeField](../../demos/materials/heroui/index.html?demo=time-field) | [源码](../../demos/materials/heroui/source/upstream/demos/en/time-field/basic.tsx) |\n| [Toast](../../demos/materials/heroui/index.html?demo=toast) | [源码](../../demos/materials/heroui/source/upstream/demos/en/toast/default.tsx) |\n| [ToggleButton](../../demos/materials/heroui/index.html?demo=toggle-button) | [源码](../../demos/materials/heroui/source/upstream/demos/en/toggle-button/basic.tsx) |\n| [ToggleButtonGroup](../../demos/materials/heroui/index.html?demo=toggle-button-group) | [源码](../../demos/materials/heroui/source/upstream/demos/en/toggle-button-group/basic.tsx) |\n| [Toolbar](../../demos/materials/heroui/index.html?demo=toolbar) | [源码](../../demos/materials/heroui/source/upstream/demos/en/toolbar/basic.tsx) |\n| [Tooltip](../../demos/materials/heroui/index.html?demo=tooltip) | [源码](../../demos/materials/heroui/source/upstream/demos/en/tooltip/basic.tsx) |\n| [Typography](../../demos/materials/heroui/index.html?demo=typography) | [源码](../../demos/materials/heroui/source/upstream/demos/en/typography/default.tsx) |\n"
+    },
+    {
+      "path": "prompts/materials/heroui.md",
+      "role": "prompt",
+      "content": "# HeroUI · 复用 Prompt\n\n[结构化条目](../../entries/materials/heroui.json)\n\n用 HeroUI v3 实现 React Web 界面。沿用官方样例的复合组件结构，把标签、描述和校验错误与字段关联，保留对话框和选择器的焦点管理。\n\n## 制作约束\n\n- 样例使用 React 19 与 Tailwind CSS 4。\n- 先引入 Tailwind CSS，再引入 @heroui/styles。\n"
+    },
+    {
+      "path": "demos/materials/heroui/LICENSES.md",
+      "role": "license",
+      "content": "# 许可索引\n\n- [HeroUI 上游许可](source/upstream/LICENSE)保留 Apache-2.0 原文。\n- [运行依赖许可](vendor/heroui@3.2.7/dependencies.md)列出捆绑依赖和许可。\n"
+    },
+    {
+      "path": "demos/materials/heroui/fidelity.md",
+      "role": "fidelity",
+      "content": "# 样例对照\n\n样例来自 HeroUI 3.2.7 的 React Web 文档，以同版本组件和样式运行。样例容器限制在视口内，头像使用本地占位图。\n\n| 样例 | 观察与本地结果 |\n| --- | --- |\n| [Modal](https://heroui.com/en/docs/react/components/modal) | 打开后显示对话框。按 Escape 关闭，焦点回到触发按钮。 |\n| [ComboBox](https://heroui.com/en/docs/react/components/combo-box) | 输入 cat 后选择 Cat，输入框显示当前选中项。 |\n\n73 个样例在 Edge 的 1440 px 和 390 px 视口加载。\n\n深浅色切换沿用 Web Atlas 的主题入口，样例使用组件库自身的主题色值。\n"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/LICENSE",
+      "role": "license",
+      "content": "                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to the Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by the Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding any notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. Please also get an approval\n      from the project maintainers before using the Apache License.\n\n   Copyright 2025 NextUI Inc.\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/dependencies.md",
+      "role": "context",
+      "content": "# Licenses\n\nThe app bundles dependencies which contain the following licenses:\n\n## @gravity-ui/icons - 2.23.0 (MIT)\n\nThe MIT License (MIT)\n\nCopyright (c) 2022 YANDEX LLC\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n\n## @heroui/react - 3.2.7 (Apache-2.0)\n\nApache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to the Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by the Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding any notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. Please also get an approval\n      from the project maintainers before using the Apache License.\n\n   Copyright 2025 NextUI Inc.\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n\n## @heroui/styles - 3.2.7 (Apache-2.0)\n\nApache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to the Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by the Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding any notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. Please also get an approval\n      from the project maintainers before using the Apache License.\n\n   Copyright 2025 NextUI Inc.\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n\n## @internationalized/date - 3.12.4 (Apache-2.0)\n\nApache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright 2019 Adobe\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n\n## @internationalized/number - 3.6.9 (Apache-2.0)\n\nApache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright 2019 Adobe\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n\n## @internationalized/string - 3.2.10 (Apache-2.0)\n\nApache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright 2019 Adobe\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n\n## @radix-ui/react-avatar - 1.3.1 (MIT)\n\nMIT License\n\nCopyright (c) 2022 WorkOS\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## @radix-ui/react-compose-refs - 1.1.5 (MIT)\n\nMIT License\n\nCopyright (c) 2022 WorkOS\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## @radix-ui/react-context - 1.3.0 (MIT)\n\nMIT License\n\nCopyright (c) 2022 WorkOS\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## @radix-ui/react-primitive - 2.2.0 (MIT)\n\nMIT License\n\nCopyright (c) 2022 WorkOS\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## @radix-ui/react-slot - 1.5.0 (MIT)\n\nMIT License\n\nCopyright (c) 2022 WorkOS\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## @radix-ui/react-use-callback-ref - 1.1.5 (MIT)\n\nMIT License\n\nCopyright (c) 2022 WorkOS\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## @radix-ui/react-use-layout-effect - 1.1.4 (MIT)\n\nMIT License\n\nCopyright (c) 2022 WorkOS\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## clsx - 2.1.1 (MIT)\n\nMIT License\n\nCopyright (c) Luke Edwards <luke.edwards05@gmail.com> (lukeed.com)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n## input-otp - 1.5.0 (MIT)\n\nMIT License\n\nCopyright (c) 2024 Guilherme Rodz\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## react-aria-components - 1.22.1 (Apache-2.0)\n\nApache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright 2019 Adobe\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n\n## react-aria - 3.53.1 (Apache-2.0)\n\nApache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright 2019 Adobe\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n\n## react-dom - 19.3.1 (MIT)\n\nMIT License\n\nCopyright (c) Meta Platforms, Inc. and affiliates.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## react-stately - 3.51.0 (Apache-2.0)\n\nApache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright 2019 Adobe\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n\n## react - 19.3.1 (MIT)\n\nMIT License\n\nCopyright (c) Meta Platforms, Inc. and affiliates.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## scheduler - 0.28.0 (MIT)\n\nMIT License\n\nCopyright (c) Meta Platforms, Inc. and affiliates.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## tailwind-variants - 3.3.1 (MIT)\n\nMIT License\n\nCopyright (c) 2020 Tailwid Variants\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n## use-sync-external-store - 1.7.0 (MIT)\n\nMIT License\n\nCopyright (c) Meta Platforms, Inc. and affiliates.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "demos/materials/heroui/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/materials/heroui/demo/theme.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/materials/heroui/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/materials/heroui/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/materials/heroui/source/main.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/package-lock.json",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/package.json",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/preview-images.json",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/samples.ts",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/styles.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/LICENSE",
+      "role": "license"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/accordion/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/alert-dialog/default.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/alert/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/autocomplete/default.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/avatar-group/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/avatar/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/badge/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/breadcrumbs/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/button-group/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/button/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/calendar/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/card/default.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/checkbox-group/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/checkbox/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/chip/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/close-button/default.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/color-area/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/color-field/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/color-picker/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/color-slider/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/color-swatch-picker/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/color-swatch/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/combo-box/default.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/date-field/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/date-picker/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/date-range-picker/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/description/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/disclosure-group/custom-styles.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/disclosure/custom-styles.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/drawer/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/dropdown/default.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/error-message/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/field-error/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/fieldset/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/form/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/input-group/default.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/input-otp/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/input/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/kbd/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/label/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/link/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/list-box/with-sections.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/meter/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/modal/default.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/number-field/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/pagination/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/popover/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/progress-bar/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/progress-circle/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/radio-group/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/range-calendar/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/scroll-shadow/default.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/search-field/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/select/default.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/separator/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/sheet/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/skeleton/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/slider/default.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/spinner/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/surface/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/switch/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/table/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/tabs/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/tag-group/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/textarea/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/textfield/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/time-field/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/toast/default.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/toggle-button-group/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/toggle-button/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/toolbar/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/tooltip/basic.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/upstream/demos/en/typography/default.tsx",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/source/vite.config.ts",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Autocomplete-By5miKJr.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Button-Cnex0dS4.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Checkbox-DJXTS0dp.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/ChevronDown-CUmGfDvP.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Collection-DMw2vuUT.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/CollectionBuilder-DSfSS-yC.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Color-DBUN1_WA.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/ColorField-CTkIwERt.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/ColorSwatch-D-eXJKEM.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/ColorSwatchPicker-BdD0Ukyj.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/ColorThumb-CVKu4qxQ.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/DatePicker-scBQbMSw.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Dialog-C0V2m_6r.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Disclosure-C7qrn_Ga.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/DragAndDrop-C3nrgJup.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/FieldError-BDRHklqb.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/FocusScope-C6wAY3W6.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Form-BfBA0JpQ.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Group-VeeQ5avm.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Heading-CdGE8g_3.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Hidden-B5FjVPor.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/I18nProvider-zGzu-4zN.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Input-DWAXtMrJ.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Label-CJNHsoCN.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Link-BxYXBw9T.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/ListBox-DCWNZidc.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/ListKeyboardDelegate-DtpiEoL1.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/LiveAnnouncer-7fiQ12ko.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/LocalizedStringFormatter-BlBKDE8E.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Modal-C2uH6B2w.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/NumberFormatter-C0OI5DOG.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/PlanetEarth-UQ7Miunc.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Pressable-9oq7KJrE.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/ProgressBar-rUJ7j1jx.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/RadioGroup-CswDq2f0.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Rocket-DBtnpdFw.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/SSRProvider-DmcnjAEC.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Select-BNokEr6y.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/SelectionIndicator-C43cTdGN.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Separator-CZCR6UjL.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/SharedElementTransition-C1TNSLy6.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/ShoppingBag-BEmeq7cy.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Slider-fuumTqJf.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/Text-CEDDBTEL.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/ToggleButton-DTyULKri.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/ToggleButtonGroup-BtCWMJmh.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/VisuallyHidden-CRCgxFfe.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/animation-BSwTv2GN.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/assertion-CKDD-Pvc.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/avatar-fiWA5aWw.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic--Tcyv9YP.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-B0WMs81V.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-B5FE3l-f.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-BFUBS2mG.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-BGXm2KW7.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-BHGxYnX1.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-BI71xag-.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-BJ0RwH1N.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-BL_clyRC.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-BdgMl2MT.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-BeeeWJo-.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-BgkjABIg.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-Bj-FxUYi.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-BlN0X3SD.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-BpbYzpNk.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-BxeE7A8k.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-BxqJzmpF.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-ByReOgEz.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-C-lJGX4G.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-C6YQyd6M.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-C8XAfLiX.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-CJmt-4NJ.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-CTtMwcVZ.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-CYZAXG-r.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-CZ68qbjf.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-CetYy6Cr.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-ChHCiHbP.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-CqNo0o3T.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-CqXryDve.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-CugyYEIw.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-D2FQuwJG.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-D76JhTzx.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-D8xivjxE.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-DDHIl7sT.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-DDUTbGSE.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-DHTWYpfd.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-DYqEQNm9.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-DZUM2y80.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-DakGXMKN.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-DgpQDv5y.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-DhqSKt4Q.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-DoROZGh2.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-Dp2EkirS.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-Dppk-xnb.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-DqVFTWgc.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-DrfvySs1.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-Dw2fsTBL.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-ELoCcINu.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-GmnhCsOp.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-I1WARD83.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-MGgu1t3V.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-UUwnhb5s.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-XX-9mXwe.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-_9uyIW-8.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-dRi3q9AW.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-ntWcoD5a.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/basic-wOFVB1AD.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/button-Dd5iSf4T.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/button-group-5jfuJn2m.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/calendar-IssIZKiE.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/calendar-day-view-grid-header-B5WNMglO.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/checkbox-K2hnXm89.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/chip-DR-ODN6y.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/close-button-CHpFmCHB.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/collection-prop-injection-C79e1x52.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/color-area-38gRqLMJ.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/color-slider-BduBMaTY.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/color-swatch-BTtmjsuT.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/compose-ClIOcrt6.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/custom-styles-BKdvdkAL.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/custom-styles-w-w8WijD.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/date-field-Bs52h1yi.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/date-input-group-C8SQNwkE.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/default-BEOxqClX.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/default-BHBliqbN.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/default-C6fj8RKf.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/default-CtcXeMUh.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/default-D13kysWJ.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/default-D2DuLywE.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/default-D7ABJJiM.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/default-DGrhLAa7.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/default-DPoNpSA4.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/default-Dh_4FBpa.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/default-J2pF9b6q.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/default-Rq5TUJ_e.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/default-oaXWw-JL.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/dependencies.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/description-lMFGrfj6.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/disclosure-fV06k2fo.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/dist-qnEEIXtT.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/dom-CdwaDRL5.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/dropdown-K0llc_t4.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/field-error-CdzvyH0q.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/field-slots-gate-CeBWAnDc.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/filterDOMProps-CJYy6efO.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/focusSafely-BRvDv2aU.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/form-NXqmuFkk.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/getItemCount-DbQDCr5r.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/getMetaValue-BWDF30Qb.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/getScrollParent-Bt53c7cQ.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/icons-BUH88Ubz.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/input-zkcgZ6lD.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/intlStrings-B6Rkdzvl.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/intlStrings-CddZy4Ou.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/jsx-runtime-C1t0izHF.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/kbd-AFVhtisq.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/label-Wq1WAbJ3.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/link-vZNhpvw9.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/list-box-zqe1xyd4.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/number-DEd1Mp8h.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/range-calendar-7DfC1ljh.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/react-dom-Dipvgcxr.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/runtime.css",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/runtime.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/scroll-shadow-DcIXTxis.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/scrollIntoView-D_15IrGl.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/search-field-C6cAJbn-.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/separator-BSPhQk7w.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/shim-BmqQMxK7.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/spinner-DGyRN06f.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/surface-DpKJphE4.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/surface-YzNgM-6T.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/tag-K_5WiDt3.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/textSelection-FLhV5J9J.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/textarea-B_6YTdoL.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/textfield-DBeG7ze6.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/textfield-Drv1hMDu.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/toggle-button-Bw71pmx-.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/toggle-button-group-asUQ3QZ2.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/use-css-variable-BK30PNYv.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/use-has-text-slot-D2WxsmuX.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/use-overlay-exit-hold-DYlqAHKn.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/use-popover-exit-hold-Bs6k_a58.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useButton-DkELok1R.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useCollator-dflgnzgU.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useColor-C_cR5xYb.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useControlledState-BbVlCDcL.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useDateFormatter-l1bqfb5m.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useEvent-QtR06JAA.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useField-CfrwMMou.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useFilter-D87ICzES.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useFocusable-D0mnHSRC.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useFormReset-DizqO0T1.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useFormValidation-NZK9JasV.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useHasTabbableChild-D2m5bncm.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useHighlightSelectionDescription-DAhAUDHK.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useHover-DxA7bNQs.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useKeyboard-CqNSkGJ-.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useLabel-xEmSShhj.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useLabels-IW2w8qqV.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useLayoutEffect-Bx2X4QEP.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useListFormatter-B6H1MkdG.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useListState-DvZcaErY.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useLocalizedStringFormatter-tuzNT5MD.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useMove-C1jPw-e5.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useMultipleSelectionState-Bgjz_mf2.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useNumberFieldState-CItsPCOI.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useNumberFormatter-Bqt6BhxT.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useOverlayTriggerState-loftJLxJ.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/usePress-C9PowRxI.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useProgressBar-CRPxYGaB.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useResizeObserver-Sa6_Psnw.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useSlot-Bg_cubCK.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useSpinButton-DgIN7nKK.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useTextField-DliTkFQ-.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useToggle-LBfAX9Xd.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useToggleState-COCZgzVz.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/useUpdateEffect-BWSmjBdc.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/utils-UBVJ5JR_.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/virtualFocus-D_kYTh--.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/heroui/vendor/heroui@3.2.7/with-sections-SME_vHV5.js",
+      "role": "vendor"
+    },
+    {
+      "path": "docs/materials/heroui.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/materials/heroui.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/materials/heroui.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/materials/heroui.md",
+      "role": "context"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ],
+  "sourceFiles": [
+    "demos/materials/heroui/source/main.tsx",
+    "demos/materials/heroui/source/samples.ts",
+    "demos/materials/heroui/source/styles.css",
+    "demos/materials/heroui/source/vite.config.ts",
+    "demos/materials/heroui/source/package.json",
+    "demos/materials/heroui/source/package-lock.json",
+    "demos/materials/heroui/demo/theme.js"
+  ]
+}

@@ -1,0 +1,20 @@
+// node_modules/@base-ui/utils/visuallyHidden.mjs
+var e = {
+	clipPath: "inset(50%)",
+	overflow: "hidden",
+	whiteSpace: "nowrap",
+	border: 0,
+	padding: 0,
+	width: 1,
+	height: 1,
+	margin: -1
+}, t = {
+	...e,
+	position: "fixed",
+	top: 0,
+	left: 0
+}, n = {
+	...e,
+	position: "absolute"
+};
+export { n, t };
