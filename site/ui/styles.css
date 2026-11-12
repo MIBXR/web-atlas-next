@@ -274,7 +274,7 @@ a.source-title:hover { color: var(--accent-strong); text-decoration: underline; 
 .stage-split { grid-template-columns: 1fr 1fr; }
 .stage-demo { display: grid; gap: 4px; min-width: 0; }
 .stage-caption, .reference-shot figcaption { font-size: var(--ui-xs); color: var(--text-muted); }
-.demo-frame { position: relative; height: clamp(420px, calc(100dvh - 230px), 1100px); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--surface-muted); }
+.demo-frame { position: relative; height: clamp(420px, calc(100svh - 230px), 1100px); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--surface-muted); }
 .demo-frame iframe { position: absolute; top: 0; border: 0; transform-origin: 0 0; background: #fff; }
 .demo-frame iframe[data-loading] { background: var(--surface-muted); }
 .demo-frame[data-viewport="mobile"] iframe { box-shadow: 0 0 0 1px var(--border-strong); }
@@ -285,7 +285,7 @@ a.source-title:hover { color: var(--accent-strong); text-decoration: underline; 
 .locate-note > div { display: grid; gap: 2px; }
 .locate-note a { color: var(--accent-strong); font-size: var(--ui-xs); }
 .reference-shot { margin: 0; display: grid; gap: 4px; min-width: 0; grid-template-rows: auto 1fr auto; }
-.reference-scroll { height: clamp(420px, calc(100dvh - 230px), 1100px); overflow-y: auto; border: 1px solid var(--border); border-radius: 16px; background: var(--surface-muted); }
+.reference-scroll { height: clamp(420px, calc(100svh - 230px), 1100px); overflow-y: auto; border: 1px solid var(--border); border-radius: 16px; background: var(--surface-muted); }
 .reference-scroll img { display: block; width: 100%; }
 .demo-picker { display: flex; align-items: center; gap: 4px; min-width: 0; max-width: 100%; }
 .demo-picker { flex: 1 1 360px; }
