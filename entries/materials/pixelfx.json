@@ -1,0 +1,170 @@
+{
+  "id": "pixelfx",
+  "order": 19,
+  "title": "pixelfx · 纯代码像素特效库",
+  "type": "component-library",
+  "category": "组件与效果",
+  "summary": "244 个像素特效，每一个都是一份绘制代码：火焰、爆炸、冰霜、招式与界面反馈都没有图片素材，在画廊里挑一项实时播放、换配色、换种子，再导出带帧矩形与时长元数据的透明雪碧图。",
+  "install": "npm i github:patch-gg/pixelfx#5294518ce7c72e48b6100a744596e0acf57f2826",
+  "demoNote": "画廊加载固定版本的本地运行代码，瓦片进入视口即开始播放；点开一项可暂停、重播、调速度、换背景、换配色、换种子、镜像、开关角色并生成雪碧图。",
+  "tags": [
+    "像素艺术",
+    "Canvas",
+    "粒子",
+    "程序化生成",
+    "游戏特效",
+    "雪碧图",
+    "调色板",
+    "JavaScript"
+  ],
+  "upstream": {
+    "repository": "patch-gg/pixelfx",
+    "url": "https://github.com/patch-gg/pixelfx",
+    "version": "0.3.1",
+    "commit": "5294518ce7c72e48b6100a744596e0acf57f2826",
+    "verifiedAt": "2026-11-14"
+  },
+  "license": {
+    "name": "MIT（代码与效果）；Patch Pixel 字体单独授权",
+    "url": "https://github.com/patch-gg/pixelfx/blob/5294518ce7c72e48b6100a744596e0acf57f2826/LICENSE",
+    "scope": "244 个效果、core 运行时、画廊与 tools 制作工具；src/core/sim.js 与部分效果改编自 Hugo Duprez 的 Sprite Fusion 开源像素特效，src/core/act.js 改编自 Hollow Crown，均为 MIT。",
+    "notes": "画廊字标使用的 Patch Pixel 是 Patch 自有字体，不随 MIT 授权，随文件保留原声明。"
+  },
+  "useCases": [
+    "为网页游戏补上命中、爆炸、拾取与界面反馈",
+    "在原型里用代码生成特效，不必先准备图片素材",
+    "把同一套效果换成品牌配色，观察像素画的调色与打光",
+    "导出雪碧图交给 Phaser、Godot、Unity 等引擎",
+    "按 AUTHORING.md 的做法写自己的像素特效"
+  ],
+  "avoid": [
+    "需要照片质感或矢量精确边缘的主视觉",
+    "把同时播放的几十个特效画布放进一个页面"
+  ],
+  "constraints": [
+    "固定 pixelfx 0.3.1 与完整提交，运行代码原样保存在 vendor。",
+    "效果名、描述、标签与分类名沿用上游英文原文。",
+    "画廊为单主题深色页面，播放区固定黑底，不跟随站点浅深切换。",
+    "字体与远程地址的本地化改动见 fidelity.md。"
+  ],
+  "sources": [
+    {
+      "title": "pixelfx 固定提交",
+      "url": "https://github.com/patch-gg/pixelfx/tree/5294518ce7c72e48b6100a744596e0acf57f2826",
+      "note": "src/core、src/fx 的 244 个效果、gallery 画廊与 tools 制作工具。",
+      "evidence": "source"
+    },
+    {
+      "title": "pixelfx 官方画廊",
+      "url": "https://patch-gg.github.io/pixelfx/",
+      "note": "本地画廊的对照基准；瓦片尺寸、分类栏、详情面板与雪碧图导出均取自仓库内的 gallery。",
+      "evidence": "source"
+    },
+    {
+      "title": "CATALOG 与 AUTHORING",
+      "url": "https://github.com/patch-gg/pixelfx/tree/5294518ce7c72e48b6100a744596e0acf57f2826/docs",
+      "note": "21 个分类的效果清单，以及效果文件结构、种子与调色板约定。",
+      "evidence": "source"
+    }
+  ],
+  "demos": [
+    {
+      "id": "all",
+      "title": "全部特效",
+      "component": "画廊",
+      "summary": "244 个效果按 21 类排列，瓦片进入视口才启动；点任一瓦片打开详情。",
+      "entrypoint": "demos/materials/pixelfx/index.html",
+      "parameters": [
+        {
+          "name": "分类",
+          "value": "21 类",
+          "note": "moves、fire、explosions、water、ice、lightning、sci-fi、melee、impacts、projectiles、spawn、arcane、holy、shadow、status、nature、weather、ui、pickups、transitions、critters。"
+        },
+        {
+          "name": "搜索",
+          "value": "id／名称／描述／标签",
+          "note": "多个词需全部命中；与分类筛选叠加。"
+        }
+      ]
+    },
+    {
+      "id": "moves",
+      "title": "招式",
+      "component": "画廊 · moves",
+      "summary": "12 个完整攻击动作，把前摇、接触停顿与后摇串成一次出手。",
+      "entrypoint": "demos/materials/pixelfx/index.html#moves",
+      "parameters": [
+        {
+          "name": "fps",
+          "value": "30",
+          "note": "全部效果的帧率，时长与帧数见详情 facts。"
+        },
+        {
+          "name": "act",
+          "value": "poses、hits",
+          "note": "角色姿态关键帧与命中停顿数据，可读取后同步自己的角色。"
+        }
+      ]
+    },
+    {
+      "id": "fire",
+      "title": "火焰",
+      "component": "画廊 · fire",
+      "summary": "12 个火焰效果，从烛火、火把到火焰龙卷与火墙。",
+      "entrypoint": "demos/materials/pixelfx/index.html#fire",
+      "parameters": [
+        {
+          "name": "palette",
+          "value": "8 色渐变",
+          "note": "由暗到亮的色阶；详情面板可换成内置配色。"
+        },
+        {
+          "name": "seed",
+          "value": "整数",
+          "note": "同一 seed 逐帧可复现。"
+        }
+      ]
+    },
+    {
+      "id": "ui",
+      "title": "界面反馈",
+      "component": "画廊 · ui",
+      "summary": "12 个 HUD 效果：升级、连击、暴击数字、倒计时与提示条。",
+      "entrypoint": "demos/materials/pixelfx/index.html#ui",
+      "parameters": [
+        {
+          "name": "text",
+          "value": "文案",
+          "note": "带文字的 ui 效果可在 options 里改文案。"
+        }
+      ]
+    },
+    {
+      "id": "transitions",
+      "title": "转场",
+      "component": "画廊 · transitions",
+      "summary": "10 个 320×180 全屏转场，铺满舞台而不是浮在其中。",
+      "entrypoint": "demos/materials/pixelfx/index.html#transitions",
+      "parameters": [
+        {
+          "name": "size",
+          "value": "320 × 180 像素",
+          "note": "全屏类效果的画布尺寸，按 16:9 铺满。"
+        }
+      ]
+    }
+  ],
+  "prompt": "在网页游戏或交互页面里使用固定版本的 pixelfx：先 createFrame 建一块像素分辨率的画布，再用 createFx 载入某个效果并给出坐标、镜像、角度、seed 与 palette；每帧 update(dt)、clearFrame、draw 后 composite 到 ImageData，最后按整数倍放大并设 image-rendering: pixelated。带角色的效果换用 createAct，读取 act.poses 与 act.hits，按冻结时长暂停场景更新，shake 用于镜头抖动。挑效果先查 docs/CATALOG.md 与 tools/list.mjs，再渲染帧联系表看图；配色用由暗到亮的色阶，同一效果换色阶就能从火焰变成冰焰。需要交给其他引擎时用 tools/render.mjs --sheet 导出透明雪碧图与帧矩形、时长、fps、循环与轴心元数据。",
+  "demo": "demos/materials/pixelfx/index.html",
+  "preview": "previews/materials/pixelfx.png",
+  "research": "docs/materials/pixelfx.md",
+  "sourceFiles": [
+    "demos/materials/pixelfx/index.html",
+    "demos/materials/pixelfx/demo/app.js",
+    "demos/materials/pixelfx/demo/style.css",
+    "demos/materials/pixelfx/source/README.md",
+    "demos/materials/pixelfx/source/upstream/docs/CATALOG.md",
+    "demos/materials/pixelfx/source/upstream/docs/AUTHORING.md",
+    "demos/materials/pixelfx/source/upstream/skills/pixelfx/SKILL.md"
+  ]
+}

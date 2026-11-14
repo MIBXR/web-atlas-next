@@ -1,0 +1,1567 @@
+{
+  "schemaVersion": 1,
+  "id": "pixelfx",
+  "material": {
+    "id": "pixelfx",
+    "order": 19,
+    "title": "pixelfx · 纯代码像素特效库",
+    "type": "component-library",
+    "category": "组件与效果",
+    "summary": "244 个像素特效，每一个都是一份绘制代码：火焰、爆炸、冰霜、招式与界面反馈都没有图片素材，在画廊里挑一项实时播放、换配色、换种子，再导出带帧矩形与时长元数据的透明雪碧图。",
+    "install": "npm i github:patch-gg/pixelfx#5294518ce7c72e48b6100a744596e0acf57f2826",
+    "demoNote": "画廊加载固定版本的本地运行代码，瓦片进入视口即开始播放；点开一项可暂停、重播、调速度、换背景、换配色、换种子、镜像、开关角色并生成雪碧图。",
+    "tags": [
+      "像素艺术",
+      "Canvas",
+      "粒子",
+      "程序化生成",
+      "游戏特效",
+      "雪碧图",
+      "调色板",
+      "JavaScript"
+    ],
+    "upstream": {
+      "repository": "patch-gg/pixelfx",
+      "url": "https://github.com/patch-gg/pixelfx",
+      "version": "0.3.1",
+      "commit": "5294518ce7c72e48b6100a744596e0acf57f2826",
+      "verifiedAt": "2026-11-14"
+    },
+    "license": {
+      "name": "MIT（代码与效果）；Patch Pixel 字体单独授权",
+      "url": "https://github.com/patch-gg/pixelfx/blob/5294518ce7c72e48b6100a744596e0acf57f2826/LICENSE",
+      "scope": "244 个效果、core 运行时、画廊与 tools 制作工具；src/core/sim.js 与部分效果改编自 Hugo Duprez 的 Sprite Fusion 开源像素特效，src/core/act.js 改编自 Hollow Crown，均为 MIT。",
+      "notes": "画廊字标使用的 Patch Pixel 是 Patch 自有字体，不随 MIT 授权，随文件保留原声明。"
+    },
+    "useCases": [
+      "为网页游戏补上命中、爆炸、拾取与界面反馈",
+      "在原型里用代码生成特效，不必先准备图片素材",
+      "把同一套效果换成品牌配色，观察像素画的调色与打光",
+      "导出雪碧图交给 Phaser、Godot、Unity 等引擎",
+      "按 AUTHORING.md 的做法写自己的像素特效"
+    ],
+    "avoid": [
+      "需要照片质感或矢量精确边缘的主视觉",
+      "把同时播放的几十个特效画布放进一个页面"
+    ],
+    "constraints": [
+      "固定 pixelfx 0.3.1 与完整提交，运行代码原样保存在 vendor。",
+      "效果名、描述、标签与分类名沿用上游英文原文。",
+      "画廊为单主题深色页面，播放区固定黑底，不跟随站点浅深切换。",
+      "字体与远程地址的本地化改动见 fidelity.md。"
+    ],
+    "sources": [
+      {
+        "title": "pixelfx 固定提交",
+        "url": "https://github.com/patch-gg/pixelfx/tree/5294518ce7c72e48b6100a744596e0acf57f2826",
+        "note": "src/core、src/fx 的 244 个效果、gallery 画廊与 tools 制作工具。",
+        "evidence": "source"
+      },
+      {
+        "title": "pixelfx 官方画廊",
+        "url": "https://patch-gg.github.io/pixelfx/",
+        "note": "本地画廊的对照基准；瓦片尺寸、分类栏、详情面板与雪碧图导出均取自仓库内的 gallery。",
+        "evidence": "source"
+      },
+      {
+        "title": "CATALOG 与 AUTHORING",
+        "url": "https://github.com/patch-gg/pixelfx/tree/5294518ce7c72e48b6100a744596e0acf57f2826/docs",
+        "note": "21 个分类的效果清单，以及效果文件结构、种子与调色板约定。",
+        "evidence": "source"
+      }
+    ],
+    "demos": [
+      {
+        "id": "all",
+        "title": "全部特效",
+        "component": "画廊",
+        "summary": "244 个效果按 21 类排列，瓦片进入视口才启动；点任一瓦片打开详情。",
+        "entrypoint": "demos/materials/pixelfx/index.html",
+        "parameters": [
+          {
+            "name": "分类",
+            "value": "21 类",
+            "note": "moves、fire、explosions、water、ice、lightning、sci-fi、melee、impacts、projectiles、spawn、arcane、holy、shadow、status、nature、weather、ui、pickups、transitions、critters。"
+          },
+          {
+            "name": "搜索",
+            "value": "id／名称／描述／标签",
+            "note": "多个词需全部命中；与分类筛选叠加。"
+          }
+        ]
+      },
+      {
+        "id": "moves",
+        "title": "招式",
+        "component": "画廊 · moves",
+        "summary": "12 个完整攻击动作，把前摇、接触停顿与后摇串成一次出手。",
+        "entrypoint": "demos/materials/pixelfx/index.html#moves",
+        "parameters": [
+          {
+            "name": "fps",
+            "value": "30",
+            "note": "全部效果的帧率，时长与帧数见详情 facts。"
+          },
+          {
+            "name": "act",
+            "value": "poses、hits",
+            "note": "角色姿态关键帧与命中停顿数据，可读取后同步自己的角色。"
+          }
+        ]
+      },
+      {
+        "id": "fire",
+        "title": "火焰",
+        "component": "画廊 · fire",
+        "summary": "12 个火焰效果，从烛火、火把到火焰龙卷与火墙。",
+        "entrypoint": "demos/materials/pixelfx/index.html#fire",
+        "parameters": [
+          {
+            "name": "palette",
+            "value": "8 色渐变",
+            "note": "由暗到亮的色阶；详情面板可换成内置配色。"
+          },
+          {
+            "name": "seed",
+            "value": "整数",
+            "note": "同一 seed 逐帧可复现。"
+          }
+        ]
+      },
+      {
+        "id": "ui",
+        "title": "界面反馈",
+        "component": "画廊 · ui",
+        "summary": "12 个 HUD 效果：升级、连击、暴击数字、倒计时与提示条。",
+        "entrypoint": "demos/materials/pixelfx/index.html#ui",
+        "parameters": [
+          {
+            "name": "text",
+            "value": "文案",
+            "note": "带文字的 ui 效果可在 options 里改文案。"
+          }
+        ]
+      },
+      {
+        "id": "transitions",
+        "title": "转场",
+        "component": "画廊 · transitions",
+        "summary": "10 个 320×180 全屏转场，铺满舞台而不是浮在其中。",
+        "entrypoint": "demos/materials/pixelfx/index.html#transitions",
+        "parameters": [
+          {
+            "name": "size",
+            "value": "320 × 180 像素",
+            "note": "全屏类效果的画布尺寸，按 16:9 铺满。"
+          }
+        ]
+      }
+    ],
+    "prompt": "在网页游戏或交互页面里使用固定版本的 pixelfx：先 createFrame 建一块像素分辨率的画布，再用 createFx 载入某个效果并给出坐标、镜像、角度、seed 与 palette；每帧 update(dt)、clearFrame、draw 后 composite 到 ImageData，最后按整数倍放大并设 image-rendering: pixelated。带角色的效果换用 createAct，读取 act.poses 与 act.hits，按冻结时长暂停场景更新，shake 用于镜头抖动。挑效果先查 docs/CATALOG.md 与 tools/list.mjs，再渲染帧联系表看图；配色用由暗到亮的色阶，同一效果换色阶就能从火焰变成冰焰。需要交给其他引擎时用 tools/render.mjs --sheet 导出透明雪碧图与帧矩形、时长、fps、循环与轴心元数据。",
+    "demo": "demos/materials/pixelfx/index.html",
+    "preview": "previews/materials/pixelfx.png",
+    "research": "docs/materials/pixelfx.md",
+    "sourceFiles": [
+      "demos/materials/pixelfx/index.html",
+      "demos/materials/pixelfx/demo/app.js",
+      "demos/materials/pixelfx/demo/style.css",
+      "demos/materials/pixelfx/source/README.md",
+      "demos/materials/pixelfx/source/upstream/docs/CATALOG.md",
+      "demos/materials/pixelfx/source/upstream/docs/AUTHORING.md",
+      "demos/materials/pixelfx/source/upstream/skills/pixelfx/SKILL.md"
+    ]
+  },
+  "documents": [
+    {
+      "path": "docs/materials/pixelfx.md",
+      "role": "research",
+      "content": "# pixelfx：代码画出来的像素特效\n\n[结构化条目](../../entries/materials/pixelfx.json) · [打开画廊](../../demos/materials/pixelfx/index.html) · [复刻对照](../../demos/materials/pixelfx/fidelity.md)\n\npixelfx 把 244 个像素特效写成 244 个文件，`src/fx/<分类>/<名称>.js`。每份文件声明 `meta`（名称、描述、标签、画布尺寸、轴心、时长、是否循环、帧率、默认配色与种子），用 `create(o)` 或 `drawBack`／绘制函数把画面算进两块缓冲：颜色缓冲放不透明、抖动与半透明像素，光缓冲放加法混合的辉光，最后合成一帧。没有图片，所以同一效果能实时播放、镜像、换种子、换色阶，也能导成雪碧图交给别的引擎。\n\n画廊是本库复刻的入口：21 个分类的瓦片进入视口才启动，点开一项看大图、读参数、切配色、生成雪碧图，并复制接入代码。效果名、描述与标签沿用上游英文原文。\n\n## 运行代码\n\n| 路径 | 内容 |\n| --- | --- |\n| `vendor/pixelfx@0.3.1/src/core/` | 画布、调色、粒子、画家、字体、角色与表演运行时 |\n| `vendor/pixelfx@0.3.1/src/fx/` | 每个效果一个文件，`index.js` 是聚合入口 |\n| `vendor/pixelfx@0.3.1/LICENSE`、`NOTICE.md` | MIT 许可原文与第三方声明 |\n\n在页面里通过 importmap 或相对路径引入 `src/core/index.js` 与要用的效果文件即可，没有构建步骤，也没有运行时依赖。\n\n| 接口 | 用途 |\n| --- | --- |\n| `createFrame(w, h)`、`clearFrame(frame)` | 建一块像素分辨率的画布并清帧 |\n| `createFx(mod, opts)` | 播放单个效果；`opts` 可给 `x`、`y`、`flip`、`angle`、`seed`、`palette` |\n| `createAct(mod, opts)` | 连角色与目标一起表演的效果，读取 `act.poses` 与 `act.hits` |\n| `composite(frame, imageData.data, backdrop)` | 颜色缓冲先写入，光缓冲叠加在上 |\n| `PAL`、`BACKDROPS` | 内置色阶与背景 |\n\n## 两种效果\n\n模拟型效果（`create(o)` 返回 `update(dt)` 与 `draw(p)`）在创建和更新时生成粒子、碎片与光，运行时以 120 Hz 或更细的步长推进，所以帧率变化不影响物理；随机数一律来自 `o.seed`，任何一帧都能精确复现。纯效果由时间直接算出画面，循环能无缝接回第一帧。\n\n带 `act` 的 73 个效果把身体也写进数据：`poses` 是姿态关键帧，`hits` 给出命中时刻、冻结时长与抖动幅度。数值是普通数据，读出来就能让自己的角色在第几秒起手、第几秒停住。\n\n## 参数\n\n| 参数 | 说明 |\n| --- | --- |\n| `palette` | 由暗到亮的色阶，换成冷色阶火焰就变成冰焰；`PAL` 里有内置的一组 |\n| `seed` | 随机种子，同一种子逐帧可复现 |\n| `flip`、`angle` | 镜像与旋转 |\n| `actor` | 带角色的效果可关掉角色，只看效果本体 |\n| `size`、`origin` | 画布尺寸与轴心，写在各效果的 `meta` 里 |\n\n## 取材\n\n`source/upstream/` 保存上游的 `tools/`、`docs/` 与 `skills/pixelfx/`。渲染、导出雪碧图、搜索、检查与本地服务的命令见 [source/README.md](../../demos/materials/pixelfx/source/README.md)；写新效果的方法见 `docs/AUTHORING.md`，[CATALOG](../../demos/materials/pixelfx/source/upstream/docs/CATALOG.md) 按分类列出全部效果与尺寸。\n\n画布放大时用整数倍并设 `image-rendering: pixelated`；缩小会丢掉整列的 1 px 线，画廊在这种情况下才退回平滑缩放。\n"
+    },
+    {
+      "path": "prompts/materials/pixelfx.md",
+      "role": "prompt",
+      "content": "# pixelfx · 纯代码像素特效库 · 复用 Prompt\n\n[结构化条目](../../entries/materials/pixelfx.json)\n\n在网页游戏或交互页面里使用固定版本的 pixelfx：先 createFrame 建一块像素分辨率的画布，再用 createFx 载入某个效果并给出坐标、镜像、角度、seed 与 palette；每帧 update(dt)、clearFrame、draw 后 composite 到 ImageData，最后按整数倍放大并设 image-rendering: pixelated。带角色的效果换用 createAct，读取 act.poses 与 act.hits，按冻结时长暂停场景更新，shake 用于镜头抖动。挑效果先查 docs/CATALOG.md 与 tools/list.mjs，再渲染帧联系表看图；配色用由暗到亮的色阶，同一效果换色阶就能从火焰变成冰焰。需要交给其他引擎时用 tools/render.mjs --sheet 导出透明雪碧图与帧矩形、时长、fps、循环与轴心元数据。\n\n## 制作约束\n\n- 固定 pixelfx 0.3.1 与完整提交，运行代码原样保存在 vendor。\n- 效果名、描述、标签与分类名沿用上游英文原文。\n- 画廊为单主题深色页面，播放区固定黑底，不跟随站点浅深切换。\n- 字体与远程地址的本地化改动见 fidelity.md。\n"
+    },
+    {
+      "path": "demos/materials/pixelfx/LICENSES.md",
+      "role": "license",
+      "content": "# 许可索引\n\n- pixelfx 的运行代码、画廊与制作工具采用 MIT 许可，Copyright (c) 2026 Patch 与 Hugo Duprez。 [许可原文](vendor/pixelfx@0.3.1/LICENSE) · [第三方声明](vendor/pixelfx@0.3.1/NOTICE.md)\n- `src/core/sim.js` 与写明来源的部分效果改编自 Hugo Duprez 的 Sprite Fusion 开源像素特效；`src/core/act.js` 改编自 Hollow Crown 的技能表演，两者均为 MIT，署名见第三方声明。\n- 画廊字标使用 Patch 自有的 Patch Pixel 字体，不随 MIT 许可授权，随文件保留原声明。 [字体声明](fonts/NOTICE-PatchPixel.md)\n- 正文与等宽字体为 Google Fonts 的 Funnel Sans 与 Red Hat Mono，SIL OFL 1.1。 [Funnel Sans](fonts/OFL-FunnelSans.txt) · [Red Hat Mono](fonts/OFL-RedHatMono.txt)\n"
+    },
+    {
+      "path": "demos/materials/pixelfx/fidelity.md",
+      "role": "fidelity",
+      "content": "# 复刻对照\n\n画廊按上游 `gallery/` 的 `index.html`、`app.js`、`style.css` 复刻，效果与交互逻辑沿用原文件，改动只在接入层：\n\n| 项目 | 上游 | 本库 |\n| --- | --- | --- |\n| 运行代码 | `../src/fx/index.js`、`../src/core/index.js` | `../vendor/pixelfx@0.3.1/src/` 下同一份字节 |\n| 字体 | Google Fonts 的 Funnel Sans 与 Red Hat Mono；`gallery/fonts` 的 Patch Pixel | 五份字体本地化到 `fonts/`，`@font-face` 的 `unicode-range` 与上游一致 |\n| 界面文案 | 英文 | 中文，文案逐条列在本次任务书；效果名、描述、标签与分类名保留英文原文 |\n| 页头 | 无 favicon | `data:` 空图标，避免控制台 404 |\n| 滚动条 | 浏览器默认 | 加载站点 `site/runtime/demo-scrollbars.css` |\n\n`demo/app.js` 与上游 `gallery/app.js` 逐行比较，差异只有两行 import 路径、chip `all` 改成「全部」、facts 与控件文案、雪碧图说明、复制反馈、`actFacts` 的中文表述。`demo/style.css` 与上游 `gallery/style.css` 的差异只有字体声明与路径。\n\n## 对照结果\n\n在 1440×900 与 390×844、`deviceScaleFactor` 1、深色、`--hide-scrollbars` 下，本地与上游画廊并排截图对照，逐项比较页头、分类栏、搜索框、分类标题、网格列宽与间距、瓦片画布、图注和手机布局：\n\n- 手机布局的容器尺寸、列数、间距与上游一致。\n- 桌面页头高度相同；标题容器因中文副标题换行变短，`.head`、`.links` 的位置不变。\n- 接入差异只有中文文案、本地字体与路径三项。\n\n## 上游行为\n\n上游画廊按 `hidden` 属性筛选瓦片，但 `.tile { display: flex }` 覆盖了浏览器对 `[hidden]` 的默认样式，因此在 `patch-gg.github.io/pixelfx` 的线上页面上，搜索后 233 张不匹配的瓦片仍留在网格里，只有分类标题所在的 `section` 会按 `hidden` 隐藏（`section` 没有 `display` 覆盖）。本地复刻与上游逐项一致，保留原行为，不做修正。\n"
+    },
+    {
+      "path": "demos/materials/pixelfx/fonts/NOTICE-PatchPixel.md",
+      "role": "context",
+      "content": "# Patch Pixel\r\n\r\n`PatchPixel-Regular.woff2` is Patch's own typeface, used here for the gallery's display type.\r\n© 2026 Patch. All rights reserved. It is not covered by this repository's MIT license.\r\n"
+    },
+    {
+      "path": "demos/materials/pixelfx/fonts/OFL-FunnelSans.txt",
+      "role": "license",
+      "content": "Copyright 2024 The Funnel Project Authors (https://github.com/Dicotype/Funnel)\n\nThis Font Software is licensed under the SIL Open Font License, Version 1.1.\nThis license is copied below, and is also available with a FAQ at:\nhttps://openfontlicense.org\n\n\n-----------------------------------------------------------\nSIL OPEN FONT LICENSE Version 1.1 - 26 February 2007\n-----------------------------------------------------------\n\nPREAMBLE\nThe goals of the Open Font License (OFL) are to stimulate worldwide\ndevelopment of collaborative font projects, to support the font creation\nefforts of academic and linguistic communities, and to provide a free and\nopen framework in which fonts may be shared and improved in partnership\nwith others.\n\nThe OFL allows the licensed fonts to be used, studied, modified and\nredistributed freely as long as they are not sold by themselves. The\nfonts, including any derivative works, can be bundled, embedded, \nredistributed and/or sold with any software provided that any reserved\nnames are not used by derivative works. The fonts and derivatives,\nhowever, cannot be released under any other type of license. The\nrequirement for fonts to remain under this license does not apply\nto any document created using the fonts or their derivatives.\n\nDEFINITIONS\n\"Font Software\" refers to the set of files released by the Copyright\nHolder(s) under this license and clearly marked as such. This may\ninclude source files, build scripts and documentation.\n\n\"Reserved Font Name\" refers to any names specified as such after the\ncopyright statement(s).\n\n\"Original Version\" refers to the collection of Font Software components as\ndistributed by the Copyright Holder(s).\n\n\"Modified Version\" refers to any derivative made by adding to, deleting,\nor substituting -- in part or in whole -- any of the components of the\nOriginal Version, by changing formats or by porting the Font Software to a\nnew environment.\n\n\"Author\" refers to any designer, engineer, programmer, technical\nwriter or other person who contributed to the Font Software.\n\nPERMISSION & CONDITIONS\nPermission is hereby granted, free of charge, to any person obtaining\na copy of the Font Software, to use, study, copy, merge, embed, modify,\nredistribute, and sell modified and unmodified copies of the Font\nSoftware, subject to the following conditions:\n\n1) Neither the Font Software nor any of its individual components,\nin Original or Modified Versions, may be sold by itself.\n\n2) Original or Modified Versions of the Font Software may be bundled,\nredistributed and/or sold with any software, provided that each copy\ncontains the above copyright notice and this license. These can be\nincluded either as stand-alone text files, human-readable headers or\nin the appropriate machine-readable metadata fields within text or\nbinary files as long as those fields can be easily viewed by the user.\n\n3) No Modified Version of the Font Software may use the Reserved Font\nName(s) unless explicit written permission is granted by the corresponding\nCopyright Holder. This restriction only applies to the primary font name as\npresented to the users.\n\n4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font\nSoftware shall not be used to promote, endorse or advertise any\nModified Version, except to acknowledge the contribution(s) of the\nCopyright Holder(s) and the Author(s) or with their explicit written\npermission.\n\n5) The Font Software, modified or unmodified, in part or in whole,\nmust be distributed entirely under this license, and must not be\ndistributed under any other license. The requirement for fonts to\nremain under this license does not apply to any document created\nusing the Font Software.\n\nTERMINATION\nThis license becomes null and void if any of the above conditions are\nnot met.\n\nDISCLAIMER\nTHE FONT SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT\nOF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE\nCOPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nINCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL\nDAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM\nOTHER DEALINGS IN THE FONT SOFTWARE."
+    },
+    {
+      "path": "demos/materials/pixelfx/fonts/OFL-RedHatMono.txt",
+      "role": "license",
+      "content": "Copyright 2024 The Red Hat Project Authors (https://github.com/RedHatOfficial/RedHatFont)\n\nThis Font Software is licensed under the SIL Open Font License, Version 1.1.\nThis license is copied below, and is also available with a FAQ at:\nhttps://openfontlicense.org\n\n\n-----------------------------------------------------------\nSIL OPEN FONT LICENSE Version 1.1 - 26 February 2007\n-----------------------------------------------------------\n\nPREAMBLE\nThe goals of the Open Font License (OFL) are to stimulate worldwide\ndevelopment of collaborative font projects, to support the font creation\nefforts of academic and linguistic communities, and to provide a free and\nopen framework in which fonts may be shared and improved in partnership\nwith others.\n\nThe OFL allows the licensed fonts to be used, studied, modified and\nredistributed freely as long as they are not sold by themselves. The\nfonts, including any derivative works, can be bundled, embedded, \nredistributed and/or sold with any software provided that any reserved\nnames are not used by derivative works. The fonts and derivatives,\nhowever, cannot be released under any other type of license. The\nrequirement for fonts to remain under this license does not apply\nto any document created using the fonts or their derivatives.\n\nDEFINITIONS\n\"Font Software\" refers to the set of files released by the Copyright\nHolder(s) under this license and clearly marked as such. This may\ninclude source files, build scripts and documentation.\n\n\"Reserved Font Name\" refers to any names specified as such after the\ncopyright statement(s).\n\n\"Original Version\" refers to the collection of Font Software components as\ndistributed by the Copyright Holder(s).\n\n\"Modified Version\" refers to any derivative made by adding to, deleting,\nor substituting -- in part or in whole -- any of the components of the\nOriginal Version, by changing formats or by porting the Font Software to a\nnew environment.\n\n\"Author\" refers to any designer, engineer, programmer, technical\nwriter or other person who contributed to the Font Software.\n\nPERMISSION & CONDITIONS\nPermission is hereby granted, free of charge, to any person obtaining\na copy of the Font Software, to use, study, copy, merge, embed, modify,\nredistribute, and sell modified and unmodified copies of the Font\nSoftware, subject to the following conditions:\n\n1) Neither the Font Software nor any of its individual components,\nin Original or Modified Versions, may be sold by itself.\n\n2) Original or Modified Versions of the Font Software may be bundled,\nredistributed and/or sold with any software, provided that each copy\ncontains the above copyright notice and this license. These can be\nincluded either as stand-alone text files, human-readable headers or\nin the appropriate machine-readable metadata fields within text or\nbinary files as long as those fields can be easily viewed by the user.\n\n3) No Modified Version of the Font Software may use the Reserved Font\nName(s) unless explicit written permission is granted by the corresponding\nCopyright Holder. This restriction only applies to the primary font name as\npresented to the users.\n\n4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font\nSoftware shall not be used to promote, endorse or advertise any\nModified Version, except to acknowledge the contribution(s) of the\nCopyright Holder(s) and the Author(s) or with their explicit written\npermission.\n\n5) The Font Software, modified or unmodified, in part or in whole,\nmust be distributed entirely under this license, and must not be\ndistributed under any other license. The requirement for fonts to\nremain under this license does not apply to any document created\nusing the Font Software.\n\nTERMINATION\nThis license becomes null and void if any of the above conditions are\nnot met.\n\nDISCLAIMER\nTHE FONT SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT\nOF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE\nCOPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nINCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL\nDAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM\nOTHER DEALINGS IN THE FONT SOFTWARE.\n"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/README.md",
+      "role": "process",
+      "content": "# pixelfx 源码与制作资料\n\n[上游 0.3.1 固定提交](https://github.com/patch-gg/pixelfx/tree/5294518ce7c72e48b6100a744596e0acf57f2826) 的 `tools/`、`docs/`、`skills/pixelfx/`、`package.json` 与画廊原文件，均保留原文；上游 README 原文为 [README.upstream.md](upstream/README.upstream.md)，本库使用说明见 [pixelfx.md](../../../../docs/materials/pixelfx.md)。\n\n## 渲染与导出\n\n工具只依赖 Node 18 或更新版本，工作目录为 `upstream/`：\n\n```sh\nnode tools/render.mjs fire/torch                  # 帧联系表 records/fire/torch/contact.png\nnode tools/render.mjs ice/frost-nova --sheet      # 透明 PNG 雪碧图与 Aseprite JSON\nnode tools/render.mjs fire --gif --scale 6        # 整类 GIF，需要 ffmpeg\nnode tools/list.mjs frost                        # 按 id、名称、标签与描述搜索\nnode tools/check.mjs                             # 检查溢出、接缝、未设种子的随机与慢帧\nnode tools/serve.mjs 8080                        # 打开 http://localhost:8080/gallery/\n```\n\n`tools/` 依赖它同级的 `src/`。用本站的固定版本运行时即可：把 `vendor/pixelfx@0.3.1/src` 复制进 `upstream/`，或在 `upstream/` 里另放一份上游仓库的 `src/`。`tools/build-gallery.mjs` 需要 esbuild，本地未安装。\n\n## 制作新特效\n\n`docs/AUTHORING.md` 写效果文件的结构、两种类型、种子与调色板约定；`skills/pixelfx/SKILL.md` 是随仓库发布的 Claude Code skill，给出草稿、渲染、看图、改进的循环。\n"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/LICENSE",
+      "role": "license",
+      "content": "MIT License\r\n\r\nCopyright (c) 2026 Patch\r\nCopyright (c) 2026 Hugo Duprez\r\n\r\nPermission is hereby granted, free of charge, to any person obtaining a copy\r\nof this software and associated documentation files (the \"Software\"), to deal\r\nin the Software without restriction, including without limitation the rights\r\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\r\ncopies of the Software, and to permit persons to whom the Software is\r\nfurnished to do so, subject to the following conditions:\r\n\r\nThe above copyright notice and this permission notice shall be included in all\r\ncopies or substantial portions of the Software.\r\n\r\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\r\nSOFTWARE.\r\n"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/NOTICE.md",
+      "role": "process",
+      "content": "# Notices\r\n\r\n**Hugo Duprez.** `src/core/sim.js` and the effects that say so at the top of their file adapt Sprite Fusion's\r\nopen-source pixel art VFX (https://www.spritefusion.com/pixel-art-vfx), Copyright (c) 2026 Hugo Duprez, MIT License.\r\n\r\n**Hollow Crown.** `src/core/act.js` adapts how Hollow Crown plays its skills (poses on 12 fps steps, hit-stops, the springy\r\nstraw target), from\r\nhttps://github.com/rehan-remade/hollow-crown, Copyright (c) 2026 rehan-remade, MIT License.\r\n\r\n**Patch Pixel.** The font in `gallery/fonts` is Patch's own and is not covered by this repository's MIT license. See\r\n`gallery/fonts/NOTICE.md`.\r\n"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/README.upstream.md",
+      "role": "process",
+      "content": "<p align=\"center\">\r\n  <img src=\"docs/readme/montage.gif\" width=\"800\" alt=\"A grid of pixel art effects playing at once: a campfire, a burning skull, a waterfall, a plasma ball, a portal, a tornado and more.\">\r\n</p>\r\n\r\n# pixelfx.\r\n\r\n**<!-- count -->244<!-- /count --> pixel art effects and animations, every one a small piece of code.** Fire,\r\nexplosions, magic, weather, UI, pickups, critters and more. Play them live, recolor and mirror them, drop them into\r\na browser game, or export sprite sheets for any engine. Plus a Claude Code skill that makes new ones the way a\r\npicky pixel artist would: draft, render, look, refine.\r\n\r\nEvery effect that involves a character is **acted out**: he winds up, lets go, freezes on contact and recovers, and a\r\ntarget takes the hit. Twelve whole moves chain the effects into attacks from wind-up to recovery.\r\n\r\nIt's also a block on Patch: [play pixelfx on Patch](https://patch.gg/patch/pixel-effects), pick an effect and a\r\npalette, and start a browser game from it.\r\n\r\n**[open the gallery](https://patch-gg.github.io/pixelfx/)** · [catalog](docs/CATALOG.md) · [acting](#acting) ·\r\n[the skill](#the-skill) · [make your own](#make-your-own) · [publish it on patch](#publish-it-on-patch) ·\r\n[how it works](#how-it-works)\r\n\r\nThe method is [Hugo Duprez](https://x.com/HugoDuprez)'s, from [How to make (good) pixel art effects with\r\nClaude](https://www.spritefusion.com/blog/how-to-make-good-pixel-art-effects-with-claude): code is clay, trust your\r\neyes, feed your references. His [open-source effects](https://www.spritefusion.com/pixel-art-vfx) at Sprite Fusion\r\nset the bar, and `src/core/sim.js` and the effects that say so at the top adapt his code. This repo is our take on\r\nthe idea at library scale, with a skill to keep going.\r\n\r\n## what's in it.\r\n\r\n<!-- catalog -->\r\n| category | effects | some of them |\r\n|---|---|---|\r\n| **moves** | 12 | arrow shot, dash strike, earth stomp, fireball throw, ground pound, holy smite… |\r\n| **fire** | 12 | brazier, campfire, candle, fire breath, fire ring, fire tornado… |\r\n| **explosions** | 12 | barrel explosion, big explosion, cartoon pow, dirt explosion, firework burst, firework rocket… |\r\n| **water** | 12 | bubbles, drip, fountain, geyser, rain splash, ripples… |\r\n| **ice** | 10 | blizzard vortex, freeze, frost breath, frost nova, ice crystal, ice lance… |\r\n| **lightning** | 11 | ball lightning, chain lightning, charge up, electrified, lightning strike, plasma ball… |\r\n| **sci-fi** | 12 | emp blast, energy core, force field, glitch, hologram, jetpack… |\r\n| **melee** | 12 | claw swipe, dagger flurry, double slash, hammer smash, heavy cleave, scythe reap… |\r\n| **impacts** | 11 | blunt hit, bullet impact, critical hit, ground slam, heavy landing, hit flash… |\r\n| **projectiles** | 13 | arrow, bullet tracer, cannon shot, energy disc, signal flare, homing missile… |\r\n| **spawn & death** | 10 | coin drop, disintegrate, dissolve burn, egg hatch, poof, respawn beam… |\r\n| **arcane** | 12 | arcane beam, arcane missiles, arcane orb, blink in, blink out, magic circle cast… |\r\n| **holy** | 10 | blessing, divine shield, feather burst, halo, heal, healing ring… |\r\n| **shadow** | 12 | black hole, curse, dark explosion, eclipse, grasping hands, hex sigil… |\r\n| **status** | 13 | bleeding, burning, charmed, confused, cursed, frozen… |\r\n| **nature** | 13 | acid splash, boulder, earth spike, healing bloom, leaf storm, poison cloud… |\r\n| **weather** | 12 | aurora, blizzard, cherry blossoms, clouds, falling leaves, fireflies… |\r\n| **ui** | 12 | achievement, coin collect, combo counter, confetti, countdown, crit number… |\r\n| **pickups** | 11 | chest open, coin spin, collect burst, crystal shard, gem spin, heart pickup… |\r\n| **transitions** | 10 | blinds, burn away, crt off, diamond wipe, glitch wipe, iris… |\r\n| **critters** | 12 | bat, bird, butterfly, eyeball, fish school, flying skull… |\r\n<!-- /catalog -->\r\n\r\nEvery effect is a file in `src/fx/<category>/<name>.js`. The [catalog](docs/CATALOG.md) lists them all.\r\n\r\n## use one.\r\n\r\n**In a browser game** (canvas, Phaser, PixiJS, Kaplay, three.js), use the code. No dependencies.\r\n\r\n```js\r\nimport { createFrame, clearFrame, createFx, composite } from \"pixelfx\";\r\nimport * as frostNova from \"pixelfx/fx/ice/frost-nova\";\r\n\r\nconst frame = createFrame(320, 180);                   // your game's pixel resolution\r\nconst img = new ImageData(320, 180);\r\nconst fx = createFx(frostNova, { x: 160, y: 140 });   // also: flip, angle, seed, palette, light...\r\n\r\nfunction tick(dt) {\r\n  fx.update(dt);\r\n  clearFrame(frame);\r\n  fx.draw(frame, \"back\");                              // behind characters\r\n  drawCharacters();\r\n  fx.draw(frame, \"front\");\r\n  composite(frame, img.data, backgroundColor);         // color, then light added on top\r\n  ctx.putImageData(img, 0, 0);                         // scale up with image-rendering: pixelated\r\n}\r\n```\r\n\r\nInstall from GitHub with `npm i github:patch-gg/pixelfx`, or copy `src/core` and the effects you want.\r\n\r\n**In any engine** (Godot, Unity, GameMaker, Defold, LÖVE, Bevy), use sprite sheets:\r\n\r\n```bash\r\nnode tools/render.mjs ice/frost-nova --sheet\r\n```\r\n\r\nThat writes a transparent PNG of every frame in a grid and an Aseprite-style JSON (frame rects, durations, and\r\n`meta.pixelfx` with fps, loop, columns and the pivot). Phaser's atlas loader and the Aseprite importers for Godot\r\nand Unity read it. `node tools/sheets.mjs` exports the whole library to `sheets/`.\r\n\r\nAny effect takes a `palette` (a dark-to-bright ramp of hex colors), so a fire can burn blue and a heal can glow\r\npink without touching its code:\r\n\r\n```bash\r\nnode tools/render.mjs fire/torch --gif --opts '{\"palette\": [\"#102\",\"#215\",\"#43a\",\"#8cf\",\"#cff\",\"#fff\"]}'\r\n```\r\n\r\n## acting.\r\n\r\n<p align=\"center\">\r\n  <img src=\"docs/readme/acts.gif\" width=\"800\" alt=\"A grey dummy fighting a straw target: a three-stroke sword combo, a hammer smash, a ground pound, a holy smite, a frost nova and a run with after-images, each with a wind-up, a freeze on contact and a recovery.\">\r\n</p>\r\n\r\nAn effect on its own looks like a sticker. What sells a hit is the body around it: the wind-up that says something is\r\ncoming, the freeze on contact, the target rocking back, the recovery. So the 61 effects with a character, and the 12\r\nmoves, say what the body does and when:\r\n\r\n```js\r\nexport const act = {\r\n  target: { x: 58 },\r\n  poses: [\r\n    [-0.55, GUARD],            // he starts before the effect does (t = 0 is the effect's first frame)\r\n    [-0.3, WIND_UP],\r\n    [0, CUT, \"snap\"],          // \"snap\" holds the last pose and jumps on the key\r\n    [0.06, FOLLOW_THROUGH, \"snap\"],\r\n    [0.86, GUARD],\r\n  ],\r\n  hits: [{ t: 0.06, stop: 0.14, shake: 0.18, amp: 2, push: 2.8, straw: 18 }],   // freeze for 0.14 s on contact\r\n};\r\n```\r\n\r\n**Play the whole thing**, character and target included, by swapping `createFx` for `createAct`:\r\n\r\n```js\r\nimport { createFrame, clearFrame, createAct, composite } from \"pixelfx\";\r\nimport * as slash from \"pixelfx/fx/melee/sword-slash\";\r\n\r\nconst act = createAct(slash, { x: 80, y: 140 });\r\n\r\nfunction tick(dt) {\r\n  act.update(dt);                                  // holds still by itself during a freeze\r\n  clearFrame(frame);\r\n  act.draw(frame);                                 // { body: false } and { target: false } leave them out\r\n  composite(frame, img.data, backgroundColor);\r\n  const [sx, sy] = act.shake;                      // throw the picture this far\r\n  ctx.putImageData(img, sx, sy);\r\n}\r\n```\r\n\r\n**Got your own character?** Effect ids haven't changed and a sprite sheet is still the effect alone, so existing games\r\nkeep working. (Effects drawn on the body paint the stock dummy, so regenerate those if you ship them.) The timing is plain data: read `slash.act`, or `meta.pixelfx.act` in a sprite sheet's\r\nJSON (`windup`, `recovery`, `hits` with `t` and `freeze`, `poses`). Start your own wind-up animation that long before the effect, and\r\nstop updating everything for `freeze` seconds at each hit.\r\n\r\nEffects drawn on the body (frost, poison, a scan line) are written against the standing character and follow him\r\nwherever he goes: each pixel of a pose knows which pixel of the standing body it came from. `node tools/act.mjs\r\n<id> --sheet` bakes a whole act, character included, into a sprite sheet.\r\n\r\nThe body is yours to use too: `skeleton(pose)` gives you every joint of a pose in 3D, to hang your own things on, and\r\n`posedParts(pose)` gives you each part drawn on its own.\r\n\r\n## the skill.\r\n\r\nThe `pixelfx` skill teaches Claude Code to find, use, export and make effects. Install it as a plugin:\r\n\r\n```\r\n/plugin marketplace add patch-gg/pixelfx\r\n/plugin install pixelfx@pixelfx\r\n```\r\n\r\nor copy `skills/pixelfx` into `~/.claude/skills/`. Then ask for what you want:\r\n\r\n- \"Add a frost nova to my mage's ultimate.\"\r\n- \"Make five takes on a coin pickup sparkle and show me the best two.\"\r\n- \"Export the fire and explosions categories as sprite sheets for Godot.\"\r\n- \"This hit effect feels floaty. Make it punchier.\"\r\n- \"Give this spell a wind-up and make the enemy react to it.\"\r\n\r\n## make your own.\r\n\r\n```bash\r\nnode tools/new.mjs arcane/my-spell       # a working starting point (add --loop for a loop)\r\nnode tools/render.mjs arcane/my-spell    # records/arcane/my-spell/contact.png: look at it\r\nnode tools/check.mjs arcane/my-spell     # spills, seams, unseeded randomness, slow frames\r\n```\r\n\r\nThen go round: look at the contact sheet, fix the worst thing, render again. `--gif` and `--mp4` show the motion,\r\n`--all` shows every frame. `node tools/act.mjs arcane/my-spell` shows an act as consecutive 12 fps steps, because motion\r\nbugs don't show in samples. [docs/AUTHORING.md](docs/AUTHORING.md) has the contract, the drawing API and the quality\r\nbar. `node tools/serve.mjs` runs the gallery locally with your effects in it.\r\n\r\n## publish it on patch.\r\n\r\nMade a browser game with these? Put it on [Patch](https://patch.gg), where people play and remix browser games and\r\nmods. Install `pch`, Patch's command line, then restart your coding agent and ask it to publish the game: the install\r\ngives every agent on your PC Patch's tools. Or run it yourself:\r\n\r\n```bash\r\nnpm i -g @patchgg/cli      # or: curl -fsSL https://patch.gg/install.sh | sh\r\npch login\r\npch init                   # in your game's folder; it says what's next\r\npch publish\r\n```\r\n\r\nPublishing needs [Patch Desktop](https://docs.patch.gg/get-started) open on a Windows PC: it plays your game once to\r\ntest it before it goes live. The [quickstart](https://docs.patch.gg/quickstart) has the rest.\r\n\r\n## how it works.\r\n\r\n- **Two kinds of effect, no images.** Pure effects export `draw(p, t, o)`, the frame at `t` seconds from `t` alone, so\r\n  loops tile with no seam. Simulated effects export `create(o)` and step real particles, debris and lights at 120 Hz,\r\n  so sparks bounce and smoke rolls the same at any frame rate.\r\n- **Two buffers.** `color` takes pixels: opaque, dithered or truly translucent. `light` takes additive glow, added on\r\n  top. Hot things look hot because of the light buffer.\r\n- **Seeded everything.** Every random number comes from the effect's seed, so frame 40 is the same every time.\r\n- **Local space.** Effects draw around their own origin; the painter places, mirrors and rotates them. Directional\r\n  effects face right. A 24×38 stock character stands in for status effects, auras and hits.\r\n- **A real skeleton, drawn down to pixels.** The grey dummy is neutral on purpose, so the eye goes to the move and any effect's\r\n  colors read on it. He's a 3D skeleton with fixed-length bones, pelvis to spine to shoulders, rendered in a few flat tones with one clean\r\n  ink line, the way Dead Cells makes its sprites. So he can twist, bend and really turn round, and depth decides what's in front. Poses hold on 12 fps\r\n  steps, the way hand-drawn sprites do, while particles run at full rate.\r\n- **Same frame shape as Sprite Fusion's VFX** (`{ w, h, ox, oy, color, light }`), so both libraries can draw into\r\n  one frame.\r\n\r\n## license.\r\n\r\nMIT, code and effects. Use them in anything, commercial included. Parts are adapted from Hugo Duprez's MIT effects\r\nand from Hollow Crown's MIT source, and the Patch Pixel font in `gallery/fonts` is Patch's own and not covered: see\r\n[NOTICE.md](NOTICE.md).\r\n\r\nMade by [Patch](https://patch.gg).\r\n"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/docs/AUTHORING.md",
+      "role": "process",
+      "content": "# Writing an effect\r\n\r\nAn effect is one file, `src/fx/<category>/<name>.js` (kebab-case), drawing pixel art over time into two buffers.\r\nIt has no images and no dependencies beyond `src/core`. It can be played live, recolored, mirrored and rendered\r\nto a sprite sheet for any engine.\r\n\r\nThe quality bar is Sprite Fusion's open-source pixel art VFX by Hugo Duprez\r\n([spritefusion.com/pixel-art-vfx](https://www.spritefusion.com/pixel-art-vfx), MIT). Every effect here should hold up\r\nnext to his at the same size on screen: as much detail, as much light, as much life. `src/core/sim.js` is adapted\r\nfrom his code; read the three references written to that bar first: `src/fx/melee/sword-slash.js`,\r\n`src/fx/ice/frost-nova.js`, `src/fx/explosions/small-explosion.js`.\r\n\r\n## Two kinds of effect\r\n\r\n**Simulated** (most one-shots: impacts, explosions, spells, anything with debris, sparks, smoke or fire). Export\r\n`create(o)` returning `{ update(dt), draw(p), drawBack?(p) }`. Spawn particles, debris and lights in `create` and\r\n`update`, keep your own `t`, draw from state. The runtime steps it at 120 Hz or finer, so physics looks the same at\r\nany frame rate. Use the seeded `Rng` from `o.seed` for every random number.\r\n\r\n```js\r\nimport { Particles, Lights, P, PF, Rng, fit, sparkle, smooth } from \"../../core/index.js\";\r\n\r\nexport const meta = { name: \"Spark pop\", desc: \"...\", tags: [\"impact\"], size: [96, 72], origin: [48, 56],\r\n  duration: 1.2, loop: false, fps: 30, bg: \"ground\", options: { palette: [...], seed: 1 } };\r\n\r\nexport function create(o) {\r\n  const C = fit(o.palette, 7), R = new Rng(o.seed), floor = () => 0;\r\n  const ps = new Particles({ rng: R, ground: floor }), lights = new Lights();\r\n  lights.add(0, -12, 40, C[4], 0.7, 0.4);\r\n  for (let i = 0; i < 40; i++) {\r\n    const a = R.range(0, Math.PI * 2), sp = R.range(80, 260);\r\n    ps.spawn(P.SPARK, 0, -12, Math.cos(a) * sp, Math.sin(a) * sp - 60, R.range(0.2, 0.6));\r\n  }\r\n  let t = 0;\r\n  return {\r\n    update(dt) { t += dt; ps.update(dt); lights.update(dt); },\r\n    draw(p) { if (t < 0.12) sparkle(p, 0, -12, 9 * (1 - t / 0.12), C[5], C[3]); ps.draw(p); lights.draw(p); },\r\n  };\r\n}\r\n```\r\n\r\n**Pure** (loops, and shapes that are a function of time: auras, portals, waterfalls, beams, critters). Export\r\n`draw(p, t, o)` (and `drawBack(p, t, o)`): the frame at `t` from `t` alone, so it loops with no seam. Particles\r\nthat loop come from `cycle`, motion from `fly`, noise from `loopNoise`/`tileFbm`.\r\n\r\n## The contract\r\n\r\n- **Scale.** The stock character is 24 x 38 px (`actor: 2`): every effect is drawn at that scale, detail at the\r\n  1 px level. Canvases are as big as the effect needs, often 96 to 320 px wide; transitions are 320 x 180.\r\n- **Local coordinates.** (0, 0) is the anchor: the feet of the character, the point of impact, the base of a\r\n  torch, the muzzle. x right, y down, 1 unit = 1 px. The painter places, mirrors (`flip`) and rotates (`angle`).\r\n  Directional effects face right. Ground effects stand on y = 0, the floor; floor rings, cracks, scorch and\r\n  puddles may draw a little below it as perspective.\r\n- **Time.** One-shots run 0..duration and draw **nothing at t = duration** (set duration long enough for the last\r\n  smoke to clear). Loops are seamless.\r\n- **Options** `o`: `meta.options` merged with the caller's. Honour `o.palette` (main ramp, dark to bright; use\r\n  `fit(o.palette, n)` so any length works) and `o.seed`. Other color ramps as options are resampled too.\r\n  `x`, `y`, `flip`, `angle`, `light` are reserved.\r\n- **Deterministic.** Never `Math.random()` or `Date`.\r\n- **Layers.** `drawBack` for what's behind a character or the far half of a ring; `draw` for the rest.\r\n- **Actor effects** (`actor: 2`) get `o.actor = { mask, pixels, x, y, w, h, head, chest }`: the character's\r\n  silhouette and its own colors (`pixels`, a Uint32Array, 0 where empty) in local space, feet at (0, 0). Recolor\r\n  `pixels` for frozen, poisoned, stone; outline `mask` for auras. Export `actorAlpha(t, o)` (0..1) when the\r\n  character should vanish or appear; previews follow it.\r\n- **Acts** (`export const act`): what the body does around the effect. Any effect with a character should have one; see\r\n  below.\r\n- **Credit.** If you adapt a specific recipe from one of Hugo's files, put a two-line credit at the top of yours:\r\n  `// ... adapted from Sprite Fusion's open-source <name> (https://www.spritefusion.com/pixel-art-vfx/<name>),`\r\n  `// MIT License, Copyright (c) 2026 Hugo Duprez.`\r\n\r\n## Acts\r\n\r\nAn effect shows what the magic does. Its act shows what the character does. Without one, the best effect looks like a\r\nsticker on a mannequin. Replies to the first release said it best: \"lack of anticipation and cooldown phases\".\r\n\r\n```js\r\nconst GUARD = { ...READY, weapon: \"sword\", fx: 12, fy: -19, sa: -0.75 };\r\nconst COCK = { ...GUARD, crouch: 4, lean: -4, fx: -9, fy: -33, sa: -2.7, bx: 9, by: -22, armsFront: true };\r\nconst CUT = { ...GUARD, crouch: 4, lean: 5, fx: 24, fy: -19, sa: 0.6, ffx: 13, fbx: -10, ghost: 1 };\r\n\r\nexport const act = {\r\n  target: { x: 58 },                                // or targets: [{ x: 58 }, { x: 104 }]\r\n  poses: [[-0.5, GUARD], [-0.2, COCK], [0.06, CUT, \"snap\"], [0.7, GUARD]],\r\n  hits: [{ t: 0.06, stop: 0.14, shake: 0.18, amp: 2, push: 2.8, straw: 18, skin: \"char\" }],\r\n  dust: [{ t: 0.06, x: 12, n: 6, dir: 1 }],\r\n};\r\n```\r\n\r\n- **Time** is the effect's own: t = 0 is its first frame, so a negative key is a wind-up. A one-shot's act runs to its last\r\n  key, which may be after the effect has ended. A loop's keys run 0 to `duration` and match at both ends.\r\n- **Poses** only say what differs from standing easy. `src/core/poses.js` lists every field and how the body works: where the feet and\r\n  hands are, crouch, lean, turn, what's held and at what angle. The character is a real skeleton in 3D, drawn down to pixels: hands and\r\n  feet are placed where they should end up, in px from the feet, and elbows, knees, spine and shoulders work themselves out. Between keys, limbs step at 12 fps and the feet's position stays smooth.\r\n  `\"snap\"` holds the last pose and jumps on the key, `\"out\"` arrives fast and settles, `\"in\"` starts slow, `\"line\"` keeps a\r\n  steady speed.\r\n- **Hits** freeze everything for `stop` seconds and shake it by `amp` px for `shake` seconds; the target takes `push` (negative\r\n  rocks it towards the caster), `straw`, `flash`, a `skin` (char, ice, shock, holy, shadow, red, poison; `null` clears it) and `shiver`.\r\n  `at` picks one of several targets; `target: false` leaves them out of it. Line these up with the effect's own constants.\r\n- **Weapons** are `sword greatsword dagger spear hammer scythe claw bow pistol launcher handle`. `two: true` puts both hands on it.\r\n- **Hold it like you mean it.** An arm reaches about 15 px from its shoulder and bones don't stretch, so step the body (`x`) rather than ask too much,\r\n  and keep a little bend in the elbow. On a swing the blade lags the hand: at mid-swing the arm has gone forward while the blade still points up, so the\r\n  wrist breaks and it whips. Weapons stop at the floor by themselves. A long weapon rests in one hand, butt on the floor, and takes the second hand to swing.\r\n- **Use the third dimension.** He faces right, three-quarters towards us, so for arms raised or open the near hand goes left of the chest (`fx < 0`) and the\r\n  far hand right (`bx > 0`), usually with `turn: 1` so the chest faces us. `yaw` turns the whole body about its feet, weapon included: a spin is really a spin.\r\n- **Line the hand up** with where the effect fires from: if a beam leaves `(15, -24)`, the pose's `fx, fy` are `15, -24` at t = 0.\r\n- **`onBody: true`** when the effect reads `o.actor` (recolors `pixels`, outlines `mask`, exports `actorAlpha`). Draw it against the\r\n  standing body as usual: each pixel of a pose knows which standing pixel it came from, so frost, poison and scan lines follow. What's\r\n  off the body moves with the chest above the belt and stays put on the floor; `follow: 0` keeps it fixed, for a core at the hand.\r\n- **What sells it:** a wind-up in the opposite direction to the blow. A big silhouette change on the release frame. A freeze\r\n  on contact, longer for heavier blows (0.03 to 0.2 s). A follow-through that overshoots. Sword tips and hammer heads that meet the effect's arc.\r\n  Raised hands go behind the head by themselves, so the face stays visible; put wind-ups beside or above the head, not across it.\r\n\r\n**Moves** (`src/fx/moves/`) are effects made of effects. `chain` plays other effects as cues; a projectile is an effect whose `x`\r\nis a function of time; `shiftKeys` reuses other effects' acts.\r\n\r\n```js\r\nexport const create = chain([\r\n  { fx: charge, t: 0.08, until: THROW, palette: PAL.fire },\r\n  { fx: fireball, t: THROW, until: HIT, x: (t) => 28 + (t - THROW) * SPEED, y: -22 },\r\n  { fx: blast, t: HIT, x: TX },\r\n]);\r\n```\r\n\r\nJudge acts by their motion: `node tools/act.mjs <id>` shows consecutive 12 fps steps, `--mp4` plays it, and `tools/check.mjs` catches keys out of\r\norder, unknown pose fields, loop seams and hands that teleport.\r\n\r\n## The toolkit (`src/core/sim.js`, from Sprite Fusion's code)\r\n\r\n- `new Particles({ rng, ground: (x) => floorY, sparks: [head..tail colors], haze: color, onLand })`,\r\n  `ps.spawn(kind, x, y, vx, vy, life, color, size, delay, flags)`, `ps.update(dt)`, `ps.draw(p, \"back\"|\"front\")`.\r\n  Kinds `P.*`: `SPARK` (speed-stretched two-tone streak, gravity, bounces on the floor, glows), `MOTE` (streak\r\n  with a dark tail, dithers out), `STREAK` (accelerating dotted line: gathering energy), `FLAKE` (drifting\r\n  speck, a cross when big), `VAPOUR` (soft translucent puff that swells and thins, optional haze glow), `DUST`\r\n  (denser puff), `SMOKE` (three soft discs, lit cap, rises and sways; color 0 uses `SMOKE_RAMP`), `FIRE`\r\n  (a ball of flame cooling down `FIRE_RAMP` as it rises; flag `PF.SMOKES` turns it to smoke when it dies,\r\n  `PF.BIG` for bigger slower smoke), `BRAND` (burning chunk that trails flame and calls `onLand`), `GRIT`\r\n  (falling bits that bounce once and settle), `EMBER` (rising, wandering, cooling), `STAR` (twinkling cross).\r\n  `PF.BACK` draws a particle behind. `delay` holds it back.\r\n- `new Bits({ ground })`, `bits.add({ kind: B.SHARD|B.CHUNK|B.DRIP, x, y, vx, vy, a, va, s, c, ramp, g, drag,\r\n  bounce, life })`: rigid debris that tumbles, bounces and settles (`rest`).\r\n- `new Lights()`, `lights.add(x, y, r, color, k, life)`: lights that flare and die (k falls with life²).\r\n- `new Blazes(ps)`, `blazes.add(x, y, life, power)`: small fires that keep feeding flame where something landed.\r\n- `sparkle(p, x, y, arm, c, tip, k)` star glint; `flare(p, x, y, L, k, ramp)` 8-ray flare;\r\n  `band(p, cx, cy, r, sy, thick, alpha, ramp, keep, hot)` a ring on a tilted plane (sy 0.16 lies on the floor;\r\n  keep `(g) => Math.sin(g) < 0` is the far half); `crystal(p, x, base, h, w, lean, ramp, { a, white, glint })` a\r\n  faceted ice/crystal spike with a lit ridge.\r\n- `GRAVITY` = 950 px/s². Hugo's code uses world units (2 per px): halve his speeds, distances and gravity.\r\n\r\n## Painter API\r\n\r\nCoordinates local, floats fine. `c` a color number; `a` alpha 0..1 (dithered unless said).\r\n\r\n| call | draws |\r\n|---|---|\r\n| `p.px(x, y, c)` / `p.dot(x, y, c, a)` | one pixel, solid / dithered |\r\n| `p.blend(x, y, c, a)` | one pixel, truly translucent |\r\n| `p.disc(x, y, r, c, a)` | translucent disc (smoke, vapour, mist); c, a may be `(d, angle) =>` |\r\n| `p.line(x0, y0, x1, y1, c, a)` | 1 px line; c, a may be `(u) =>` |\r\n| `p.polyline(pts, c, a)`, `p.beam(x0, y0, x1, y1, w, c, a)` | lines through points; thick capsule |\r\n| `p.circle`, `p.ellipse`, `p.ring`, `p.rect`, `p.poly`, `p.tri` | filled shapes; c, a may be functions of the shape's coordinates |\r\n| `p.arc(x, y, r, w, a0, a1, c, a)` | band of a ring, `w` may taper `(u) =>` |\r\n| `p.shade(x0, y0, x1, y1, fn)` | per-pixel shader: `fn(x, y, out)` returns a color or sets `out.c out.a out.l out.k`; x, y are pixel centers |\r\n| `p.glow(x, y, r, c, k)`, `p.glowLine`, `p.glowRing`, `p.light(x, y, c, k)` | additive light |\r\n| `p.sprite(rows, pal, x, y, {scale, a, flip, flipY, tint})` | sprite from strings |\r\n| `p.text(str, x, y, c, {font, scale, align, outline, shadow, a})`, `p.measure` | pixel text (`mini` 3x5, `big` 5x7; use `scale: 2` at this size) |\r\n| `p.mask(m, x, y, c, a)`, `p.outline(m, x, y, c, a)`, `p.get(x, y)` | silhouettes; read back a pixel |\r\n\r\nHelpers from `src/core/index.js`: `createAct actTiming READY chain shiftKeys shiftHits skeleton posedParts`, `clamp lerp seg smooth bump ease.* TAU`, `Rng rng rand`, `noise noise2 fbm\r\nloopNoise tileNoise tileFbm`, `fly flyV burst cycle stream`, `bolt forks star ngon trail`, `PAL RAMP ramp fit at\r\nblend mix scale hex rgb luma WHITE`, `stockActor(2) drawActor HERO2 HERO_PAL`.\r\n\r\n## The bar\r\n\r\nWhat makes Sprite Fusion's effects good, and what every effect here must do:\r\n\r\n1. **Lines and light, not fills.** Build with 1 px rims, rings, trails and sparks, and let light carry the\r\n   brightness. A big flat area of saturated color is almost always wrong. White-hot cores and edges, tinted\r\n   middles, deep color only in shadow.\r\n2. **Light everywhere.** A big soft pool at low k, a tight hot one at the core, a light on every spark and\r\n   glint, `Lights` that flare at the moment of impact and fall away, light along arcs and beams, a warm or cold\r\n   pool on the floor while something burns or freezes.\r\n3. **Translucent volumes.** Smoke, vapour, dust and mist are soft (`SMOKE`, `VAPOUR`, `DUST`, `p.disc`), lit on\r\n   top, swelling and thinning. Never a dithered checkerboard for smoke.\r\n4. **Real motion.** Sparks stretch with speed, fall and bounce. Debris tumbles, bounces, settles and fades.\r\n   Fire rises and cools into smoke. Things that land kick up dust. Use drag: fast burst, slow drift.\r\n5. **Choreography in phases.** Anticipation or charge (things gathering in), release (a 1 to 2 frame white\r\n   hero frame, a flare, light, a burst), spread, hold (twinkles, glints, embers), break or melt, a long decay.\r\n   Many small events, each varied in size, speed, timing and life.\r\n6. **Depth.** Rings on the floor are flat ellipses with a far half behind the character and a near half in\r\n   front. Back rows of crystals or flames are dimmer.\r\n7. **Timing.** Fast attack, slow release. Big effects linger 2 to 4 s while smoke clears and sparkles fade;\r\n   hits are snappy (0.3 to 0.8 s) but still have follow-through.\r\n8. **Reads at 1x** with a clear focal point, no speckle noise inside shapes.\r\n9. **Original.** Generic motifs fine; never a specific game's sprite, character or logo. Don't copy one of\r\n   Hugo's effects wholesale: use his techniques, make the design your own.\r\n10. **Clean.** Fits its canvas, ends empty or loops clean, deterministic, under 2 ms a frame (`tools/check.mjs`).\r\n\r\n## The method\r\n\r\nThe method is Hugo Duprez's ([How to make (good) pixel art effects with\r\nClaude](https://www.spritefusion.com/blog/how-to-make-good-pixel-art-effects-with-claude)): code is clay, trust\r\nyour eyes, feed your references.\r\n\r\n1. **Reference first.** Find the closest of [his effects](https://www.spritefusion.com/pixel-art-vfx), look at it, and\r\n   read its source for the choreography and numbers. His code uses world units, 2 per pixel.\r\n2. **Say it in one line** with the art direction, then draft.\r\n3. **Render and look**: `node tools/render.mjs <id> --zoom 3` (contact sheet in `records/<id>/contact.png`;\r\n   `--all` every frame, `--mp4` motion).\r\n4. **Benchmark**: put his and yours next to each other at the same height on screen. If his has more detail, light\r\n   or life, yours isn't done.\r\n5. **Fix the worst thing, render again.** Three rounds minimum; showpieces take more.\r\n6. **Act it out** if there's a character: `node tools/act.mjs <id>`. Consecutive frames, not samples.\r\n7. **Check**: `node tools/check.mjs <id>` until it passes clean.\r\n"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/docs/CATALOG.md",
+      "role": "process",
+      "content": "# Catalog\r\n\r\n244 effects in 21 categories. Every one is a file in\r\n`src/fx/<category>/<name>.js`; render any of them with `node tools/render.mjs <id> --gif`.\r\n\r\n## moves\r\n\r\nwhole attacks, wind-up to recovery, chained from the effects below.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Arrow shot | `moves/arrow-shot` | one-shot 1.9s | 300×74 | He raises the bow, draws to his cheek, holds his breath and looses: the string snaps forward, the arrow crosses the floor and thuds home. |\r\n| Dash strike | `moves/dash-strike` | one-shot 2.3s | 372×156 | A crouch, then he's across the floor in a blur of after-images and already cutting: a critical hit, a beat, and he hops back to where he started. |\r\n| Earth stomp | `moves/earth-stomp` | one-shot 3.46s | 290×142 | A knee comes up, the boot slams down, the floor heaves under the target and a stone spike rams up through it. |\r\n| Fireball throw | `moves/fireball-throw` | one-shot 6.81s | 356×244 | He gathers fire in his hand, leans back and hurls it: the ball flies, the target takes it in a blast and comes out charred. |\r\n| Ground pound | `moves/ground-pound` | one-shot 3.82s | 304×204 | He coils, leaps out of frame height, hangs, and comes down like a rock: the floor cracks, shock waves race out and throw the target about as they pass. |\r\n| Holy smite | `moves/holy-smite` | one-shot 2.8s | 252×182 | Both hands go up and a glint marks the target; he brings them down and a bolt of light drops like a hammer, leaving the target blanched. |\r\n| Ice lance throw | `moves/ice-lance-throw` | one-shot 4.34s | 310×136 | Frost gathers into a spear in his hand, he throws it like a javelin, and the target ices over in a burst of snowflakes and shivers. |\r\n| Lightning call | `moves/lightning-call` | one-shot 3s | 290×266 | An arm goes up, a sigil lights under the target, and on the downswing a thick bolt comes down on it; the target jolts through the aftershocks. |\r\n| Meteor call | `moves/meteor-call` | one-shot 6.43s | 380×240 | A long chant: a circle draws itself round him, it flares, he points, and a burning rock comes down on the target and flattens the scene. |\r\n| Pistol shots | `moves/pistol-shots` | one-shot 2.6s | 378×76 | Three aimed shots: the gun kicks up each time and settles, tracers cross the floor, and the target staggers under each hit. |\r\n| Rocket launcher | `moves/rocket-launcher` | one-shot 6.56s | 480×244 | He drops to one knee, shoulders the tube and fires: the kick shoves him back along the floor, the rocket crawls out on its jet and the target goes up. |\r\n| Sword combo | `moves/sword-combo` | one-shot 2.98s | 264×150 | Three strokes walking forward: a slash, a crossing double cut, and a two-handed cleave into the floor that throws the target about. |\r\n\r\n## fire\r\n\r\ntorches, breath, pillars, walls of flame.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Brazier | `fire/brazier` | loop 3s | 112×148 | An iron bowl on a tripod heaped with glowing coals and a big roaring fire, sparks and embers streaming up off it, light on the iron and the floor. |\r\n| Campfire | `fire/campfire` | loop 3s | 128×128 | Crossed logs on a bed of coals and a lively fire: tongues that lick and leap, popping sparks, embers drifting up, smoke curling off, a warm pool of light. |\r\n| Candle | `fire/candle` | loop 4s | 56×76 | A wax candle in a brass dish: a calm flame with a blue root that sways and stretches, a halo of light, motes drifting in it, a bead of wax running down a drip. |\r\n| Fire breath | `fire/fire-breath` | loop 1.5s | 160×116 | A roaring cone of fire streaming right from the mouth: white-hot at the lips, billowing out and cooling to red and smoke at its edges, sparks thrown out ahead. |\r\n| Fire ring | `fire/fire-ring` | one-shot 3.9s | 224×128 | A white flash at the feet, then flames race outward along the floor in a ring, flaring as the front passes and burning down behind it over a smouldering scorch. |\r\n| Fire tornado | `fire/fire-tornado` | loop 2s | 120×152 | A spinning funnel of fire: spiral bands turning round it, licks flung off its sides, a ring of flame whirling at its foot, embers orbiting it in and out of view. |\r\n| Fireball | `fire/fireball` | loop 1.2s | 136×56 | A fireball flying right: a churning white-hot head with a corona of flame, a long torn tail of flame puffs cooling into smoke, embers shed behind. |\r\n| Flame pillar | `fire/flame-pillar` | one-shot 5s | 184×256 | The floor cracks and glows, a column of fire erupts white-hot and roars, spewing embers and shedding flame, then collapses into rolling smoke. |\r\n| Flamethrower | `fire/flamethrower` | loop 1.6s | 184×104 | A pressurised jet shooting right: a blue pilot at the nozzle, a tight stream with surges racing down it, a sputter, burning drops falling off, a tip that curls up into smoke. |\r\n| Meteor | `fire/meteor` | one-shot 5s | 272×232 | A burning rock streaks in from the upper left in a comet of fire and smashes into the floor: a white flash, a fireball, rocks and brands thrown, a glowing crater that cools. |\r\n| Spirit flame | `fire/spirit-flame` | loop 3s | 80×124 | A cold blue-teal ghost fire floating in the air: a bright rim round a hollow dark heart, a wave climbing its wispy tail, curls breaking off, cold sparks rising. |\r\n| Torch | `fire/torch` | loop 2s | 72×120 | A wall torch on an iron bracket: a licking flame leaping off a pitch-soaked wrap, licks and puffs torn off its tips, smoke, embers, a flickering light on the wall. |\r\n\r\n## explosions\r\n\r\nblasts, smoke, fireworks, mushroom clouds.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Barrel explosion | `explosions/barrel-explosion` | one-shot 5.2s | 300×240 | An explosive barrel shudders, its lid bulging and spitting flame, then blows: a fireball column, staves and the lid flying, burning fuel splashed over the floor. |\r\n| Big explosion | `explosions/big-explosion` | one-shot 7.2s | 360×300 | A huge ground blast in three beats: a white dome, a rolling fireball that climbs into a mushrooming smoke column, heavy rocks, and fires left burning. |\r\n| Cartoon POW | `explosions/cartoon-pow` | one-shot 1.05s | 184×144 | A comic-book hit: a jagged two-tone burst star slams in with a shake and boiling edges, POW! drops in letter by letter, action lines fly, then it all snaps away. |\r\n| Dirt explosion | `explosions/dirt-explosion` | one-shot 3.6s | 260×240 | A buried charge goes off: a flash under the floor, a V of dirt clods and grit thrown high, a brown dust plume that billows and settles, and a crater left behind. |\r\n| Firework burst | `explosions/firework-burst` | one-shot 3.6s | 240×248 | A shell climbs, slows and bursts into a sphere of coloured trailing stars round a gold core; they droop, crackle into white pops and fade, leaving glitter. |\r\n| Firework rocket | `explosions/firework-rocket` | one-shot 3.8s | 300×300 | A rocket fizzes off the ground on a sparkling gold trail, coasts, and bursts into a palm: heavy gold fronds arc out, droop on glittering trails and crackle at the tips. |\r\n| Grenade | `explosions/grenade` | one-shot 4.2s | 300×200 | A grenade is lobbed in, bounces, rolls to a stop with its fuse fizzing, shudders, then blows: a white flash, shrapnel streaks, sparks, a small fireball and a scorch. |\r\n| Implosion | `explosions/implosion` | one-shot 1.65s | 208×184 | Everything is sucked in: streaks and grit rush inward, rings contract and a dark sphere collapses onto a crushed white point; a beat of stillness, then a sharp pop. |\r\n| Nuke | `explosions/nuke` | one-shot 9s | 400×320 | A blinding white frame, then a fireball lifts on a thin stem into a wide rolling cap that glows from inside; a white skirt flashes and a dust surge sweeps the floor. |\r\n| Plasma explosion | `explosions/plasma-explosion` | one-shot 1.7s | 224×200 | A blue-violet energy blast with no smoke: a white flash, a ball of plasma swelling into a thinning shell, shock rings in and out of depth, lightning arcs crackling off it. |\r\n| Explosion | `explosions/small-explosion` | one-shot 5.4s | 300×240 | A ground blast: a white flash and shock rings, fire that cools into a rolling smoke column, sparks, burning brands that land and keep burning, tumbling rocks and a glowing scorch. |\r\n| Smoke bomb | `explosions/smoke-bomb` | one-shot 5s | 260×176 | A round canister clinks down, fuse sparking, and pops: thick grey-violet smoke gushes out, rolls along the floor, billows into a cloud that hides all, then thins to wisps. |\r\n\r\n## water\r\n\r\nsplashes, falls, fountains, waves.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Bubbles | `water/bubbles` | loop 4s | 104×112 | Bubbles stream up from a vent of pebbles, wobbling and swelling as they rise, flare as they cross shafts of light from the surface, then dome up and pop there. |\r\n| Drip | `water/drip` | loop 1.6s | 72×88 | A bead swells under a wet stone tip and catches the light, pinches off, falls stretched by its speed and plinks into a puddle with a crown, a ring and a tiny rebound. |\r\n| Fountain | `water/fountain` | loop 2s | 120×104 | A stone basin; a jet rises from its spout and blooms into glassy arcs that break into beads, fall back and plink into the water with rings. |\r\n| Geyser | `water/geyser` | one-shot 5s | 184×168 | A pool heaves and burbles faster and faster, then blasts a white column of water skyward with a churning foam head; it rains back down in drops and steam, slumps and sputters out. |\r\n| Rain splash | `water/rain-splash` | loop 2.4s | 176×80 | A low close-up on one puddle in the rain: big drops land in crowns that throw beads and a rebound jet, rings spread and interfere, a lamp's reflection wobbles on the water. |\r\n| Ripples | `water/ripples` | loop 2s | 136×52 | A drop plinks on still dark water and rings spread out across it at a low angle: the swell of each ring catches the light, crests glint, and they fade into the calm. |\r\n| Splash | `water/splash` | one-shot 2.5s | 176×100 | A stone drops into still water: a white hit, a crown that tears into droplets arcing out to plink down with rings, a jet that bounces back, foam and drifting mist. |\r\n| Water jet | `water/water-jet` | loop 1s | 188×80 | A pressurised stream blasts right: a tight glassy rod with surges running down it that swells, roughens, bends under its weight and breaks into chunks, spray and mist. |\r\n| Water orb | `water/water-orb` | loop 3s | 100×108 | A sphere of water floats and wobbles: a current circles inside it, the floor shows upside down through it, it shines, light gathers on the floor under it, and drips fall and plink. |\r\n| Waterfall | `water/waterfall` | loop 2s | 144×136 | A river pours from a notch in a rock outcrop: a white curl, a deep sheet that splits into strands, churning foam, spray, drifting mist and rings on a dark pool. |\r\n| Wave crash | `water/wave-crash` | one-shot 3.2s | 224×104 | A swell rolls in and steepens, its lip throws forward and curls over a dark barrel, then crashes into a burst of white foam and spray that surges on and fades to lace. |\r\n| Whirlpool | `water/whirlpool` | loop 3s | 128×84 | Seen from above, dark water winds into a vortex: foam arms spiral in, darkening as they're drawn down into a deep eye with a lit far rim, flecks of foam circling in after them. |\r\n\r\n## ice\r\n\r\nspikes, novas, freezing, shattering.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Blizzard vortex | `ice/blizzard-vortex` | loop 2s | 128×116 | A swirling snow tornado: wind bands spin up a leaning funnel, flakes and ice crystals orbit in front and behind, snow boils at its foot and cold light fills its throat. |\r\n| Freeze | `ice/freeze` | one-shot 4s | 176×128 | Frost races in and climbs the character, turning it to ice; a faceted block crystallizes round it pane by pane, glints, cracks and bursts, and the character thaws free. |\r\n| Frost breath | `ice/frost-breath` | loop 1.2s | 184×104 | A cone of icy wind blowing right: frost puffs billow out, swell and sink, wind streaks race through, ice crystals tumble and glint off a white-hot mouth. |\r\n| Frost nova | `ice/frost-nova` | one-shot 3.4s | 288×192 | Frost spirals into a spinning snowflake, then a wave blooms three rings of ice crystals round the caster; snow drifts, frost creeps, and the ice melts back into the floor. |\r\n| Ice crystal | `ice/ice-crystal` | loop 3s | 96×100 | A floating ice crystal turning slowly in its own cold light: its facets brighten and darken as they turn, glints flash on them, frost motes circle it. |\r\n| Ice lance | `ice/ice-lance` | loop 0.8s | 176×64 | A faceted ice spear flying right: a light pulse runs through its core, rings of cold air shear off the tip, frost peels off into a wake and crystals shed behind it. |\r\n| Ice shatter | `ice/ice-shatter` | one-shot 2.8s | 224×112 | A block of ice takes a hit from the left: it jolts, cracks race over its faces, it flashes white and bursts into chunks that tumble, bounce and skid off in a roll of ice dust. |\r\n| Ice spikes | `ice/ice-spikes` | one-shot 3s | 264×112 | A frost line races along the floor and clusters of jagged ice blades burst up behind it in a rising wave, glint, flash white together and shatter into toppling shards. |\r\n| Icicle fall | `ice/icicle-fall` | one-shot 2.6s | 152×120 | An icicle drips and trembles, snaps off its frosted root, drops, stabs the floor and bursts into skidding shards, splinters and rolling frost. |\r\n| Snowflake burst | `ice/snowflake-burst` | one-shot 3.2s | 140×120 | A cold pop: frost gathers and flashes white in a ring, then crisp six-armed snowflakes spin out, slow, twinkle and drift down to settle and melt. |\r\n\r\n## lightning\r\n\r\nstrikes, arcs, coils, storms.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Ball lightning | `lightning/ball-lightning` | loop 4s | 136×104 | A crackling ball of plasma drifts on a wandering loop, spitting arcs off its skin and leaving a wake of fading motes, and zaps the floor when it dips low. |\r\n| Chain lightning | `lightning/chain-lightning` | one-shot 1.8s | 248×104 | A bolt leaps from the caster's hand through three targets in turn; each flashes, sparks and grounds itself to the floor while the arcs between them flicker, then the chain snaps. |\r\n| Charge up | `lightning/charge-up` | one-shot 2.7s | 272×184 | Sparks streak and arcs whip in to a crackling core at the caster's hand that swells and pulses faster, then it flashes and bursts: bolts every way, a ring, a spray of sparks. |\r\n| Electrified | `lightning/electrified` | loop 2s | 108×92 | Current runs through a character: arcs crawl over and leap across the body, sparks spit off, the body flares to an electric silhouette on each jolt, and the feet ground out. |\r\n| Lightning strike | `lightning/lightning-strike` | one-shot 3s | 240×264 | A targeted strike: a sigil charges on the floor, the scene darkens, a thick bolt slams into it, arcs race out along the cracks it splits, the channel crumbles to a scorch. |\r\n| Plasma ball | `lightning/plasma-ball` | loop 3s | 112×104 | A glass globe on a dark pedestal: wandering plasma tendrils reach from the core to the glass and fan out in bright feet where they touch it, lighting the stand and floor. |\r\n| Spark arc | `lightning/spark-arc` | loop 2s | 124×120 | A climbing arc between two rods: it strikes white at their narrow foot, climbs on rising heat as it stretches and bows, sputters and snaps at the top, then strikes again. |\r\n| Storm cloud | `lightning/storm-cloud` | loop 3s | 168×176 | A storm cloud boils overhead, billows lit from inside by flickering discharges, ragged scud under its flat dark base; rain slants down and once a loop a bolt cracks to the floor. |\r\n| Tesla coil | `lightning/tesla-coil` | loop 2.4s | 224×136 | A copper coil under a steel torus throws branching arcs that lash out in volleys and now and then strike the floor in a spray of sparks, lighting the metal and the ground. |\r\n| Thunderclap | `lightning/thunderclap` | one-shot 1.9s | 288×156 | A thunderclap round the caster: a white flash, forked bolts burst out and stab the floor, a heavy shock ring tears across the ground raising dust and grit, sparks streak away. |\r\n| Zap hit | `lightning/zap-hit` | one-shot 0.9s | 144×112 | A contact zap: an arc snaps in from the left, the hit point overloads into a knot of tiny crackling zigzags, a fern of burn marks glows outward, sparks jink away, ozone puffs. |\r\n\r\n## sci-fi\r\n\r\nholograms, shields, scanners, warps.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| EMP blast | `scifi/emp-blast` | one-shot 3.2s | 152×116 | A disc charge ticks, pops white, and a bubble of rolling scanlines swells out with arcs crawling its skin; it strobes, tears and shorts out into falling dead pixels. |\r\n| Energy core | `scifi/energy-core` | loop 2.4s | 112×100 | A plasma core beating in a steel cage: it swells and throws a shock ring on each beat, two tilted rings orbit it, and arcs jump to the bars and spark. |\r\n| Force field | `scifi/force-field` | loop 2.4s | 184×104 | A glassy dome of hex plates over the hero: plates glint, tracers from the right slam into it, a ripple and cracks of light race across, sparks glance off. |\r\n| Glitch | `scifi/glitch` | loop 2.4s | 88×64 | The hero's signal breaks up in bursts: an RGB split, slices torn sideways, rows smeared out, junk blocks and dead pixels, then snaps back clean. |\r\n| Hologram | `scifi/hologram` | loop 4s | 112×104 | A floor projector throws a cone of light holding a turning wireframe model: scanlines roll through it, a data ring circles it, and it flickers, tears and jitters. |\r\n| Jetpack | `scifi/jetpack` | loop 2s | 96×116 | Twin thrusters fire straight down: white-hot cores with shock diamonds inside ragged flames, puffs that cool into smoke billowing below, lit by the fire. |\r\n| Laser grid | `scifi/laser-grid` | loop 3s | 128×84 | Security lasers between two steel posts: red beams slide and scissor across, dust and haze light up only where they cut through, and the floor sweepers scorch and spark. |\r\n| Scanner | `scifi/scanner` | loop 3.2s | 112×78 | Brackets snap onto the hero, a scan line sweeps head to toe leaving a cooling outline, and a readout counts up to OK before it all lets go. |\r\n| Teleporter pad | `scifi/teleporter-pad` | loop 2.4s | 96×104 | A steel pad glows on the floor, its rings rippling outward; a soft column of light rises off it and rings of light lift away, sparkles drifting up through them. |\r\n| Tractor beam | `scifi/tractor-beam` | loop 3s | 120×132 | A hovering pod projects a cone of light to the floor; rocks tear loose in puffs of dust and spiral up spinning into the lens while rings of light climb the beam. |\r\n| Warp in | `scifi/warp-in` | one-shot 3s | 192×168 | A beam slams down, rings run down it and a scanline paints the hero in from head to toe, white-hot pixels cooling to their own colors; the beam pinches shut in sparks. |\r\n| Warp out | `scifi/warp-out` | one-shot 2.6s | 128×168 | The hero's outline flickers on, they flash white and break into light from the head down, streaming up a beam that lifts off the floor and pinches shut. |\r\n\r\n## melee\r\n\r\nslashes, smears, cleaves, combos.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Claw swipe | `melee/claw-swipe` | one-shot 0.9s | 128×96 | Three claw marks rake down one after another, white-hot, cooling through orange to red, then close up from both ends and leave a dotted scar, with hot flecks and drips. |\r\n| Dagger flurry | `melee/dagger-flurry` | one-shot 0.95s | 148×104 | A flurry of small quick crescents at every angle in front of the fighter, each with a flick of sparks, finished by one big cut that glints and bursts. |\r\n| Double slash | `melee/double-slash` | one-shot 0.8s | 164×108 | A down cut, then an up cut that crosses it: the moment the X closes both strokes flash white, the crossing bursts with light and sparks, and a dotted X lingers. |\r\n| Hammer smash | `melee/hammer-smash` | one-shot 2s | 208×112 | A hammer drops in front in a wedge of motion: a white slam with rays, a dome of force, a dent with cracks, rocks thrown up that bounce and settle, and dust. |\r\n| Heavy cleave | `melee/heavy-cleave` | one-shot 1.9s | 208×116 | A glint over the head, then a thick ember arc accelerates over the top into the floor: a white slam, glowing cracks, dust rolling both ways, grit and rising embers. |\r\n| Scythe reap | `melee/scythe-reap` | one-shot 2.1s | 184×116 | A slow, huge dark crescent reaps round the front with a pale ghostly edge; it hangs, then tears away from the tail into curling wisps and cold vapour. |\r\n| Spear sweep | `melee/spear-sweep` | one-shot 1.5s | 216×84 | A wide low sweep at shin height: a long flat crescent swings from behind the legs round the front, and the wind of it kicks a wake of dust and grit along the floor. |\r\n| Spin slash | `melee/spin-slash` | one-shot 0.8s | 208×104 | The blade whirls once round the waist on a tilted plane, behind the body and back in front; the closed ring flares white, dissolves into a dotted trace and throws sparks. |\r\n| Sword slash | `melee/sword-slash` | one-shot 0.75s | 136×104 | A tilted crescent whips round in two frames, cools from white to deep blue as it trails off, glints at the tip and throws sparks. |\r\n| Thrust | `melee/thrust` | one-shot 0.75s | 196×76 | A piercing stab: a bundle of streaks shoots out from the hand to a point, a long four-point star flares at the tip with a pierce ring, sparks and speed lines. |\r\n| Uppercut | `melee/uppercut` | one-shot 0.85s | 132×128 | A crescent rises from the floor past the face, and at the top a comic impact star bursts: bold outline, hot core, burst lines, twinkles and sparks. |\r\n| Whip crack | `melee/whip-crack` | one-shot 0.85s | 192×80 | A whip rolls out to the right as a loop running down its length, faster and faster, until the tip flips over and cracks: a white pop, a ring of air, sparks and a puff of smoke. |\r\n\r\n## impacts\r\n\r\nhit sparks, shockwaves, landings.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Blunt hit | `impacts/blunt-hit` | one-shot 0.9s | 128×88 | A heavy, soft thud: a white-hot lumpy blob cools to cream in a warm pool of light, inked wedges jab out and snap back, a squashed ring of dust puffs swells and drifts, clods drop. |\r\n| Bullet impact | `impacts/bullet-impact` | one-shot 1.4s | 152×100 | A bullet hits a wall on the right: a hot half-star, sparks sprayed back in a cone, a puff of grit, chips that fall and bounce, a pock mark cooling to soot. |\r\n| Critical hit | `impacts/crit-hit` | one-shot 0.9s | 216×136 | A critical hit: a jagged starburst slams in white and overshoots, a ring breaks into flying arcs, sparks streak off, shards tumble to the floor under a big flare. |\r\n| Ground slam | `impacts/ground-slam` | one-shot 3.2s | 288×208 | Something lands hard: the floor flashes and cracks, two crescent shock waves race out along it, a dust wave and a tall dust cloud rise, rocks erupt, bounce and settle. |\r\n| Heavy landing | `impacts/heavy-landing` | one-shot 1.6s | 176×80 | A character lands hard: the floor dents and cracks under their feet, two rings of dust roll out along the floor one after the other, and pebbles hop away. |\r\n| Hit flash | `impacts/hit-flash` | one-shot 0.5s | 80×64 | The character takes damage: a white frame, then their own colors flushed red and blinking white, cooling off, while comic hit lines jab in at them. |\r\n| Hit spark | `impacts/hit-spark` | one-shot 0.5s | 136×80 | The everyday hit: a sharp, lopsided cross flare with one long ray along the blow round a white diamond core, then a cone of sparks and hot chips that fall and bounce. |\r\n| Impact frame | `impacts/impact-frame` | one-shot 0.3s | 320×180 | An anime impact: two frames of white with black burst lines rushing at the hit, two frames inverted, then the lines pull out past the edges and vanish. |\r\n| Parry | `impacts/parry` | one-shot 1s | 200×112 | Two blades clash: their edges flash in an X, a white four-point star rings out, a ring breaks into arcs and a fan of gold sparks sprays up and rains down. |\r\n| Ricochet | `impacts/ricochet` | one-shot 1.1s | 232×84 | A tracer streaks down onto the floor, glances off with a white-hot star and skips away at an angle, leaving a glowing skid while sparks skitter along the ground. |\r\n| Shield block | `impacts/shield-block` | one-shot 1.1s | 148×104 | A blow is caught on a half-dome of energy in front of the character: its diamond lattice flashes, a ripple runs over it, sparks glance off, then it blinks out cell by cell. |\r\n\r\n## projectiles\r\n\r\nbullets, rockets, lasers, arrows.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Arrow | `projectiles/arrow` | loop 0.6s | 112×32 | An arrow in flight: a steel broadhead catching the light, a wooden shaft, fletching fluttering in the wind, streaks of air peeling off its head and swirling off its feathers. |\r\n| Bullet tracer | `projectiles/bullet-tracer` | loop 0.6s | 200×40 | A white-hot slug tearing along, its tracer burning behind it in a long streak that sputters and cools from white through gold to red, shedding sparks and a thread of smoke. |\r\n| Cannon shot | `projectiles/cannonball` | one-shot 3.8s | 208×116 | A cannon fires from a muzzle `height` px above the floor (the origin): a white flash, a tongue of flame, the ball arcing off trailing smoke, a big gunsmoke cloud rolling out. |\r\n| Energy disc | `projectiles/energy-disc` | loop 0.5s | 120×52 | A sawblade of crackling energy spinning flat out as it flies: hooked teeth bright on their leading edges, a white hub, spiral arms churning, sparks flung off the teeth. |\r\n| Signal flare | `projectiles/flare` | one-shot 5s | 152×232 | A signal flare streaks up off the ground trailing sparks and smoke, bursts, and hangs as a pulsing red star that drips sparks under its own red-lit smoke, then gutters out. |\r\n| Homing missile | `projectiles/homing-missile` | one-shot 3.8s | 248×140 | A missile kicks off, arcs up, rolls over and dives onto its target (the origin), its smoke trail left hanging in the air, and hits in a fiery blast of flame, sparks and rocks. |\r\n| Laser bolt | `projectiles/laser-bolt` | loop 0.5s | 128×32 | A red laser bolt: a white-hot core in a rounded head, red bands tapering back, pulses racing down it, a tail that shimmers apart into wavering dashes. |\r\n| Magic missile | `projectiles/magic-missile` | one-shot 1.9s | 208×112 | Motes gather into an arcane orb at a hand `height` px above the floor (the origin); it weaves to its target trailing a twisting ribbon and bursts into a star of light. |\r\n| Pistol shot | `projectiles/muzzle-pistol` | one-shot 1.8s | 96×72 | One pistol shot from a muzzle `height` px above the floor (the origin): a spiky white-cored flash, sparks, a curl of smoke hooking up and back, a casing that bounces and settles. |\r\n| Shotgun blast | `projectiles/muzzle-shotgun` | one-shot 3.2s | 160×88 | A shotgun blast from a muzzle `height` px above the floor (the origin): a wide ragged fan of flame, pellet streaks, a heavy rolling smoke cloud, a red shell kicked out on the pump. |\r\n| SMG burst | `projectiles/muzzle-smg` | loop 1s | 112×72 | Sustained fire at twelve rounds a second: each shot a different spiky flash with a white core, sparks, smoke wisps piling up and drifting, brass casings bouncing on the floor. |\r\n| Plasma shot | `projectiles/plasma-shot` | loop 0.8s | 144×60 | A glowing plasma blob: hot knots churning in its core, a corona crackling over its skin, its tail necking into droplets that tear off, cool and wink out behind. |\r\n| Rocket | `projectiles/rocket` | loop 1.2s | 288×76 | A steel rocket roars along: a flickering jet with shock diamonds and a white-hot nozzle, a thick billowing smoke trail lit by the flame, sparks shed behind. |\r\n\r\n## spawn & death\r\n\r\npoofs, portals, souls, shatters.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Coin drop | `spawn/coin-drop` | one-shot 3s | 160×88 | An enemy goes up in a soft poof and gold coins spin out of it, bounce with a glint on each hit, settle on the floor, twinkle, and wink out one by one. |\r\n| Disintegrate | `spawn/disintegrate` | one-shot 3.4s | 176×100 | The character crackles with light, flashes white, then peels away from the head down: each pixel flares white-hot and streams off on the wind as a cooling mote of light. |\r\n| Dissolve burn | `spawn/dissolve-burn` | one-shot 3.6s | 96×112 | An ember seam lights at the feet and climbs the body: above it the body scorches and smoulders, at it flames lick up, below it there's only falling ash, embers and smoke. |\r\n| Egg hatch | `spawn/egg-hatch` | one-shot 3.1s | 120×96 | A speckled egg rocks three times, each rock cracking it further with warm light leaking out, then pops: light pours out of the opening and lit shell halves tumble away. |\r\n| Poof | `spawn/poof` | one-shot 1.6s | 112×92 | A cartoon death poof: a white pop, a ring of soft round smoke balls bursting out between speed lines, little stars spinning off, and the cloud lifting and thinning away. |\r\n| Respawn beam | `spawn/respawn-beam` | one-shot 2.5s | 128×150 | A guide line drops, a pillar of light slams onto the spot, and a scan bar climbs from the feet writing the character back in row by row, white-hot lines cooling to its colors. |\r\n| Shatter death | `spawn/shatter-death` | one-shot 3.3s | 172×96 | Frost races up the body and seals it in faceted ice, a glint sweeps it, cracks spread from the chest, then it bursts into its own facets that tumble, bounce and melt. |\r\n| Soul rise | `spawn/soul-rise` | one-shot 3.2s | 96×140 | The body's outline flares and dims, then a pale glowing copy of it lifts out, stretching as its legs melt into a rippling wisp, shedding motes until it thins into light. |\r\n| Spawn portal | `spawn/spawn-portal` | one-shot 3.8s | 208×150 | A rift tears open on the floor and swirls, belches violet smoke and sparks, spits a fountain of wisps up out of itself, then twists shut with a pop. |\r\n| Summon rise | `spawn/summon-rise` | one-shot 4.6s | 176×116 | A rune circle burns into the floor, the ground bursts, and a horned brute heaves up out of it through dust and rubble, lit from below, until its eyes flare. |\r\n\r\n## arcane\r\n\r\nportals, runes, missiles, beams.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Arcane beam | `arcane/arcane-beam` | loop 1.2s | 264×100 | A beam fires right from the hand: a white core, strands twisting round it, pulses running down it, a flaring source and an end that sprays sparks. |\r\n| Arcane missiles | `arcane/arcane-missiles` | one-shot 1.75s | 240×116 | A volley of violet bolts fans out of the hand, curls round on twisting ribbons and pops on the target one after another. |\r\n| Arcane orb | `arcane/arcane-orb` | loop 2.4s | 136×112 | A floating orb of smoky violet glass with a swirl turning round a white-hot heart, two tilted rings of light orbiting behind and in front. |\r\n| Blink in | `arcane/blink-in` | one-shot 1.4s | 136×96 | Glittering bits spiral in to a point of light that opens into a line, then into a white silhouette that cools into the caster. |\r\n| Blink out | `arcane/blink-out` | one-shot 1.6s | 136×96 | The caster crackles with gathering light, flashes white, squeezes into a line of light that collapses and pops away in sparks. |\r\n| Magic circle cast | `arcane/magic-circle-cast` | one-shot 3.9s | 200×220 | A circle draws itself on the floor, runes ignite one by one, it flashes, and a column of light fires up and breaks apart into glints. |\r\n| Mana burst | `arcane/mana-burst` | one-shot 1.8s | 208×150 | Energy rushes into a point and blows out in a white flash and rings, flinging glowing runes that flare and pop into sparks one after another. |\r\n| Portal | `arcane/portal` | loop 2.4s | 152×116 | An upright rift: fibrous spiral arms wind down into the dark, a lit rim wobbles, motes and streaks are pulled in, the floor glows. |\r\n| Rune circle | `arcane/rune-circle` | loop 4s | 136×100 | A rune circle turns on the floor in perspective: a carousel of runes lit by chasing light, a turning square, ticks, motes rising off it. |\r\n| Spell charge | `arcane/spell-charge` | loop 1.6s | 120×86 | Energy gathers in the caster's hand: streaks and motes spiral in, rings collapse into a swelling orb that crackles with arcs, ready to fire. |\r\n| Star fall | `arcane/star-fall` | one-shot 2.5s | 232×172 | Stars streak down on long trails across an area, each landing with a white flash, a ring across the floor and a kick of sparks. |\r\n| Time stop | `arcane/time-stop` | one-shot 3.6s | 196×136 | A clock face springs open, ticks slower and slower, freezes drained of colour, cracks, then shatters into falling shards. |\r\n\r\n## holy\r\n\r\nheals, halos, pillars of light.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Blessing | `holy/blessing` | loop 3s | 80×128 | A soft cone of light rests on the character from above; sparkles drift down through it, twinkling, and wink out where they land on the head and shoulders. |\r\n| Divine shield | `holy/divine-shield` | loop 2.4s | 88×84 | A bubble of gold light round the character: a bright rim and a thin gold film, meridians turning like a slow globe, a sheen sweeping across and sparkles winking on it. |\r\n| Feather burst | `holy/feather-burst` | one-shot 3s | 160×160 | A white puff pops and throws feathers that brake hard, then rock from side to side as they sink and fade, with down drifting after them. |\r\n| Halo | `holy/halo` | loop 2s | 56×80 | A ring of gold light floats over the head with a glint running round it; fine dust sifts down from it and the head catches its light. |\r\n| Heal | `holy/heal` | one-shot 1.9s | 80×104 | Petals of light bloom under the feet, a hoop of light rises up the body restoring its colour and leaving sparkles, and motes spiral up and pop into tiny hearts. |\r\n| Healing ring | `holy/heal-aoe` | one-shot 2.9s | 256×136 | A seed of green light sinks into the floor and a soft ring rolls out from it; the floor glows where it passes and plus signs sprout and float up. |\r\n| Holy pillar | `holy/holy-pillar` | one-shot 3.5s | 192×232 | Light breaks through from above: a sun opens at the top and a fan of shafts converges on the mark, pulsing, while a sigil burns on the floor; then the fan folds shut. |\r\n| Resurrection | `holy/resurrection` | one-shot 4.8s | 192×160 | Light pours down on the fallen and life climbs back up the body; wings of light unfold, a halo forms, one great wingbeat, then the wings scatter into feathers. |\r\n| Smite | `holy/smite` | one-shot 2.8s | 224×176 | A glint marks the spot, then a bolt of light drops like a hammer: a white flash, a shockwave over the floor, stone chips flying and cracks that glow and cool. |\r\n| Sunburst | `holy/sunburst` | loop 4s | 128×128 | A white-hot core in a gold corona; long and short rays turn slowly round it, breathing, with glints running out along them that wink at the tips. |\r\n\r\n## shadow\r\n\r\ncurses, voids, tendrils, souls.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Black hole | `shadow/black-hole` | loop 4s | 184×132 | A tilted disk of banded rings turns round a black hole, its far side bent up over the top and under the bottom; debris spirals in, stretches and is swallowed. |\r\n| Curse | `shadow/curse` | one-shot 3.4s | 112×124 | Wisps gather over the head, a skull stamps down with a flash, its eyes burn as the curse floods the body violet, then it cracks and crumbles. |\r\n| Dark explosion | `shadow/dark-explosion` | one-shot 3.8s | 280×248 | Motes swirl into a pulsing core, a black star cuts across a violet-white flash, and a black sphere burns at the rim, throws lit shards and smoke, then collapses. |\r\n| Eclipse | `shadow/eclipse` | loop 4s | 160×144 | A black moon over the sun: a breathing pearl corona with long streamers, a thin white rim, and one diamond bead blazing on its edge. |\r\n| Grasping hands | `shadow/grasping-hands` | one-shot 3.1s | 200×116 | Shadow arms burst up out of a dark pool with a splash, clench their hands into claws, strain, and are dragged back under, fingers clawing at the air. |\r\n| Hex sigil | `shadow/hex-sigil` | one-shot 4.2s | 168×128 | A burning pen traces a cursed sigil in the air, its glyphs pop in one by one, then it flares white and crumbles into falling embers. |\r\n| Life steal | `shadow/life-steal` | one-shot 2.2s | 184×100 | A target on the right is struck and bleeds red orbs; they hang a moment, then whip home as comet streaks and flood the caster crimson. |\r\n| Necro skulls | `shadow/necro-skulls` | loop 3s | 136×116 | Spectral skulls circle a cold green flame on a tilted orbit, passing behind and before it, eyes lit, trailing curls of ghost smoke. |\r\n| Shadow flames | `shadow/shadow-flames` | loop 2.4s | 104×112 | Inside-out fire on the floor: a black heart wrapped in violet flame with pale skin and tips, shedding embers and dark smoke. |\r\n| Shadow tendrils | `shadow/shadow-tendrils` | one-shot 3.2s | 208×130 | A dark pool opens on the floor; tentacles with lit rims and hooked tips lash up out of it with a splash, writhe, and sink back as it closes. |\r\n| Soul drain | `shadow/soul-drain` | loop 3.2s | 208×120 | Pale souls are torn loose on the right and dragged down a funnel of streaks into a black crystal vessel, which flares violet as each one lands. |\r\n| Void orb | `shadow/void-orb` | loop 3.2s | 168×160 | A black orb hangs in the air, a pale rim crawling round it; a dark vortex winds into it, motes and streaks are pulled in, and light bends round its edge. |\r\n\r\n## status\r\n\r\nburning, frozen, poisoned, asleep.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Bleeding | `status/bleeding` | loop 2.4s | 60×56 | Bleeding out: beads swell at three wounds, run, let go and fall to spatter into a glossy pool that ripples; each heartbeat spurts a little and flashes the body red. |\r\n| Burning | `status/burning` | loop 1.2s | 72×80 | Burning over time: small flames lick from four hot spots, trailing sparks and thin smoke; every 0.6 s they flare, the body flashes white then orange, scorch marks spread. |\r\n| Charmed | `status/charmed` | loop 2.4s | 60×76 | Smitten: a big heart beats over the head, throwing a ring and a flush of light with every beat, little hearts float up, the eyes go pink and the cheeks blush. |\r\n| Confused | `status/confused` | loop 2.4s | 60×78 | Head in a spin: a glowing spiral whirls over the head, question marks pop up round it and bob, the eyes dart left and right. |\r\n| Cursed | `status/cursed` | loop 2.4s | 64×84 | Hexed: violet smoke rises off the body in winding trails, a dark stain creeps up from the feet with a glowing edge, the eyes burn, a skull glitches in overhead. |\r\n| Frozen | `status/frozen` | loop 2s | 72×64 | Chilled to the bone: frost ferns creep over the body, icicles hang from chin and hands and drip, breath steams, snow settles, a shiver every second, frost spreads underfoot. |\r\n| Haste | `status/haste` | loop 1.2s | 100×56 | Sped up: striped after-images stream out behind, speed lines whip past, dust kicks off the heels and the leading edge catches the wind. Faces right. |\r\n| Petrified | `status/petrified` | one-shot 3.8s | 120×74 | Turned to stone: grey creeps up from the feet behind a crackling edge that spits grit, the statue holds, cracks run through it, and it bursts into tumbling chunks and dust. |\r\n| Poisoned | `status/poisoned` | loop 1.6s | 72×64 | Sick to the bone: green rolls up the body in waves, dark veins creep from a wound, toxic sweat drips and hisses; every 0.8 s it wobbles, blisters pop and a ring pulses out. |\r\n| Rage | `status/rage` | loop 1.2s | 80×80 | Seething: the body judders on every heartbeat, an anger mark throbs at the temple, eyes burn, steam jets off the head, stress lines flash out and the floor cracks hot underfoot. |\r\n| Sleep | `status/sleep` | loop 2.4s | 60×82 | Fast asleep: eyes shut, soft outlined Zs float up off the head one after another, swaying and growing as they rise, dream motes drift, a slow breathing glow. |\r\n| Slowed | `status/slowed` | loop 2.4s | 64×76 | Dragged through time: a glassy clock dial behind the head ticks round in heavy steps, flashing with each, while drops sink in slow motion and spread slow rings. |\r\n| Stunned | `status/stunned` | loop 2s | 60×64 | Seeing stars: three spinning stars and two little birds circle the head on a tilted ring, ducking behind it and sweeping round in front, trailing glitter. |\r\n\r\n## nature\r\n\r\npoison, vines, thorns, quakes.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Acid splash | `nature/acid-splash` | one-shot 2.8s | 184×116 | A gob of acid bursts into a crown and spatters; it eats a glowing, smoking pit into the floor and boils down into it, spitting bright beads, pale steam curling off. |\r\n| Boulder | `nature/boulder` | one-shot 2.3s | 264×120 | A spinning boulder arcs right shedding dust and pebbles, smashes into the floor in a white flash and bursts into tumbling chunks, gravel and rolling dust. |\r\n| Earth spike | `nature/earth-spike` | one-shot 3.4s | 272×150 | The floor cracks with light and heaves, a faceted stone spike rams up with two side shards in a burst of chips, grit and dust; rubble rains, then it splits and crumbles. |\r\n| Healing bloom | `nature/healing-bloom` | one-shot 3.3s | 124×120 | A sprout pushes up and unfurls, a bud swells and opens round a glowing golden heart in a flare of healing light; its petals lift away one by one as motes. |\r\n| Leaf storm | `nature/leaf-storm` | loop 2.4s | 112×104 | Leaves tumble up a rising spiral round the character, passing behind and in front, turning and flipping, wrapped in bright bands of wind; litter swirls at their feet. |\r\n| Poison cloud | `nature/poison-cloud` | loop 4s | 256×100 | A miasma hugging the floor: ragged sheets of gas lit yellow-green from within, fading to violet, creep out in tongues that curl over at their tips; plumes twist up as ribbons. |\r\n| Quake | `nature/quake` | one-shot 3.1s | 288×104 | The ground jolts three times: a rift tears out along the floor glowing deep inside, slabs of floor heave up and drop back askew, pebbles hop and dust bursts out of the split. |\r\n| Root snare | `nature/root-snare` | one-shot 2.7s | 128×96 | The floor cracks and roots burst up round the character, spiralling round its legs; they cinch tight with a snap, hold, then crack and crumble into bark and dust. |\r\n| Spore burst | `nature/spore-burst` | one-shot 3.2s | 212×132 | A toadstool pushes up, swells and trembles as its gills glow, then squashes and puffs a lumpy cloud of glowing spores that billows up and drifts down twinkling. |\r\n| Thorns | `nature/thorns` | one-shot 2.4s | 232×92 | A seam races along the floor and hooked thorns punch up out of it one after another, each bigger than the last, in bursts of dirt and green light; they hold, then sink. |\r\n| Tornado | `nature/tornado` | loop 2s | 196×168 | A snaking funnel of spinning wind bands under a flared, churning top that flickers with lightning; leaves and debris whirl round it front and back, dust boils at its foot. |\r\n| Toxic puddle | `nature/toxic-puddle` | loop 4s | 176×100 | Black tar lit from inside by chartreuse veins and a glowing rim, an oily sheen drifting on it; glossy bubbles dome, stretch and pop, vapour curls up in fraying ribbons. |\r\n| Vine whip | `nature/vine-whip` | one-shot 1.4s | 216×128 | A thorny vine bursts from the floor, rears back coiled, then lashes out right in a whip crack that sprays sap and tears off leaves, before sliding back into the ground. |\r\n\r\n## weather\r\n\r\nrain, snow, fog, aurora.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Aurora | `weather/aurora` | loop 12s | 320×180 | Rippling curtains of green-to-violet light over a starfield: folding hems burn bright, rays shimmer up into violet, and the whole sky slowly breathes. |\r\n| Blizzard | `weather/blizzard` | loop 8s | 320×180 | Snow driven almost flat by a gale: streaks at three depths race past, gusts throw translucent sheets of snow across the sky and spindrift streams off the drifts. |\r\n| Cherry blossoms | `weather/cherry-blossoms` | loop 10s | 320×180 | Pink petals flutter down on a spring breeze, tumbling in little spirals and flashing as they catch the light, with a few whole blossoms spinning among them. |\r\n| Clouds | `weather/clouds` | loop 12s | 320×180 | Layers of clouds drift past a bright moon at night: silver-lit tops, dark bellies, edges that flare where they cross the moon, forming and thinning as they go. |\r\n| Falling leaves | `weather/falling-leaves` | loop 10s | 320×180 | Autumn leaves swing down through the air, tilting and flipping to show their pale backs, ride a gust, land flat in the litter and fade. |\r\n| Fireflies | `weather/fireflies` | loop 12s | 320×180 | Fireflies wander over a meadow at night, each glowing up and fading on its own rhythm, trailing light and lighting the grass tips beneath them. |\r\n| Fog | `weather/fog` | loop 12s | 320×180 | Slow banks of moonlit fog at three depths drift past each other, crests catching the light, while thin streaks of mist slide by in front. |\r\n| God rays | `weather/god-rays` | loop 10s | 320×180 | Shafts of light slant down from high on the left, breathing and swaying, pooling on the floor, as drifting dust motes light up whenever they cross a beam. |\r\n| Rain | `weather/rain` | loop 8s | 320×180 | Slanted rain at four depths: far drops fade into the dark, near ones glint and splash, drops ring the puddles and a low mist drifts over the wet floor. |\r\n| Shooting stars | `weather/shooting-stars` | loop 10s | 320×180 | Meteors burn across a starry sky, white heads trailing gold and rose; the big ones flare and break up, and each leaves a glowing train that twists and fades. |\r\n| Snow | `weather/snow` | loop 12s | 320×180 | Snow at three depths in a gusty breeze: far specks, drifting flakes, big near crystals that spin and glow; they settle on a sparkling drift and melt away. |\r\n| Storm | `weather/storm` | loop 10s | 320×180 | Driving rain at two depths under a churning cloud deck; a forked bolt strikes in a double flash that lights the sky and the rain, then sheet lightning glows in the clouds. |\r\n\r\n## ui\r\n\r\nlevel ups, numbers, toasts, countdowns.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Achievement | `ui/achievement` | one-shot 2.4s | 220×72 | A toast slides in on speed lines and settles; a gold medal pops onto it in a burst of sparkles, a shine sweeps the whole toast, then it slides away. |\r\n| Coin collect | `ui/coin-collect` | one-shot 2.45s | 176×116 | A coin bursts into a fountain of spinning coins that hang, then zip one by one into a HUD counter that pops and ticks up, glints and folds away. |\r\n| Combo counter | `ui/combo-counter` | one-shot 1.45s | 208×100 | x5 COMBO rockets in on streaming speed lines, smearing, and slams to a stop: a white flash, a ring, sparks; it pulses while a timer bar drains, then whooshes out. |\r\n| Confetti | `ui/confetti` | one-shot 3.4s | 200×140 | Two party poppers bang one after the other: paper bits and curly streamers burst out, stall, then tumble and flutter down, flipping, and settle on the floor. |\r\n| Countdown | `ui/countdown` | one-shot 3.1s | 152×136 | 3, 2, 1 slam into a timer ring that drains like a burning fuse, throwing sparks; then GO! bursts out as the ring blows into a shockwave with rays. |\r\n| Crit number | `ui/crit-number` | one-shot 1.5s | 152×120 | CRIT 128! slams in huge and white over a jagged starburst with a hard shake and speed lines, cools to fire, holds with a shine, then pops into sparks. |\r\n| Damage number | `ui/damage-number` | one-shot 1.05s | 76×68 | A red -27 punches out of a hit spark, white for a frame, arcs up, lands with a squash and a little hop, then fades as it lifts away. |\r\n| Exclamation | `ui/exclamation` | one-shot 1.4s | 84×104 | A bold ! springs up off the hero's head, stretching as it shoots up and squashing as it lands; surprise ticks flick out, it wobbles, then pops away. |\r\n| Health bar hit | `ui/health-bar-hit` | one-shot 2s | 160×64 | A segmented health bar takes a hit: it jolts and dips, the lost chunk flashes white and sheds chips, holds, then drains away behind a sparking edge. |\r\n| Heart lost | `ui/heart-lost` | one-shot 1.5s | 96×88 | A HUD heart is hit: it flashes white and jolts, a crack runs down it, it splits into two halves that tumble away, leaving an empty socket that fades. |\r\n| Level up | `ui/level-up` | one-shot 3.2s | 176×138 | Gold gathers at the feet and bursts up as a pillar of light round the hero; rings climb it, LEVEL UP! drops in letter by letter, a shine sweeps it, sparkles twinkle. |\r\n| Quest complete | `ui/quest-complete` | one-shot 2.6s | 204×92 | A stitched ribbon unrolls from the middle, QUEST COMPLETE types on letter by letter, a gold seal stamps down and ticks, stars pop; then it all rolls away. |\r\n\r\n## pickups\r\n\r\ncoins, gems, chests, potions.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Chest open | `pickups/chest-open` | one-shot 4.6s | 176×112 | A banded chest rattles with gold light leaking from its seam, the lid kicks open, rays fan up, and coins and gems arc out, bounce, glint and get collected. |\r\n| Coin spin | `pickups/coin-spin` | loop 1.6s | 56×56 | A thick gold coin turning on its edge: an embossed star face, a reeded rim showing as it goes edge-on, a flash sweeping the face, bobbing over its shadow. |\r\n| Collect burst | `pickups/collect-burst` | one-shot 1.35s | 112×108 | The moment of pickup: a white flash and a cross of light, a thin ring snapping out ahead of a softer one, twinkles thrown wide on curving paths that brake, hang and wink out. |\r\n| Crystal shard | `pickups/crystal-shard` | loop 3.2s | 64×76 | A broken amber shard hovers and sways: chipped uneven faces, its top sheared off, light pulsing up through glowing cracks and flaring out of the break; splinters orbit it. |\r\n| Gem spin | `pickups/gem-spin` | loop 2.4s | 64×64 | A brilliant-cut ruby turning on its axis: real facets catch the light in turn, flashes roll over the crown, refracted light slides across the floor, sparkles wink round it. |\r\n| Heart pickup | `pickups/heart-pickup` | loop 1.2s | 56×60 | A plump glossy heart hovering over its shadow beats lub-dub: a big squash and stretch, a smaller echo, light and a thin ring pulsing out, tiny hearts drifting off. |\r\n| Key glint | `pickups/key-glint` | loop 2s | 72×60 | An ornate silver key hovering and rocking; a glint runs from its bow down the shaft to the teeth and bursts off the tip as falling sparks. |\r\n| Loot beam | `pickups/loot-beam` | loop 2.4s | 96×176 | A dropped sword in a tall pillar of rarity light: a white core thinning to the sky, rings pulsing across the floor, motes streaming up, a glint racing up the shaft. |\r\n| Potion | `pickups/potion` | loop 2.4s | 56×72 | A round glass flask of glowing brew rocks in the air: the brew sloshes behind the rock, bubbles rise and pop, light glows through the glass, wisps curl off the cork. |\r\n| Power star | `pickups/power-star` | loop 1.6s | 88×84 | A fat bevelled star rocks side to side and swells on each beat, rays of light turning slowly behind it, sparks spinning off its points. |\r\n| XP orb | `pickups/xp-orb` | loop 1.8s | 72×56 | A small glowing orb races a figure-eight, a comet tail tapering behind it along its path, flecks shed from the tail winking out, its light following it over the floor. |\r\n\r\n## transitions\r\n\r\nwipes, irises, dissolves.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Blinds | `transitions/blinds` | one-shot 2s | 320×180 | Slats catch the light edge-on, then tilt shut top to bottom, lit rims glinting as warm light squeezes through the closing gaps with dust in it; then they tilt open and fade. |\r\n| Burn away | `transitions/burn-away` | one-shot 3s | 320×180 | The screen burns in from its edges behind a ragged ember line of licking flames, embers and smoke; then the black smoulders and burns open from the middle. |\r\n| CRT off | `transitions/crt-off` | one-shot 2s | 320×180 | The picture squeezes into a white-hot glowing line, the line into a dot that lingers as a fading afterglow; then it switches back on, dot to line to picture, with a warm-up glow. |\r\n| Diamond wipe | `transitions/diamond-wipe` | one-shot 2s | 320×180 | A wave of faceted diamonds swells across the screen, rims bright and ridges lit, cooling to black as they lock; then they rise as gems again and shrink away with glints. |\r\n| Glitch wipe | `transitions/glitch-wipe` | one-shot 1.8s | 320×180 | Torn bands of black stutter across the screen, freezing and jerking back, their ragged edges split into magenta and cyan ghosts spitting data slivers; then they tear on through. |\r\n| Iris | `transitions/iris` | one-shot 2.2s | 320×180 | A lit iris closes onto a warm spotlight where dust drifts, holds as its rim twinkles, snaps shut into a glint, then pops open from a flash with a white-hot rim throwing sparks. |\r\n| Pixel dissolve | `transitions/pixel-dissolve` | one-shot 2.2s | 320×180 | Clumps of blocks wink in, each drawn in a white outline that fills black and cools, with glints; then they wink out, outlines collapsing, the last small ones sparkling away. |\r\n| Shatter wipe | `transitions/shatter-wipe` | one-shot 2.8s | 320×180 | A dark glass pane drops over the screen and bounces; cracks race out from an impact with a flash, then it bursts into tumbling glass shards with lit edges that fall away. |\r\n| Slash wipe | `transitions/slash-wipe` | one-shot 1.7s | 320×180 | A white-hot blade edge slices across the screen, light ahead of it and sparks spraying back over the cover; a second cut flashes through and the cover splits apart. |\r\n| Star iris | `transitions/star-iris` | one-shot 2.2s | 320×180 | A five-point star iris spins shut on the middle of the screen, its gold rim lit and its tips twinkling and shedding motes; it closes on a glint and spins open again from a flash. |\r\n\r\n## critters\r\n\r\nslimes, bats, ghosts, frogs.\r\n\r\n| effect | id | | size | what it does |\r\n|---|---|---|---|---|\r\n| Bat | `critters/bat` | loop 2.4s | 112×80 | A bat flaps in four snappy wing frames along a figure-eight, its body lifting on each downbeat, moonlight on its wing bones, red eyes glowing and glinting. |\r\n| Bird | `critters/bird` | loop 2.4s | 112×80 | A songbird flies in place: bursts of wingbeats that lift its body on each downstroke, a glide on spread wings, its tail fanning, a loose feather drifting away. |\r\n| Butterfly | `critters/butterfly` | loop 3.2s | 128×88 | An iridescent butterfly wanders a loop in bursts of quick wingbeats and open-winged glides, its veined, spotted wings shedding a twinkling trail of glowing dust. |\r\n| Eyeball | `critters/eyeball` | loop 3.2s | 96×108 | A bloodshot eyeball floats in its fleshy lids: its glowing iris snaps from one look to the next, it blinks, and its nerve sways behind it as it bobs. |\r\n| Fish school | `critters/fish-school` | loop 4.8s | 136×80 | A school of fish holds station in two depth rows: bodies wag into swinging tails, one darts ahead now and then, bubbles rise and caustic light ripples over them. |\r\n| Flying skull | `critters/flying-skull` | loop 2.4s | 96×132 | A cracked bone skull bobs in the air, jaw chattering, eyes burning, a fire roaring off its crown that sheds flame puffs, embers and smoke and throws warm light. |\r\n| Frog | `critters/frog` | loop 2.6s | 112×88 | A frog puffs its throat, blinks, crouches and leaps to snap a buzzing fly out of the air, then lands with a squash and a puff of dust, gulps and settles. |\r\n| Ghost | `critters/ghost` | loop 2.4s | 96×100 | A sheet ghost bobs over the floor: its scalloped hem ripples and trails its drift, little arms flutter, it glances about and blinks, motes trickle off its hem. |\r\n| Jellyfish | `critters/jellyfish` | loop 3.2s | 96×120 | A see-through jellyfish pulses: its bell squeezes to shove it up and relaxes as it sinks, frilled arms and long tentacles trailing, a glow inside, bubbles drifting by. |\r\n| Slime | `critters/slime` | loop 1.8s | 112×88 | A glossy slime hops in place: it squashes to wind up, stretches into the jump, rounds out in the air, splats down flinging droplets that creep back, then wobbles and blinks. |\r\n| Snake | `critters/snake` | loop 2.4s | 136×56 | A snake slithers along the floor, head raised: humps rise and roll back down its patterned body to the tail, dust puffs where it touches down, its forked tongue flicks. |\r\n| Wisp | `critters/wisp` | loop 3.2s | 128×104 | A will-o'-the-wisp loops a figure-eight over the floor: a little soul-flame with a face, its flame tail licking up and streaming behind, shedding puffs and sparks. |\r\n"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/skills/pixelfx/SKILL.md",
+      "role": "process",
+      "content": "---\r\nname: pixelfx\r\ndescription: Make pixel art effects and sprite animations in code with the pixelfx library, which has 244 ready-made ones, acted out by a character who winds up, freezes on contact and recovers (fire, explosions, water, ice, lightning, sci-fi, melee, impacts, projectiles, spawn and death, arcane, holy, shadow, status, nature, weather, UI, pickups, transitions, critters) to drop into a game, recolor, export as sprite sheets or remix, plus a draft, render, look, refine loop that makes new ones look hand-animated. Use when someone wants pixel art VFX, sprite animations or sprite sheets, game juice, a specific effect (\"a frost nova for my mage\", \"a coin pickup sparkle\"), wants to use or export a pixelfx effect in Godot, Unity, Phaser or a canvas game, or wants their pixel effects to look better.\r\nlicense: MIT\r\ncompatibility: Node 18 or newer. ffmpeg is optional (GIF and MP4 previews).\r\n---\r\n\r\n# pixelfx\r\n\r\nPixel art effects as code. Each effect is one file, `src/fx/<category>/<name>.js`, that draws into two buffers:\r\n**color** (pixels: opaque, dithered or truly translucent) and **light** (additive glow). No images, so an effect\r\ncan be played live, recolored, mirrored, reseeded and rendered to a sprite sheet for any engine.\r\n\r\nThe method is Hugo Duprez's ([How to make (good) pixel art effects with\r\nClaude](https://www.spritefusion.com/blog/how-to-make-good-pixel-art-effects-with-claude)): code is clay, trust\r\nyour eyes, feed your references. One-shot prompts make mediocre effects. Drafts you render, look at and refine\r\nmake good ones.\r\n\r\n## Before anything\r\n\r\n1. Work in a pixelfx checkout. If the working directory has no `tools/render.mjs`, clone one next to the\r\n   project: `git clone https://github.com/patch-gg/pixelfx`. No install step: the tools use only Node.\r\n2. Check it runs: `node tools/render.mjs fire/torch` writes `records/fire/torch/contact.png`. Open that PNG with\r\n   your image-reading tool. That contact sheet is how you see every effect from now on.\r\n\r\n## 1. Look for an existing effect first\r\n\r\n`node tools/list.mjs <words>` searches ids, names, tags and descriptions (`node tools/list.mjs frost`,\r\n`node tools/list.mjs slash loop`). `docs/CATALOG.md` lists everything by category. Render the candidates and\r\nlook at them before choosing. Most requests are an existing effect with different options:\r\n\r\n- `palette`: the main ramp, dark to bright, as hex strings. Any `PAL` ramp in `src/core/color.js` (fire ember\r\n  lava smoke dust ice water electric volt poison holy heal arcane shadow blood earth stone gold leaf wood metal\r\n  bone neon cyber matrix candy night) or your own. A blue fire is `{\"palette\": PAL.ice}`.\r\n- `seed` for a different but equivalent take; `flip` to face left; `angle` to rotate; `light` (0..1+) for glow\r\n  strength; plus each effect's own knobs in its `meta.options` (size, count, radius, text, height...).\r\n- Try options without editing code: `node tools/render.mjs fire/torch --opts '{\"palette\":[\"#102\",\"#215\",\"#43a\",\"#8cf\",\"#fff\"]}'`.\r\n\r\n## 2. Put it in the game\r\n\r\n**Canvas or WebGL games in JS or TS** (plain canvas, Phaser, PixiJS, Kaplay, three.js): use the code directly. It\r\nhas no dependencies; copy `src/core` and the effect files you need, or depend on the repo.\r\n\r\n```js\r\nimport { createFrame, clearFrame, createFx, composite } from \"pixelfx\";   // src/core/index.js\r\nimport * as frostNova from \"pixelfx/fx/ice/frost-nova\";                   // src/fx/ice/frost-nova.js\r\n\r\nconst frame = createFrame(320, 180);            // the game's pixel resolution; ox, oy scroll it with the camera\r\nconst img = new ImageData(320, 180);\r\nconst fx = createFx(frostNova, { x: hero.x, y: hero.y, flip: hero.facing < 0 });\r\n\r\n// every tick\r\nfx.update(dt);\r\nclearFrame(frame);\r\nfx.draw(frame, \"back\");    // what goes behind characters\r\ndrawCharacters();          // your own sprites, or draw them into frame.color yourself\r\nfx.draw(frame, \"front\");\r\ncomposite(frame, img.data, background);   // color over the background plus light; or null for transparent\r\nctx.putImageData(img, 0, 0);              // then scale the canvas up with image-rendering: pixelated\r\nif (fx.done()) removeIt();               // one-shots end on their own; fx.stop() fades a loop out\r\n```\r\n\r\nSeveral effects can share one frame. In a WebGL engine, upload the composited RGBA to a texture each frame, or\r\nrender the effect to a sprite sheet once (below) and play it like any other animation.\r\n\r\n**Any engine** (Godot, Unity, GameMaker, Defold, LÖVE, Bevy, Construct): export sprite sheets.\r\n`node tools/render.mjs ice/frost-nova --sheet` writes `records/ice/frost-nova/frost-nova.png` (transparent\r\nframes in a grid) and `frost-nova.json` (Aseprite-style frames, so Phaser's atlas loader, Godot and Unity Aseprite\r\nimporters and most tools read it; `meta.pixelfx` has fps, loop, frame size, columns and the pivot). Set the\r\npivot to `meta.pixelfx.pivot` (the effect's origin, e.g. the feet), import with nearest-neighbour filtering and no\r\ncompression, and play at `meta.pixelfx.fps`. Glow is baked into the sheet as color with alpha, which reads as\r\nadditive over dark scenes; for bright scenes, render a recolored version or keep the effect on a dark layer.\r\n\r\nFor the full library: `node tools/render.mjs <category> --sheet` does a whole category.\r\n\r\n**A hit needs a body behind it.** An effect alone looks like a sticker. Effects with a character carry an `act`: when the body winds\r\nup, when to freeze, how the target reacts. Use it whichever way the game is built:\r\n\r\n- With the stock character: `createAct(slash, { x, y })` instead of `createFx`. `act.update(dt)`, `act.draw(frame)`, and throw the\r\n  picture by `act.shake`. It holds still by itself during a freeze. `node tools/act.mjs <id> --sheet` bakes the lot into a sprite sheet.\r\n- With the game's own character: read the timing, `slash.act` or `meta.pixelfx.act` in a sheet's JSON (`windup`, `recovery`, `hits`\r\n  with `t` and `freeze`). Play the character's attack animation `windup` seconds before the effect, and at each hit stop updating\r\n  everything, effect and characters both, for `freeze` seconds. Host-side hit-stop works on any effect, with or without an act.\r\n\r\n`src/fx/moves/` has whole attacks chained from the effects, wind-up to recovery: start there when someone asks for a move, not an effect.\r\n\r\n## 3. Make a new one\r\n\r\nRead `docs/AUTHORING.md` first: it is the contract (meta, `draw(p, t, o)` for pure effects or `create(o)` for\r\nsimulated ones, local coordinates, seamless loops, ending empty), the toolkit, the painter API and the quality bar.\r\nThen:\r\n\r\n1. **Say it in one line** with art direction: what it is, how it moves, its palette, its timing. \"A frost nova:\r\n   crystals erupt in a ring from the feet outward, a white flash at the center, shards spin off, the floor stays\r\n   frosted and fades.\"\r\n2. **Find references** in the library: `node tools/list.mjs <words>`, then read the two or three closest effect\r\n   files and borrow their techniques (`Particles` and `Bits` in `src/core/sim.js` for sparks, smoke and debris,\r\n   `p.disc` for translucent volumes, `cycle` for seamless particles, `tileFbm` scrolls for flames and water). Look at\r\n   the closest of [Hugo Duprez's effects](https://www.spritefusion.com/pixel-art-vfx) too: they are the quality bar.\r\n   If his has more detail, light or life at the same size on screen, yours isn't done.\r\n3. **Draft.** `node tools/new.mjs <category>/<name>` (add `--loop` for a loop) gives a working file. When the\r\n   direction is open, write 3 to 5 genuinely different drafts (`<name>-a.js` .. `-e.js`), render them all\r\n   (`node tools/render.mjs \"<category>/<name>-*\"`) and look at every contact sheet before choosing. Show the user\r\n   the strongest two or three if they're around (`--gif` makes animations to share).\r\n4. **Look, judge, fix.** Render, open `records/<id>/contact.png`, and judge like a picky pixel artist. Fix the\r\n   worst thing, render again. Three rounds minimum; a showpiece takes more. `--all` shows every frame,\r\n   `--mp4` shows motion at full speed.\r\n5. **Act it out** if a character is involved: add `export const act` (see \"Acts\" in `docs/AUTHORING.md`), with a wind-up before t = 0,\r\n   a pose change on the release frame, a freeze on contact and a recovery. `node tools/act.mjs <id>` shows consecutive 12 fps steps:\r\n   judge motion from those and from `--mp4`, not from a contact sheet's samples.\r\n6. **Check.** `node tools/check.mjs <id>` catches drawing outside the canvas, one-shots that don't end empty,\r\n   loop seams, unseeded randomness and slow frames, and in an act: keys out of order, unknown pose fields and hands\r\n   that teleport. Fix until it passes clean. Delete the drafts you didn't keep.\r\n\r\nWhat to look for, and the usual fix:\r\n\r\n| you see | fix |\r\n|---|---|\r\n| it reads as mush at 1x | fewer colors, a clear silhouette, one focal point, bigger shapes |\r\n| speckle: lone noise pixels inside shapes | threshold noise less, quantize with `at()`, no noise on small shapes |\r\n| floaty, no punch | fast in, slow out (`ease.outQuart`/`outExpo`), a 1 to 2 frame white hero frame, shorter total time |\r\n| stiff or mechanical | vary every particle (size, speed, delay, life), add secondary motion (sparks, smoke, debris) |\r\n| washed out | less glow (k 0.2 to 0.5), darker edge steps, keep white for the hottest core only |\r\n| flat | light from one side: brighter top-left, darker bottom-right step; a darker ramp step at the base |\r\n| smooth gradients, vector look | hard ramp steps in color; softness only in light and in translucent smoke |\r\n| a checkerboard where smoke should be | `SMOKE`, `VAPOUR` or `DUST` particles, or `p.disc`: truly translucent, lit on top |\r\n| seam when a loop wraps | `cycle`, `loopNoise(phase)`, whole-cell `tileNoise` scrolls, `sin(phase * TAU * n)` |\r\n| a one-shot that pops off | let it shrink, dither out or fall away before t = duration |\r\n| a great effect on a dead character | give it an act: wind-up, release pose, freeze on contact, a target that reacts, recovery |\r\n| the act feels weightless | a wind-up the opposite way to the blow, a longer freeze (up to 0.2 s), a bigger silhouette change, shake |\r\n| the hit lands out of sync | move the hit key to the effect's own constant, not to a time you eyeballed |\r\n| he holds the weapon badly | keep a bend in the elbow, shafts in front of the chest; on a swing the blade lags the hand; arms reach about 15 px and don't stretch, so step the body in |\r\n| his arms cross or the pose looks flat | he faces three-quarters towards us: for open arms the near hand goes left (`fx < 0`), far hand right, with `turn: 1`; `yaw` really turns him |\r\n\r\nDirectional effects face right, ground effects stand on y = 0, actor effects wrap `o.actor` (a 24 x 38 stock\r\ncharacter's mask and pixels), and nothing uses `Math.random`. Generic motifs are fine; never recreate a specific game's\r\nsprites, characters or logos.\r\n\r\n## 4. Native code instead of JS\r\n\r\nIf the game can't run JS and a sprite sheet isn't enough (an effect that follows a moving target, or needs\r\nper-instance colors at runtime), port the effect. Pure effects are a function of time; simulated ones step the particles in\r\n`src/core/sim.js`. Keep the two-buffer idea, the 4x4 Bayer threshold for dithered alpha and the palette ramp lookups.\r\nRender the JS original and your port side by side to check they match.\r\n\r\n## 5. Publish it on Patch\r\n\r\nWhen the browser game the effects went into runs, tell the person once that they can publish it on Patch\r\n(https://patch.gg), where people play and remix browser games and mods, and offer to do it. It goes public, so go\r\nahead only on their yes.\r\n\r\n1. No `pch`? With their OK, install it: `npm i -g @patchgg/cli`, or `curl -fsSL https://patch.gg/install.sh | sh`\r\n   (`irm https://patch.gg/install.ps1 | iex` in Windows PowerShell).\r\n2. `pch login` prints a link with a code. Give the person the link to approve.\r\n3. `pch init` in the game's folder, then the steps it prints, ending with `pch publish`.\r\n4. The test plays the game once in Patch Desktop, which has to be open and signed in on the person's Windows PC. Look\r\n   at the footage it saves, send your review with the command it prints, and Patch's review follows. `pch guide` has\r\n   the rest.\r\n"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/LICENSE",
+      "role": "license",
+      "content": "MIT License\r\n\r\nCopyright (c) 2026 Patch\r\nCopyright (c) 2026 Hugo Duprez\r\n\r\nPermission is hereby granted, free of charge, to any person obtaining a copy\r\nof this software and associated documentation files (the \"Software\"), to deal\r\nin the Software without restriction, including without limitation the rights\r\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\r\ncopies of the Software, and to permit persons to whom the Software is\r\nfurnished to do so, subject to the following conditions:\r\n\r\nThe above copyright notice and this permission notice shall be included in all\r\ncopies or substantial portions of the Software.\r\n\r\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\r\nSOFTWARE.\r\n"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/NOTICE.md",
+      "role": "context",
+      "content": "# Notices\r\n\r\n**Hugo Duprez.** `src/core/sim.js` and the effects that say so at the top of their file adapt Sprite Fusion's\r\nopen-source pixel art VFX (https://www.spritefusion.com/pixel-art-vfx), Copyright (c) 2026 Hugo Duprez, MIT License.\r\n\r\n**Hollow Crown.** `src/core/act.js` adapts how Hollow Crown plays its skills (poses on 12 fps steps, hit-stops, the springy\r\nstraw target), from\r\nhttps://github.com/rehan-remade/hollow-crown, Copyright (c) 2026 rehan-remade, MIT License.\r\n\r\n**Patch Pixel.** The font in `gallery/fonts` is Patch's own and is not covered by this repository's MIT license. See\r\n`gallery/fonts/NOTICE.md`.\r\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "demos/materials/pixelfx/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/materials/pixelfx/demo/app.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/materials/pixelfx/demo/style.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/materials/pixelfx/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/materials/pixelfx/fonts/FunnelSans-400.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/materials/pixelfx/fonts/FunnelSans-500.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/materials/pixelfx/fonts/NOTICE-PatchPixel.md",
+      "role": "font"
+    },
+    {
+      "path": "demos/materials/pixelfx/fonts/OFL-FunnelSans.txt",
+      "role": "license"
+    },
+    {
+      "path": "demos/materials/pixelfx/fonts/OFL-RedHatMono.txt",
+      "role": "license"
+    },
+    {
+      "path": "demos/materials/pixelfx/fonts/PatchPixel-Regular.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/materials/pixelfx/fonts/RedHatMono-400.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/materials/pixelfx/fonts/RedHatMono-500.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/materials/pixelfx/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/README.md",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/LICENSE",
+      "role": "license"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/NOTICE.md",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/README.upstream.md",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/docs/AUTHORING.md",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/docs/CATALOG.md",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/gallery/app.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/gallery/index.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/gallery/style.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/package.json",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/skills/pixelfx/SKILL.md",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/tools/act.mjs",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/tools/build-gallery.mjs",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/tools/check.mjs",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/tools/compare.mjs",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/tools/index.mjs",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/tools/lib/fxlib.mjs",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/tools/lib/png.mjs",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/tools/list.mjs",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/tools/montage.mjs",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/tools/new.mjs",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/tools/render.mjs",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/tools/serve.mjs",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/source/upstream/tools/sheets.mjs",
+      "role": "process"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/LICENSE",
+      "role": "license"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/NOTICE.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/act.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/actor.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/chain.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/color.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/font.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/fx.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/index.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/math.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/painter.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/particles.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/poses.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/rig.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/scene.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/shapes.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/core/sim.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/arcane/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/arcane/arcane-beam.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/arcane/arcane-missiles.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/arcane/arcane-orb.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/arcane/blink-in.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/arcane/blink-out.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/arcane/magic-circle-cast.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/arcane/mana-burst.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/arcane/portal.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/arcane/rune-circle.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/arcane/spell-charge.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/arcane/star-fall.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/arcane/time-stop.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/categories.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/critters/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/critters/bat.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/critters/bird.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/critters/butterfly.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/critters/eyeball.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/critters/fish-school.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/critters/flying-skull.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/critters/frog.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/critters/ghost.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/critters/jellyfish.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/critters/slime.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/critters/snake.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/critters/wisp.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/explosions/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/explosions/barrel-explosion.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/explosions/big-explosion.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/explosions/cartoon-pow.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/explosions/dirt-explosion.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/explosions/firework-burst.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/explosions/firework-rocket.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/explosions/grenade.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/explosions/implosion.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/explosions/nuke.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/explosions/plasma-explosion.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/explosions/small-explosion.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/explosions/smoke-bomb.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/fire/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/fire/brazier.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/fire/campfire.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/fire/candle.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/fire/fire-breath.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/fire/fire-ring.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/fire/fire-tornado.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/fire/fireball.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/fire/flame-pillar.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/fire/flamethrower.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/fire/meteor.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/fire/spirit-flame.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/fire/torch.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/holy/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/holy/blessing.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/holy/divine-shield.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/holy/feather-burst.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/holy/halo.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/holy/heal-aoe.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/holy/heal.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/holy/holy-pillar.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/holy/resurrection.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/holy/smite.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/holy/sunburst.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ice/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ice/blizzard-vortex.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ice/freeze.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ice/frost-breath.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ice/frost-nova.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ice/ice-crystal.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ice/ice-lance.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ice/ice-shatter.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ice/ice-spikes.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ice/icicle-fall.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ice/snowflake-burst.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/impacts/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/impacts/blunt-hit.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/impacts/bullet-impact.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/impacts/crit-hit.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/impacts/ground-slam.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/impacts/heavy-landing.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/impacts/hit-flash.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/impacts/hit-spark.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/impacts/impact-frame.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/impacts/parry.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/impacts/ricochet.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/impacts/shield-block.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/index.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/lightning/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/lightning/ball-lightning.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/lightning/chain-lightning.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/lightning/charge-up.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/lightning/electrified.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/lightning/lightning-strike.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/lightning/plasma-ball.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/lightning/spark-arc.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/lightning/storm-cloud.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/lightning/tesla-coil.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/lightning/thunderclap.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/lightning/zap-hit.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/melee/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/melee/claw-swipe.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/melee/dagger-flurry.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/melee/double-slash.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/melee/hammer-smash.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/melee/heavy-cleave.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/melee/scythe-reap.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/melee/spear-sweep.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/melee/spin-slash.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/melee/sword-slash.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/melee/thrust.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/melee/uppercut.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/melee/whip-crack.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/moves/arrow-shot.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/moves/dash-strike.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/moves/earth-stomp.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/moves/fireball-throw.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/moves/ground-pound.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/moves/holy-smite.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/moves/ice-lance-throw.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/moves/lightning-call.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/moves/meteor-call.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/moves/pistol-shots.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/moves/rocket-launcher.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/moves/sword-combo.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/nature/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/nature/acid-splash.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/nature/boulder.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/nature/earth-spike.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/nature/healing-bloom.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/nature/leaf-storm.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/nature/poison-cloud.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/nature/quake.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/nature/root-snare.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/nature/spore-burst.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/nature/thorns.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/nature/tornado.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/nature/toxic-puddle.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/nature/vine-whip.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/pickups/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/pickups/chest-open.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/pickups/coin-spin.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/pickups/collect-burst.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/pickups/crystal-shard.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/pickups/gem-spin.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/pickups/heart-pickup.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/pickups/key-glint.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/pickups/loot-beam.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/pickups/potion.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/pickups/power-star.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/pickups/xp-orb.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/projectiles/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/projectiles/arrow.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/projectiles/bullet-tracer.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/projectiles/cannonball.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/projectiles/energy-disc.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/projectiles/flare.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/projectiles/homing-missile.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/projectiles/laser-bolt.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/projectiles/magic-missile.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/projectiles/muzzle-pistol.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/projectiles/muzzle-shotgun.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/projectiles/muzzle-smg.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/projectiles/plasma-shot.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/projectiles/rocket.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/scifi/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/scifi/emp-blast.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/scifi/energy-core.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/scifi/force-field.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/scifi/glitch.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/scifi/hologram.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/scifi/jetpack.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/scifi/laser-grid.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/scifi/scanner.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/scifi/teleporter-pad.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/scifi/tractor-beam.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/scifi/warp-in.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/scifi/warp-out.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/shadow/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/shadow/black-hole.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/shadow/curse.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/shadow/dark-explosion.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/shadow/eclipse.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/shadow/grasping-hands.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/shadow/hex-sigil.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/shadow/life-steal.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/shadow/necro-skulls.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/shadow/shadow-flames.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/shadow/shadow-tendrils.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/shadow/soul-drain.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/shadow/void-orb.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/spawn/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/spawn/coin-drop.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/spawn/disintegrate.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/spawn/dissolve-burn.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/spawn/egg-hatch.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/spawn/poof.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/spawn/respawn-beam.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/spawn/shatter-death.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/spawn/soul-rise.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/spawn/spawn-portal.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/spawn/summon-rise.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/status/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/status/bleeding.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/status/burning.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/status/charmed.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/status/confused.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/status/cursed.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/status/frozen.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/status/haste.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/status/petrified.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/status/poisoned.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/status/rage.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/status/sleep.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/status/slowed.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/status/stunned.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/transitions/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/transitions/blinds.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/transitions/burn-away.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/transitions/crt-off.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/transitions/diamond-wipe.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/transitions/glitch-wipe.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/transitions/iris.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/transitions/pixel-dissolve.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/transitions/shatter-wipe.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/transitions/slash-wipe.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/transitions/star-iris.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ui/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ui/achievement.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ui/coin-collect.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ui/combo-counter.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ui/confetti.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ui/countdown.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ui/crit-number.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ui/damage-number.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ui/exclamation.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ui/health-bar-hit.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ui/heart-lost.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ui/level-up.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/ui/quest-complete.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/water/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/water/bubbles.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/water/drip.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/water/fountain.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/water/geyser.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/water/rain-splash.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/water/ripples.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/water/splash.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/water/water-jet.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/water/water-orb.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/water/waterfall.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/water/wave-crash.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/water/whirlpool.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/weather/_lib.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/weather/aurora.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/weather/blizzard.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/weather/cherry-blossoms.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/weather/clouds.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/weather/falling-leaves.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/weather/fireflies.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/weather/fog.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/weather/god-rays.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/weather/rain.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/weather/shooting-stars.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/weather/snow.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/fx/weather/storm.js",
+      "role": "vendor"
+    },
+    {
+      "path": "docs/materials/pixelfx.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/materials/pixelfx.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/materials/pixelfx.png",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/materials/pixelfx.md",
+      "role": "context"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ],
+  "sourceFiles": [
+    "demos/materials/pixelfx/index.html",
+    "demos/materials/pixelfx/demo/app.js",
+    "demos/materials/pixelfx/demo/style.css",
+    "demos/materials/pixelfx/source/README.md",
+    "demos/materials/pixelfx/source/upstream/docs/CATALOG.md",
+    "demos/materials/pixelfx/source/upstream/docs/AUTHORING.md",
+    "demos/materials/pixelfx/source/upstream/skills/pixelfx/SKILL.md"
+  ]
+}

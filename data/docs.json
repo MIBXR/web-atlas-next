@@ -285,6 +285,11 @@
     "group": "案例研究"
   },
   {
+    "path": "docs/materials/pixelfx.md",
+    "title": "pixelfx：代码画出来的像素特效",
+    "group": "素材使用"
+  },
+  {
     "path": "docs/cases/qoder-platform.md",
     "title": "Qoder CN：当前页面的设计与交互",
     "group": "案例研究"
