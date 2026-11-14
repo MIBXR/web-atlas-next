@@ -490,6 +490,12 @@
     "group": "复用 Prompt"
   },
   {
+    "path": "demos/materials/pixelfx/fidelity.md",
+    "title": "复刻对照",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "prompts/patterns/photo-crossfade-cycle.md",
     "title": "给摄影留阅读时间的淡化轮换 · 复用 Prompt",
     "group": "复用 Prompt"
@@ -1339,6 +1345,12 @@
   },
   {
     "path": "demos/materials/heroui/LICENSES.md",
+    "title": "许可索引",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/pixelfx/LICENSES.md",
     "title": "许可索引",
     "group": "素材原文",
     "hidden": true
@@ -2323,6 +2335,12 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/pixelfx/source/upstream/docs/CATALOG.md",
+    "title": "Catalog",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "prompts/cases/chatgpt-platform.md",
     "title": "ChatGPT — 巨字、飞入拼贴与滚动交接 · 复用 Prompt",
     "group": "复用 Prompt"
@@ -3148,6 +3166,18 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/pixelfx/source/upstream/NOTICE.md",
+    "title": "Notices",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/pixelfx/vendor/pixelfx@0.3.1/NOTICE.md",
+    "title": "Notices",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "prompts/cases/notion-editorial.md",
     "title": "Notion — 插画与真实工作空间 · 复用 Prompt",
     "group": "复用 Prompt"
@@ -3194,6 +3224,12 @@
     "hidden": true
   },
   {
+    "path": "demos/materials/pixelfx/fonts/NOTICE-PatchPixel.md",
+    "title": "Patch Pixel",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
     "path": "demos/materials/hallmark-skill/references/patterns.md",
     "title": "Patterns",
     "group": "素材原文",
@@ -3230,6 +3266,34 @@
   {
     "path": "demos/materials/hallmark-skill/references/themes/piste.md",
     "title": "Piste",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/pixelfx/source/upstream/skills/pixelfx/SKILL.md",
+    "title": "pixelfx",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "prompts/materials/pixelfx.md",
+    "title": "pixelfx · 纯代码像素特效库 · 复用 Prompt",
+    "group": "复用 Prompt"
+  },
+  {
+    "path": "demos/materials/pixelfx/source/README.md",
+    "title": "pixelfx 源码与制作资料",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "docs/materials/pixelfx.md",
+    "title": "pixelfx：代码画出来的像素特效",
+    "group": "素材使用"
+  },
+  {
+    "path": "demos/materials/pixelfx/source/upstream/README.upstream.md",
+    "title": "pixelfx.",
     "group": "素材原文",
     "hidden": true
   },
@@ -3870,6 +3934,12 @@
   {
     "path": "demos/materials/hallmark-skill/references/themes/README.md",
     "title": "Writing a theme file",
+    "group": "素材原文",
+    "hidden": true
+  },
+  {
+    "path": "demos/materials/pixelfx/source/upstream/docs/AUTHORING.md",
+    "title": "Writing an effect",
     "group": "素材原文",
     "hidden": true
   },

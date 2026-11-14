@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "repository": "https://github.com/MIBXR/web-atlas-next",
-  "materialCount": 18,
+  "materialCount": 19,
   "materials": [
     {
       "id": "shaders",
@@ -722,6 +722,46 @@
         "demo": "demos/materials/heroui/index.html",
         "entry": "entries/materials/heroui.json",
         "preview": "previews/materials/heroui.jpg"
+      }
+    },
+    {
+      "id": "pixelfx",
+      "title": "pixelfx · 纯代码像素特效库",
+      "type": "component-library",
+      "category": "组件与效果",
+      "summary": "244 个像素特效，每一个都是一份绘制代码：火焰、爆炸、冰霜、招式与界面反馈都没有图片素材，在画廊里挑一项实时播放、换配色、换种子，再导出带帧矩形与时长元数据的透明雪碧图。",
+      "tags": [
+        "像素艺术",
+        "Canvas",
+        "粒子",
+        "程序化生成",
+        "游戏特效",
+        "雪碧图",
+        "调色板",
+        "JavaScript"
+      ],
+      "useCases": [
+        "为网页游戏补上命中、爆炸、拾取与界面反馈",
+        "在原型里用代码生成特效，不必先准备图片素材",
+        "把同一套效果换成品牌配色，观察像素画的调色与打光",
+        "导出雪碧图交给 Phaser、Godot、Unity 等引擎",
+        "按 AUTHORING.md 的做法写自己的像素特效"
+      ],
+      "avoid": [
+        "需要照片质感或矢量精确边缘的主视觉",
+        "把同时播放的几十个特效画布放进一个页面"
+      ],
+      "constraints": [
+        "固定 pixelfx 0.3.1 与完整提交，运行代码原样保存在 vendor。",
+        "效果名、描述、标签与分类名沿用上游英文原文。",
+        "画廊为单主题深色页面，播放区固定黑底，不跟随站点浅深切换。",
+        "字体与远程地址的本地化改动见 fidelity.md。"
+      ],
+      "paths": {
+        "bundle": "agent/materials/pixelfx.json",
+        "demo": "demos/materials/pixelfx/index.html",
+        "entry": "entries/materials/pixelfx.json",
+        "preview": "previews/materials/pixelfx.png"
       }
     }
   ]
