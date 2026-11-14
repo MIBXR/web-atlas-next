@@ -74,11 +74,7 @@
       "docs/": "研究方法与索引",
       "docs/cases/": "案例研究",
       "docs/patterns/": "巧思研究",
-      "docs/materials/": "素材使用",
-      "prompts/": "复用 Prompt",
-      "README.md": "项目说明",
-      "CONTRIBUTING.md": "项目说明",
-      "AGENTS.md": "项目说明"
+      "docs/materials/": "素材使用"
     }
   }
 }

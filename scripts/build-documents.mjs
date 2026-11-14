@@ -35,8 +35,6 @@ function docTitle(text, file) {
 function groupOf(relative, labels) {
   const rules = labels.groups.path;
   if (rules[relative]) return rules[relative];
-  if (relative.startsWith('demos/cases/')) return '案例复刻与许可';
-  if (relative.startsWith('demos/materials/')) return '素材原文';
   let best = '';
   for (const key of Object.keys(rules)) if (key.endsWith('/') && relative.startsWith(key) && key.length > best.length) best = key;
   return best ? rules[best] : '其他';
@@ -44,11 +42,10 @@ function groupOf(relative, labels) {
 
 export function documentCatalog(sourceRoot = root, labels = JSON.parse(fs.readFileSync(path.join(sourceRoot, 'site/labels.json'), 'utf8'))) {
   const files = [];
-  for (const top of ['docs', 'prompts', 'demos']) walkMd(sourceRoot, top, files);
-  const docs = files.map(relative => {
-    const file = relative.replace(/^\//, '');
-    return {path:file, title:docTitle(fs.readFileSync(path.join(sourceRoot, file), 'utf8'), file), group:groupOf(file, labels), hidden:file.startsWith('demos/') || undefined};
-  });
+  walkMd(sourceRoot, 'docs', files);
+  const docs = files.filter(file => file !== 'docs/review.md').map(file => ({
+    path:file, title:docTitle(fs.readFileSync(path.join(sourceRoot, file), 'utf8'), file), group:groupOf(file, labels),
+  }));
   const collator = new Intl.Collator('zh-CN');
   const pinned = ['docs/guide.md', 'docs/agent.md'];
   const rank = file => { const index = pinned.indexOf(file); return index < 0 ? pinned.length : index; };
@@ -61,4 +58,4 @@ export function buildDocuments() {
   return documents;
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) console.log(`Built ${buildDocuments().length} public Markdown documents.`);
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) console.log(`Built the document index (${buildDocuments().length} files).`);
