@@ -160,7 +160,9 @@ Web Atlas 与 Motion Atlas 是姊妹站，内容互不交叉。基础导航、�
 
 ### 数据与内容
 
-`entries/` 与 `site/labels.json` 经 `npm run build` 生成 `data/*.json`。条目保留原字段，封面、研究、复刻说明、许可、Prompt、Agent 包和快照入口等派生路径放在 `$` 下。站点通过 `virtual:atlas-data` 读取这些 JSON；文档目录扫描 `docs/`、`prompts/` 和 `demos/` 中的 Markdown，记录标题、分组与路径。
+`entries/` 与 `site/labels.json` 经 `npm run build` 生成 `data/*.json`。条目保留原字段，封面、研究、复刻说明、许可、Prompt、Agent 包和快照入口等派生路径放在 `$` 下。站点通过 `virtual:atlas-data` 读取这些 JSON。
+
+文档中心的目录和搜索共用 `docs/` 中的使用指南、设计研究、索引和素材用法。`docs/review.md` 从本指南的[验收与交付](#验收与交付)进入。Prompt、复刻对照、许可和素材原文通过对应条目打开，相对路径随资料包保留。
 
 内容目录挂在站点根目录，URL 与仓库路径一致。开发服务从仓库根目录读取内容；内容目录下找不到的文件返回 404。
 
@@ -211,7 +213,7 @@ Web Atlas 与 Motion Atlas 是姊妹站，内容互不交叉。基础导航、�
 
 页面由文档本身滚动，侧栏、工具栏、舞台与章节条使用吸附定位。每条历史记录保存滚动位置，返回列表时恢复；巧思定位只滚动 iframe 内部。来源列表采用证据标签、标题、日期、行内操作与第二行说明的统一布局。
 
-文档目录使用 Arc tree-view，按标签规则分组，Demo 目录内文档默认折叠；标题取正文一级标题、frontmatter 的 `title/name` 或文件名。当前文档决定选中项，切换文档时自动展开所在分组并在目录滚动区域内定位；分组标题在目录顶部吸附，支持方向键、Home、End、Enter 和空格操作。宽屏提供目录、正文和章节三栏，较窄屏幕在正文上方用 Arc Accordion 展示章节目录。手机文档页随页面滚动，分组标题吸附在顶栏下方；阅读后返回目录时保留当前文档高亮并定位。Markdown 相对链接与图片以当前文档路径解析。收藏页统一导入、导出三类收藏，导入时合并本库有效 id。
+文档目录使用 Arc tree-view，按标签规则分组。标题取正文一级标题、frontmatter 的 `title/name` 或文件名。切换到目录中的文档时自动展开所在分组并定位。分组标题在目录顶部吸附，支持方向键、Home、End、Enter 和空格操作。宽屏提供目录、正文和章节三栏，较窄屏幕在正文上方用 Arc Accordion 展示章节目录。手机文档页随页面滚动，分组标题吸附在顶栏下方。阅读后返回目录时，目录保留当前文档的高亮和位置。Markdown 相对链接与图片以当前文档路径解析，三份根目录文档的链接指向 GitHub。收藏页统一导入、导出三类收藏，导入时合并本库有效 id。
 
 ## 观察与实现
 
@@ -365,7 +367,7 @@ npm run check
 | `npm run build:local` | 生成数据、检查 TypeScript、构建站点，并把全部本地内容复制到 `dist/` |
 | `npm run build:site -- --commit <已推送提交的完整 SHA>` | 生成数据、检查 TypeScript、构建站点，并按指定提交生成 GitHub 素材映射与部署目录 |
 
-`dist/` 包含 Vite 生成的站点入口、打包后的 JS／CSS、`site/public/` 的兼容入口与图标，以及仓库的 `demos/`、`previews/`、`docs/`、`prompts/`、`entries/`、`data/`、`agent/`、`site/runtime/`、`site/icons/`、`asset-cache-worker.js` 和三份根文档 `README.md`、`CONTRIBUTING.md`、`AGENTS.md`。
+`dist/` 包含 Vite 生成的站点入口、打包后的 JS／CSS、`site/public/` 的兼容入口与图标，以及仓库的 `demos/`、`previews/`、`docs/`、`prompts/`、`entries/`、`data/`、`agent/`、`site/runtime/`、`site/icons/` 和 `asset-cache-worker.js`。
 
 GitHub 模式按工作区文件清单与大小生成 `dist/data/asset-sources.js`。映射范围为上述复制内容中至少 131072 字节（128 KiB）的媒体文件，扩展名为：图像 `.png/.jpg/.jpeg/.webp/.avif/.gif/.svg`；音视频 `.mp4/.webm/.mp3/.wav/.ogg/.m4a/.aac/.flac`；字体 `.woff/.woff2/.otf/.ttf`；三维及制作文件 `.glb/.gltf/.bin/.blend/.hdr/.ply`。这些文件由固定 GitHub 提交加载；其余文件随站点部署。映射的键使用仓库内原路径，URL 形如 `https://raw.githubusercontent.com/MIBXR/web-atlas-next/<commit>/<path>`，路径各段按 URL 编码。
 

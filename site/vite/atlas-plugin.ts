@@ -6,7 +6,7 @@ import type { Plugin } from "vite";
 
 const VIRTUAL = "virtual:atlas-data";
 const RESOLVED = "\0" + VIRTUAL;
-const CONTENT = new Set(["demos", "previews", "docs", "prompts", "entries", "data", "agent", "site", "asset-cache-worker.js", "README.md", "CONTRIBUTING.md", "AGENTS.md"]);
+const CONTENT = new Set(["demos", "previews", "docs", "prompts", "entries", "data", "agent", "site", "asset-cache-worker.js"]);
 
 export function atlasContent(root: string): Plugin {
   return {

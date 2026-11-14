@@ -3,7 +3,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 export const ASSET_THRESHOLD = 131072;
-export const contentPaths = ['demos', 'previews', 'docs', 'prompts', 'entries', 'data', 'agent', 'site/runtime', 'site/icons', 'asset-cache-worker.js', 'README.md', 'CONTRIBUTING.md', 'AGENTS.md'];
+export const contentPaths = ['demos', 'previews', 'docs', 'prompts', 'entries', 'data', 'agent', 'site/runtime', 'site/icons', 'asset-cache-worker.js'];
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const mediaExtensions = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif', '.gif', '.svg', '.mp4', '.webm', '.mp3', '.wav', '.ogg', '.m4a', '.aac', '.flac', '.woff', '.woff2', '.otf', '.ttf', '.glb', '.gltf', '.bin', '.blend', '.hdr', '.ply']);
 
