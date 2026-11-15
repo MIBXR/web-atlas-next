@@ -7,6 +7,10 @@ demos/**/vendor/** -text -whitespace
 demos/**/fonts/** -text -whitespace
 demos/materials/beautiful-article/** -text -whitespace
 demos/materials/web-design-engineer/** -text -whitespace
+demos/materials/modern-web-guidance/LICENSE -text -whitespace
+demos/materials/modern-web-guidance/README.md -text -whitespace
+demos/materials/modern-web-guidance/SKILL.md -text -whitespace
+demos/materials/modern-web-guidance/guides/**/*.md -text -whitespace
 demos/cases/atlas-sister-sites/source/*.html -text -whitespace
 
 demos/cases/clawd-on-desk/source/website/** -text -whitespace

@@ -21,3 +21,4 @@
 | shadcn/ui | [Base UI 组件与 Vega 区块](shadcn-ui.md) |
 | React Bits | [官方样例索引与限时撤销](react-bits.md) |
 | HeroUI | [React Web 样例与接入](heroui.md) |
+| Modern Web Guidance | [检索指南与体验官方示例](modern-web-guidance.md) |
