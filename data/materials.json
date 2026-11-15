@@ -9330,5 +9330,100 @@
       "prompt": "prompts/materials/pixelfx.md",
       "agent": "agent/materials/pixelfx.json"
     }
+  },
+  {
+    "id": "modern-web-guidance",
+    "order": 20,
+    "title": "Modern Web Guidance · Web 平台指南",
+    "type": "agent-skill",
+    "category": "Agent 工作流",
+    "summary": "让 Agent 按任务查找现代 Web 平台指南，结合浏览器支持选择原生布局、交互和性能优化方案，并保留必要的后备行为。",
+    "install": "npx modern-web-guidance@1.0.0 search \"navigation drawer\"",
+    "tags": [
+      "HTML",
+      "CSS",
+      "浏览器 API",
+      "浏览器兼容性",
+      "渐进增强",
+      "可访问性"
+    ],
+    "useCases": [
+      "为网页界面选择原生组件与交互方式",
+      "实现响应式组件和视图过渡",
+      "查找前端性能和可访问性的实现建议"
+    ],
+    "avoid": [
+      "后端、基础设施和构建工具配置"
+    ],
+    "constraints": [
+      "固定快照可直接阅读，命令行检索使用上游的 npm 包，要求 Node.js 22 或更新版本。",
+      "结合目标浏览器判断特性支持，按指南为关键操作保留后备行为。"
+    ],
+    "upstream": {
+      "repository": "GoogleChrome/modern-web-guidance",
+      "url": "https://github.com/GoogleChrome/modern-web-guidance/tree/4dd968349e54ca45a05dd5c818fb035c9054b022",
+      "commit": "4dd968349e54ca45a05dd5c818fb035c9054b022",
+      "version": "1.0.0",
+      "verifiedAt": "2026-11-15"
+    },
+    "license": {
+      "name": "Apache-2.0 / CC BY 4.0",
+      "url": "https://github.com/GoogleChrome/modern-web-guidance/blob/4dd968349e54ca45a05dd5c818fb035c9054b022/README.md#--license",
+      "scope": "按上游声明，除另有说明外，软件代码适用 Apache-2.0，文档与指南内容适用 CC BY 4.0。",
+      "notes": "按原文保留来源。上游声明部分文档取材于 MDN Web Docs（Mozilla Contributors）及 W3C、WHATWG 和 IETF 规范。"
+    },
+    "sources": [
+      {
+        "title": "上游 README",
+        "url": "https://github.com/GoogleChrome/modern-web-guidance/blob/4dd968349e54ca45a05dd5c818fb035c9054b022/README.md",
+        "note": "指南范围、检索方式、浏览器兼容策略与许可声明。",
+        "evidence": "source"
+      },
+      {
+        "title": "Modern Web Guidance 原文",
+        "url": "https://github.com/GoogleChrome/modern-web-guidance/blob/4dd968349e54ca45a05dd5c818fb035c9054b022/skills/modern-web-guidance/SKILL.md",
+        "note": "如何拆分查询、按指南 ID 取材，以及实现后如何核对适用性与后备行为。",
+        "evidence": "source"
+      },
+      {
+        "title": "npm 1.0.0 发布信息",
+        "url": "https://registry.npmjs.org/modern-web-guidance/1.0.0",
+        "note": "发布包的命令行入口、版本与 Node.js 要求。",
+        "evidence": "source"
+      },
+      {
+        "title": "Chrome 官方文档",
+        "url": "https://developer.chrome.com/docs/modern-web-guidance?hl=en",
+        "note": "封面预览取自官方文档首页的项目介绍区。",
+        "evidence": "source"
+      }
+    ],
+    "snapshotPath": "demos/materials/modern-web-guidance/",
+    "snapshotEntry": "SKILL.md",
+    "workflow": [
+      "把任务拆成单个界面行为或 Web 平台能力，用简短查询查找相关指南。",
+      "按查询结果的描述选出相关指南，通过 ID 读取全文，包括适用的可访问性或性能指南。",
+      "根据目标浏览器的支持情况做功能检测，让需要后备方案的操作在不支持新特性时仍可使用。",
+      "对照指南检查实现和后备行为，并说明采用了哪些指南与做法。"
+    ],
+    "relatedEntries": [],
+    "preview": "previews/materials/modern-web-guidance.webp",
+    "research": "docs/materials/modern-web-guidance.md",
+    "sourceFiles": [
+      "demos/materials/modern-web-guidance/SKILL.md",
+      "demos/materials/modern-web-guidance/README.md",
+      "demos/materials/modern-web-guidance/guides/ui-components/navigation-drawer.md",
+      "demos/materials/modern-web-guidance/guides/css/size-aware-styling.md",
+      "demos/materials/modern-web-guidance/guides/ui-behaviors/same-document-transitions.md"
+    ],
+    "prompt": "先阅读 Modern Web Guidance 的 SKILL.md。把当前网页任务拆成单个界面行为或浏览器能力，检索并读取对应指南。结合项目的目标浏览器选择 HTML、CSS 或浏览器 API，按需做功能检测，为关键操作保留后备方案。完成后说明采用了哪些指南及对应实现。",
+    "$": {
+      "preview": "previews/materials/modern-web-guidance.webp",
+      "research": "docs/materials/modern-web-guidance.md",
+      "licenses": "demos/materials/modern-web-guidance/LICENSES.md",
+      "prompt": "prompts/materials/modern-web-guidance.md",
+      "agent": "agent/materials/modern-web-guidance.json",
+      "snapshot": "demos/materials/modern-web-guidance/SKILL.md"
+    }
   }
 ]

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "repository": "https://github.com/MIBXR/web-atlas-next",
-  "materialCount": 19,
+  "materialCount": 20,
   "materials": [
     {
       "id": "shaders",
@@ -762,6 +762,40 @@
         "demo": "demos/materials/pixelfx/index.html",
         "entry": "entries/materials/pixelfx.json",
         "preview": "previews/materials/pixelfx.png"
+      }
+    },
+    {
+      "id": "modern-web-guidance",
+      "title": "Modern Web Guidance · Web 平台指南",
+      "type": "agent-skill",
+      "category": "Agent 工作流",
+      "summary": "让 Agent 按任务查找现代 Web 平台指南，结合浏览器支持选择原生布局、交互和性能优化方案，并保留必要的后备行为。",
+      "tags": [
+        "HTML",
+        "CSS",
+        "浏览器 API",
+        "浏览器兼容性",
+        "渐进增强",
+        "可访问性"
+      ],
+      "useCases": [
+        "为网页界面选择原生组件与交互方式",
+        "实现响应式组件和视图过渡",
+        "查找前端性能和可访问性的实现建议"
+      ],
+      "avoid": [
+        "后端、基础设施和构建工具配置"
+      ],
+      "constraints": [
+        "固定快照可直接阅读，命令行检索使用上游的 npm 包，要求 Node.js 22 或更新版本。",
+        "结合目标浏览器判断特性支持，按指南为关键操作保留后备行为。"
+      ],
+      "paths": {
+        "bundle": "agent/materials/modern-web-guidance.json",
+        "snapshot": "demos/materials/modern-web-guidance/",
+        "snapshotEntry": "SKILL.md",
+        "entry": "entries/materials/modern-web-guidance.json",
+        "preview": "previews/materials/modern-web-guidance.webp"
       }
     }
   ]

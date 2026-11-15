@@ -275,6 +275,11 @@
     "group": "案例研究"
   },
   {
+    "path": "docs/materials/modern-web-guidance.md",
+    "title": "Modern Web Guidance 使用说明",
+    "group": "素材使用"
+  },
+  {
     "path": "docs/cases/notion-editorial.md",
     "title": "Notion：当前页面的设计与交互",
     "group": "案例研究"
