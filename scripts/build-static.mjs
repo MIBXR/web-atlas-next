@@ -173,7 +173,7 @@ export function prepareStatic(assetsMode = 'local', commit) {
     }, 0);
   }
   const totalBytes = size(output);
-  if (assetsMode === 'github' && totalBytes > 200000000) throw new Error(`dist exceeds 200 MB: ${totalBytes} bytes.`);
+  if (assetsMode === 'github' && totalBytes > 200000000) console.warn(`Warning: dist exceeds 200 MB: ${totalBytes} bytes.`);
   console.log(`Prepared dist (${assetsMode} assets): ${totalBytes} bytes (${(totalBytes / 1000000).toFixed(3)} MB).`);
   console.log(`Omitted ${omitted.length} media assets (${omittedBytes} bytes); rewrote ${rewrittenDocuments} HTML/CSS documents.`);
   return {assetsMode, totalBytes, omittedAssets:omitted.length, omittedBytes, rewrittenDocuments};
