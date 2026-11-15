@@ -371,7 +371,7 @@ npm run check
 
 GitHub 模式按工作区文件清单与大小生成 `dist/data/asset-sources.js`。映射范围为上述复制内容中至少 131072 字节（128 KiB）的媒体文件，扩展名为：图像 `.png/.jpg/.jpeg/.webp/.avif/.gif/.svg`；音视频 `.mp4/.webm/.mp3/.wav/.ogg/.m4a/.aac/.flac`；字体 `.woff/.woff2/.otf/.ttf`；三维及制作文件 `.glb/.gltf/.bin/.blend/.hdr/.ply`。这些文件由固定 GitHub 提交加载；其余文件随站点部署。映射的键使用仓库内原路径，URL 形如 `https://raw.githubusercontent.com/MIBXR/web-atlas-next/<commit>/<path>`，路径各段按 URL 编码。
 
-发布副本的 HTML／CSS 引用指向映射地址，并接入 `site/runtime/asset-runtime.js`；素材加载与回退、浏览器缓存由共享运行时处理。部署目录最多 200 MB，构建会报告实际体积。部署索引的 `source.commit` 与 `source.baseUrl` 使用传入的完整提交；发布使用已通过 PR 合并并推送的源提交。
+发布副本的 HTML／CSS 引用指向映射地址，并接入 `site/runtime/asset-runtime.js`；素材加载与回退、浏览器缓存由共享运行时处理。构建会报告部署目录的实际体积，超过 200 MB 时发出警告并继续。部署索引的 `source.commit` 与 `source.baseUrl` 使用传入的完整提交；发布使用已通过 PR 合并并推送的源提交。
 
 仓库内的 `data/asset-sources.js` 用于本地素材回退，可执行 `node scripts/build-asset-sources.mjs --commit <sha>` 生成，`<sha>` 为 40 位十六进制完整提交。发布构建独立生成部署目录中的映射。
 
