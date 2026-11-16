@@ -1,0 +1,2 @@
+source/** -text -whitespace
+source/README.md text eol=lf

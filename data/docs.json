@@ -291,7 +291,12 @@
   },
   {
     "path": "docs/materials/pixelfx.md",
-    "title": "pixelfx：代码画出来的像素特效",
+    "title": "pixelfx · 代码驱动的像素特效与动作库",
+    "group": "素材使用"
+  },
+  {
+    "path": "docs/materials/pixelfx-skill.md",
+    "title": "pixelfx Skill：阅读与使用资料",
     "group": "素材使用"
   },
   {

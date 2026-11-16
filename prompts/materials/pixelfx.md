@@ -1,12 +1,12 @@
-# pixelfx · 纯代码像素特效库 · 复用 Prompt
+# pixelfx · 代码驱动的像素特效与动作库 · 复用 Prompt
 
 [结构化条目](../../entries/materials/pixelfx.json)
 
-在网页游戏或交互页面里使用固定版本的 pixelfx：先 createFrame 建一块像素分辨率的画布，再用 createFx 载入某个效果并给出坐标、镜像、角度、seed 与 palette；每帧 update(dt)、clearFrame、draw 后 composite 到 ImageData，最后按整数倍放大并设 image-rendering: pixelated。带角色的效果换用 createAct，读取 act.poses 与 act.hits，按冻结时长暂停场景更新，shake 用于镜头抖动。挑效果先查 docs/CATALOG.md 与 tools/list.mjs，再渲染帧联系表看图；配色用由暗到亮的色阶，同一效果换色阶就能从火焰变成冰焰。需要交给其他引擎时用 tools/render.mjs --sheet 导出透明雪碧图与帧矩形、时长、fps、循环与轴心元数据。
+读取 pixelfx 素材的中文说明与对应特效源码（demos/materials/pixelfx/vendor/pixelfx@0.3.1/src/），在网页 Canvas 或游戏中接入固定版本 pixelfx 0.3.1。按场景分辨率调用 createFrame(w, h) 建立 color 与 light 双缓冲；单特效使用 createFx(mod, { x, y, flip, angle, seed, palette, light })，需要角色前摇、命中定格（hit-stop）、受击草靶与震屏反馈时使用 createAct(mod, { x, y, ... }) 并应用 act.shake 偏移。每帧执行 update(dt)、clearFrame(frame)、draw(frame) 与 composite(frame, imageData.data, bg)，再通过 putImageData 绘入开启 image-rendering: pixelated 的 Canvas。优先通过内置 27 套 PAL 色板或自定义由暗到亮的色板数组重着色；需要跨引擎使用时通过 tools/render.mjs --sheet 或画廊详情导出 Aseprite 精灵表。保留 MIT 许可、Hugo Duprez 与 Hollow Crown 署名，不将画廊专有的 Patch Pixel 字体用于无关分发。
 
 ## 制作约束
 
-- 固定 pixelfx 0.3.1 与完整提交，运行代码原样保存在 vendor。
-- 效果名、描述、标签与分类名沿用上游英文原文。
-- 画廊为单主题深色页面，播放区固定黑底，不跟随站点浅深切换。
-- 字体与远程地址的本地化改动见 fidelity.md。
+- 固定 pixelfx 0.3.1 与完整提交 5294518ce7c72e48b6100a744596e0acf57f2826，运行库无第三方运行时依赖。
+- 画廊为固定深色主题（#000000 底色、#15131d 舞台底），使叠加发光缓冲（light buffer）在各颜色下保持一致对比度。
+- Google Fonts 的 Funnel Sans 与 Red Hat Mono 已本地化至 fonts/，本地化改动与线上画廊对照结果见 fidelity.md。
+- 每个特效内部全部使用固定种子的 Rng，禁止使用 Math.random() 或 Date，保证任意帧可确定性重现。
