@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "repository": "https://github.com/MIBXR/web-atlas-next",
-  "materialCount": 20,
+  "materialCount": 21,
   "materials": [
     {
       "id": "shaders",
@@ -726,36 +726,38 @@
     },
     {
       "id": "pixelfx",
-      "title": "pixelfx · 纯代码像素特效库",
+      "title": "pixelfx · 代码驱动的像素特效与动作库",
       "type": "component-library",
       "category": "组件与效果",
-      "summary": "244 个像素特效，每一个都是一份绘制代码：火焰、爆炸、冰霜、招式与界面反馈都没有图片素材，在画廊里挑一项实时播放、换配色、换种子，再导出带帧矩形与时长元数据的透明雪碧图。",
+      "summary": "归档 Patch 开源的 pixelfx 0.3.1 运行库、画廊与制作工具：涵盖 21 个分类、244 个纯代码绘制的像素艺术特效与角色动作演出，双缓冲叠加发光、确定性随机种子与 27 套色板，可直接接入 Canvas/WebGL 游戏或导出 Aseprite 精灵表。",
       "tags": [
         "像素艺术",
         "Canvas",
-        "粒子",
-        "程序化生成",
         "游戏特效",
-        "雪碧图",
-        "调色板",
-        "JavaScript"
+        "VFX",
+        "精灵表",
+        "角色动作",
+        "粒子模拟",
+        "双缓冲光照",
+        "JavaScript",
+        "Patch"
       ],
       "useCases": [
-        "为网页游戏补上命中、爆炸、拾取与界面反馈",
-        "在原型里用代码生成特效，不必先准备图片素材",
-        "把同一套效果换成品牌配色，观察像素画的调色与打光",
-        "导出雪碧图交给 Phaser、Godot、Unity 等引擎",
-        "按 AUTHORING.md 的做法写自己的像素特效"
+        "网页游戏、像素风互动页面与复古街机活动页的技能、打击、爆炸和环境氛围特效",
+        "页面成就弹窗、金币收集、连击计数、倒计时、暴击数字与升级提示等像素化 UI 反馈",
+        "百叶窗、燃烧、CRT 关机、菱形擦除、故障撕裂、光圈收束与像素溶解等全屏像素转场",
+        "为 Godot、Unity、Phaser、PixiJS 等引擎实时换色并导出带锚点与命中定格数据的 Aseprite 精灵表"
       ],
       "avoid": [
-        "需要照片质感或矢量精确边缘的主视觉",
-        "把同时播放的几十个特效画布放进一个页面"
+        "需要高分辨率矢量图形或照片级写实渲染的常规商务网页主视觉",
+        "在未开启 image-rendering: pixelated 的画布上作非整数倍缩小导致 1px 像素线条丢失",
+        "将画廊专有的 Patch Pixel 品牌字体抽取用于与本参考无关的商业分发"
       ],
       "constraints": [
-        "固定 pixelfx 0.3.1 与完整提交，运行代码原样保存在 vendor。",
-        "效果名、描述、标签与分类名沿用上游英文原文。",
-        "画廊为单主题深色页面，播放区固定黑底，不跟随站点浅深切换。",
-        "字体与远程地址的本地化改动见 fidelity.md。"
+        "固定 pixelfx 0.3.1 与完整提交 5294518ce7c72e48b6100a744596e0acf57f2826，运行库无第三方运行时依赖。",
+        "画廊为固定深色主题（#000000 底色、#15131d 舞台底），使叠加发光缓冲（light buffer）在各颜色下保持一致对比度。",
+        "Google Fonts 的 Funnel Sans 与 Red Hat Mono 已本地化至 fonts/，本地化改动与线上画廊对照结果见 fidelity.md。",
+        "每个特效内部全部使用固定种子的 Rng，禁止使用 Math.random() 或 Date，保证任意帧可确定性重现。"
       ],
       "paths": {
         "bundle": "agent/materials/pixelfx.json",
@@ -796,6 +798,47 @@
         "snapshotEntry": "SKILL.md",
         "entry": "entries/materials/modern-web-guidance.json",
         "preview": "previews/materials/modern-web-guidance.webp"
+      }
+    },
+    {
+      "id": "pixelfx-skill",
+      "title": "pixelfx Skill · 代码像素特效与动作制作工作流",
+      "type": "agent-skill",
+      "category": "Agent 工作流",
+      "summary": "基于 Hugo Duprez“代码如泥塑、相信肉眼、喂入参考”方法的 Claude Code 像素特效制作技能：指导 Agent 在 244 个现成特效中检索换色、接入网页或导出精灵表，并通过“多稿起草 → 渲染接触表 → 看图挑刺 → 迭代修整 → 编排 3D 骨骼角色 Act → 自动校验”循环写出媲美手绘的像素特效。",
+      "tags": [
+        "Agent Skill",
+        "像素艺术",
+        "游戏特效",
+        "精灵表",
+        "接触表审阅",
+        "角色动作",
+        "打击感",
+        "Claude Code"
+      ],
+      "useCases": [
+        "让 Agent 从 244 个现有像素特效中检索、换色（palette）、调参并接入 Canvas/WebGL 游戏",
+        "批量或按需将代码像素特效与角色动作导出为 Godot、Unity、Phaser 可读的 Aseprite 精灵表",
+        "从零起草全新的纯代码像素特效，通过接触表（contact.png）多轮视觉自检达到手绘像素品质",
+        "为缺乏分量的攻击、施法或受击特效补齐蓄力前摇、释放姿态、命中卡肉定格（hit-stop）与受击草靶反应"
+      ],
+      "avoid": [
+        "不渲染接触表查看实际画面、仅靠一次提示词盲写并直接交付像素特效",
+        "在特效代码中使用 Math.random()、平滑矢量渐变、无方向光照或未清理的单次残留像素",
+        "直接复刻特定商业游戏的专有角色精灵、商标或受版权保护的美术形象"
+      ],
+      "constraints": [
+        "本条目保存 patch-gg/pixelfx 固定提交 5294518ce7c72e48b6100a744596e0acf57f2826 的技能原文、编写规范（docs/AUTHORING.md）、目录（docs/CATALOG.md）与 CLI 工具（tools/）。",
+        "运行 tools/render.mjs、tools/act.mjs、tools/check.mjs 需要 Node.js 18+ 及同级 src/ 目录（完整运行源码位于关联素材 demos/materials/pixelfx/source/）；导出 GIF 与 MP4 预览时可选依赖 ffmpeg。",
+        "新建特效须先阅读 docs/AUTHORING.md 的契约：角色基准尺寸为 24×38 px（actor: 2），局部原点 (0, 0) 位于脚底或命中点，单次特效在 t = duration 时必须完全清空画布，循环特效必须无缝闭合。",
+        "每次起草或修改后必须执行 node tools/render.mjs <id> 查看 contact.png 接触表，至少经历三轮“看图找最差问题 → 修复 → 重渲染”，并用 node tools/check.mjs <id> 通过越界、残留、接缝、随机数与帧耗时检查。"
+      ],
+      "paths": {
+        "bundle": "agent/materials/pixelfx-skill.json",
+        "snapshot": "demos/materials/pixelfx-skill/",
+        "snapshotEntry": "SKILL.md",
+        "entry": "entries/materials/pixelfx-skill.json",
+        "preview": "previews/materials/pixelfx-skill.png"
       }
     }
   ]

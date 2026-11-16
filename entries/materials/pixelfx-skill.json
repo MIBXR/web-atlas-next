@@ -1,0 +1,166 @@
+{
+  "id": "pixelfx-skill",
+  "order": 21,
+  "title": "pixelfx Skill · 代码像素特效与动作制作工作流",
+  "type": "agent-skill",
+  "category": "Agent 工作流",
+  "summary": "基于 Hugo Duprez“代码如泥塑、相信肉眼、喂入参考”方法的 Claude Code 像素特效制作技能：指导 Agent 在 244 个现成特效中检索换色、接入网页或导出精灵表，并通过“多稿起草 → 渲染接触表 → 看图挑刺 → 迭代修整 → 编排 3D 骨骼角色 Act → 自动校验”循环写出媲美手绘的像素特效。",
+  "install": "/plugin marketplace add patch-gg/pixelfx && /plugin install pixelfx@pixelfx；或把 demos/materials/pixelfx-skill/SKILL.md 复制到项目的 .claude/skills/pixelfx/SKILL.md，并在含 tools/ 与 src/ 的工作区（如 demos/materials/pixelfx/source/）中运行。",
+  "tags": [
+    "Agent Skill",
+    "像素艺术",
+    "游戏特效",
+    "精灵表",
+    "接触表审阅",
+    "角色动作",
+    "打击感",
+    "Claude Code"
+  ],
+  "useCases": [
+    "让 Agent 从 244 个现有像素特效中检索、换色（palette）、调参并接入 Canvas/WebGL 游戏",
+    "批量或按需将代码像素特效与角色动作导出为 Godot、Unity、Phaser 可读的 Aseprite 精灵表",
+    "从零起草全新的纯代码像素特效，通过接触表（contact.png）多轮视觉自检达到手绘像素品质",
+    "为缺乏分量的攻击、施法或受击特效补齐蓄力前摇、释放姿态、命中卡肉定格（hit-stop）与受击草靶反应"
+  ],
+  "avoid": [
+    "不渲染接触表查看实际画面、仅靠一次提示词盲写并直接交付像素特效",
+    "在特效代码中使用 Math.random()、平滑矢量渐变、无方向光照或未清理的单次残留像素",
+    "直接复刻特定商业游戏的专有角色精灵、商标或受版权保护的美术形象"
+  ],
+  "constraints": [
+    "本条目保存 patch-gg/pixelfx 固定提交 5294518ce7c72e48b6100a744596e0acf57f2826 的技能原文、编写规范（docs/AUTHORING.md）、目录（docs/CATALOG.md）与 CLI 工具（tools/）。",
+    "运行 tools/render.mjs、tools/act.mjs、tools/check.mjs 需要 Node.js 18+ 及同级 src/ 目录（完整运行源码位于关联素材 demos/materials/pixelfx/source/）；导出 GIF 与 MP4 预览时可选依赖 ffmpeg。",
+    "新建特效须先阅读 docs/AUTHORING.md 的契约：角色基准尺寸为 24×38 px（actor: 2），局部原点 (0, 0) 位于脚底或命中点，单次特效在 t = duration 时必须完全清空画布，循环特效必须无缝闭合。",
+    "每次起草或修改后必须执行 node tools/render.mjs <id> 查看 contact.png 接触表，至少经历三轮“看图找最差问题 → 修复 → 重渲染”，并用 node tools/check.mjs <id> 通过越界、残留、接缝、随机数与帧耗时检查。"
+  ],
+  "upstream": {
+    "repository": "patch-gg/pixelfx",
+    "url": "https://github.com/patch-gg/pixelfx/tree/5294518ce7c72e48b6100a744596e0acf57f2826/skills/pixelfx",
+    "version": "0.3.1",
+    "commit": "5294518ce7c72e48b6100a744596e0acf57f2826",
+    "verifiedAt": "2026-11-16"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://github.com/patch-gg/pixelfx/blob/5294518ce7c72e48b6100a744596e0acf57f2826/LICENSE",
+    "scope": "pixelfx 技能文本（SKILL.md）、插件清单（.claude-plugin/）、编写指南（docs/AUTHORING.md）、目录（docs/CATALOG.md）与 CLI 脚本（tools/）。",
+    "notes": "方法论源自 Hugo Duprez《How to make (good) pixel art effects with Claude》与 Sprite Fusion 开源像素 VFX（MIT）；动作演出系统改编自 Hollow Crown（MIT）。"
+  },
+  "sources": [
+    {
+      "title": "pixelfx Skill 原文（SKILL.md）",
+      "url": "https://github.com/patch-gg/pixelfx/blob/5294518ce7c72e48b6100a744596e0acf57f2826/skills/pixelfx/SKILL.md",
+      "note": "检索现有特效、游戏接入、精灵表导出、六步新特效制作循环与常见视觉缺陷修整对照表。",
+      "evidence": "source"
+    },
+    {
+      "title": "特效与动作编写契约（AUTHORING.md）",
+      "url": "https://github.com/patch-gg/pixelfx/blob/5294518ce7c72e48b6100a744596e0acf57f2826/docs/AUTHORING.md",
+      "note": "Simulated 与 Pure 接口、局部坐标系、双缓冲 Painter API、Particles/Bits/Lights 工具箱及 3D 骨骼 Act 规范。",
+      "evidence": "source"
+    },
+    {
+      "title": "Hugo Duprez：How to make (good) pixel art effects with Claude",
+      "url": "https://www.spritefusion.com/blog/how-to-make-good-pixel-art-effects-with-claude",
+      "note": "技能遵循的核心方法：将代码视作黏土，渲染接触表并用肉眼审视，喂入高质量参考代码迭代。",
+      "evidence": "source"
+    },
+    {
+      "title": "Claude Code 插件清单",
+      "url": "https://github.com/patch-gg/pixelfx/tree/5294518ce7c72e48b6100a744596e0acf57f2826/.claude-plugin",
+      "note": "固定版本 0.3.1 的 plugin.json 与 marketplace.json。",
+      "evidence": "source"
+    }
+  ],
+  "snapshotPath": "demos/materials/pixelfx-skill/",
+  "snapshotEntry": "SKILL.md",
+  "workflow": [
+    "准备与冒烟验证：在含 tools/ 与 src/ 的 pixelfx 工作区运行 node tools/render.mjs fire/torch，打开生成的 records/fire/torch/contact.png 接触表，确认渲染与读图链路正常。",
+    "先检索现有特效与色板：运行 node tools/list.mjs <关键词> 或查阅 docs/CATALOG.md，渲染候选特效接触表；优先通过 palette（27 套 PAL 色板或自定义色值）、seed、flip、angle、light 满足需求。",
+    "接入游戏或导出精灵表：JS/TS 游戏直接调用 createFrame、createFx/createAct 与 composite；其他引擎执行 node tools/render.mjs <id> --sheet 或 node tools/act.mjs <id> --sheet 导出透明 PNG 与 Aseprite JSON。",
+    "一句话确立美术方向并研读参考：制作新特效前先阅读 docs/AUTHORING.md，用一句话写清形态、运动、色板与节奏，并阅读库中最接近的 2–3 个特效源码（及 sword-slash、frost-nova、small-explosion 三个标杆）借用粒子与绘制技法。",
+    "多稿起草与接触表迭代：用 node tools/new.mjs <category>/<name> 创建起点（开放方向可写 a–e 多稿并排渲染），打开 contact.png 按像素画师标准找出最差问题（糊成一团、噪点孤点、发飘无冲击力、过曝、扁平、接缝等），每轮修一项并重渲染，至少迭代三轮。",
+    "编排角色演出与自动校验：涉及角色的特效补充 export const act（含负时间前摇、释放帧大幅剪影变化、命中定格 stop、震屏 shake、草靶受击与收招恢复），用 node tools/act.mjs <id> 检查连续 12fps 步进帧，最后运行 node tools/check.mjs <id> 清理全部越界、残留、接缝、非确定性随机与姿态告警。"
+  ],
+  "relatedEntries": [
+    {
+      "kind": "material",
+      "id": "pixelfx",
+      "note": "同一上游的 244 个代码像素特效与动作库，提供实时画廊、27 套色板、精灵表导出与完整可运行源码。"
+    }
+  ],
+  "gallery": [
+    {
+      "path": "previews/materials/pixelfx-skill/montage.gif",
+      "width": 792,
+      "height": 416,
+      "caption": "上游 README 动图（montage.gif）：多分类代码像素特效同屏实时运行拼贴",
+      "kind": "work",
+      "sourceUrl": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/docs/readme/montage.gif",
+      "license": "MIT（patch-gg/pixelfx）",
+      "replicaPage": "demos/materials/pixelfx/index.html"
+    },
+    {
+      "path": "previews/materials/pixelfx-skill/acts.gif",
+      "width": 788,
+      "height": 640,
+      "caption": "上游角色演出动图（acts.gif）：三连斩、重锤砸地、猛踏震地、神圣惩击、冰霜新星与疾跑残影的前摇、命中定格与受击草靶反馈",
+      "kind": "work",
+      "sourceUrl": "https://raw.githubusercontent.com/patch-gg/pixelfx/5294518ce7c72e48b6100a744596e0acf57f2826/docs/readme/acts.gif",
+      "license": "MIT（patch-gg/pixelfx）",
+      "replicaPage": "demos/materials/pixelfx/index.html?demo=moves/sword-combo"
+    },
+    {
+      "path": "previews/materials/pixelfx-skill/frost-nova-contact.png",
+      "width": 1488,
+      "height": 902,
+      "caption": "标杆特效接触表（ice/frost-nova）：由 node tools/render.mjs 生成的 16 帧采样接触表，展示寒霜汇聚、三圈冰晶绽放与地面结霜消退",
+      "kind": "style",
+      "sourceUrl": "https://github.com/patch-gg/pixelfx/blob/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/ice/frost-nova.js",
+      "license": "MIT（patch-gg/pixelfx & Hugo Duprez）",
+      "replicaPage": "demos/materials/pixelfx/index.html?demo=ice/frost-nova"
+    },
+    {
+      "path": "previews/materials/pixelfx-skill/small-explosion-contact.png",
+      "width": 1548,
+      "height": 1094,
+      "caption": "标杆特效接触表（explosions/small-explosion）：120Hz 物理粒子模拟的白闪、冲击环、翻滚烟柱、弹跳燃块与地面焦痕",
+      "kind": "style",
+      "sourceUrl": "https://github.com/patch-gg/pixelfx/blob/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/explosions/small-explosion.js",
+      "license": "MIT（patch-gg/pixelfx & Hugo Duprez）",
+      "replicaPage": "demos/materials/pixelfx/index.html?demo=explosions/small-explosion"
+    },
+    {
+      "path": "previews/materials/pixelfx-skill/sword-slash-act.png",
+      "width": 3632,
+      "height": 1098,
+      "caption": "角色动作步进表（melee/sword-slash）：由 node tools/act.mjs 生成的连续 12fps 姿态步进图，用于检查前摇、挥砍弧线衔接、卡肉定格与收招",
+      "kind": "style",
+      "sourceUrl": "https://github.com/patch-gg/pixelfx/blob/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/melee/sword-slash.js",
+      "license": "MIT（patch-gg/pixelfx & Hugo Duprez）",
+      "replicaPage": "demos/materials/pixelfx/index.html?demo=melee/sword-slash"
+    },
+    {
+      "path": "previews/materials/pixelfx-skill/torch-contact.png",
+      "width": 1576,
+      "height": 1190,
+      "caption": "无缝循环接触表（fire/torch）：SKILL.md 首步验证使用的 2 秒 60 帧循环火把接触表，展示双缓冲火光与上升余烬",
+      "kind": "style",
+      "sourceUrl": "https://github.com/patch-gg/pixelfx/blob/5294518ce7c72e48b6100a744596e0acf57f2826/src/fx/fire/torch.js",
+      "license": "MIT（patch-gg/pixelfx）",
+      "replicaPage": "demos/materials/pixelfx/index.html?demo=fire/torch"
+    }
+  ],
+  "preview": "previews/materials/pixelfx-skill.png",
+  "research": "docs/materials/pixelfx-skill.md",
+  "sourceFiles": [
+    "demos/materials/pixelfx-skill/SKILL.md",
+    "demos/materials/pixelfx-skill/README.md",
+    "demos/materials/pixelfx-skill/docs/AUTHORING.md",
+    "demos/materials/pixelfx-skill/docs/CATALOG.md",
+    "demos/materials/pixelfx-skill/tools/render.mjs",
+    "demos/materials/pixelfx-skill/tools/act.mjs",
+    "demos/materials/pixelfx-skill/tools/check.mjs"
+  ],
+  "prompt": "先阅读 demos/materials/pixelfx-skill/SKILL.md 与 demos/materials/pixelfx-skill/docs/AUTHORING.md，在 demos/materials/pixelfx/source/ 工作区中处理像素特效任务。若是复用或改装现有效果，先用 node tools/list.mjs <关键词> 检索 244 个现成特效，通过 palette、seed、flip、angle、light 调整并渲染 contact.png 核对，再接入 Canvas/WebGL 或用 --sheet 导出 Aseprite 精灵表。若是制作新特效，先用一句话写清形态、运动、色板与节奏，阅读 2–3 个最接近的现成特效源码；用 node tools/new.mjs 创建草稿，执行 node tools/render.mjs 生成接触表并直接查看图片，对照 SKILL.md 的缺陷修正表（剪影、孤立噪点、缓动冲击力、发光强度、单侧受光、循环接缝、收尾清空）至少迭代三轮；涉及角色时编写 export const act 并用 node tools/act.mjs 检查连续 12fps 步进帧，最后用 node tools/check.mjs 全部检查通过后交付。"
+}

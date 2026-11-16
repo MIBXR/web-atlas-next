@@ -22,3 +22,6 @@
 | React Bits | [官方样例索引与限时撤销](react-bits.md) |
 | HeroUI | [React Web 样例与接入](heroui.md) |
 | Modern Web Guidance | [检索指南与体验官方示例](modern-web-guidance.md) |
+| ascii.rest | [动画 ASCII 组件与 Kit 示例](ascii-rest.md) |
+| pixelfx | [代码像素特效、角色动作与精灵表](pixelfx.md) |
+| pixelfx Skill | [像素特效接触表迭代与制作工作流](pixelfx-skill.md) |
