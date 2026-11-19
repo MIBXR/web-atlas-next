@@ -1,0 +1,82 @@
+{
+  "id": "progressive-live-redesign-stage",
+  "order": 189,
+  "title": "分步演进的同页改版舞台",
+  "category": "滚动叙事",
+  "experienceTypes": [
+    "page-motion",
+    "visual",
+    "structure"
+  ],
+  "summary": "将左侧分步导轨与右侧同一真实 DOM 预览页联动，随滚动或点击分五步拆解页面从默认套路到专业设计的全过程。",
+  "mechanism": "在粘性双栏舞台中，左栏排列 5 个带竖向进度条的步骤项（The default → One palette → Real type → Layout with intent → The last 10%），右栏画框叠加默认套路层（.nf-slop）与可变形的目标 DOM 层（.nf-calm）。滚动进度在 5 个锚点（0、0.18、0.4、0.665、0.93）间推进：第一步以圆形 clip-path 扫除紫色渐变底，第二步替换 Emoji 标志与空洞标题文案，第三步将三张填料卡片下抛退场并重组为左文右文档卡的编辑式双栏，第四步点亮文档复选框、删除线、标签与底色层次。点击左栏任一步骤按钮可平滑滚至对应锚点。",
+  "trigger": "纵向滚动穿过粘性舞台，或点击左栏五个步骤按钮（.ba-step button）。",
+  "effect": "不仅展示“改完后更好看”，更让观看者逐层看清配色、字体文案、版式结构与最后 10% 工艺细节各自解决了什么问题。",
+  "useCases": [
+    "设计工具、AI 编码技能或重构服务的同题改版对比",
+    "设计规范与代码重构教程的分步可视化讲解",
+    "产品升级发布页的新旧界面演进拆解"
+  ],
+  "avoid": [
+    "前后两个版本没有任何共同内容或结构对应关系",
+    "仅需一眼看完两张静态截图的简单对比"
+  ],
+  "constraints": [
+    "固定提交源码与对照结果见 demos/cases/taste-skill-site/fidelity.md。",
+    "右侧预览使用真实 DOM 与容器查询缩放（100cqw / 880px，不支持 zoom 时由 ResizeObserver 写入 --s），减少动态模式下直接展示最终完成态。"
+  ],
+  "composition": {
+    "role": "foundation",
+    "notes": "承担产品核心价值证明，左栏步骤导轨与右栏 DOM 时间线共享同一归一化滚动进度。",
+    "pairsWellWith": [
+      "normalized-long-page-compare",
+      "demo-once-then-yield-divider",
+      "scroll-synchronized-rail"
+    ],
+    "conflicts": []
+  },
+  "parameters": [
+    {
+      "name": "粘性行程与五步锚点",
+      "value": "hold = 3（手机 2）；区间起点 [0, 0.05, 0.21, 0.43, 0.69]；点击跳转锚点 [0, 0.18, 0.4, 0.665, 0.93]",
+      "note": "公开代码：demos/cases/taste-skill-site/js/before-after.js。"
+    },
+    {
+      "name": "第一步圆形扫除遮罩",
+      "value": "clip-path: circle(0px → 600px at 440px 166px)（手机 at 260px 140px），进度 0.05–0.172",
+      "note": "公开代码：js/before-after.js，以带橙边的 .nf-ring 引导 .nf-calm 覆盖 .nf-slop。"
+    },
+    {
+      "name": "按钮平滑跳转时长",
+      "value": "Lenis scrollTo duration 1.2s（无 Lenis 时 window.scrollTo smooth）",
+      "note": "公开代码：js/app.js initBeforeAfter（module 37612）。"
+    }
+  ],
+  "prompt": "为目标页面实现「分步演进的同页改版舞台」：创建 data-scene=\"before-after\" 的双栏粘性舞台（桌面 hold=3，手机 hold=2）。左栏放置 5 个步骤项（.ba-step），随滚动进度 [0, 0.05, 0.21, 0.43, 0.69] 展开当前步骤说明、填充竖向进度条 --ba-fill 并标记 aria-current=\"step\"，点击步骤标题按钮滚向对应锚点 [0, 0.18, 0.4, 0.665, 0.93]。右栏画框按 880px 基准宽度等比缩放，先以圆形 clip-path 扫除默认层（.nf-slop），随后在同一 DOM 层（.nf-calm）上按时间线依次替换标志与标题文案、下抛旧卡片并滑入左对齐主栏与右侧真实业务卡片、最后点亮复选状态与背景层次，右上角胶囊同步滚动显示 Before 与 Step 1–4 of 4。",
+  "sources": [
+    {
+      "caseId": "taste-skill-site",
+      "locator": "entries/cases/taste-skill-site.json#interaction/4",
+      "observation": "Before and after（From default to designed）将左栏五步进度按钮（The default、One palette、Real type、Layout with intent、The last 10%）与右栏同一 Noteflow 真实 DOM 页面绑定：随滚动或点击步骤按钮（标记点 0、0.18、0.4、0.665、0.93），以圆形 clip-path 扫除默认紫渐变与玻璃卡片，依次替换为暖纸单色板、紧致标题、左对齐层级与带已完成清单的周报卡片，顶部胶囊同步滚动 Step 1–4 of 4。",
+      "evidence": "observed",
+      "referenceUrl": "https://www.tasteskill.dev/",
+      "capturedAt": "2026-11-19",
+      "focus": {
+        "target": ".scene.showcase .ba-stage",
+        "label": "五步改版导轨与 Noteflow 实时预览",
+        "instruction": "依次点击左侧 One palette、Real type、Layout with intent、The last 10% 步骤按钮（或直接上下滚动），观察右侧 Noteflow 页面分五步脱去默认套路。"
+      }
+    }
+  ],
+  "sourceFiles": [
+    "entries/cases/taste-skill-site.json",
+    "docs/cases/taste-skill-site.md",
+    "demos/cases/taste-skill-site/fidelity.md",
+    "demos/cases/taste-skill-site/index.html",
+    "demos/cases/taste-skill-site/styles.css",
+    "demos/cases/taste-skill-site/js/stage.js",
+    "demos/cases/taste-skill-site/js/before-after.js",
+    "demos/cases/taste-skill-site/js/app.js"
+  ],
+  "preview": "previews/patterns/progressive-live-redesign-stage.jpg"
+}

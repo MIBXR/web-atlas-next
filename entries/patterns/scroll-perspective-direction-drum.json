@@ -1,0 +1,80 @@
+{
+  "id": "scroll-perspective-direction-drum",
+  "order": 188,
+  "title": "滚动驱动的三维方向滚筒",
+  "category": "滚动叙事",
+  "experienceTypes": [
+    "page-motion",
+    "structure"
+  ],
+  "summary": "在粘性视口中随滚动旋转竖向三维滚筒，通过中央细线与三角准星逐条检视方向，并在滚毕时弹出抽选结果。",
+  "mechanism": "将 N 条方向排在半径 --drum-r、透视 --drum-persp 的竖向三维圆柱上；滚动进度驱动总旋转角 --drum-turn，按每项与中心平面的夹角余弦实时计算不透明度 --drum-o 与高亮权重 --drum-lit。中心阅读带由上下水平细线和左右三角准星界定，准星间距与背景暖光晕随当前项对齐度呼吸缩放，右侧同步滚入当前序号（1 of 20）与副标题；当进度越过 91.2% 时触发 drum:close，交错弹出三张带初始倾角的抽选卡片。",
+  "trigger": "纵向滚动穿过粘性章节（#directions）。",
+  "effect": "把多达二十项的抽象规则库转化为有机械刻度感的空间检视过程，并以本页抽中的三项收束结论。",
+  "useCases": [
+    "设计方向库、主题列表或规则集合的滚动检视",
+    "展示“从大量候选中抽取少量组合”的发牌与推荐机制",
+    "长页中需要改变阅读节奏的全屏章节过渡"
+  ],
+  "avoid": [
+    "需要用户同时横向比较多项详细参数的数据表格",
+    "仅有两三项内容、不足以支撑圆柱曲率的短列表"
+  ],
+  "constraints": [
+    "固定提交源码与双宽对照结果见 demos/cases/taste-skill-site/fidelity.md。",
+    "减少动态模式（prefers-reduced-motion: reduce）下停用粘性滚筒旋转，回退为静态可读列表（is-rest）。"
+  ],
+  "composition": {
+    "role": "foundation",
+    "notes": "独占 2.3 屏粘性滚动行程（桌面约 3040px），前后衔接静态卡片章节以形成动静对比。",
+    "pairsWellWith": [
+      "dealt-page-hand",
+      "inertial-page-wheel"
+    ],
+    "conflicts": []
+  },
+  "parameters": [
+    {
+      "name": "粘性行程与步角",
+      "value": "hold = 2.3（20 项）；最大展开角 250° / (T - 1)",
+      "note": "公开代码：demos/cases/taste-skill-site/js/scroll-turned-drum.js，进度 0.06–0.94 驱动滚筒旋转。"
+    },
+    {
+      "name": "透视深度与远近衰减",
+      "value": "depth = 3（--drum-persp = 3 * --drum-r）；ghost = 0.32，ghostFar = 0.10",
+      "note": "公开代码：js/scroll-turned-drum.js 余弦透视衰减函数 i(angle, ghost, ghostFar, depth)。"
+    },
+    {
+      "name": "准星呼吸与结尾发牌",
+      "value": "准星位移 0–10px；进度 0.912 触发 drum:close，3 卡旋转 [-5°, 2°, 6°] → 0°，duration 600ms，stagger 80ms",
+      "note": "公开代码：js/app.js initDirections（module 74297）。"
+    }
+  ],
+  "prompt": "为目标页面实现「滚动驱动的三维方向滚筒」：在 data-scene=\"scroll-turned-drum\" 的粘性章节内，将条目排在半径 --drum-r、透视 3 倍半径的竖向三维滚筒上。随滚动进度 0.06 至 0.94 更新旋转角 --drum-turn，按夹角余弦写入每项的 --drum-o 与 --drum-lit。在视口中央放置上下两条水平细线（.drum-rule）与左右三角准星（.drum-pointer--left/right），让准星位移（0–10px）和背景光晕（.drum-glow）随整步对齐度呼吸，同时在右侧滚入当前序号与说明。当滚动进度达到 0.912 时派发 drum:close 事件，以 [-5°, 2°, 6°] 初始倾角交错弹出三张抽选汇总卡片。减少动态模式下回退为静态列表。",
+  "sources": [
+    {
+      "caseId": "taste-skill-site",
+      "locator": "entries/cases/taste-skill-site.json#interaction/2",
+      "observation": "The draw（scroll-turned-drum）将二十条美术方向排在三维竖向滚筒上，随滚动更新旋转角 --drum-turn、逐项不透明度 --drum-o 与高亮 --drum-lit；中央细线与左右三角准星随对齐度呼吸缩放，右侧同步滚入当前编号（1 of 20）与方向说明，滚至末尾 91.2% 时触发 drum:close，以 [-5°, 2°, 6°] 旋转交错弹出三张 Dealt for this page 抽选卡。",
+      "evidence": "observed",
+      "referenceUrl": "https://www.tasteskill.dev/",
+      "capturedAt": "2026-11-19",
+      "focus": {
+        "target": "#directions .scene-stage",
+        "label": "二十方向三维滚筒与准星窗口",
+        "instruction": "在此区域上下滚动，观察二十条方向沿三维滚筒穿过中央细线与橙色三角准星，继续滚至本节末尾查看弹出的三张抽选卡片。"
+      }
+    }
+  ],
+  "sourceFiles": [
+    "entries/cases/taste-skill-site.json",
+    "docs/cases/taste-skill-site.md",
+    "demos/cases/taste-skill-site/fidelity.md",
+    "demos/cases/taste-skill-site/index.html",
+    "demos/cases/taste-skill-site/styles.css",
+    "demos/cases/taste-skill-site/js/stage.js",
+    "demos/cases/taste-skill-site/js/scroll-turned-drum.js",
+    "demos/cases/taste-skill-site/js/app.js"
+  ],
+  "preview": "previews/patterns/scroll-perspective-direction-drum.jpg"
+}

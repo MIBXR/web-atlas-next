@@ -1,0 +1,626 @@
+{
+  "schemaVersion": 1,
+  "id": "light-flood-kinetic-closing",
+  "pattern": {
+    "id": "light-flood-kinetic-closing",
+    "order": 190,
+    "title": "光泛画布中的字标交接",
+    "category": "滚动叙事",
+    "experienceTypes": [
+      "page-motion",
+      "visual"
+    ],
+    "summary": "在终章粘性舞台中用多层 Canvas 绘制扩张的暖橙日冕、降落的夜幕与三级柔焦字层，驱动前后两句宣言在光色反转中完成交接。",
+    "mechanism": "在粘性舞台（data-scene=\"light-flood\"）内建立日昼底、日冕核心（.lf-sun：halo 与 core 两张离屏模糊 Canvas）、夜幕遮罩（.lf-night：带 destination-out 椭圆柔边裁切的 Canvas）以及三层不同高斯模糊半径的 Canvas 文字副本（.lf-soft）。为消除大面积模糊渐变在低色深屏幕上的条带伪影，Canvas 像素写入前使用固定种子（0x2f6b1d3）的 xorshift 算法对半透明像素施加 ±1 确定性抖动。随滚动推进，日冕从 0.5 倍扩张至 3 倍铺满画面，随后夜幕从顶部降下，前半句（.lf-lead）逐层由实转柔焦并上移淡出，后半句（.lf-key）从三级柔焦收束为纯白清晰字标并平滑落位至视口 48% 高度，同时联动顶栏切入深色模式。",
+    "trigger": "纵向滚动穿过终章粘性舞台（.scene.lf）。",
+    "effect": "无需 WebGL 着色器即可获得无色带的电影级光泛反转与光学景深对焦字标，将阅读情绪推向高潮并无缝衔接到深色页脚。",
+    "useCases": [
+      "产品官网或战役落地页的终章宣言舞台",
+      "从浅色正文区向深色页脚过渡的全屏情绪转场",
+      "强调“从模糊猜测到清晰决策”主题的双句对偶标题"
+    ],
+    "avoid": [
+      "单行超过 18 个字符、在窄屏下会折成三行以上的长句子",
+      "需要放置密集按钮或表单字段的功能性区块"
+    ],
+    "constraints": [
+      "固定提交源码与对照结果见 demos/cases/taste-skill-site/fidelity.md。",
+      "当设备逻辑核心数不超过 4 或处于减少动态模式时，跳过多层 Canvas 模糊绘制，回退为 CSS 滤镜或静态双行排版。"
+    ],
+    "composition": {
+      "role": "support",
+      "notes": "位于长页正文末尾与深色页脚之间，既承担核心口号收束，又完成全页底色由暖白（#f8f4ee）向暖黑（#140a05）的翻转。",
+      "pairsWellWith": [
+        "hf-ground-canvas-close"
+      ],
+      "conflicts": []
+    },
+    "parameters": [
+      {
+        "name": "粘性行程与日冕缩放",
+        "value": "hold = 2.3（手机 2.0）；日冕 scale 0.5 → 1.0 → 3.0 → 1.15（手机 0.6 → 1.2 → 3.6 → 1.3）",
+        "note": "公开代码：demos/cases/taste-skill-site/js/light-flood.js。"
+      },
+      {
+        "name": "三级柔焦模糊半径",
+        "value": "前半句 leadBlur = [6, 3.4, 1.5]px（手机 [4, 2.3, 1]px）；后半句 keyBlur = [4, 2, 0.9]px（手机 [3, 1.5, 0.7]px）",
+        "note": "公开代码：js/light-flood.js，后半句在进度 [0.165, 0.225, 0.285] 逐层聚焦，前半句在 [0.53, 0.565, 0.60] 逐层散焦退场。"
+      },
+      {
+        "name": "防色带像素抖动种子",
+        "value": "xorshift32 种子 0x2f6b1d3，alpha ∈ (0, 255) 施加 ±1 预乘抖动",
+        "note": "公开代码：js/light-flood.js 函数 f(ctx, w, h)。"
+      }
+    ],
+    "prompt": "为目标页面实现「光泛画布中的字标交接」：在页脚上方建立 data-scene=\"light-flood\" 的粘性舞台（hold=2.3）。在 .scene-stage 内依次生成 .lf-ground、.lf-sun（含 .lf-halo-tex 与 .lf-core-tex 两张 2D Canvas）、.lf-night（含 destination-out 椭圆柔边遮罩的 .lf-night-tex Canvas）、三层 .lf-soft 柔焦文字 Canvas 及主标题 h2.lf-line（包含 .lf-lead 前半句与 .lf-key 后半句）。对日冕与夜幕 Canvas 的半透明像素应用固定种子 0x2f6b1d3 的 xorshift ±1 抖动以消除渐变色带。随滚动将日冕放大铺满屏幕，让后半句经三级模糊半径 [4, 2, 0.9]px 聚焦显现；在进度 0.54 降下夜幕遮罩，使前半句经 [1.5, 3.4, 6]px 散焦上移淡出，后半句落位至视口高度 48% 并与深色页脚无缝衔接。",
+    "sources": [
+      {
+        "caseId": "taste-skill-site",
+        "locator": "entries/cases/taste-skill-site.json#interaction/7",
+        "observation": "终章 Stop guessing, start deciding.（light-flood）在粘性视口内用多层二维 Canvas 绘制带确定性像素抖动的暖橙日冕（halo/core）、夜幕椭圆遮罩（night）与三级高斯模糊字层（lf-soft），随滚动推进日冕扩张与夜幕降落，使深色模糊的 Stop guessing, 上移淡出，亮白清晰的 start deciding. 从多层柔焦收束定格在视口中央。",
+        "evidence": "observed",
+        "referenceUrl": "https://www.tasteskill.dev/",
+        "capturedAt": "2026-11-19",
+        "focus": {
+          "target": ".scene.lf .scene-stage",
+          "label": "光泛画布与柔焦字标交接",
+          "instruction": "在此粘性舞台上下滚动，观察暖橙日冕扩张、夜幕降下，以及 Stop guessing, 与 start deciding. 在多层柔焦间的对焦交接。"
+        }
+      }
+    ],
+    "sourceFiles": [
+      "entries/cases/taste-skill-site.json",
+      "docs/cases/taste-skill-site.md",
+      "demos/cases/taste-skill-site/fidelity.md",
+      "demos/cases/taste-skill-site/index.html",
+      "demos/cases/taste-skill-site/styles.css",
+      "demos/cases/taste-skill-site/js/stage.js",
+      "demos/cases/taste-skill-site/js/light-flood.js",
+      "demos/cases/taste-skill-site/js/app.js"
+    ],
+    "preview": "previews/patterns/light-flood-kinetic-closing.jpg"
+  },
+  "sourceCases": [
+    {
+      "id": "taste-skill-site",
+      "title": "Taste Skill · AI 编码 Agent 的网页设计 skill 官网",
+      "paths": {
+        "bundle": "agent/cases/taste-skill-site.json",
+        "demo": "demos/cases/taste-skill-site/index.html"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "prompts/patterns/light-flood-kinetic-closing.md",
+      "role": "prompt",
+      "content": "# 光泛画布中的字标交接 · 复用 Prompt\n\n[结构化条目](../../entries/patterns/light-flood-kinetic-closing.json)\n\n为目标页面实现「光泛画布中的字标交接」：在页脚上方建立 data-scene=\"light-flood\" 的粘性舞台（hold=2.3）。在 .scene-stage 内依次生成 .lf-ground、.lf-sun（含 .lf-halo-tex 与 .lf-core-tex 两张 2D Canvas）、.lf-night（含 destination-out 椭圆柔边遮罩的 .lf-night-tex Canvas）、三层 .lf-soft 柔焦文字 Canvas 及主标题 h2.lf-line（包含 .lf-lead 前半句与 .lf-key 后半句）。对日冕与夜幕 Canvas 的半透明像素应用固定种子 0x2f6b1d3 的 xorshift ±1 抖动以消除渐变色带。随滚动将日冕放大铺满屏幕，让后半句经三级模糊半径 [4, 2, 0.9]px 聚焦显现；在进度 0.54 降下夜幕遮罩，使前半句经 [1.5, 3.4, 6]px 散焦上移淡出，后半句落位至视口高度 48% 并与深色页脚无缝衔接。\n\n## 制作约束\n\n- 固定提交源码与对照结果见 demos/cases/taste-skill-site/fidelity.md。\n- 当设备逻辑核心数不超过 4 或处于减少动态模式时，跳过多层 Canvas 模糊绘制，回退为 CSS 滤镜或静态双行排版。\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/apple-touch-icon.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/a-human-created-this.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/ajmalaksar25.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/AkramReshad.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/AnthonyLiuVa.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/AtharvaJaiswal005.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/bytewerk-dev.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/denvit.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/dnakov.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/emilkowalski.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/ghughes7.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/Gigslol.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/JKc66.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/KANA-33.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/krikkkk.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/LuisGot.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/mccun934.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/navanchauhan.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/onedollarstock.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/oskar-collab.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/robinebers.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/techmedic5.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/u2393696078-rgb.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/Wolfy18.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/favicon-32.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/favicon.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icon.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/antigravity.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/claudecode.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/codex.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/cursor.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/geminicli.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/opencode.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/mark.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/imgly-icon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/interfaces-dev-icon.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/kimi-icon.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/kimi-open-source-friends.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/reactbits-icon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/sent-icon.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/vercel-icon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/tastecode-app-icon.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/vercel-oss-program-badge-2026.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/atelier-nord.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/coffee-questions.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/coffee-roast.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/coffee-storefront.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/margin.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/night-hero.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/thumb-dropped.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/thumb-green.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/thumb-roast.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/blog/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/changelog/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/docs/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/03425941b04c208b.0nn4z9g5ap6nx.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/073176abbfb69301.0ve54bz~f1b~b.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/080358c69562c9db.08ce3ar8cetf~.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/0b036bdeb10c32b8.0kkpsm4dt3m78.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/0bd9768cb275d212.13h_uu-l-b_u6.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/1239f87c2f407c5b.0_psq-1kfs-o5.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/1dec2532b0ccb31b.064g35qn_7eaq.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/21fc25f4fe8aafc9.0msx.~zn1vntq.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/23dc8d9c94a64bf1.04inntoweog5z.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/28f927981047d89f.0plyesuyqe6le.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/2fbeba6312f58a54.0ko0bt9fcg~_k.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/5fff1340a25cb9a8.0a~feibgbfwj9.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/6babc54cc0db7717.p.0-~an~s5a6j3d.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/702f5fabbdae66be.0ailg95uc5v~8.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/80b2b0863dd66ef8.0dz1.l5xvmy0o.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/8e578deadf1bb7c9.0pmb8.qit4le2.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/9ef465ce7ba5114b.p.0acb9ibijjzd7.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/aaf6fa4e1ffa11bc.0na.w7myhu7al.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/b9f958d5156565bf.16wia~_rv---r.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/d04b6cfe7e6ec110.0mpjw-t6oo70-.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/fa88843bf5fd45a1.07hcckx6a.m3v.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/guide/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/app.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/before-after.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/light-flood.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/scroll-turned-drum.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/stage.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/README.md",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/trace.json",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/010zdm2nqe4ki.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/03w5.odwsvd~o.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/053f4d_jk_k79.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/08fpt4ubuopir.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/094kob2vf~3v7.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/09nnc8g2gq8yi.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/0rpc~sepnsxzd.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/0svgcii8kjham.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/10u87vdi~-9gf.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/15wwnu-a09z~h.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/16mys-yd2ia4t.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/17z1goe0jn.3s.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/blog.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/changelog.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/docs.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/guide.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/index.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/styles.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/gsap@3.15.0/gsap.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/gsap@3.15.0/LICENSE.txt",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/gsap@3.15.0/ScrollTrigger.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/gsap@3.15.0/SplitText.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/lenis@1.3.26/lenis.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/lenis@1.3.26/LICENSE.txt",
+      "role": "license"
+    },
+    {
+      "path": "docs/cases/taste-skill-site.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/taste-skill-site.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/patterns/light-flood-kinetic-closing.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/taste-skill-site-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/taste-skill-site-reference.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/taste-skill-site.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/patterns/light-flood-kinetic-closing.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/taste-skill-site.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/patterns/light-flood-kinetic-closing.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ]
+}

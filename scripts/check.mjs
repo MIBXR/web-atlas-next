@@ -20,7 +20,7 @@ for(const [kind,items] of [['cases',entries],['patterns',patterns],['materials',
     seen.set(item.order,item.id);
   }
 }
-const gitFiles=(...args)=>execFileSync('git',['ls-files','-z',...args],{cwd:root,encoding:'utf8'}).split('\0').filter(Boolean);
+const gitFiles=(...args)=>execFileSync('git',['ls-files','-z',...args],{cwd:root,encoding:'utf8',maxBuffer:32*1024*1024}).split('\0').filter(Boolean);
 for(const record of gitFiles('--eol')){
   const separator=record.indexOf('\t'),metadata=record.slice(0,separator),file=record.slice(separator+1);
   if(!/\battr\/-text\b/.test(metadata)&&/\b(?:i|w)\/crlf\b/.test(metadata))failures.push('line endings: '+file+': expected LF; '+metadata.trim().replace(/\s+/g,' '));

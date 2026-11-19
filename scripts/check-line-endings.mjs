@@ -4,7 +4,7 @@ import { execFileSync } from 'node:child_process';
 
 export function assertRepositoryLineEndings(root) {
   if (!fs.existsSync(path.join(root, '.git'))) return;
-  const records = execFileSync('git', ['ls-files', '--eol', '-z', '--cached', '--others', '--exclude-standard', '--', '.', ':(exclude,attr:-text)'], { cwd: root, encoding: 'utf8' });
+  const records = execFileSync('git', ['ls-files', '--eol', '-z', '--cached', '--others', '--exclude-standard', '--', '.', ':(exclude,attr:-text)'], { cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
   const invalid = records.split('\0').filter(record => {
     const metadata = record.split('\t', 1)[0];
     return /\bw\/(?:crlf|mixed)\b/.test(metadata) && /\beol=lf\b/.test(metadata);

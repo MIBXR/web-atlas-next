@@ -1,0 +1,722 @@
+{
+  "schemaVersion": 1,
+  "id": "taste-skill-site",
+  "entry": {
+    "id": "taste-skill-site",
+    "order": 78,
+    "title": "Taste Skill · AI 编码 Agent 的网页设计 skill 官网",
+    "subtitle": "The design skill for AI coding agents",
+    "category": "产品",
+    "country": "德国",
+    "capturedAt": "2026-11-19",
+    "referenceUrl": "https://www.tasteskill.dev/",
+    "implementation": "reference-study",
+    "edition": "tasteskill.dev (dpl_p6tE71r3jRSWDdmahXrJaf8t29eg) · taste-skill v2.5.1 (f6b7657)",
+    "demo": "demos/cases/taste-skill-site/index.html",
+    "preview": "previews/cases/taste-skill-site.jpg",
+    "previewMobile": "previews/cases/taste-skill-site-mobile.jpg",
+    "referencePreview": "previews/cases/taste-skill-site-reference.jpg",
+    "research": "docs/cases/taste-skill-site.md",
+    "fidelity": "demos/cases/taste-skill-site/fidelity.md",
+    "assetManifest": "demos/cases/taste-skill-site/assets-manifest.json",
+    "patternIds": [
+      "confirmed-command-copy",
+      "scroll-perspective-direction-drum",
+      "progressive-live-redesign-stage",
+      "light-flood-kinetic-closing",
+      "controllable-inline-agent-replay"
+    ],
+    "tags": [
+      "产品官网",
+      "Agent Skill",
+      "滚动叙事",
+      "三维滚筒",
+      "分步改版对照",
+      "GSAP",
+      "Lenis",
+      "Canvas",
+      "桌面应用模拟",
+      "响应式"
+    ],
+    "summary": "Taste Skill 的官方产品网站：以深褐至焦橙渐变首屏承托四类业态的真实作品标签页，用滚动驱动的二十方向三维滚筒展示发牌机制，以三张可重播的微叙事卡片解释搜图、真机检查与仪表盘模式，在同一 Noteflow DOM 画布上分五步演示从默认紫渐变套路到编辑式版面的蜕变，并结合可启停的 TasteCode 桌面工作流回放、9 层 Canvas 光泛字标交接与四个文档/指南子页完成闭环。",
+    "productFocus": "围绕“把网页设计品味、开放图库与真机浏览器检查打包成 Agent Skill”组织全站：首页用可操作的视觉证据证明技能效果，Docs、Guide、Changelog 与 Blog 四个子页提供安装、提示词模板与版本演进参考。",
+    "theme": "暖黑与焦橙渐变首屏过渡到 #f8f4ee 暖奶油纸面与纯白卡片，TasteCode 卡片与页脚切入深墨暖黑并以橙色底部光晕收束。",
+    "accent": "#ff5b14",
+    "background": "#f8f4ee",
+    "principles": [
+      "先给跨业态的真实作品证据：首屏四标签涵盖实体咖啡馆、电子乐演出、建筑事务所与法律软件，直接回应“不只是 SaaS 模板”的主张。",
+      "把背后的脚本逻辑转化为可感知的几何与时间线：发牌脚本化作二十方向三维滚筒，搜图与真机检查化作可悬停重播的界面微电影。",
+      "用同一页面的五步渐进式重排替代静态截图对比：让观看者亲眼看到去掉紫渐变、换单色板、改实话文案、调整层级与补齐细节各自带来的改变。",
+      "高饱和焦橙色只用在首屏天际、准星标记与终章光泛交接，长阅读区与四个文档子页保持安静的暖奶油纸面与高对比墨色。"
+    ],
+    "interaction": [
+      "自适应悬浮胶囊顶栏（nav.nav）在深色 Hero 上使用暗色磨砂玻璃，滚过 Hero 后切换为浅色 .on-light，向下滚动超过 6px 时收起（data-tucked），向上滚动或获得焦点时恢复；进入终章光泛与暖黑页脚时切换为 .is-dark，手机 390px 下折叠为 Open menu 抽屉并支持 Escape 与外部点击关闭。",
+      "Hero 作品展示提供 Coffee shop、Club night、Architects、Contracts 四个标签与左右方向键/Home/End 切换，ResizeObserver 实测当前标签矩形并以 clip-path: inset(... round 10px) 滑动胶囊指示器；向下滚动时 .work-frame 由 rotateX 26°、scale 0.84 展平至正视，Hero 离屏或后台时标记 data-asleep。",
+      "The draw（scroll-turned-drum）将二十条美术方向排在三维竖向滚筒上，随滚动更新旋转角 --drum-turn、逐项不透明度 --drum-o 与高亮 --drum-lit；中央细线与左右三角准星随对齐度呼吸缩放，右侧同步滚入当前编号（1 of 20）与方向说明，滚至末尾 91.2% 时触发 drum:close，以 [-5°, 2°, 6°] 旋转交错弹出三张 Dealt for this page 抽选卡。",
+      "Design sense 核心能力区（#how-it-works）的三张卡片随滚动裁切展开并带视差浮动；首次进入视口时依次驱动 Pictures 的步进打字检索与 CC BY-SA 徽章弹出、Inspector 的双轮扫描线与 FAIL/WARN 三维翻转 Fixed、App screens 的滚轮数字与七日营收柱图生长，鼠标再次移入已完成卡片时淡出重播。",
+      "Before and after（From default to designed）将左栏五步进度按钮（The default、One palette、Real type、Layout with intent、The last 10%）与右栏同一 Noteflow 真实 DOM 页面绑定：随滚动或点击步骤按钮（标记点 0、0.18、0.4、0.665、0.93），以圆形 clip-path 扫除默认紫渐变与玻璃卡片，依次替换为暖纸单色板、紧致标题、左对齐层级与带已完成清单的周报卡片，顶部胶囊同步滚动 Step 1–4 of 4。",
+      "Install 区支持 npx skills、Claude Code、Codex 三种安装方式切换，连同 Hero、页脚及 Docs/Guide 子页的命令与提示词复制按钮，点击后写入剪贴板、切换 data-copied 状态与勾号图标并播报 Copied to clipboard，1600ms 后复位。",
+      "TasteCode 桌面应用区在进入视口 50% 时自动启动 8.6 秒 GSAP 工作流时间线：左侧会话树与日志依次走过 6 个设计步骤并点亮四色色板与三张缩略图，右侧由 Changes 文件与代码 Diff 面板平滑切换到 Browser 预览面板、展开并上下滚动完整网页、弹出 1440 与 390 校验标签；右下角按钮随状态在 Pause、Play、Replay 之间切换，支持随时暂停、继续与悬停重播。",
+      "终章 Stop guessing, start deciding.（light-flood）在粘性视口内用多层二维 Canvas 绘制带确定性像素抖动的暖橙日冕（halo/core）、夜幕椭圆遮罩（night）与三级高斯模糊字层（lf-soft），随滚动推进日冕扩张与夜幕降落，使深色模糊的 Stop guessing, 上移淡出，亮白清晰的 start deciding. 从多层柔焦收束定格在视口中央。",
+      "页脚（foot-sunrise）随滚动升起底部暖橙光晕并从中心向两侧交错弹出 Taste Skill 巨字字符；Docs、Guide、Changelog 子页提供 sticky 目录（On this page），随滚动在 140px 阈值处高亮当前章节（aria-current=\"location\"）。"
+    ],
+    "themeBehavior": {
+      "mode": "fixed",
+      "default": "light",
+      "control": "无手动主题开关；页面按章节在深色天际首屏、暖奶油纸面正文、焦橙光泛终章与暖黑页脚之间自然过渡，悬浮顶栏随底层明暗自动切换 .on-light 与 .is-dark。",
+      "designReason": "以统一的暖纸色与焦橙色建立鲜明的编辑与暖调工业感，同时衬托深色 TasteCode 窗口与多色作品截图。"
+    },
+    "soundBehavior": {
+      "kind": "none",
+      "control": "全站无音频或视频控件。",
+      "interactionRole": "完全依靠滚动时间线、三维滚筒、分步 DOM 变形与界面微动画传达节奏。"
+    },
+    "composition": {
+      "color": "#f8f4ee 暖奶油纸面、#f3eee7 下沉暖灰、#ffffff 纯白卡片表面、#1a0e08 深褐主墨色与 #140a05 暖黑首尾底色；#ff5b14 / #e8500e 焦橙色与 #ffc9a3 暖桃色提供高能量视觉焦点。",
+      "typography": "Google Sans Flex 可变无衬线字体搭配 Google Sans Code 可变等宽字体；首屏 H1 clamp(40px, 6vw, 84px)（字距 -0.042em，行高 1.02），章节标题 clamp(30px, 3.8vw, 44px)，终章巨字 clamp(2.5rem, 7.6cqw, 8.5rem) / clamp(3.125rem, 9.5cqw, 10.625rem)。",
+      "layout": "主阅读容器 .wrap 宽 880px，宽舞台容器 .wrap-wide 宽 1080px（Hero 作品画框 1099px）；穿插 The draw（3040px）、Before and after（3200px）与 Light flood（2640px）三段全屏粘性滚动舞台。",
+      "imagery": "4 张高分辨率跨业态示范作品截图、3 张烘焙过程缩略图、全套纯 HTML/CSS 编写的实时界面片段（assets.mjs、inspect.mjs、Overview 仪表盘、Noteflow 演进画布、TasteCode 桌面窗口）及 SVG 噪点纹理。",
+      "shape": "9999px 胶囊顶栏与标签按钮、20px–24px 大圆角卡片表面、1px 暖墨色细分隔线（#140a050f）与带橙色三角准星的水平标尺线。",
+      "hierarchy": "首屏主张与作品证据 → 赞助背书 → 二十方向滚筒 → 三项核心能力 → 五步改版对照 → 安装方式与支持 Agent → TasteCode 桌面应用 → 常见问题与开源支持 → 终章宣言与页脚安装。",
+      "motion": "Lenis 平滑滚动耦合 GSAP ScrollTrigger 粘性时间线、三维圆柱透视旋转、圆形 clip-path 扫除、字词交错升降、数字滚轮、三维标签翻转与 9 层 Canvas 柔焦光泛。",
+      "coherence": "焦橙色从首屏日落渐变出发，在滚筒三角准星、能力卡底板、五步进度条、TasteCode 底部辉光与终章光泛舞台中一以贯之；所有命令行与代码块共享同一套 1600ms 复制反馈。",
+      "scroll": "桌面端启用 Lenis（lerp 0.12）平滑滚动并与 ScrollTrigger 同步；三段 .scene[data-scene] 粘性舞台将纵向行程转化为滚筒旋转、五步改版与光泛交接，减少动态模式下直接展示完整静态终态。"
+    },
+    "tokens": {
+      "palette": [
+        "#f8f4ee",
+        "#f3eee7",
+        "#ffffff",
+        "#1a0e08",
+        "#140a05",
+        "#ff5b14",
+        "#e8500e",
+        "#c2410c",
+        "#ffc9a3",
+        "#0f0f0f"
+      ],
+      "type": "Google Sans Flex 100..1000；Google Sans Code 300..800；正文 17px（手机 16px），代码与元数据 13px–14px。",
+      "layout": ".wrap min(880px, 100% - var(--gutter)*2)；.wrap-wide min(1080px, 100% - var(--gutter)*2)；--gutter 16px（手机）至 24px（桌面）；断点 390px / 640px / 768px / 960px / 1100px。",
+      "motion": "Lenis lerp 0.12；[data-enter] 阈值 0.01、交错 --enter-i；复制反馈 1600ms；TasteCode 演示时间线 8.6s；五步改版锚点 0 / 0.18 / 0.4 / 0.665 / 0.93。"
+    },
+    "useCases": [
+      "AI 编码工具、Agent Skill 与开发者工具产品官网",
+      "需要证明“改版前后差异”的设计系统或前端工具落地页",
+      "包含多步骤桌面工作流回放与在线文档中心的开源项目门户",
+      "结合三维方向滚筒与高感染力终章字标的品牌展示站"
+    ],
+    "avoid": [
+      "没有具体改动细节却强行套用五步同页改版舞台",
+      "在低对比度或正文字号过小的区域滥用 Canvas 高斯模糊字标",
+      "将示范设定（Bohne & Söhne、Noteflow 等）当作真实商业客户案例陈述"
+    ],
+    "constraints": [
+      "复刻范围固定为 2026-11-19 的 https://www.tasteskill.dev/ 首页及 /docs、/guide、/changelog、/blog 四个导航子页（部署标识 dpl_p6tE71r3jRSWDdmahXrJaf8t29eg）。",
+      "运行库使用原站同版本 GSAP 3.15.0（含 ScrollTrigger、SplitText）与 Lenis 1.3.26；原始 Next.js 分块保存在 demos/cases/taste-skill-site/source/upstream/。",
+      "21 个 Google Sans Flex / Google Sans Code 字体分片、作品截图、赞助标志、Agent 图标与 23 张社区赞助者头像均已本地化，逐项来源记录于 assets-manifest.json。",
+      "遵循无追踪原则，移除原站统计脚本与 Blog 页的第三方 Twitter widgets.js 外链脚本，保留原站内置的 4 张推文卡片与外链入口。"
+    ],
+    "sources": [
+      {
+        "title": "Taste Skill 官方网站",
+        "url": "https://www.tasteskill.dev/",
+        "type": "实例",
+        "note": "2026-11-19 采集的首页及 /docs、/guide、/changelog、/blog 四个导航子页；HTML、CSS、场景脚本、字体与图像取证基准。"
+      },
+      {
+        "title": "Leonxlnx/taste-skill 开源仓库",
+        "url": "https://github.com/Leonxlnx/taste-skill/tree/f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+        "type": "源码",
+        "note": "v2.5.1 固定提交，提供技能本体、示范作品原始截图与照片署名清单（完整收录为 taste-skill 素材）。"
+      },
+      {
+        "title": "创作者 Leon Lin（@Leonxlnx）公开资料",
+        "url": "https://github.com/Leonxlnx",
+        "type": "创作来源",
+        "note": "GitHub 个人主页公开 Location 为 Munich（德国慕尼黑），案例国别据此标注为德国。"
+      }
+    ],
+    "migration": [
+      {
+        "field": "index.html .work .tabs & #work-stage / js/app.js initHero",
+        "how": "修改首屏四个作品标签的名称、图片地址（assets/work/*.webp）与无障碍描述数组 alts。"
+      },
+      {
+        "field": "index.html #directions .drum-item & js/scroll-turned-drum.js",
+        "how": "修改二十条美术方向的标题（.drum-name）与说明（.drum-meta）；js/app.js 的 initDirections 会自动从中随机抽取三项填入 .drum-deal。"
+      },
+      {
+        "field": "index.html #how-it-works .feature & js/app.js initFeatures",
+        "how": "修改三张核心能力卡的 HTML 界面片段（.frag.fs / .frag.fi / .frag.fa）并在 stories.{pictures,inspect,app} 中调整对应的 GSAP 时间线。"
+      },
+      {
+        "field": "index.html .scene.showcase & js/before-after.js",
+        "how": "修改左栏五个 .ba-step 的步骤文案，以及右栏 .nf-slop（改版前）与 .nf-calm（改版后）的 DOM 元素和时间线关键帧。"
+      },
+      {
+        "field": "index.html .tcw-stage & js/app.js initTasteCode",
+        "how": "修改 TasteCode 桌面应用模拟窗口的简报、6 个执行步骤（[data-step]）、改动文件列表（[data-file]）、代码行与浏览器预览图。"
+      },
+      {
+        "field": "index.html .scene.lf & js/light-flood.js",
+        "how": "修改终章 .lf-lead（前半句）与 .lf-key（后半句）文字，或通过 data-options 与 CSS 变量 --lf-core / --lf-halo / --lf-night 调整光泛配色。"
+      }
+    ],
+    "prompt": "读取本案例源码、研究、fidelity.md、source/trace.json 并关联 taste-skill 素材，为目标开发者工具或 Agent Skill 制作以真实设计过程与前后对比为核心的产品官网。保留深墨至焦橙的首屏渐变与 #f8f4ee 暖奶油纸面系统，顶栏采用随底层明暗切换 .on-light/.is-dark 并支持下滚收起的悬浮胶囊导航。首屏在随滚动展平的三维倾角画框中提供带 clip-path 裁剪指示器的多业态作品标签切换。紧接三段粘性滚动舞台与交互模块：第一段用三维竖向滚筒展示 20 条编号方向，联动三角准星、右侧计数说明与末尾三张抽选卡片；第二段用三张带悬停重播的界面微动画卡片演示核心脚本；第三段在左栏五步进度按钮与右栏同一真实 DOM 页面之间建立同步，分五步演进展示从默认套路到专业版面的改版过程。中后段提供三标签安装命令复制、支持 Pause/Play/Replay 的 8.6 秒桌面应用工作流回放、常见问题与社区赞助网格，最后以多层 Canvas 光泛与柔焦字标交接收束至带日出巨字动画的暖黑页脚，并配套 Docs、Guide、Changelog、Blog 四个子页。全站保持无声，在 1440×900 与 390×844 下逐模块核对布局与减少动态后备。",
+    "negativePrompt": "不要用静态图片代替三维方向滚筒、五步 Noteflow 真实 DOM 改版舞台、三张能力卡微动画或 TasteCode 工作流回放；不要删掉命令复制的 1600ms 状态反馈、键盘标签切换或手机导航抽屉；不要在减少动态模式下把内容留在隐藏或半透明状态；不要引入第三方追踪脚本或自动播放音频。",
+    "exercise": "在桌面与手机宽度下切换首屏四个作品标签并复制安装命令；缓慢滚过 The draw 观察二十方向滚筒、准星缩放与末尾三张抽选卡；移入三张能力卡触发重播；在 Before and after 依次点击五个步骤按钮观察 Noteflow 页面的五步蜕变；暂停并重播 TasteCode 桌面演示；滚过终章光泛字标并进入 Docs、Guide、Changelog、Blog 四个子页测试目录高亮与代码复制。"
+  },
+  "patternIds": [
+    "confirmed-command-copy",
+    "scroll-perspective-direction-drum",
+    "progressive-live-redesign-stage",
+    "light-flood-kinetic-closing",
+    "controllable-inline-agent-replay"
+  ],
+  "documents": [
+    {
+      "path": "docs/cases/taste-skill-site.md",
+      "role": "research",
+      "content": "# Taste Skill：AI 编码 Agent 的网页设计 skill 官网研究\n\n## 来源与范围\n\n来源为 [Taste Skill 官网](https://www.tasteskill.dev/)（2026-11-19 线上版本，部署标识 `dpl_p6tE71r3jRSWDdmahXrJaf8t29eg`）及配套开源仓库 [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill/tree/f6b76575f949707b4e3c37cd86cb44b0b98643e8)（`v2.5.1`）。本案例完整复现官网首页（12 个模块）及顶栏的四个子页（[Docs](../../demos/cases/taste-skill-site/docs/index.html)、[Guide](../../demos/cases/taste-skill-site/guide/index.html)、[Changelog](../../demos/cases/taste-skill-site/changelog/index.html)、[Blog](../../demos/cases/taste-skill-site/blog/index.html)）。\n\n创作者 Leon Lin（[@Leonxlnx](https://github.com/Leonxlnx)）公开所在地为德国慕尼黑（Munich），国别归入德国；页面中展示的 *Bohne & Söhne*（莱比锡咖啡烘焙店）、*Nachtschicht*（科隆电子乐之夜）、*Atelier Nord*（建筑事务所）、*Margin*（合同审阅工具）与 *Noteflow*（笔记应用）均为技能生成的示范设定。技能原文、CLI 脚本与可运行设计套件收录在关联素材 [taste-skill](../materials/taste-skill.md)。\n\n## 模块状态矩阵\n\n完整六列动态对照矩阵、解包模块映射与双视口核验结果见 [fidelity.md](../../demos/cases/taste-skill-site/fidelity.md)。\n\n| 模块 | 入口与核心状态 | 对照结果位置 |\n| --- | --- | --- |\n| 自适应悬浮胶囊顶栏 | 深色 Hero 磨砂、浅色纸面 `.on-light`、下滚收起 `data-tucked`、终章 `.is-dark`、手机抽屉 | fidelity 矩阵第 1 行 |\n| Hero 与四标签作品舞台 | 命令复制、四标签裁剪胶囊切换、`.work-frame` 滚动展平、离屏 `data-asleep` | fidelity 矩阵第 2 行 |\n| Sponsored by | 四栏细线白卡（Interfaces、React Bits、IMG.LY、Sent.dm）与赞助入口 | fidelity 矩阵第 3 行 |\n| The draw 二十方向滚筒 | 3D 竖向滚筒、准星与光晕呼吸、右侧计数与副标题、91.2% 弹出三张抽选卡 | fidelity 矩阵第 4 行 |\n| Design sense 三层能力卡 | Pictures 步进打字检索、Inspector 双轮扫描与三维翻转 Fixed、App 滚轮数字与柱图 | fidelity 矩阵第 5 行 |\n| Before and after 五步舞台 | 左栏五步导轨与按钮跳转、右栏 Noteflow 真实 DOM 五步去套路改版 | fidelity 矩阵第 6 行 |\n| Install 与支持 Agent | `npx skills` / `Claude Code` / `Codex` 三标签命令复制、6 个 Agent 标志格 | fidelity 矩阵第 7 行 |\n| TasteCode 桌面应用演示 | 8.6s 自动工作流（6 步日志 + Diff 切 Browser + 页面滚动预览）、Pause/Play/Replay 控制 | fidelity 矩阵第 8 行 |\n| Questions & Open source | 2×3 常见问题白卡、23 位社区赞助者头像、Kimi 与 Vercel 支持卡 | fidelity 矩阵第 9 行 |\n| Stop guessing, start deciding. | 9 层 Canvas 光泛、日冕扩张与夜幕降下、双句柔焦字标交接 | fidelity 矩阵第 10 行 |\n| 暖黑页脚与四个导航子页 | 页脚日出巨字、`Docs` / `Guide` 吸附目录高亮与代码块复制、`Changelog`、`Blog` | fidelity 矩阵第 11–12 行 |\n\n---\n\n## 官网如何证明“设计品味可以被打包为工具”\n\n### 1. 首屏用四类不同业态的成品画面建立基准\n首屏从顶部暖黑（`#140a05`）经焦橙色（`#ff5b14`）垂直过渡到暖奶油纸面（`#f8f4ee`），标题 *\"The design skill for AI coding agents\"* 下方并置单行安装命令复制框与文档入口。紧随其后的 `.work-frame` 将 1440 宽度的作品截图放在带透视倾角（`rotateX: 26deg, scale: 0.84`）的画框内，随用户向下滚动展平为正视；顶部的四个标签分别代表四种截然不同的业态——莱比锡街角咖啡馆（`Coffee shop`）、科隆电子乐演出（`Club night`）、北欧木构建筑事务所（`Architects`）与法律合同审阅软件（`Contracts`）。标签指示器不用固定宽度的滑块，而是由 `ResizeObserver` 测量当前按钮在整条标签栏中的偏移，用 `clip-path: inset(top right bottom left round 10px)` 裁切出一层深色内胆，无论标签文字长短都能严丝合缝地包裹。\n\n### 2. \"The draw\"：把随机发牌算法转化为三维透视滚筒\n为了说明技能如何避免每次生成千篇一律的页面，`#directions` 章节将 `draw.mjs` 的 20 条美术方向（如 *\"1. The name as a monument\"*、*\"3. The pinned poster\"*、*\"18. The split stage\"*、*\"20. Type and nothing else\"*）排布在半径 `--drum-r`、透视 `--drum-persp` 的三维竖向圆柱滚筒上。\n- **几何与光照**：滚动进度驱动 `--drum-turn` 旋转角，脚本按每项与视口中心的夹角余弦计算不透明度 `--drum-o` 与高亮权重 `--drum-lit`。\n- **准星呼吸**：视口中央的阅读窗口由上下两条水平细线（`.drum-rule`）和左右两枚橙色三角准星（`.drum-pointer--left/right`）界定；当某条方向恰好卡入中心整步位时，背景暖光晕（`.drum-glow`）放大增亮，左右三角准星向内收拢咬合；滚筒处于两项之间时，准星向外退开至多 `10px`。\n- **发牌收束**：右侧同步滚入当前序号（`1 of 20`）与一句构成说明；当滚动进度到达 `91.2%` 时，触发 `drum:close` 事件，上方交错弹出本页随机抽中的 3 张方向卡片（`Dealt for this page`，初始角度 `-5° / 2° / 6°` 落位归零），底部浮现 `See how a build runs` 链接。\n\n### 3. 三张能力卡：把命令行脚本翻译成可重播的微叙事\n`#how-it-works` 没有粘贴枯燥的终端日志，而是用三条 GSAP 时间线把三个核心脚本的工作过程演出来，并在桌面端支持鼠标移入随时重播：\n- **Pictures（`scripts/assets.mjs`）**：在暖桃色底板上先以 `steps(20)` 等宽打字动画输入 `\"roasted coffee beans\"`，进度条闪过后依次展开三张带 `Dan Bollinger, Wikimedia` 署名的咖啡豆烘焙缩略图，最后弹出带扩散光环的 `CC BY-SA` 绿色许可标签与 `\"3 saved to assets/ · credits recorded\"`。\n- **Inspector（`scripts/inspect.mjs`）**：在暗琥珀色十字准星底板上依次点亮 `1440`、`768`、`390` 三个检查宽度，第一道扫描线掠过时列出 `few-pictures`、`off-centre`、`edge-text` 等 3 项 `FAIL` 与 2 项 `WARN`；紧接着底栏由 `Round 1` 翻滚为 `Round 2`，第二道扫描线掠过并逐行划掉问题代码，红色 `FAIL` 与琥珀色 `WARN` 标签沿 X 轴三维翻转 90° 替换为绿色的 `Fixed`（`0 FAIL, 0 WARN`）。\n- **App screens（`inspect.mjs --app`）**：用数字滚轮（`.roll-strip`）滚出 `1,284`、`€38.4k`、`2.4%` 三项指标，生长出周一至周日的七根营收柱，再绘出 `avg €5.5k` 均线并弹出周六峰值气泡（`Sat €8.1k`）。\n\n### 4. \"Before and after\"：在同一 DOM 画布上分五步脱去 AI 套路\n不同于常见的左右拉帘图片对比，`.scene.showcase` 在右侧画框内同时挂载了默认套路层（`.nf-slop`）与编辑式成品层（`.nf-calm`），左侧列出 5 个可点击跳转的演进步骤（对应滚动锚点 `0`、`0.18`、`0.4`、`0.665`、`0.93`）：\n1. **The default**：典型的 AI 默认页——蓝紫渐变底、🚀 Emoji 标志、染色渐变词 `\"Note-Taking\"` 与三张毛玻璃空话卡片（`⚡ Lightning Fast`、`🔒 Super Secure`、`🎨 Beautiful Design`）。\n2. **One palette（Step 1 of 4）**：以 `(440px, 166px)` 为圆心扩张一道 `600px` 圆形 `clip-path` 光环，将蓝紫渐变一举扫除为暖米白底色与深墨色单色板。\n3. **Real type（Step 2 of 4）**：🚀 Emoji 旋转缩退，换上几何方块标志与紧致字标 `Noteflow`；空洞大标题逐词下沉退场，换上直白具体的 `\"Notes that keep up with your thinking.\"`，三张卡片中的夸张形容词同步替换为具体事实（`Fast`、`Private`、`Plain`）。\n4. **Layout with intent（Step 3 of 4）**：三张填料卡片带倾角向下坠出画面，标题与行动按钮左移归入左栏，右侧滑入一张真实的 `Weekly review` 笔记卡片。\n5. **The last 10%（Step 4 of 4）**：笔记卡片内的已完成项依次弹出绿色复选框、划上删除线并压暗文字，底部弹出 `#planning`、`#weekly` 标签，按钮下方补齐 `\"Free for personal use. No card needed.\"`，背后铺开一层柔和暖底衬托卡片层次。\n\n### 5. TasteCode 工作流回放与终章 Canvas 光泛\n- **TasteCode 桌面应用卡片**：在 `#0f0f0f` 深色圆角卡片内构建了一个完整三栏 macOS 桌面应用窗口（左侧项目树、中间 Agent 对话与 6 步执行日志、右侧 `Browser` / `Diff` 切换面板）。当卡片滚入视口中央时，8.6 秒时间线自动演示从锁定简报、抽取四色色板、收集三张照片、写入 6 个文件与 HTML 代码，到自动切至 `Browser` 面板加载 `127.0.0.1:4173`、上下滚动检验全页并弹出 `1440` 与 `390` 通过标签的全过程；右下角 `.tcw-control` 按钮让观看者可以随时暂停细看或重头回放。\n- **终章 \"Stop guessing, start deciding.\"（`light-flood`）**：全屏钉住舞台通过 9 张二维 Canvas 动态绘制带确定性伪随机抖动（消除色带）的暖橙日冕（`#e8500e` / `#ff7a2e`）、顶部压下的深色夜幕椭圆遮罩（`#140a05`）以及三层不同模糊半径（`6px / 3.4px / 1.5px` 与 `4px / 2px / 0.9px`）的 Canvas 柔焦字层。随着用户滚到底部，深色模糊的 `\"Stop guessing,\"` 逐层向柔焦过渡并上移消散，而亮白色的 `\"start deciding.\"` 则从柔焦光晕中逐级凝聚为清晰字标，自然衔接到暖黑页脚的日出光晕与一键安装入口。\n\n---\n\n## 怎么改\n\n[结构化条目的 migration](../../entries/cases/taste-skill-site.json) 列出了 Hero 四标签作品、二十条美术方向滚筒、三张核心能力动效卡、五步 Noteflow 改版舞台、TasteCode 工作流时间线与终章光泛配色参数的修改位置；上游分块与本地脚本的映射见 [source/README.md](../../demos/cases/taste-skill-site/source/README.md)。\n"
+    },
+    {
+      "path": "prompts/cases/taste-skill-site.md",
+      "role": "prompt",
+      "content": "# Taste Skill · AI 编码 Agent 的网页设计 skill 官网 · 复用 Prompt\n\n由 [结构化案例](../../entries/cases/taste-skill-site.json) 自动生成。参考观察与具体边界见 [调研](../../docs/cases/taste-skill-site.md)。\n\n## 正向 Prompt\n\n读取本案例源码、研究、fidelity.md、source/trace.json 并关联 taste-skill 素材，为目标开发者工具或 Agent Skill 制作以真实设计过程与前后对比为核心的产品官网。保留深墨至焦橙的首屏渐变与 #f8f4ee 暖奶油纸面系统，顶栏采用随底层明暗切换 .on-light/.is-dark 并支持下滚收起的悬浮胶囊导航。首屏在随滚动展平的三维倾角画框中提供带 clip-path 裁剪指示器的多业态作品标签切换。紧接三段粘性滚动舞台与交互模块：第一段用三维竖向滚筒展示 20 条编号方向，联动三角准星、右侧计数说明与末尾三张抽选卡片；第二段用三张带悬停重播的界面微动画卡片演示核心脚本；第三段在左栏五步进度按钮与右栏同一真实 DOM 页面之间建立同步，分五步演进展示从默认套路到专业版面的改版过程。中后段提供三标签安装命令复制、支持 Pause/Play/Replay 的 8.6 秒桌面应用工作流回放、常见问题与社区赞助网格，最后以多层 Canvas 光泛与柔焦字标交接收束至带日出巨字动画的暖黑页脚，并配套 Docs、Guide、Changelog、Blog 四个子页。全站保持无声，在 1440×900 与 390×844 下逐模块核对布局与减少动态后备。\n\n## 负向约束\n\n不要用静态图片代替三维方向滚筒、五步 Noteflow 真实 DOM 改版舞台、三张能力卡微动画或 TasteCode 工作流回放；不要删掉命令复制的 1600ms 状态反馈、键盘标签切换或手机导航抽屉；不要在减少动态模式下把内容留在隐藏或半透明状态；不要引入第三方追踪脚本或自动播放音频。\n\n## 制作约束\n\n- 复刻范围固定为 2026-11-19 的 https://www.tasteskill.dev/ 首页及 /docs、/guide、/changelog、/blog 四个导航子页（部署标识 dpl_p6tE71r3jRSWDdmahXrJaf8t29eg）。\n- 运行库使用原站同版本 GSAP 3.15.0（含 ScrollTrigger、SplitText）与 Lenis 1.3.26；原始 Next.js 分块保存在 demos/cases/taste-skill-site/source/upstream/。\n- 21 个 Google Sans Flex / Google Sans Code 字体分片、作品截图、赞助标志、Agent 图标与 23 张社区赞助者头像均已本地化，逐项来源记录于 assets-manifest.json。\n- 遵循无追踪原则，移除原站统计脚本与 Blog 页的第三方 Twitter widgets.js 外链脚本，保留原站内置的 4 张推文卡片与外链入口。\n\n## 检查方法\n\n在桌面与手机宽度下切换首屏四个作品标签并复制安装命令；缓慢滚过 The draw 观察二十方向滚筒、准星缩放与末尾三张抽选卡；移入三张能力卡触发重播；在 Before and after 依次点击五个步骤按钮观察 Noteflow 页面的五步蜕变；暂停并重播 TasteCode 桌面演示；滚过终章光泛字标并进入 Docs、Guide、Changelog、Blog 四个子页测试目录高亮与代码复制。\n\n[查看 Demo](../../demos/cases/taste-skill-site/index.html) · [返回案例库](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/taste-skill-site)\n"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fidelity.md",
+      "role": "fidelity",
+      "content": "# Taste Skill 官网复刻对照\n\n采集日期：2026-11-19。原站地址：https://www.tasteskill.dev/ （由 https://tasteskill.dev 解析，线上部署标识 `dpl_p6tE71r3jRSWDdmahXrJaf8t29eg`），对应上游技能仓库 `Leonxlnx/taste-skill@f6b76575f949707b4e3c37cd86cb44b0b98643e8`（`v2.5.1`，官网文档标注 `v2.1.5` 里程碑说明）。\n\n复刻范围覆盖官网首页（`index.html`）全部 12 个模块与导航栏 4 个子页（`docs/index.html`、`guide/index.html`、`changelog/index.html`、`blog/index.html`）。\n\n## 源码与本地化处理\n\n1. **原始分块与运行实现**：原站为 Next.js App Router + Tailwind CSS v4 生产构建产物，原始 HTML、CSS 与 JS 分块保存在 `source/upstream/`，模块对应关系记录于 `source/trace.json`。运行页面移除了 Next.js RSC 飞行载荷、预取请求及第一方统计脚本（`/b4fd3029e43aee70/script.js`），直接复用原站解包的 `GSAP 3.15.0`（`gsap.js`、`ScrollTrigger.js`、`SplitText.js`）、`Lenis 1.3.26`（`lenis.js`）、场景调度器 `js/stage.js`、三个核心场景模块（`js/scroll-turned-drum.js`、`js/before-after.js`、`js/light-flood.js`）以及可读交互脚本 `js/app.js`。\n2. **字体与媒体本地化**：原站 `17z1goe0jn.3s.css` 定义的 21 个 `Google Sans Flex` 与 `Google Sans Code` WOFF2 字体分片全部保存在 `fonts/`，由 `fonts.css` 本地加载；原站通过 `/_next/image` 加载的 9 张作品与缩略图（`assets/work/*.webp`）、品牌与赞助商图标（`assets/sponsors/*`）、6 个 Agent 图标（`assets/icons/*.svg`）和 23 张 GitHub 社区赞助者头像（`assets/avatars/*.png`）全部本地化并由 `AtlasAssets` 统一解析。\n3. **无声设计**：原站全站无音频或视频元素（`0` `<audio>`、`0` `<video>`），本地保持无声。\n4. **Blog 子页外部嵌入**：原站 `/blog` 动态请求 `platform.twitter.com/widgets.js` 渲染 4 条 X 推文，受隐私或网络拦截时显示原站内置的 4 张 `.surface.post` 引用卡片与 `\"View post on X (1–4 of 4)\"` 链接；本地遵循不加载第三方追踪脚本的原则，直接呈现原站内置的 4 张推文卡片与外链入口。\n\n## 模块状态对照矩阵\n\n| 模块／状态 | 原站定位 | 起始条件与触发 | 原站可见响应与先后 | 本地对应 | 证据与判定 |\n| --- | --- | --- | --- | --- | --- |\n| 自适应悬浮胶囊顶栏（Desktop & Mobile） | `nav.nav[aria-label=\"Main\"]` | 首屏深色 Hero、滚入浅色纸面、向下/向上滚动、进入终章光泛、手机点击 `.nav-menu-btn` | Hero 上为暗色磨砂胶囊；越过 `[data-hero-light]` 切为 `.on-light`；向下滚超 6px 标记 `data-tucked` 收起，上滚或聚焦恢复；终章后半段切为 `.is-dark`；`390px` 下展开 `#nav-panel[data-open=\"true\"]`，支持 Escape 与外部点击关闭 | `index.html` 及四子页 `nav.nav`、`js/app.js` `initNavbar` | 浏览器双宽实测与 `03w5.odwsvd~o.js` 模块 `49409`；已对照通过 |\n| Hero 标题、命令复制与四标签作品舞台 | `section.hero`、`.work .tabs`、`#work-stage` | 首屏进入、点击 `$ npx skills add Leonxlnx/taste-skill`、点击或键盘方向键切换 4 个标签、向下滚动 | 点击命令按钮写入剪贴板并切换 `data-copied=\"true\"` 1600ms；切换 `Coffee shop` / `Club night` / `Architects` / `Contracts` 时 `.tabs-chip > span` 以 `clip-path: inset(... round 10px)` 滑向目标标签，`.work-shot` 按 `data-dir=\"next\\|back\"` 切换 `data-state=\"on\\|off\\|idle\"`；滚动时 `.work-frame` 由 `rotateX(26deg) scale(0.84)` 展平 | `index.html` `section.hero`、`js/app.js` `initHero` / `initCopyButtons` | 浏览器双宽实测与 `0svgcii8kjham.js` 模块 `34762`、`55887`；已对照通过 |\n| Sponsored by 四栏赞助带 | `section`（`Sponsored by`） | 滚动进入视口（`[data-enter]`） | `Interfaces`、`React Bits`、`IMG.LY`、`Sent.dm` 四栏细线白卡与赞助链接按 `--enter-i` 依次淡入上浮 | `index.html` 赞助区、`js/app.js` `initEnterObserver` | 浏览器双宽实测；已对照通过 |\n| The draw 二十方向三维滚筒与三项发牌 | `#directions.scene.drum-scene[data-scene=\"scroll-turned-drum\"]` | 滚动穿过 3040px（桌面）粘性章节 | `.drum-rule` 横线展开，`.drum` 沿 `--drum-turn` 旋转走过 20 条美术方向，当前项位于两条水平细线与左右橙色三角准星之间，右侧同步滚入 `1 of 20`..`20 of 20` 与方向副标题；滚至 91.2% 触发 `drum:close`，弹出 3 张 `Dealt for this page` 抽选卡与 `See how a build runs` 按钮 | `index.html` `#directions`、`js/scroll-turned-drum.js`、`js/app.js` `initDirections` | 浏览器双宽实测与 `0rpc~sepnsxzd.js`、`0svgcii8kjham.js` 模块 `74297`；已对照通过 |\n| Design sense 三层核心能力动效卡 | `#how-it-works`（`[data-story=\"pictures\\|inspect\\|app\"]`） | 滚动进入视口（`top 85%`），完成后鼠标再次移入卡片 | 卡片画框 `clip-path` 随滚动展开；`pictures` 执行步进打字检索、缩略图揭示与 `CC BY-SA` 徽章弹出；`inspect` 执行两轮扫描线并将 `FAIL`/`WARN` 胶囊三维翻转为 `Fixed`（`Round 1: 3 FAIL, 2 WARN` → `Round 2: 0 FAIL, 0 WARN`）；`app` 执行滚轮数字（`1,284`、`€38.4k`、`2.4%`）与七日柱图生长；鼠标移入已完成卡片重播 | `index.html` `#how-it-works`、`js/app.js` `initFeatures` | 浏览器双宽实测与 `0svgcii8kjham.js` 模块 `22163`；已对照通过 |\n| Before and after 五步同页改版舞台 | `section.scene.showcase[data-scene=\"before-after\"]` | 滚动穿过 3200px 粘性舞台，或点击左侧 5 个 `.ba-step` 步骤按钮 | 左侧五步导轨按进度 `[0, 0.18, 0.4, 0.665, 0.93]` 展开当前说明并填充进度条；右侧 Noteflow 页面以圆形 `clip-path` 扫除紫色渐变 `.nf-slop`，在 `.nf-calm` 上依次替换 Logo、导航、标题文案、移除三张 Emoji 卡片、滑入左侧编辑列与右侧带复选动画的 `Weekly review` 文档卡，右上胶囊同步切换 `Before` → `Step 1–4 of 4` | `index.html` `.scene.showcase`、`js/before-after.js`、`js/app.js` `initBeforeAfter` | 浏览器双宽实测与 `16mys-yd2ia4t.js`、`0svgcii8kjham.js` 模块 `37612`；已对照通过 |\n| Install 三标签切换与 6 Agent 标志带 | `#install` | 点击或方向键切换 `npx skills`、`Claude Code`、`Codex` 标签，点击命令条复制 | 切换单行或双行安装命令条与底部说明文字；下方 6 格展示 `Claude Code`、`Codex`、`Cursor`、`OpenCode`、`Gemini CLI`、`Antigravity` 图标与外链 | `index.html` `#install`、`js/app.js` `initInstallTabs` | 浏览器双宽实测与 `0svgcii8kjham.js` 模块 `5842`；已对照通过 |\n| TasteCode 桌面应用工作流回放 | `section[aria-labelledby=\"tastecode-title\"]` `.tcw-stage` | 滚动至视口 50% 自动开播；点击右下 `.tcw-control` 按钮或完成后鼠标移入 | 窗口由 `rotationX(28deg) scale(0.88)` 抬升展平；8.6s 时间线依次推进 6 个步骤（旋转加载 → 绿色对勾、四色色板、三张缩略图）、右侧 `Changes` 列表与代码逐行浮现，4.55s 切至 `Browser` 标签并展开/滚动 *Bohne & Söhne* 页面、弹出 `1440` 与 `390` 标签；右下角按钮同步切换 `Pause` / `Play` / `Replay` | `index.html` `.tcw-stage`、`js/app.js` `initTasteCode` | 浏览器双宽实测与 `0svgcii8kjham.js` 模块 `97953`；已对照通过 |\n| Common questions 2×3 问答与 Open source 赞助区 | `#questions`、`#support` | 滚动浏览 | 2×3 白卡网格展示 6 项问答；赞助区展示 23 位社区贡献者头像网格及 Kimi、Vercel 开源支持卡片 | `index.html` `#questions`、`#support` | 浏览器双宽实测；已对照通过 |\n| 终章 Stop guessing, start deciding. 光泛舞台 | `section.scene.lf[data-scene=\"light-flood\"]` | 滚动穿过粘性舞台 | 9 层 Canvas 2D 绘制带确定性抖动噪点的日冕（`.lf-halo-tex`、`.lf-core-tex`）、夜幕椭圆遮罩（`.lf-night-tex`）与 6 层柔焦字标（`.lf-soft`）；随滚动日冕放大、夜幕降下，深色模糊 `Stop guessing,` 上移淡出，亮白 `start deciding.` 由柔焦收束定格在中央 | `index.html` `.scene.lf`、`js/light-flood.js` | 浏览器双宽实测与 `15wwnu-a09z~h.js` 模块 `58201`；已对照通过 |\n| 暖黑页脚与日出巨字 | `footer.site-footer`、`.foot-sunrise` | 滚动至页尾 | 一键安装胶囊复制栏、四列导航与版权署名；底部 `.fs-glow` 暖橙光晕升起，`Taste Skill` 巨字从中心向两侧交错上浮 | `index.html` 及四子页 `footer.site-footer`、`js/app.js` `initFootSunrise` | 浏览器双宽实测与 `03w5.odwsvd~o.js` 模块 `66410`；已对照通过 |\n| Docs / Guide / Changelog / Blog 四个导航子页 | `docs/index.html`、`guide/index.html`、`changelog/index.html`、`blog/index.html` | 从顶栏或页脚进入子页、滚动阅读、点击代码块 `Copy` 按钮 | `Docs`（9 节文档、11 处命令复制、规则胶囊）与 `Guide`（7 节提示词指南、6 处 Prompt 模板复制、Thin/Usable 对比卡）在宽屏左侧吸附 `On this page` 目录并随滚动高亮当前节；`Changelog` 展示 `2.1.5` 至 `Before v2` 版本卡；`Blog` 展示 4 张 X 帖子卡片 | `docs/index.html`、`guide/index.html`、`changelog/index.html`、`blog/index.html`、`js/app.js` `initToc` / `initCopyButtons` | 浏览器双宽实测与 `09nnc8g2gq8yi.js`、`010zdm2nqe4ki.js`；已对照通过 |\n"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets-manifest.json",
+      "role": "asset-manifest",
+      "content": "{\n  \"scope\": \"Taste Skill 官网（https://www.tasteskill.dev/）首页及 Docs、Guide、Changelog、Blog 四个子页的完整本地化图像、图标与字体清单。\",\n  \"assets\": [\n    {\n      \"file\": \"assets/apple-touch-icon.webp\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/apple-touch-icon.webp\",\n      \"purpose\": \"180×180 Apple Touch 图标\",\n      \"width\": 180,\n      \"height\": 180,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/webp\"\n    },\n    {\n      \"file\": \"assets/avatars/AkramReshad.png\",\n      \"sourceUrl\": \"https://github.com/AkramReshad.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@AkramReshad\",\n      \"width\": 420,\n      \"height\": 420,\n      \"copyright\": \"GitHub 用户 @AkramReshad 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/AnthonyLiuVa.png\",\n      \"sourceUrl\": \"https://github.com/AnthonyLiuVa.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@AnthonyLiuVa\",\n      \"width\": 420,\n      \"height\": 420,\n      \"copyright\": \"GitHub 用户 @AnthonyLiuVa 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/AtharvaJaiswal005.png\",\n      \"sourceUrl\": \"https://github.com/AtharvaJaiswal005.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@AtharvaJaiswal005\",\n      \"width\": 96,\n      \"height\": 96,\n      \"copyright\": \"GitHub 用户 @AtharvaJaiswal005 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/Gigslol.png\",\n      \"sourceUrl\": \"https://github.com/Gigslol.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@Gigslol\",\n      \"width\": 420,\n      \"height\": 420,\n      \"copyright\": \"GitHub 用户 @Gigslol 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/JKc66.png\",\n      \"sourceUrl\": \"https://github.com/JKc66.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@JKc66\",\n      \"width\": 118032648,\n      \"height\": 168563725,\n      \"copyright\": \"GitHub 用户 @JKc66 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/KANA-33.png\",\n      \"sourceUrl\": \"https://github.com/KANA-33.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@KANA-33\",\n      \"width\": 118032648,\n      \"height\": 168563725,\n      \"copyright\": \"GitHub 用户 @KANA-33 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/LuisGot.png\",\n      \"sourceUrl\": \"https://github.com/LuisGot.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@LuisGot\",\n      \"width\": 118032648,\n      \"height\": 168563725,\n      \"copyright\": \"GitHub 用户 @LuisGot 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/Wolfy18.png\",\n      \"sourceUrl\": \"https://github.com/Wolfy18.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@Wolfy18\",\n      \"width\": 118032648,\n      \"height\": 168563725,\n      \"copyright\": \"GitHub 用户 @Wolfy18 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/a-human-created-this.png\",\n      \"sourceUrl\": \"https://github.com/a-human-created-this.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@a-human-created-this\",\n      \"width\": 96,\n      \"height\": 96,\n      \"copyright\": \"GitHub 用户 @a-human-created-this 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/ajmalaksar25.png\",\n      \"sourceUrl\": \"https://github.com/ajmalaksar25.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@ajmalaksar25\",\n      \"width\": 118032648,\n      \"height\": 168563725,\n      \"copyright\": \"GitHub 用户 @ajmalaksar25 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/bytewerk-dev.png\",\n      \"sourceUrl\": \"https://github.com/bytewerk-dev.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@bytewerk-dev\",\n      \"width\": 118032648,\n      \"height\": 168563725,\n      \"copyright\": \"GitHub 用户 @bytewerk-dev 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/denvit.png\",\n      \"sourceUrl\": \"https://github.com/denvit.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@denvit\",\n      \"width\": 118032648,\n      \"height\": 168563725,\n      \"copyright\": \"GitHub 用户 @denvit 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/dnakov.png\",\n      \"sourceUrl\": \"https://github.com/dnakov.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@dnakov\",\n      \"width\": 118032648,\n      \"height\": 168563725,\n      \"copyright\": \"GitHub 用户 @dnakov 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/emilkowalski.png\",\n      \"sourceUrl\": \"https://github.com/emilkowalski.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@emilkowalski\",\n      \"width\": 118032648,\n      \"height\": 168563725,\n      \"copyright\": \"GitHub 用户 @emilkowalski 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/ghughes7.png\",\n      \"sourceUrl\": \"https://github.com/ghughes7.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@ghughes7\",\n      \"width\": 118032648,\n      \"height\": 168563725,\n      \"copyright\": \"GitHub 用户 @ghughes7 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/krikkkk.png\",\n      \"sourceUrl\": \"https://github.com/krikkkk.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@krikkkk\",\n      \"width\": 420,\n      \"height\": 420,\n      \"copyright\": \"GitHub 用户 @krikkkk 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/mccun934.png\",\n      \"sourceUrl\": \"https://github.com/mccun934.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@mccun934\",\n      \"width\": 96,\n      \"height\": 96,\n      \"copyright\": \"GitHub 用户 @mccun934 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/navanchauhan.png\",\n      \"sourceUrl\": \"https://github.com/navanchauhan.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@navanchauhan\",\n      \"width\": 118032648,\n      \"height\": 168563725,\n      \"copyright\": \"GitHub 用户 @navanchauhan 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/onedollarstock.png\",\n      \"sourceUrl\": \"https://github.com/onedollarstock.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@onedollarstock\",\n      \"width\": 96,\n      \"height\": 96,\n      \"copyright\": \"GitHub 用户 @onedollarstock 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/oskar-collab.png\",\n      \"sourceUrl\": \"https://github.com/oskar-collab.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@oskar-collab\",\n      \"width\": 420,\n      \"height\": 420,\n      \"copyright\": \"GitHub 用户 @oskar-collab 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/robinebers.png\",\n      \"sourceUrl\": \"https://github.com/robinebers.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@robinebers\",\n      \"width\": 118032648,\n      \"height\": 168563725,\n      \"copyright\": \"GitHub 用户 @robinebers 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/techmedic5.png\",\n      \"sourceUrl\": \"https://github.com/techmedic5.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@techmedic5\",\n      \"width\": 96,\n      \"height\": 96,\n      \"copyright\": \"GitHub 用户 @techmedic5 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/avatars/u2393696078-rgb.png\",\n      \"sourceUrl\": \"https://github.com/u2393696078-rgb.png?size=96\",\n      \"purpose\": \"Community sponsors 贡献者头像：@u2393696078-rgb\",\n      \"width\": 420,\n      \"height\": 420,\n      \"copyright\": \"GitHub 用户 @u2393696078-rgb 公开头像\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/favicon-32.webp\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/favicon-32.webp\",\n      \"purpose\": \"32×32 站点图标\",\n      \"width\": 32,\n      \"height\": 32,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/webp\"\n    },\n    {\n      \"file\": \"assets/favicon.webp\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/favicon.webp\",\n      \"purpose\": \"48×48 站点图标\",\n      \"width\": 48,\n      \"height\": 48,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/webp\"\n    },\n    {\n      \"file\": \"assets/icon.png\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/icon.png\",\n      \"purpose\": \"180×180 站点 PNG 图标\",\n      \"width\": 180,\n      \"height\": 180,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/icons/antigravity.svg\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/icons/antigravity.svg\",\n      \"purpose\": \"支持 Agent 图标：Antigravity\",\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/svg+xml\"\n    },\n    {\n      \"file\": \"assets/icons/claudecode.svg\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/icons/claudecode.svg\",\n      \"purpose\": \"支持 Agent 图标：Claude Code\",\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/svg+xml\"\n    },\n    {\n      \"file\": \"assets/icons/codex.svg\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/icons/codex.svg\",\n      \"purpose\": \"支持 Agent 图标：Codex\",\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/svg+xml\"\n    },\n    {\n      \"file\": \"assets/icons/cursor.svg\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/icons/cursor.svg\",\n      \"purpose\": \"支持 Agent 图标：Cursor\",\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/svg+xml\"\n    },\n    {\n      \"file\": \"assets/icons/geminicli.svg\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/icons/geminicli.svg\",\n      \"purpose\": \"支持 Agent 图标：Gemini CLI\",\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/svg+xml\"\n    },\n    {\n      \"file\": \"assets/icons/opencode.svg\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/icons/opencode.svg\",\n      \"purpose\": \"支持 Agent 图标：OpenCode\",\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/svg+xml\"\n    },\n    {\n      \"file\": \"assets/manifest.json\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/manifest.json\",\n      \"purpose\": \"Web App Manifest 清单\",\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"application/json\"\n    },\n    {\n      \"file\": \"assets/mark.png\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/mark.png\",\n      \"purpose\": \"顶栏与品牌标志图标\",\n      \"width\": 64,\n      \"height\": 64,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/sponsors/imgly-icon.svg\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/sponsors/imgly-icon.svg\",\n      \"purpose\": \"Sponsored by 图标：IMG.LY\",\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/svg+xml\"\n    },\n    {\n      \"file\": \"assets/sponsors/interfaces-dev-icon.webp\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/sponsors/interfaces-dev-icon.webp\",\n      \"purpose\": \"Sponsored by 图标：Interfaces\",\n      \"width\": 512,\n      \"height\": 512,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/webp\"\n    },\n    {\n      \"file\": \"assets/sponsors/kimi-icon.png\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/sponsors/kimi-icon.png\",\n      \"purpose\": \"Open source supporters 图标：Kimi\",\n      \"width\": 128,\n      \"height\": 128,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/sponsors/kimi-open-source-friends.svg\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/sponsors/kimi-open-source-friends.svg\",\n      \"purpose\": \"Open source supporters 徽章：Kimi Open Source Friends 2026\",\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/svg+xml\"\n    },\n    {\n      \"file\": \"assets/sponsors/reactbits-icon.svg\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/sponsors/reactbits-icon.svg\",\n      \"purpose\": \"Sponsored by 图标：React Bits\",\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/svg+xml\"\n    },\n    {\n      \"file\": \"assets/sponsors/sent-icon.png\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/sponsors/sent-icon.png\",\n      \"purpose\": \"Sponsored by 图标：Sent.dm\",\n      \"width\": 200,\n      \"height\": 200,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/png\"\n    },\n    {\n      \"file\": \"assets/sponsors/vercel-icon.svg\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/sponsors/vercel-icon.svg\",\n      \"purpose\": \"Open source supporters 图标：Vercel\",\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/svg+xml\"\n    },\n    {\n      \"file\": \"assets/tastecode-app-icon.webp\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/tastecode-app-icon.webp\",\n      \"purpose\": \"Hero 公告与 TasteCode 桌面应用图标\",\n      \"width\": 192,\n      \"height\": 192,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/webp\"\n    },\n    {\n      \"file\": \"assets/vercel-oss-program-badge-2026.svg\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/vercel-oss-program-badge-2026.svg\",\n      \"purpose\": \"Vercel Open Source Program 2026 徽章\",\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/svg+xml\"\n    },\n    {\n      \"file\": \"assets/work/atelier-nord.webp\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/work/atelier-nord.webp\",\n      \"purpose\": \"Hero 标签 3：Atelier Nord 建筑事务所首屏\",\n      \"width\": 2400,\n      \"height\": 1388,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/webp\"\n    },\n    {\n      \"file\": \"assets/work/coffee-questions.webp\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/work/coffee-questions.webp\",\n      \"purpose\": \"TasteCode 浏览器面板预览：Bohne & Söhne 常见问答章节\",\n      \"width\": 2400,\n      \"height\": 1388,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/webp\"\n    },\n    {\n      \"file\": \"assets/work/coffee-roast.webp\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/work/coffee-roast.webp\",\n      \"purpose\": \"TasteCode 浏览器面板预览：Bohne & Söhne 烘焙日章节\",\n      \"width\": 2400,\n      \"height\": 1388,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/webp\"\n    },\n    {\n      \"file\": \"assets/work/coffee-storefront.webp\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/work/coffee-storefront.webp\",\n      \"purpose\": \"Hero 标签 1 与 TasteCode 预览：Bohne & Söhne 咖啡烘焙店首屏\",\n      \"width\": 2400,\n      \"height\": 1388,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/webp\"\n    },\n    {\n      \"file\": \"assets/work/margin.webp\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/work/margin.webp\",\n      \"purpose\": \"Hero 标签 4：Margin 合同审阅工具首屏\",\n      \"width\": 2400,\n      \"height\": 1388,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/webp\"\n    },\n    {\n      \"file\": \"assets/work/night-hero.webp\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/work/night-hero.webp\",\n      \"purpose\": \"Hero 标签 2：Nachtschicht 科隆电子乐之夜首屏\",\n      \"width\": 2400,\n      \"height\": 1388,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/webp\"\n    },\n    {\n      \"file\": \"assets/work/thumb-dropped.webp\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/work/thumb-dropped.webp\",\n      \"purpose\": \"Pictures 能力卡与 TasteCode 缩略图：440 degrees full city roast coffee（Dan Bollinger, CC BY-SA 3.0）\",\n      \"width\": 180,\n      \"height\": 128,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/webp\"\n    },\n    {\n      \"file\": \"assets/work/thumb-green.webp\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/work/thumb-green.webp\",\n      \"purpose\": \"Pictures 能力卡与 TasteCode 缩略图：75 degrees green coffee（Dan Bollinger, CC BY-SA 3.0）\",\n      \"width\": 180,\n      \"height\": 128,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/webp\"\n    },\n    {\n      \"file\": \"assets/work/thumb-roast.webp\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/work/thumb-roast.webp\",\n      \"purpose\": \"Pictures 能力卡与 TasteCode 缩略图：385 degrees cinnamon roast coffee（Dan Bollinger, CC BY-SA 3.0）\",\n      \"width\": 180,\n      \"height\": 128,\n      \"copyright\": \"Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"image/webp\"\n    },\n    {\n      \"file\": \"fonts/03425941b04c208b.0nn4z9g5ap6nx.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/03425941b04c208b.0nn4z9g5ap6nx.woff2\",\n      \"purpose\": \"Google Sans Code 可变等宽字体分片（03425941b04c208b.0nn4z9g5ap6nx.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/073176abbfb69301.0ve54bz~f1b~b.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/073176abbfb69301.0ve54bz~f1b~b.woff2\",\n      \"purpose\": \"Google Sans Code 可变等宽字体分片（073176abbfb69301.0ve54bz~f1b~b.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/080358c69562c9db.08ce3ar8cetf~.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/080358c69562c9db.08ce3ar8cetf~.woff2\",\n      \"purpose\": \"Google Sans Code 可变等宽字体分片（080358c69562c9db.08ce3ar8cetf~.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/0b036bdeb10c32b8.0kkpsm4dt3m78.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/0b036bdeb10c32b8.0kkpsm4dt3m78.woff2\",\n      \"purpose\": \"Google Sans Flex 可变无衬线字体分片（0b036bdeb10c32b8.0kkpsm4dt3m78.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/0bd9768cb275d212.13h_uu-l-b_u6.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/0bd9768cb275d212.13h_uu-l-b_u6.woff2\",\n      \"purpose\": \"Google Sans Code 可变等宽字体分片（0bd9768cb275d212.13h_uu-l-b_u6.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/1239f87c2f407c5b.0_psq-1kfs-o5.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/1239f87c2f407c5b.0_psq-1kfs-o5.woff2\",\n      \"purpose\": \"Google Sans Flex 可变无衬线字体分片（1239f87c2f407c5b.0_psq-1kfs-o5.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/1dec2532b0ccb31b.064g35qn_7eaq.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/1dec2532b0ccb31b.064g35qn_7eaq.woff2\",\n      \"purpose\": \"Google Sans Flex 可变无衬线字体分片（1dec2532b0ccb31b.064g35qn_7eaq.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/21fc25f4fe8aafc9.0msx.~zn1vntq.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/21fc25f4fe8aafc9.0msx.~zn1vntq.woff2\",\n      \"purpose\": \"Google Sans Code 可变等宽字体分片（21fc25f4fe8aafc9.0msx.~zn1vntq.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/23dc8d9c94a64bf1.04inntoweog5z.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/23dc8d9c94a64bf1.04inntoweog5z.woff2\",\n      \"purpose\": \"Google Sans Code 可变等宽字体分片（23dc8d9c94a64bf1.04inntoweog5z.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/28f927981047d89f.0plyesuyqe6le.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/28f927981047d89f.0plyesuyqe6le.woff2\",\n      \"purpose\": \"Google Sans Code 可变等宽字体分片（28f927981047d89f.0plyesuyqe6le.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/2fbeba6312f58a54.0ko0bt9fcg~_k.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/2fbeba6312f58a54.0ko0bt9fcg~_k.woff2\",\n      \"purpose\": \"Google Sans Flex 可变无衬线字体分片（2fbeba6312f58a54.0ko0bt9fcg~_k.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/5fff1340a25cb9a8.0a~feibgbfwj9.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/5fff1340a25cb9a8.0a~feibgbfwj9.woff2\",\n      \"purpose\": \"Google Sans Code 可变等宽字体分片（5fff1340a25cb9a8.0a~feibgbfwj9.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/6babc54cc0db7717.p.0-~an~s5a6j3d.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/6babc54cc0db7717.p.0-~an~s5a6j3d.woff2\",\n      \"purpose\": \"Google Sans Code 可变等宽字体分片（6babc54cc0db7717.p.0-~an~s5a6j3d.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/702f5fabbdae66be.0ailg95uc5v~8.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/702f5fabbdae66be.0ailg95uc5v~8.woff2\",\n      \"purpose\": \"Google Sans Code 可变等宽字体分片（702f5fabbdae66be.0ailg95uc5v~8.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/80b2b0863dd66ef8.0dz1.l5xvmy0o.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/80b2b0863dd66ef8.0dz1.l5xvmy0o.woff2\",\n      \"purpose\": \"Google Sans Flex 可变无衬线字体分片（80b2b0863dd66ef8.0dz1.l5xvmy0o.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/8e578deadf1bb7c9.0pmb8.qit4le2.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/8e578deadf1bb7c9.0pmb8.qit4le2.woff2\",\n      \"purpose\": \"Google Sans Flex 可变无衬线字体分片（8e578deadf1bb7c9.0pmb8.qit4le2.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/9ef465ce7ba5114b.p.0acb9ibijjzd7.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/9ef465ce7ba5114b.p.0acb9ibijjzd7.woff2\",\n      \"purpose\": \"Google Sans Flex 可变无衬线字体分片（9ef465ce7ba5114b.p.0acb9ibijjzd7.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/aaf6fa4e1ffa11bc.0na.w7myhu7al.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/aaf6fa4e1ffa11bc.0na.w7myhu7al.woff2\",\n      \"purpose\": \"Google Sans Code 可变等宽字体分片（aaf6fa4e1ffa11bc.0na.w7myhu7al.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/b9f958d5156565bf.16wia~_rv---r.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/b9f958d5156565bf.16wia~_rv---r.woff2\",\n      \"purpose\": \"Google Sans Flex 可变无衬线字体分片（b9f958d5156565bf.16wia~_rv---r.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/d04b6cfe7e6ec110.0mpjw-t6oo70-.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/d04b6cfe7e6ec110.0mpjw-t6oo70-.woff2\",\n      \"purpose\": \"Google Sans Flex 可变无衬线字体分片（d04b6cfe7e6ec110.0mpjw-t6oo70-.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    },\n    {\n      \"file\": \"fonts/fa88843bf5fd45a1.07hcckx6a.m3v.woff2\",\n      \"sourceUrl\": \"https://www.tasteskill.dev/_next/static/media/fa88843bf5fd45a1.07hcckx6a.m3v.woff2\",\n      \"purpose\": \"Google Sans Flex 可变无衬线字体分片（fa88843bf5fd45a1.07hcckx6a.m3v.woff2）\",\n      \"copyright\": \"Google Fonts（SIL Open Font License 1.1）\",\n      \"retrievedAt\": \"2026-11-19\",\n      \"contentType\": \"font/woff2\"\n    }\n  ]\n}\n"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/LICENSES.md",
+      "role": "license",
+      "content": "# Taste Skill 官网许可与署名索引\n\n- **Taste Skill 网站设计与内容**：© 2026 Taste Skill（Leon Lin `@Leonxlnx` & blueemi `@blueemi99`），项目采用 [MIT License](../../materials/taste-skill/LICENSE)。\n- **示范作品截图中的摄影（`assets/work/*.webp`）**：\n  - *Bohne & Söhne*（`coffee-storefront.webp`、`coffee-roast.webp`、`coffee-questions.webp`、`thumb-green.webp`、`thumb-roast.webp`、`thumb-dropped.webp`）：烘焙豆照片来自 Dan Bollinger（CC BY-SA 3.0，Wikimedia Commons），莱比锡街景与历史档案照片来自 Wikimedia Commons（CC BY-SA / 公有领域）。\n  - *Nachtschicht*（`night-hero.webp`）：科隆 Helios 灯塔照片来自 Superbass / Raimond Spekking（CC BY-SA 4.0，Wikimedia Commons）。\n  - *Atelier Nord*（`atelier-nord.webp`）：森林与木材照片来自 Wikimedia Commons（CC0 / CC BY / CC BY-SA）。\n  - *Margin*（`margin.webp`）：古籍与公证契约档案来自 The Metropolitan Museum of Art（CC0）与 Wikimedia Commons（公有领域）。\n  - 完整逐图署名清单见关联素材 [demos/materials/taste-skill/examples/v2/CREDITS.md](../../materials/taste-skill/examples/v2/CREDITS.md)。\n- **字体（`fonts/*.woff2`）**：\n  - `Google Sans Flex`（10 个 Unicode 分片）与 `Google Sans Code`（11 个 Unicode 分片）：Google Fonts，采用 SIL Open Font License 1.1。\n- **第三方运行库（`vendor/`）**：\n  - **GSAP 3.15.0**（`gsap.js`、`ScrollTrigger.js`、`SplitText.js`）：[vendor/gsap@3.15.0/LICENSE.txt](vendor/gsap@3.15.0/LICENSE.txt)（Standard \"No Charge\" GreenSock License）。\n  - **Lenis 1.3.26**（`lenis.js`）：[vendor/lenis@1.3.26/LICENSE.txt](vendor/lenis@1.3.26/LICENSE.txt)（MIT License，Copyright (c) 2024 darkroom.engineering）。\n- **赞助商与支持工具标识（`assets/sponsors/*`、`assets/icons/*`）**：Interfaces、React Bits、IMG.LY、Sent.dm、Kimi、Vercel 及 Claude Code、Codex、Cursor、OpenCode、Gemini CLI、Antigravity 的商标与图标版权归各自所有者所有。\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/apple-touch-icon.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/AkramReshad.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/AnthonyLiuVa.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/AtharvaJaiswal005.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/Gigslol.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/JKc66.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/KANA-33.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/LuisGot.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/Wolfy18.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/a-human-created-this.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/ajmalaksar25.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/bytewerk-dev.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/denvit.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/dnakov.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/emilkowalski.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/ghughes7.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/krikkkk.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/mccun934.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/navanchauhan.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/onedollarstock.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/oskar-collab.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/robinebers.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/techmedic5.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/u2393696078-rgb.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/favicon-32.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/favicon.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icon.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/antigravity.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/claudecode.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/codex.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/cursor.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/geminicli.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/opencode.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/mark.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/imgly-icon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/interfaces-dev-icon.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/kimi-icon.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/kimi-open-source-friends.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/reactbits-icon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/sent-icon.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/vercel-icon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/tastecode-app-icon.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/vercel-oss-program-badge-2026.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/atelier-nord.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/coffee-questions.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/coffee-roast.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/coffee-storefront.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/margin.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/night-hero.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/thumb-dropped.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/thumb-green.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/thumb-roast.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/blog/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/changelog/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/docs/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/03425941b04c208b.0nn4z9g5ap6nx.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/073176abbfb69301.0ve54bz~f1b~b.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/080358c69562c9db.08ce3ar8cetf~.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/0b036bdeb10c32b8.0kkpsm4dt3m78.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/0bd9768cb275d212.13h_uu-l-b_u6.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/1239f87c2f407c5b.0_psq-1kfs-o5.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/1dec2532b0ccb31b.064g35qn_7eaq.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/21fc25f4fe8aafc9.0msx.~zn1vntq.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/23dc8d9c94a64bf1.04inntoweog5z.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/28f927981047d89f.0plyesuyqe6le.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/2fbeba6312f58a54.0ko0bt9fcg~_k.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/5fff1340a25cb9a8.0a~feibgbfwj9.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/6babc54cc0db7717.p.0-~an~s5a6j3d.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/702f5fabbdae66be.0ailg95uc5v~8.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/80b2b0863dd66ef8.0dz1.l5xvmy0o.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/8e578deadf1bb7c9.0pmb8.qit4le2.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/9ef465ce7ba5114b.p.0acb9ibijjzd7.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/aaf6fa4e1ffa11bc.0na.w7myhu7al.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/b9f958d5156565bf.16wia~_rv---r.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/d04b6cfe7e6ec110.0mpjw-t6oo70-.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/fa88843bf5fd45a1.07hcckx6a.m3v.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/guide/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/app.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/before-after.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/light-flood.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/scroll-turned-drum.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/stage.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/README.md",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/trace.json",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/010zdm2nqe4ki.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/03w5.odwsvd~o.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/053f4d_jk_k79.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/08fpt4ubuopir.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/094kob2vf~3v7.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/09nnc8g2gq8yi.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/0rpc~sepnsxzd.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/0svgcii8kjham.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/10u87vdi~-9gf.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/15wwnu-a09z~h.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/16mys-yd2ia4t.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/17z1goe0jn.3s.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/blog.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/changelog.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/docs.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/guide.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/index.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/styles.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/gsap@3.15.0/LICENSE.txt",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/gsap@3.15.0/ScrollTrigger.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/gsap@3.15.0/SplitText.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/gsap@3.15.0/gsap.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/lenis@1.3.26/LICENSE.txt",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/lenis@1.3.26/lenis.js",
+      "role": "vendor"
+    },
+    {
+      "path": "docs/cases/taste-skill-site.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/taste-skill-site.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/taste-skill-site-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/taste-skill-site-reference.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/taste-skill-site.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/taste-skill-site.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ],
+  "webNotes": {
+    "format": "text/html",
+    "renderer": "scripts/detail-notes.mjs",
+    "content": "<section><h2>从要素看风格</h2><a class=\"element-lab-link\" href=\"https://web-atlas-library.mibxranime.chatgpt.site/#/tools/lab?style=taste-skill-site\">调配这个风格的设计要素</a><dl class=\"element-map\"><div class=\"\"><dt>配色角色</dt><dd>#f8f4ee 暖奶油纸面、#f3eee7 下沉暖灰、#ffffff 纯白卡片表面、#1a0e08 深褐主墨色与 #140a05 暖黑首尾底色；#ff5b14 / #e8500e 焦橙色与 #ffc9a3 暖桃色提供高能量视觉焦点。</dd></div><div class=\"\"><dt>字体排版</dt><dd>Google Sans Flex 可变无衬线字体搭配 Google Sans Code 可变等宽字体；首屏 H1 clamp(40px, 6vw, 84px)（字距 -0.042em，行高 1.02），章节标题 clamp(30px, 3.8vw, 44px)，终章巨字 clamp(2.5rem, 7.6cqw, 8.5rem) / clamp(3.125rem, 9.5cqw, 10.625rem)。</dd></div><div class=\"\"><dt>布局留白</dt><dd>主阅读容器 .wrap 宽 880px，宽舞台容器 .wrap-wide 宽 1080px（Hero 作品画框 1099px）；穿插 The draw（3040px）、Before and after（3200px）与 Light flood（2640px）三段全屏粘性滚动舞台。</dd></div><div class=\"\"><dt>图像图标</dt><dd>4 张高分辨率跨业态示范作品截图、3 张烘焙过程缩略图、全套纯 HTML/CSS 编写的实时界面片段（assets.mjs、inspect.mjs、Overview 仪表盘、Noteflow 演进画布、TasteCode 桌面窗口）及 SVG 噪点纹理。</dd></div><div class=\"\"><dt>线条形状</dt><dd>9999px 胶囊顶栏与标签按钮、20px–24px 大圆角卡片表面、1px 暖墨色细分隔线（#140a050f）与带橙色三角准星的水平标尺线。</dd></div><div class=\"\"><dt>信息层级</dt><dd>首屏主张与作品证据 → 赞助背书 → 二十方向滚筒 → 三项核心能力 → 五步改版对照 → 安装方式与支持 Agent → TasteCode 桌面应用 → 常见问题与开源支持 → 终章宣言与页脚安装。</dd></div><div class=\"\"><dt>动效反馈</dt><dd>Lenis 平滑滚动耦合 GSAP ScrollTrigger 粘性时间线、三维圆柱透视旋转、圆形 clip-path 扫除、字词交错升降、数字滚轮、三维标签翻转与 9 层 Canvas 柔焦光泛。</dd></div><div class=\"coherence\"><dt>协调逻辑</dt><dd>焦橙色从首屏日落渐变出发，在滚筒三角准星、能力卡底板、五步进度条、TasteCode 底部辉光与终章光泛舞台中一以贯之；所有命令行与代码块共享同一套 1600ms 复制反馈。</dd></div><div class=\"\"><dt>滚动结构</dt><dd>桌面端启用 Lenis（lerp 0.12）平滑滚动并与 ScrollTrigger 同步；三段 .scene[data-scene] 粘性舞台将纵向行程转化为滚筒旋转、五步改版与光泛交接，减少动态模式下直接展示完整静态终态。</dd></div></dl></section><section><h2>设计机制</h2><ul><li>先给跨业态的真实作品证据：首屏四标签涵盖实体咖啡馆、电子乐演出、建筑事务所与法律软件，直接回应“不只是 SaaS 模板”的主张。</li><li>把背后的脚本逻辑转化为可感知的几何与时间线：发牌脚本化作二十方向三维滚筒，搜图与真机检查化作可悬停重播的界面微电影。</li><li>用同一页面的五步渐进式重排替代静态截图对比：让观看者亲眼看到去掉紫渐变、换单色板、改实话文案、调整层级与补齐细节各自带来的改变。</li><li>高饱和焦橙色只用在首屏天际、准星标记与终章光泛交接，长阅读区与四个文档子页保持安静的暖奶油纸面与高对比墨色。</li></ul><h3>设计重点</h3><p>围绕“把网页设计品味、开放图库与真机浏览器检查打包成 Agent Skill”组织全站：首页用可操作的视觉证据证明技能效果，Docs、Guide、Changelog 与 Blog 四个子页提供安装、提示词模板与版本演进参考。</p><h3>主题与情绪</h3><p>暖黑与焦橙渐变首屏过渡到 #f8f4ee 暖奶油纸面与纯白卡片，TasteCode 卡片与页脚切入深墨暖黑并以橙色底部光晕收束。</p></section><section><h2>页面交互</h2><ul><li>自适应悬浮胶囊顶栏（nav.nav）在深色 Hero 上使用暗色磨砂玻璃，滚过 Hero 后切换为浅色 .on-light，向下滚动超过 6px 时收起（data-tucked），向上滚动或获得焦点时恢复；进入终章光泛与暖黑页脚时切换为 .is-dark，手机 390px 下折叠为 Open menu 抽屉并支持 Escape 与外部点击关闭。</li><li>Hero 作品展示提供 Coffee shop、Club night、Architects、Contracts 四个标签与左右方向键/Home/End 切换，ResizeObserver 实测当前标签矩形并以 clip-path: inset(... round 10px) 滑动胶囊指示器；向下滚动时 .work-frame 由 rotateX 26°、scale 0.84 展平至正视，Hero 离屏或后台时标记 data-asleep。</li><li>The draw（scroll-turned-drum）将二十条美术方向排在三维竖向滚筒上，随滚动更新旋转角 --drum-turn、逐项不透明度 --drum-o 与高亮 --drum-lit；中央细线与左右三角准星随对齐度呼吸缩放，右侧同步滚入当前编号（1 of 20）与方向说明，滚至末尾 91.2% 时触发 drum:close，以 [-5°, 2°, 6°] 旋转交错弹出三张 Dealt for this page 抽选卡。</li><li>Design sense 核心能力区（#how-it-works）的三张卡片随滚动裁切展开并带视差浮动；首次进入视口时依次驱动 Pictures 的步进打字检索与 CC BY-SA 徽章弹出、Inspector 的双轮扫描线与 FAIL/WARN 三维翻转 Fixed、App screens 的滚轮数字与七日营收柱图生长，鼠标再次移入已完成卡片时淡出重播。</li><li>Before and after（From default to designed）将左栏五步进度按钮（The default、One palette、Real type、Layout with intent、The last 10%）与右栏同一 Noteflow 真实 DOM 页面绑定：随滚动或点击步骤按钮（标记点 0、0.18、0.4、0.665、0.93），以圆形 clip-path 扫除默认紫渐变与玻璃卡片，依次替换为暖纸单色板、紧致标题、左对齐层级与带已完成清单的周报卡片，顶部胶囊同步滚动 Step 1–4 of 4。</li><li>Install 区支持 npx skills、Claude Code、Codex 三种安装方式切换，连同 Hero、页脚及 Docs/Guide 子页的命令与提示词复制按钮，点击后写入剪贴板、切换 data-copied 状态与勾号图标并播报 Copied to clipboard，1600ms 后复位。</li><li>TasteCode 桌面应用区在进入视口 50% 时自动启动 8.6 秒 GSAP 工作流时间线：左侧会话树与日志依次走过 6 个设计步骤并点亮四色色板与三张缩略图，右侧由 Changes 文件与代码 Diff 面板平滑切换到 Browser 预览面板、展开并上下滚动完整网页、弹出 1440 与 390 校验标签；右下角按钮随状态在 Pause、Play、Replay 之间切换，支持随时暂停、继续与悬停重播。</li><li>终章 Stop guessing, start deciding.（light-flood）在粘性视口内用多层二维 Canvas 绘制带确定性像素抖动的暖橙日冕（halo/core）、夜幕椭圆遮罩（night）与三级高斯模糊字层（lf-soft），随滚动推进日冕扩张与夜幕降落，使深色模糊的 Stop guessing, 上移淡出，亮白清晰的 start deciding. 从多层柔焦收束定格在视口中央。</li><li>页脚（foot-sunrise）随滚动升起底部暖橙光晕并从中心向两侧交错弹出 Taste Skill 巨字字符；Docs、Guide、Changelog 子页提供 sticky 目录（On this page），随滚动在 140px 阈值处高亮当前章节（aria-current=&quot;location&quot;）。</li></ul><div class=\"behavior-block\"><span class=\"behavior-label\">显示主题</span><h3>固定主题</h3><p>无手动主题开关；页面按章节在深色天际首屏、暖奶油纸面正文、焦橙光泛终章与暖黑页脚之间自然过渡，悬浮顶栏随底层明暗自动切换 .on-light 与 .is-dark。</p><p>以统一的暖纸色与焦橙色建立鲜明的编辑与暖调工业感，同时衬托深色 TasteCode 窗口与多色作品截图。</p></div><div class=\"behavior-block\"><span class=\"behavior-label\">声音与交互</span><h3>无网站配乐</h3><p>全站无音频或视频控件。</p><p>完全依靠滚动时间线、三维滚筒、分步 DOM 变形与界面微动画传达节奏。</p></div></section><section><h2>约束与适用场景</h2><ul><li>复刻范围固定为 2026-11-19 的 https://www.tasteskill.dev/ 首页及 /docs、/guide、/changelog、/blog 四个导航子页（部署标识 dpl_p6tE71r3jRSWDdmahXrJaf8t29eg）。</li><li>运行库使用原站同版本 GSAP 3.15.0（含 ScrollTrigger、SplitText）与 Lenis 1.3.26；原始 Next.js 分块保存在 demos/cases/taste-skill-site/source/upstream/。</li><li>21 个 Google Sans Flex / Google Sans Code 字体分片、作品截图、赞助标志、Agent 图标与 23 张社区赞助者头像均已本地化，逐项来源记录于 assets-manifest.json。</li><li>遵循无追踪原则，移除原站统计脚本与 Blog 页的第三方 Twitter widgets.js 外链脚本，保留原站内置的 4 张推文卡片与外链入口。</li></ul><h3>适合</h3><p>AI 编码工具、Agent Skill 与开发者工具产品官网 / 需要证明“改版前后差异”的设计系统或前端工具落地页 / 包含多步骤桌面工作流回放与在线文档中心的开源项目门户 / 结合三维方向滚筒与高感染力终章字标的品牌展示站</p><h3>谨慎使用</h3><p>没有具体改动细节却强行套用五步同页改版舞台 / 在低对比度或正文字号过小的区域滥用 Canvas 高斯模糊字标 / 将示范设定（Bohne &amp; Söhne、Noteflow 等）当作真实商业客户案例陈述</p></section><section><h2>设计参数</h2><div class=\"swatches\"><span class=\"swatch\"><i style=\"background:#f8f4ee\"></i>#f8f4ee</span><span class=\"swatch\"><i style=\"background:#f3eee7\"></i>#f3eee7</span><span class=\"swatch\"><i style=\"background:#ffffff\"></i>#ffffff</span><span class=\"swatch\"><i style=\"background:#1a0e08\"></i>#1a0e08</span><span class=\"swatch\"><i style=\"background:#140a05\"></i>#140a05</span><span class=\"swatch\"><i style=\"background:#ff5b14\"></i>#ff5b14</span><span class=\"swatch\"><i style=\"background:#e8500e\"></i>#e8500e</span><span class=\"swatch\"><i style=\"background:#c2410c\"></i>#c2410c</span><span class=\"swatch\"><i style=\"background:#ffc9a3\"></i>#ffc9a3</span><span class=\"swatch\"><i style=\"background:#0f0f0f\"></i>#0f0f0f</span></div><p><b>字体</b> · Google Sans Flex 100..1000；Google Sans Code 300..800；正文 17px（手机 16px），代码与元数据 13px–14px。<br><b>布局</b> · .wrap min(880px, 100% - var(--gutter)*2)；.wrap-wide min(1080px, 100% - var(--gutter)*2)；--gutter 16px（手机）至 24px（桌面）；断点 390px / 640px / 768px / 960px / 1100px。<br><b>动效</b> · Lenis lerp 0.12；[data-enter] 阈值 0.01、交错 --enter-i；复制反馈 1600ms；TasteCode 演示时间线 8.6s；五步改版锚点 0 / 0.18 / 0.4 / 0.665 / 0.93。</p></section><section><div class=\"prompt-head\"><h2>可复用 Prompt</h2><button class=\"copy-button\" id=\"copy-prompt\">复制 Prompt</button></div><textarea class=\"prompt-box\" aria-label=\"可复用 Prompt\" readonly>读取本案例源码、研究、fidelity.md、source/trace.json 并关联 taste-skill 素材，为目标开发者工具或 Agent Skill 制作以真实设计过程与前后对比为核心的产品官网。保留深墨至焦橙的首屏渐变与 #f8f4ee 暖奶油纸面系统，顶栏采用随底层明暗切换 .on-light/.is-dark 并支持下滚收起的悬浮胶囊导航。首屏在随滚动展平的三维倾角画框中提供带 clip-path 裁剪指示器的多业态作品标签切换。紧接三段粘性滚动舞台与交互模块：第一段用三维竖向滚筒展示 20 条编号方向，联动三角准星、右侧计数说明与末尾三张抽选卡片；第二段用三张带悬停重播的界面微动画卡片演示核心脚本；第三段在左栏五步进度按钮与右栏同一真实 DOM 页面之间建立同步，分五步演进展示从默认套路到专业版面的改版过程。中后段提供三标签安装命令复制、支持 Pause/Play/Replay 的 8.6 秒桌面应用工作流回放、常见问题与社区赞助网格，最后以多层 Canvas 光泛与柔焦字标交接收束至带日出巨字动画的暖黑页脚，并配套 Docs、Guide、Changelog、Blog 四个子页。全站保持无声，在 1440×900 与 390×844 下逐模块核对布局与减少动态后备。</textarea><details><summary>负面约束 / Negative Prompt</summary><p>不要用静态图片代替三维方向滚筒、五步 Noteflow 真实 DOM 改版舞台、三张能力卡微动画或 TasteCode 工作流回放；不要删掉命令复制的 1600ms 状态反馈、键盘标签切换或手机导航抽屉；不要在减少动态模式下把内容留在隐藏或半透明状态；不要引入第三方追踪脚本或自动播放音频。</p></details><h3>改造练习</h3><p>在桌面与手机宽度下切换首屏四个作品标签并复制安装命令；缓慢滚过 The draw 观察二十方向滚筒、准星缩放与末尾三张抽选卡；移入三张能力卡触发重播；在 Before and after 依次点击五个步骤按钮观察 Noteflow 页面的五步蜕变；暂停并重播 TasteCode 桌面演示；滚过终章光泛字标并进入 Docs、Guide、Changelog、Blog 四个子页测试目录高亮与代码复制。</p></section><section class=\"case-patterns\" aria-labelledby=\"case-patterns-heading\"><div class=\"prompt-head\"><h2 id=\"case-patterns-heading\">关联巧思</h2><a href=\"https://web-atlas-library.mibxranime.chatgpt.site/#/patterns?source=taste-skill-site\">按来源浏览全部 5 项</a></div><p>这些机制可独立借用，触发条件、约束与组合建议见各项详情。</p><ul><li><a href=\"https://web-atlas-library.mibxranime.chatgpt.site/#/patterns/confirmed-command-copy?source=taste-skill-site\">可确认的命令复制</a><span>微动效</span></li><li><a href=\"https://web-atlas-library.mibxranime.chatgpt.site/#/patterns/scroll-perspective-direction-drum?source=taste-skill-site\">滚动驱动的三维方向滚筒</a><span>页面动效 · 内容与组织</span></li><li><a href=\"https://web-atlas-library.mibxranime.chatgpt.site/#/patterns/progressive-live-redesign-stage?source=taste-skill-site\">分步演进的同页改版舞台</a><span>页面动效 · 视觉巧思 · 内容与组织</span></li><li><a href=\"https://web-atlas-library.mibxranime.chatgpt.site/#/patterns/light-flood-kinetic-closing?source=taste-skill-site\">光泛画布中的字标交接</a><span>页面动效 · 视觉巧思</span></li><li><a href=\"https://web-atlas-library.mibxranime.chatgpt.site/#/patterns/controllable-inline-agent-replay?source=taste-skill-site\">可启停的内嵌桌面工作流回放</a><span>微动效 · 内容与组织</span></li></ul></section><section><h2>来源与证据</h2><div class=\"source-item\"><span class=\"source-badge\">实例</span><a href=\"https://www.tasteskill.dev/\" target=\"_blank\" rel=\"noopener noreferrer\">Taste Skill 官方网站 </a><small>2026-11-19 采集的首页及 /docs、/guide、/changelog、/blog 四个导航子页；HTML、CSS、场景脚本、字体与图像取证基准。</small></div><div class=\"source-item\"><span class=\"source-badge\">源码</span><a href=\"https://github.com/Leonxlnx/taste-skill/tree/f6b76575f949707b4e3c37cd86cb44b0b98643e8\" target=\"_blank\" rel=\"noopener noreferrer\">Leonxlnx/taste-skill 开源仓库 </a><small>v2.5.1 固定提交，提供技能本体、示范作品原始截图与照片署名清单（完整收录为 taste-skill 素材）。</small></div><div class=\"source-item\"><span class=\"source-badge\">创作来源</span><a href=\"https://github.com/Leonxlnx\" target=\"_blank\" rel=\"noopener noreferrer\">创作者 Leon Lin（@Leonxlnx）公开资料 </a><small>GitHub 个人主页公开 Location 为 Munich（德国慕尼黑），案例国别据此标注为德国。</small></div><p>参考站采集：2026-11-19。</p></section><section><h2>相关文档</h2><ul><li><a href=\"https://web-atlas-library.mibxranime.chatgpt.site/#/docs?path=docs%2Fcases%2Ftaste-skill-site.md\" target=\"_blank\">调研记录</a></li><li><a href=\"https://web-atlas-library.mibxranime.chatgpt.site/#/docs?path=demos%2Fcases%2Ftaste-skill-site%2Ffidelity.md\" target=\"_blank\">复现范围与差异</a></li><li><a href=\"demos/cases/taste-skill-site/assets-manifest.json\" target=\"_blank\">素材来源清单</a></li><li><a href=\"https://web-atlas-library.mibxranime.chatgpt.site/#/docs?path=demos%2Fcases%2Ftaste-skill-site%2FLICENSES.md\" target=\"_blank\">许可原文索引</a></li></ul></section>"
+  }
+}

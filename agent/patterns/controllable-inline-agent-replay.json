@@ -1,0 +1,626 @@
+{
+  "schemaVersion": 1,
+  "id": "controllable-inline-agent-replay",
+  "pattern": {
+    "id": "controllable-inline-agent-replay",
+    "order": 191,
+    "title": "可启停的内嵌桌面工作流回放",
+    "category": "交互反馈",
+    "experienceTypes": [
+      "micro-motion",
+      "structure"
+    ],
+    "summary": "用真实 DOM 编排桌面应用的多面板 Agent 工作流时间线，进入视口时自动演示，并提供暂停、继续与重播控制。",
+    "mechanism": "在三栏桌面应用窗口（.tcw：左侧项目树、中栏 Agent 对话与 6 步日志、右栏 Diff / Browser 双标签面板）上构建一条 8.6 秒的 GSAP 时间线。当卡片滚入视口中央（top 50%）时自动武装并开播：依次推进 6 个任务步骤（旋转加载图标切换为完成对勾，同步弹出四色色板圆点与三张素材缩略图），右栏先在 Diff 标签下逐行浮现 6 个改动文件与 HTML 代码，4.55s 时滑动标签指示器切至 Browser 面板，以 clip-path 展开生成的完整网页并自动上下滚动检视、弹出 1440 与 390 校验标签。窗口右下角浮现单按钮控件（.tcw-control），随状态在 Pause、Play、Replay 间切换，播完后鼠标重新移入窗口也可触发重播。",
+    "trigger": "卡片滚动至视口 50% 位置自动触发；点击右下角 .tcw-control 按钮，或播放完成后鼠标移入窗口。",
+    "effect": "无需加载笨重的视频文件，在高分屏下保持文字与图标锐利，同时让观看者能随时暂停细看某一步的日志、Diff 代码或生成预览。",
+    "useCases": [
+      "AI Agent、IDE 插件或桌面开发工具的端到端工作流演示",
+      "需要同时展示“对话指令 → 代码变更 → 实时预览”的产品卡片",
+      "超过 5 秒、按无障碍规范需提供暂停入口的界面循环演示"
+    ],
+    "avoid": [
+      "播放超过 5 秒却不提供任何暂停或重播控件",
+      "用模糊低码率的录屏 GIF 替代可由简单 DOM 结构呈现的编辑器界面"
+    ],
+    "constraints": [
+      "固定提交源码与对照结果见 demos/cases/taste-skill-site/fidelity.md。",
+      "减少动态模式下不运行自动时间线，直接展示 6 步全部完成（data-s=\"done\"）且切至 Browser 预览面板的终态。"
+    ],
+    "composition": {
+      "role": "support",
+      "notes": "放在深色聚焦卡片内，通过底部暖橙辉光与外层随滚动展平的 3D 抬升（.tcw-lift）突出桌面应用质感。",
+      "pairsWellWith": [
+        "one-move-process-panels",
+        "timed-platform-carousel",
+        "viewport-animation-lifecycle"
+      ],
+      "conflicts": []
+    },
+    "parameters": [
+      {
+        "name": "工作流总时长与步骤节点",
+        "value": "总长 8.6s；6 步区间 [0.7–1.55, 1.65–2.35, 2.45–3.15, 3.25–4.4, 4.5–5.4, 5.5–7.75]s",
+        "note": "公开代码：demos/cases/taste-skill-site/js/app.js initTasteCode（module 97953）。"
+      },
+      {
+        "name": "Diff 切 Browser 与页面检视时刻",
+        "value": "4.55s 切换标签指示器（x: 88 → 0）；4.8s 展开网页；5.75s–7.75s 向下滚到底；7.75s–8.85s 滚回顶部",
+        "note": "公开代码：js/app.js initTasteCode，6.2s 弹出 1440 / 390 校验通过徽章。"
+      },
+      {
+        "name": "窗口入场展平变换",
+        "value": "yPercent: 24 → 0，rotationX: 28° → 0°，scale: 0.88 → 1（top bottom 至 top 40% scrub）",
+        "note": "公开代码：js/app.js initTasteCode。"
+      }
+    ],
+    "prompt": "为目标页面实现「可启停的内嵌桌面工作流回放」：在深色展示卡内构建三栏桌面窗口（.tcw：左侧会话树、中间 Agent 简报与 6 条 [data-step] 步骤行、右侧 Diff 与 Browser 双面板）。随外层滚动将 .tcw-lift 由 rotationX 28°、scale 0.88 展平。当窗口进入视口 50% 时启动 8.6 秒 GSAP 时间线：依次将 6 个步骤由 data-s=\"run\"（旋转指示器）切换为 data-s=\"done\"（完成对勾）并弹出色板、缩略图与文件行数，同时在右侧 Diff 面板逐行显示新增文件与代码；在 4.55 秒处将右侧面板切换为 Browser，展开并上下滚动生成的真实页面预览、弹出多宽度通过标签。在右下角提供 .tcw-control 按钮，随 running / paused / done 状态切换 Pause、Play、Replay 图标与 aria-label，支持点击暂停/继续/重播以及完成后鼠标移入重播。减少动态模式下直接展示完成态。",
+    "sources": [
+      {
+        "caseId": "taste-skill-site",
+        "locator": "entries/cases/taste-skill-site.json#interaction/6",
+        "observation": "TasteCode 桌面应用区在进入视口 50% 时自动启动 8.6 秒 GSAP 工作流时间线：左侧会话树与日志依次走过 6 个设计步骤并点亮四色色板与三张缩略图，右侧由 Changes 文件与代码 Diff 面板平滑切换到 Browser 预览面板、展开并上下滚动完整网页、弹出 1440 与 390 校验标签；右下角按钮随状态在 Pause、Play、Replay 之间切换，支持随时暂停、继续与悬停重播。",
+        "evidence": "observed",
+        "referenceUrl": "https://www.tasteskill.dev/",
+        "capturedAt": "2026-11-19",
+        "focus": {
+          "target": ".tcw-stage",
+          "label": "TasteCode 桌面工作流与启停按钮",
+          "instruction": "观察窗口内左侧 6 步日志与右侧 Diff 切 Browser 的自动演示；点击窗口右下角的暂停/播放/重播按钮控制进度。"
+        }
+      }
+    ],
+    "sourceFiles": [
+      "entries/cases/taste-skill-site.json",
+      "docs/cases/taste-skill-site.md",
+      "demos/cases/taste-skill-site/fidelity.md",
+      "demos/cases/taste-skill-site/index.html",
+      "demos/cases/taste-skill-site/styles.css",
+      "demos/cases/taste-skill-site/js/app.js"
+    ],
+    "preview": "previews/patterns/controllable-inline-agent-replay.jpg"
+  },
+  "sourceCases": [
+    {
+      "id": "taste-skill-site",
+      "title": "Taste Skill · AI 编码 Agent 的网页设计 skill 官网",
+      "paths": {
+        "bundle": "agent/cases/taste-skill-site.json",
+        "demo": "demos/cases/taste-skill-site/index.html"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "path": "prompts/patterns/controllable-inline-agent-replay.md",
+      "role": "prompt",
+      "content": "# 可启停的内嵌桌面工作流回放 · 复用 Prompt\n\n[结构化条目](../../entries/patterns/controllable-inline-agent-replay.json)\n\n为目标页面实现「可启停的内嵌桌面工作流回放」：在深色展示卡内构建三栏桌面窗口（.tcw：左侧会话树、中间 Agent 简报与 6 条 [data-step] 步骤行、右侧 Diff 与 Browser 双面板）。随外层滚动将 .tcw-lift 由 rotationX 28°、scale 0.88 展平。当窗口进入视口 50% 时启动 8.6 秒 GSAP 时间线：依次将 6 个步骤由 data-s=\"run\"（旋转指示器）切换为 data-s=\"done\"（完成对勾）并弹出色板、缩略图与文件行数，同时在右侧 Diff 面板逐行显示新增文件与代码；在 4.55 秒处将右侧面板切换为 Browser，展开并上下滚动生成的真实页面预览、弹出多宽度通过标签。在右下角提供 .tcw-control 按钮，随 running / paused / done 状态切换 Pause、Play、Replay 图标与 aria-label，支持点击暂停/继续/重播以及完成后鼠标移入重播。减少动态模式下直接展示完成态。\n\n## 制作约束\n\n- 固定提交源码与对照结果见 demos/cases/taste-skill-site/fidelity.md。\n- 减少动态模式下不运行自动时间线，直接展示 6 步全部完成（data-s=\"done\"）且切至 Browser 预览面板的终态。\n"
+    }
+  ],
+  "files": [
+    {
+      "path": "asset-cache-worker.js",
+      "role": "source"
+    },
+    {
+      "path": "data/asset-sources.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets-manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/apple-touch-icon.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/a-human-created-this.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/ajmalaksar25.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/AkramReshad.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/AnthonyLiuVa.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/AtharvaJaiswal005.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/bytewerk-dev.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/denvit.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/dnakov.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/emilkowalski.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/ghughes7.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/Gigslol.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/JKc66.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/KANA-33.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/krikkkk.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/LuisGot.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/mccun934.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/navanchauhan.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/onedollarstock.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/oskar-collab.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/robinebers.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/techmedic5.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/u2393696078-rgb.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/avatars/Wolfy18.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/favicon-32.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/favicon.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icon.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/antigravity.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/claudecode.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/codex.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/cursor.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/geminicli.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/icons/opencode.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/manifest.json",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/mark.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/imgly-icon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/interfaces-dev-icon.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/kimi-icon.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/kimi-open-source-friends.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/reactbits-icon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/sent-icon.png",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/sponsors/vercel-icon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/tastecode-app-icon.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/vercel-oss-program-badge-2026.svg",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/atelier-nord.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/coffee-questions.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/coffee-roast.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/coffee-storefront.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/margin.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/night-hero.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/thumb-dropped.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/thumb-green.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/assets/work/thumb-roast.webp",
+      "role": "asset"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/blog/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/changelog/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/docs/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fidelity.md",
+      "role": "context"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/03425941b04c208b.0nn4z9g5ap6nx.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/073176abbfb69301.0ve54bz~f1b~b.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/080358c69562c9db.08ce3ar8cetf~.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/0b036bdeb10c32b8.0kkpsm4dt3m78.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/0bd9768cb275d212.13h_uu-l-b_u6.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/1239f87c2f407c5b.0_psq-1kfs-o5.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/1dec2532b0ccb31b.064g35qn_7eaq.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/21fc25f4fe8aafc9.0msx.~zn1vntq.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/23dc8d9c94a64bf1.04inntoweog5z.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/28f927981047d89f.0plyesuyqe6le.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/2fbeba6312f58a54.0ko0bt9fcg~_k.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/5fff1340a25cb9a8.0a~feibgbfwj9.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/6babc54cc0db7717.p.0-~an~s5a6j3d.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/702f5fabbdae66be.0ailg95uc5v~8.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/80b2b0863dd66ef8.0dz1.l5xvmy0o.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/8e578deadf1bb7c9.0pmb8.qit4le2.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/9ef465ce7ba5114b.p.0acb9ibijjzd7.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/aaf6fa4e1ffa11bc.0na.w7myhu7al.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/b9f958d5156565bf.16wia~_rv---r.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/d04b6cfe7e6ec110.0mpjw-t6oo70-.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/fonts/fa88843bf5fd45a1.07hcckx6a.m3v.woff2",
+      "role": "font"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/guide/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/index.html",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/app.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/before-after.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/light-flood.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/scroll-turned-drum.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/js/stage.js",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/LICENSES.md",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/README.md",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/trace.json",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/010zdm2nqe4ki.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/03w5.odwsvd~o.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/053f4d_jk_k79.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/08fpt4ubuopir.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/094kob2vf~3v7.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/09nnc8g2gq8yi.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/0rpc~sepnsxzd.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/0svgcii8kjham.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/10u87vdi~-9gf.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/15wwnu-a09z~h.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/16mys-yd2ia4t.js",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/17z1goe0jn.3s.css",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/blog.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/changelog.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/docs.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/guide.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/source/upstream/index.html",
+      "role": "process"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/styles.css",
+      "role": "source"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/gsap@3.15.0/gsap.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/gsap@3.15.0/LICENSE.txt",
+      "role": "license"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/gsap@3.15.0/ScrollTrigger.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/gsap@3.15.0/SplitText.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/lenis@1.3.26/lenis.js",
+      "role": "vendor"
+    },
+    {
+      "path": "demos/cases/taste-skill-site/vendor/lenis@1.3.26/LICENSE.txt",
+      "role": "license"
+    },
+    {
+      "path": "docs/cases/taste-skill-site.md",
+      "role": "context"
+    },
+    {
+      "path": "entries/cases/taste-skill-site.json",
+      "role": "context"
+    },
+    {
+      "path": "entries/patterns/controllable-inline-agent-replay.json",
+      "role": "context"
+    },
+    {
+      "path": "previews/cases/taste-skill-site-mobile.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/taste-skill-site-reference.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/cases/taste-skill-site.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "previews/patterns/controllable-inline-agent-replay.jpg",
+      "role": "preview"
+    },
+    {
+      "path": "prompts/cases/taste-skill-site.md",
+      "role": "context"
+    },
+    {
+      "path": "prompts/patterns/controllable-inline-agent-replay.md",
+      "role": "context"
+    },
+    {
+      "path": "site/icons/favicon.svg",
+      "role": "asset"
+    },
+    {
+      "path": "site/runtime/asset-cache.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/asset-runtime.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.css",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/case-loading.js",
+      "role": "source"
+    },
+    {
+      "path": "site/runtime/demo-scrollbars.css",
+      "role": "source"
+    }
+  ]
+}

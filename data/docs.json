@@ -340,6 +340,16 @@
     "group": "案例研究"
   },
   {
+    "path": "docs/materials/taste-skill.md",
+    "title": "Taste Skill：反 AI 套路的网页设计技能与资产套件",
+    "group": "素材使用"
+  },
+  {
+    "path": "docs/cases/taste-skill-site.md",
+    "title": "Taste Skill：AI 编码 Agent 的网页设计 skill 官网研究",
+    "group": "案例研究"
+  },
+  {
     "path": "docs/cases/met-museum.md",
     "title": "The Met · 编辑式展览与馆藏陈列",
     "group": "案例研究"

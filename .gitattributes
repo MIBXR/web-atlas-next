@@ -38,3 +38,6 @@ demos/materials/shadcn-ui/source/upstream/** -text -whitespace
 demos/materials/heroui/source/upstream/** -text -whitespace
 demos/materials/pixelfx-skill/** -text -whitespace
 demos/materials/pixelfx-skill/LICENSES.md text eol=lf
+demos/materials/taste-skill/** -text -whitespace
+demos/materials/taste-skill/LICENSES.md text eol=lf
+demos/cases/taste-skill-site/source/upstream/** -text -whitespace
