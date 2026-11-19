@@ -18,7 +18,7 @@
     "复制隐藏的其他标签内容"
   ],
   "constraints": [
-    "固定提交源码与复刻范围见 demos/cases/hallmark/fidelity.md。"
+    "固定提交源码与复刻范围见 demos/cases/hallmark/fidelity.md 与 demos/cases/taste-skill-site/fidelity.md。"
   ],
   "composition": {
     "role": "accent",
@@ -32,7 +32,7 @@
     {
       "name": "反馈时长",
       "value": "首页1600ms；Lumen/Terminal 1400ms",
-      "note": "固定提交源码／线上实测：js/core.js copy；themes/lumen/page.js copy；themes/terminal/page.js copy。"
+      "note": "固定提交源码／线上实测：hallmark js/core.js 与 taste-skill-site js/app.js 均为 1600ms；themes/lumen 与 terminal 为 1400ms。"
     }
   ],
   "prompt": "为目标页面实现「可确认的命令复制」：复制当前命令或可见代码，成功后设置勾与Copied，计时后恢复；主页面用Clipboard API并保留选区复制分支。触发：激活复制按钮。结果：用户知道复制的是哪段内容以及操作是否成功。参数：反馈时长=首页1600ms；Lumen/Terminal 1400ms。先读来源实际源码与 fidelity.md，以目标内容替换原作材料；使用原生按钮、明确名称和状态播报，复制失败保留可选文本。成功勾与文字即时变化，计时恢复保留。",
@@ -50,6 +50,19 @@
         "instruction": "切换 brew 或 cargo，点击命令右侧的复制按钮，观察完成反馈。",
         "entrypoint": "demos/cases/hallmark/themes/terminal/index.html"
       }
+    },
+    {
+      "caseId": "taste-skill-site",
+      "locator": "entries/cases/taste-skill-site.json#interaction/5",
+      "observation": "Install 区支持 npx skills、Claude Code、Codex 三种安装方式切换，连同 Hero、页脚及 Docs/Guide 子页的命令与提示词复制按钮，点击后写入剪贴板、切换 data-copied 状态与勾号图标并播报 Copied to clipboard，1600ms 后复位。",
+      "evidence": "observed",
+      "referenceUrl": "https://www.tasteskill.dev/",
+      "capturedAt": "2026-11-19",
+      "focus": {
+        "target": "#install .install-card",
+        "label": "三标签安装命令与复制反馈",
+        "instruction": "切换 npx skills、Claude Code 或 Codex 标签，点击深色命令行按钮，观察右侧图标切换为对勾并在 1600ms 后恢复。"
+      }
     }
   ],
   "sourceFiles": [
@@ -59,7 +72,12 @@
     "demos/cases/hallmark/js/core.js",
     "demos/cases/hallmark/themes/lumen/page.js",
     "demos/cases/hallmark/themes/terminal/page.js",
-    "demos/cases/hallmark/index.html"
+    "demos/cases/hallmark/index.html",
+    "entries/cases/taste-skill-site.json",
+    "docs/cases/taste-skill-site.md",
+    "demos/cases/taste-skill-site/fidelity.md",
+    "demos/cases/taste-skill-site/js/app.js",
+    "demos/cases/taste-skill-site/index.html"
   ],
   "preview": "previews/patterns/confirmed-command-copy.jpg"
 }

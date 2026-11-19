@@ -1,0 +1,679 @@
+{
+  "scope": "Taste Skill 官网（https://www.tasteskill.dev/）首页及 Docs、Guide、Changelog、Blog 四个子页的完整本地化图像、图标与字体清单。",
+  "assets": [
+    {
+      "file": "assets/apple-touch-icon.webp",
+      "sourceUrl": "https://www.tasteskill.dev/apple-touch-icon.webp",
+      "purpose": "180×180 Apple Touch 图标",
+      "width": 180,
+      "height": 180,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/avatars/AkramReshad.png",
+      "sourceUrl": "https://github.com/AkramReshad.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@AkramReshad",
+      "width": 420,
+      "height": 420,
+      "copyright": "GitHub 用户 @AkramReshad 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/AnthonyLiuVa.png",
+      "sourceUrl": "https://github.com/AnthonyLiuVa.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@AnthonyLiuVa",
+      "width": 420,
+      "height": 420,
+      "copyright": "GitHub 用户 @AnthonyLiuVa 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/AtharvaJaiswal005.png",
+      "sourceUrl": "https://github.com/AtharvaJaiswal005.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@AtharvaJaiswal005",
+      "width": 96,
+      "height": 96,
+      "copyright": "GitHub 用户 @AtharvaJaiswal005 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/Gigslol.png",
+      "sourceUrl": "https://github.com/Gigslol.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@Gigslol",
+      "width": 420,
+      "height": 420,
+      "copyright": "GitHub 用户 @Gigslol 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/JKc66.png",
+      "sourceUrl": "https://github.com/JKc66.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@JKc66",
+      "width": 118032648,
+      "height": 168563725,
+      "copyright": "GitHub 用户 @JKc66 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/KANA-33.png",
+      "sourceUrl": "https://github.com/KANA-33.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@KANA-33",
+      "width": 118032648,
+      "height": 168563725,
+      "copyright": "GitHub 用户 @KANA-33 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/LuisGot.png",
+      "sourceUrl": "https://github.com/LuisGot.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@LuisGot",
+      "width": 118032648,
+      "height": 168563725,
+      "copyright": "GitHub 用户 @LuisGot 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/Wolfy18.png",
+      "sourceUrl": "https://github.com/Wolfy18.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@Wolfy18",
+      "width": 118032648,
+      "height": 168563725,
+      "copyright": "GitHub 用户 @Wolfy18 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/a-human-created-this.png",
+      "sourceUrl": "https://github.com/a-human-created-this.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@a-human-created-this",
+      "width": 96,
+      "height": 96,
+      "copyright": "GitHub 用户 @a-human-created-this 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/ajmalaksar25.png",
+      "sourceUrl": "https://github.com/ajmalaksar25.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@ajmalaksar25",
+      "width": 118032648,
+      "height": 168563725,
+      "copyright": "GitHub 用户 @ajmalaksar25 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/bytewerk-dev.png",
+      "sourceUrl": "https://github.com/bytewerk-dev.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@bytewerk-dev",
+      "width": 118032648,
+      "height": 168563725,
+      "copyright": "GitHub 用户 @bytewerk-dev 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/denvit.png",
+      "sourceUrl": "https://github.com/denvit.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@denvit",
+      "width": 118032648,
+      "height": 168563725,
+      "copyright": "GitHub 用户 @denvit 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/dnakov.png",
+      "sourceUrl": "https://github.com/dnakov.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@dnakov",
+      "width": 118032648,
+      "height": 168563725,
+      "copyright": "GitHub 用户 @dnakov 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/emilkowalski.png",
+      "sourceUrl": "https://github.com/emilkowalski.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@emilkowalski",
+      "width": 118032648,
+      "height": 168563725,
+      "copyright": "GitHub 用户 @emilkowalski 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/ghughes7.png",
+      "sourceUrl": "https://github.com/ghughes7.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@ghughes7",
+      "width": 118032648,
+      "height": 168563725,
+      "copyright": "GitHub 用户 @ghughes7 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/krikkkk.png",
+      "sourceUrl": "https://github.com/krikkkk.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@krikkkk",
+      "width": 420,
+      "height": 420,
+      "copyright": "GitHub 用户 @krikkkk 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/mccun934.png",
+      "sourceUrl": "https://github.com/mccun934.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@mccun934",
+      "width": 96,
+      "height": 96,
+      "copyright": "GitHub 用户 @mccun934 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/navanchauhan.png",
+      "sourceUrl": "https://github.com/navanchauhan.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@navanchauhan",
+      "width": 118032648,
+      "height": 168563725,
+      "copyright": "GitHub 用户 @navanchauhan 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/onedollarstock.png",
+      "sourceUrl": "https://github.com/onedollarstock.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@onedollarstock",
+      "width": 96,
+      "height": 96,
+      "copyright": "GitHub 用户 @onedollarstock 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/oskar-collab.png",
+      "sourceUrl": "https://github.com/oskar-collab.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@oskar-collab",
+      "width": 420,
+      "height": 420,
+      "copyright": "GitHub 用户 @oskar-collab 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/robinebers.png",
+      "sourceUrl": "https://github.com/robinebers.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@robinebers",
+      "width": 118032648,
+      "height": 168563725,
+      "copyright": "GitHub 用户 @robinebers 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/techmedic5.png",
+      "sourceUrl": "https://github.com/techmedic5.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@techmedic5",
+      "width": 96,
+      "height": 96,
+      "copyright": "GitHub 用户 @techmedic5 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/avatars/u2393696078-rgb.png",
+      "sourceUrl": "https://github.com/u2393696078-rgb.png?size=96",
+      "purpose": "Community sponsors 贡献者头像：@u2393696078-rgb",
+      "width": 420,
+      "height": 420,
+      "copyright": "GitHub 用户 @u2393696078-rgb 公开头像",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/favicon-32.webp",
+      "sourceUrl": "https://www.tasteskill.dev/favicon-32.webp",
+      "purpose": "32×32 站点图标",
+      "width": 32,
+      "height": 32,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/favicon.webp",
+      "sourceUrl": "https://www.tasteskill.dev/favicon.webp",
+      "purpose": "48×48 站点图标",
+      "width": 48,
+      "height": 48,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/icon.png",
+      "sourceUrl": "https://www.tasteskill.dev/icon.png",
+      "purpose": "180×180 站点 PNG 图标",
+      "width": 180,
+      "height": 180,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/icons/antigravity.svg",
+      "sourceUrl": "https://www.tasteskill.dev/icons/antigravity.svg",
+      "purpose": "支持 Agent 图标：Antigravity",
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/claudecode.svg",
+      "sourceUrl": "https://www.tasteskill.dev/icons/claudecode.svg",
+      "purpose": "支持 Agent 图标：Claude Code",
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/codex.svg",
+      "sourceUrl": "https://www.tasteskill.dev/icons/codex.svg",
+      "purpose": "支持 Agent 图标：Codex",
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/cursor.svg",
+      "sourceUrl": "https://www.tasteskill.dev/icons/cursor.svg",
+      "purpose": "支持 Agent 图标：Cursor",
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/geminicli.svg",
+      "sourceUrl": "https://www.tasteskill.dev/icons/geminicli.svg",
+      "purpose": "支持 Agent 图标：Gemini CLI",
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/opencode.svg",
+      "sourceUrl": "https://www.tasteskill.dev/icons/opencode.svg",
+      "purpose": "支持 Agent 图标：OpenCode",
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/manifest.json",
+      "sourceUrl": "https://www.tasteskill.dev/manifest.json",
+      "purpose": "Web App Manifest 清单",
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "application/json"
+    },
+    {
+      "file": "assets/mark.png",
+      "sourceUrl": "https://www.tasteskill.dev/mark.png",
+      "purpose": "顶栏与品牌标志图标",
+      "width": 64,
+      "height": 64,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/sponsors/imgly-icon.svg",
+      "sourceUrl": "https://www.tasteskill.dev/sponsors/imgly-icon.svg",
+      "purpose": "Sponsored by 图标：IMG.LY",
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/sponsors/interfaces-dev-icon.webp",
+      "sourceUrl": "https://www.tasteskill.dev/sponsors/interfaces-dev-icon.webp",
+      "purpose": "Sponsored by 图标：Interfaces",
+      "width": 512,
+      "height": 512,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/sponsors/kimi-icon.png",
+      "sourceUrl": "https://www.tasteskill.dev/sponsors/kimi-icon.png",
+      "purpose": "Open source supporters 图标：Kimi",
+      "width": 128,
+      "height": 128,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/sponsors/kimi-open-source-friends.svg",
+      "sourceUrl": "https://www.tasteskill.dev/sponsors/kimi-open-source-friends.svg",
+      "purpose": "Open source supporters 徽章：Kimi Open Source Friends 2026",
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/sponsors/reactbits-icon.svg",
+      "sourceUrl": "https://www.tasteskill.dev/sponsors/reactbits-icon.svg",
+      "purpose": "Sponsored by 图标：React Bits",
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/sponsors/sent-icon.png",
+      "sourceUrl": "https://www.tasteskill.dev/sponsors/sent-icon.png",
+      "purpose": "Sponsored by 图标：Sent.dm",
+      "width": 200,
+      "height": 200,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/png"
+    },
+    {
+      "file": "assets/sponsors/vercel-icon.svg",
+      "sourceUrl": "https://www.tasteskill.dev/sponsors/vercel-icon.svg",
+      "purpose": "Open source supporters 图标：Vercel",
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/tastecode-app-icon.webp",
+      "sourceUrl": "https://www.tasteskill.dev/tastecode-app-icon.webp",
+      "purpose": "Hero 公告与 TasteCode 桌面应用图标",
+      "width": 192,
+      "height": 192,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/vercel-oss-program-badge-2026.svg",
+      "sourceUrl": "https://www.tasteskill.dev/vercel-oss-program-badge-2026.svg",
+      "purpose": "Vercel Open Source Program 2026 徽章",
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/svg+xml"
+    },
+    {
+      "file": "assets/work/atelier-nord.webp",
+      "sourceUrl": "https://www.tasteskill.dev/work/atelier-nord.webp",
+      "purpose": "Hero 标签 3：Atelier Nord 建筑事务所首屏",
+      "width": 2400,
+      "height": 1388,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/work/coffee-questions.webp",
+      "sourceUrl": "https://www.tasteskill.dev/work/coffee-questions.webp",
+      "purpose": "TasteCode 浏览器面板预览：Bohne & Söhne 常见问答章节",
+      "width": 2400,
+      "height": 1388,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/work/coffee-roast.webp",
+      "sourceUrl": "https://www.tasteskill.dev/work/coffee-roast.webp",
+      "purpose": "TasteCode 浏览器面板预览：Bohne & Söhne 烘焙日章节",
+      "width": 2400,
+      "height": 1388,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/work/coffee-storefront.webp",
+      "sourceUrl": "https://www.tasteskill.dev/work/coffee-storefront.webp",
+      "purpose": "Hero 标签 1 与 TasteCode 预览：Bohne & Söhne 咖啡烘焙店首屏",
+      "width": 2400,
+      "height": 1388,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/work/margin.webp",
+      "sourceUrl": "https://www.tasteskill.dev/work/margin.webp",
+      "purpose": "Hero 标签 4：Margin 合同审阅工具首屏",
+      "width": 2400,
+      "height": 1388,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/work/night-hero.webp",
+      "sourceUrl": "https://www.tasteskill.dev/work/night-hero.webp",
+      "purpose": "Hero 标签 2：Nachtschicht 科隆电子乐之夜首屏",
+      "width": 2400,
+      "height": 1388,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/work/thumb-dropped.webp",
+      "sourceUrl": "https://www.tasteskill.dev/work/thumb-dropped.webp",
+      "purpose": "Pictures 能力卡与 TasteCode 缩略图：440 degrees full city roast coffee（Dan Bollinger, CC BY-SA 3.0）",
+      "width": 180,
+      "height": 128,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/work/thumb-green.webp",
+      "sourceUrl": "https://www.tasteskill.dev/work/thumb-green.webp",
+      "purpose": "Pictures 能力卡与 TasteCode 缩略图：75 degrees green coffee（Dan Bollinger, CC BY-SA 3.0）",
+      "width": 180,
+      "height": 128,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "assets/work/thumb-roast.webp",
+      "sourceUrl": "https://www.tasteskill.dev/work/thumb-roast.webp",
+      "purpose": "Pictures 能力卡与 TasteCode 缩略图：385 degrees cinnamon roast coffee（Dan Bollinger, CC BY-SA 3.0）",
+      "width": 180,
+      "height": 128,
+      "copyright": "Taste Skill (Leon Lin / blueemi, MIT)；示范作品照片来自 Wikimedia Commons / The Met 开放授权，第三方商标归各自所有者",
+      "retrievedAt": "2026-11-19",
+      "contentType": "image/webp"
+    },
+    {
+      "file": "fonts/03425941b04c208b.0nn4z9g5ap6nx.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/03425941b04c208b.0nn4z9g5ap6nx.woff2",
+      "purpose": "Google Sans Code 可变等宽字体分片（03425941b04c208b.0nn4z9g5ap6nx.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/073176abbfb69301.0ve54bz~f1b~b.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/073176abbfb69301.0ve54bz~f1b~b.woff2",
+      "purpose": "Google Sans Code 可变等宽字体分片（073176abbfb69301.0ve54bz~f1b~b.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/080358c69562c9db.08ce3ar8cetf~.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/080358c69562c9db.08ce3ar8cetf~.woff2",
+      "purpose": "Google Sans Code 可变等宽字体分片（080358c69562c9db.08ce3ar8cetf~.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/0b036bdeb10c32b8.0kkpsm4dt3m78.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/0b036bdeb10c32b8.0kkpsm4dt3m78.woff2",
+      "purpose": "Google Sans Flex 可变无衬线字体分片（0b036bdeb10c32b8.0kkpsm4dt3m78.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/0bd9768cb275d212.13h_uu-l-b_u6.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/0bd9768cb275d212.13h_uu-l-b_u6.woff2",
+      "purpose": "Google Sans Code 可变等宽字体分片（0bd9768cb275d212.13h_uu-l-b_u6.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/1239f87c2f407c5b.0_psq-1kfs-o5.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/1239f87c2f407c5b.0_psq-1kfs-o5.woff2",
+      "purpose": "Google Sans Flex 可变无衬线字体分片（1239f87c2f407c5b.0_psq-1kfs-o5.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/1dec2532b0ccb31b.064g35qn_7eaq.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/1dec2532b0ccb31b.064g35qn_7eaq.woff2",
+      "purpose": "Google Sans Flex 可变无衬线字体分片（1dec2532b0ccb31b.064g35qn_7eaq.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/21fc25f4fe8aafc9.0msx.~zn1vntq.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/21fc25f4fe8aafc9.0msx.~zn1vntq.woff2",
+      "purpose": "Google Sans Code 可变等宽字体分片（21fc25f4fe8aafc9.0msx.~zn1vntq.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/23dc8d9c94a64bf1.04inntoweog5z.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/23dc8d9c94a64bf1.04inntoweog5z.woff2",
+      "purpose": "Google Sans Code 可变等宽字体分片（23dc8d9c94a64bf1.04inntoweog5z.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/28f927981047d89f.0plyesuyqe6le.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/28f927981047d89f.0plyesuyqe6le.woff2",
+      "purpose": "Google Sans Code 可变等宽字体分片（28f927981047d89f.0plyesuyqe6le.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/2fbeba6312f58a54.0ko0bt9fcg~_k.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/2fbeba6312f58a54.0ko0bt9fcg~_k.woff2",
+      "purpose": "Google Sans Flex 可变无衬线字体分片（2fbeba6312f58a54.0ko0bt9fcg~_k.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/5fff1340a25cb9a8.0a~feibgbfwj9.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/5fff1340a25cb9a8.0a~feibgbfwj9.woff2",
+      "purpose": "Google Sans Code 可变等宽字体分片（5fff1340a25cb9a8.0a~feibgbfwj9.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/6babc54cc0db7717.p.0-~an~s5a6j3d.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/6babc54cc0db7717.p.0-~an~s5a6j3d.woff2",
+      "purpose": "Google Sans Code 可变等宽字体分片（6babc54cc0db7717.p.0-~an~s5a6j3d.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/702f5fabbdae66be.0ailg95uc5v~8.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/702f5fabbdae66be.0ailg95uc5v~8.woff2",
+      "purpose": "Google Sans Code 可变等宽字体分片（702f5fabbdae66be.0ailg95uc5v~8.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/80b2b0863dd66ef8.0dz1.l5xvmy0o.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/80b2b0863dd66ef8.0dz1.l5xvmy0o.woff2",
+      "purpose": "Google Sans Flex 可变无衬线字体分片（80b2b0863dd66ef8.0dz1.l5xvmy0o.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/8e578deadf1bb7c9.0pmb8.qit4le2.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/8e578deadf1bb7c9.0pmb8.qit4le2.woff2",
+      "purpose": "Google Sans Flex 可变无衬线字体分片（8e578deadf1bb7c9.0pmb8.qit4le2.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/9ef465ce7ba5114b.p.0acb9ibijjzd7.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/9ef465ce7ba5114b.p.0acb9ibijjzd7.woff2",
+      "purpose": "Google Sans Flex 可变无衬线字体分片（9ef465ce7ba5114b.p.0acb9ibijjzd7.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/aaf6fa4e1ffa11bc.0na.w7myhu7al.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/aaf6fa4e1ffa11bc.0na.w7myhu7al.woff2",
+      "purpose": "Google Sans Code 可变等宽字体分片（aaf6fa4e1ffa11bc.0na.w7myhu7al.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/b9f958d5156565bf.16wia~_rv---r.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/b9f958d5156565bf.16wia~_rv---r.woff2",
+      "purpose": "Google Sans Flex 可变无衬线字体分片（b9f958d5156565bf.16wia~_rv---r.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/d04b6cfe7e6ec110.0mpjw-t6oo70-.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/d04b6cfe7e6ec110.0mpjw-t6oo70-.woff2",
+      "purpose": "Google Sans Flex 可变无衬线字体分片（d04b6cfe7e6ec110.0mpjw-t6oo70-.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    },
+    {
+      "file": "fonts/fa88843bf5fd45a1.07hcckx6a.m3v.woff2",
+      "sourceUrl": "https://www.tasteskill.dev/_next/static/media/fa88843bf5fd45a1.07hcckx6a.m3v.woff2",
+      "purpose": "Google Sans Flex 可变无衬线字体分片（fa88843bf5fd45a1.07hcckx6a.m3v.woff2）",
+      "copyright": "Google Fonts（SIL Open Font License 1.1）",
+      "retrievedAt": "2026-11-19",
+      "contentType": "font/woff2"
+    }
+  ]
+}

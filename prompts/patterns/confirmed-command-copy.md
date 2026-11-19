@@ -6,4 +6,4 @@
 
 ## 制作约束
 
-- 固定提交源码与复刻范围见 demos/cases/hallmark/fidelity.md。
+- 固定提交源码与复刻范围见 demos/cases/hallmark/fidelity.md 与 demos/cases/taste-skill-site/fidelity.md。

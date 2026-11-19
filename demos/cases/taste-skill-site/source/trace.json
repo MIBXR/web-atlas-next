@@ -1,0 +1,53 @@
+{
+  "capturedAt": "2026-11-19",
+  "deploymentId": "dpl_p6tE71r3jRSWDdmahXrJaf8t29eg",
+  "referenceUrl": "https://www.tasteskill.dev/",
+  "skillCommit": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+  "modules": [
+    {
+      "upstream": "source/upstream/094kob2vf~3v7.js (module 65659)",
+      "local": "js/stage.js",
+      "role": "window.Stage 滚动场景运行时、Lenis 平滑滚动与 SplitText 封装"
+    },
+    {
+      "upstream": "source/upstream/0rpc~sepnsxzd.js (module 56332)",
+      "local": "js/scroll-turned-drum.js",
+      "role": "window.Scenes['scroll-turned-drum'] 二十方向三维透视滚筒引擎"
+    },
+    {
+      "upstream": "source/upstream/16mys-yd2ia4t.js (module 5646)",
+      "local": "js/before-after.js",
+      "role": "window.Scenes['before-after'] Noteflow 五步同页演进引擎"
+    },
+    {
+      "upstream": "source/upstream/15wwnu-a09z~h.js (module 58201)",
+      "local": "js/light-flood.js",
+      "role": "window.Scenes['light-flood'] 终章 9 层 Canvas 光泛字标交接引擎"
+    },
+    {
+      "upstream": "source/upstream/0svgcii8kjham.js (modules 74297, 22163, 34762, 55887, 5842, 37612, 97953, 59304, 16649)",
+      "local": "js/app.js",
+      "role": "首页发牌汇总、三张核心能力动效卡、Hero 滚动与四标签作品切换、安装三标签、五步按钮跳转、TasteCode 8.6s 演示与入场观察器"
+    },
+    {
+      "upstream": "source/upstream/03w5.odwsvd~o.js (modules 49409, 96919, 66410)",
+      "local": "js/app.js",
+      "role": "自适应悬浮胶囊顶栏、命令复制反馈与页脚日出字标动画"
+    },
+    {
+      "upstream": "source/upstream/09nnc8g2gq8yi.js (modules 58538, 59911)",
+      "local": "js/app.js",
+      "role": "Docs/Guide 页面目录高亮（On this page）与代码块复制按钮"
+    },
+    {
+      "upstream": "source/upstream/17z1goe0jn.3s.css",
+      "local": "fonts.css",
+      "role": "Google Sans Flex 与 Google Sans Code 21 个 @font-face 定义"
+    },
+    {
+      "upstream": "source/upstream/10u87vdi~-9gf.css",
+      "local": "styles.css",
+      "role": "全站样式表（Tailwind CSS v4 + 自定义设计 Token 与组件样式）"
+    }
+  ]
+}

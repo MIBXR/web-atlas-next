@@ -16032,5 +16032,500 @@
       "agent": "agent/materials/pixelfx-skill.json",
       "snapshot": "demos/materials/pixelfx-skill/SKILL.md"
     }
+  },
+  {
+    "id": "taste-skill",
+    "order": 22,
+    "title": "Taste Skill · 反 AI 套路的网页设计 skill 与资产套件",
+    "type": "agent-skill",
+    "category": "Agent 工作流",
+    "summary": "以 figma.com 与 x.ai 为标尺的网页设计 Agent Skill（v2.5.1）：用九条铁律、六类业态分类、发牌脚本、自带的网页设计资产套件（11 套 Hero 版式、25 个 WebGL 着色器背景、15 个三维/印刷对象、18 个页面动效 Moment、11 个滚动场景、21 个 fx-* 组件、19 个 HTML UI 片段、脉冲流程图、65 张开放授权照片与 930 个全彩品牌/界面图标）以及无头浏览器五档宽度一致性检查与终审门禁，生成专业公司网站。",
+    "install": "npx skills add https://github.com/Leonxlnx/taste-skill --skill \"design-taste-frontend\"；Claude Code 执行 /plugin marketplace add Leonxlnx/taste-skill && /plugin install taste-skill@taste-skill；Codex 执行 codex plugin marketplace add Leonxlnx/taste-skill && codex plugin add taste-skill@taste-skill；或将 demos/materials/taste-skill/ 复制到项目的 .claude/skills/design-taste-frontend/ 或 .agents/skills/design-taste-frontend/。",
+    "tags": [
+      "Agent Skill",
+      "网页设计",
+      "反 AI 套路",
+      "设计系统",
+      "WebGL",
+      "Shader",
+      "滚动叙事",
+      "UI 片段",
+      "开放授权摄影",
+      "浏览器检查"
+    ],
+    "demo": "demos/materials/taste-skill/assets/effects/gallery.html",
+    "demoNote": "左侧舞台可直接切换体验技能内置的 39 个可运行资产画廊、参数实验室、大型滚动场景与 Hero 版式；右侧提供 v2 示范作品画廊、七步工作流、SKILL.md 原文与关联官网案例。",
+    "useCases": [
+      "从零构建 SaaS、AI、开发者工具、硬件、游戏、工作室、诊所或实体门店的专业网站",
+      "在真实浏览器中审计并重设计已有网页，消除紫色渐变、三张玻璃卡片、空洞套话与失衡边距",
+      "直接取用套件内的 25 个 WebGL 着色器背景、15 个 3D/印刷着色器对象、18 个页面 Moment、11 个滚动场景或 21 个 fx-* 创意组件",
+      "在软件产品页中接入纯 HTML/CSS 产品界面片段（app-frame、diff-review、pipeline-board 等）与脉冲节点流程图"
+    ],
+    "avoid": [
+      "在咖啡馆、烘焙店、餐厅、旅馆、律所或日常实体商品页面上滥用 WebGL 着色器、噪点或滚动飞入特效",
+      "在图片下方堆砌解释性图注、编造门牌号/电话/客户证言，或在设计中使用紫罗兰/薰衣草色渐变",
+      "跳过 copy-lint.mjs、consistency.mjs 与 gate.mjs 的真机浏览器五档宽度校验直接交付页面"
+    ],
+    "constraints": [
+      "本条目固定归档 Leonxlnx/taste-skill v2.5.1 提交 f6b76575f949707b4e3c37cd86cb44b0b98643e8 的完整技能原文（SKILL.md）、22 篇参考文档（references/）、12 个 CLI 脚本（scripts/）、配色字体库（library/）与可运行资产套件（assets/）。",
+      "运行 scripts/start.mjs、consistency.mjs、gate.mjs、photos.mjs、icons.mjs 需要 Node.js 22+ 及本地已安装的 Chrome、Edge 或 Chromium；可选依赖 ffmpeg 用于 WebP 转码与手机端首屏裁切。",
+      "WebGL 着色器背景（assets/effects/）、3D/印刷对象（assets/objects/）与大型滚动场景（assets/scenes/）仅限 software、tech、gaming 三类页面使用，且单页并发 WebGL 上下文不超过 4 个。",
+      "原文快照按第三方资源规则保持原始字节与英文文本；套件样例页引用 Google Fonts 在线字体。"
+    ],
+    "upstream": {
+      "repository": "Leonxlnx/taste-skill",
+      "url": "https://github.com/Leonxlnx/taste-skill/tree/f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+      "commit": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+      "version": "2.5.1",
+      "verifiedAt": "2026-11-19"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/Leonxlnx/taste-skill/blob/f6b76575f949707b4e3c37cd86cb44b0b98643e8/LICENSE",
+      "scope": "Taste Skill 技能文本、参考文档、CLI 脚本、配色字体库与 assets/ 设计套件代码。",
+      "notes": "assets/photos/photos.json 登记的 65 张内置照片与 examples/v2/CREDITS.md 登记的示范页照片分别采用 CC0、公有领域、CC BY、CC BY-SA 或 Unsplash 开放许可；assets/icons/ 内置的第三方品牌图标商标权归各自所有者所有。"
+    },
+    "sources": [
+      {
+        "title": "Taste Skill 技能原文（SKILL.md）",
+        "url": "https://github.com/Leonxlnx/taste-skill/blob/f6b76575f949707b4e3c37cd86cb44b0b98643e8/skills/taste-skill/SKILL.md",
+        "note": "九条铁律、六类业态表、资产对照矩阵、七步执行流程与 14 项检查清单的直接依据。",
+        "evidence": "source"
+      },
+      {
+        "title": "上游仓库 README 与工具总表",
+        "url": "https://github.com/Leonxlnx/taste-skill/blob/f6b76575f949707b4e3c37cd86cb44b0b98643e8/README.md",
+        "note": "安装方式、v2.5 工作机制、CLI 工具职责及已拆分经典技能（taste-skill-classics、imagegen-skills）说明。",
+        "evidence": "source"
+      },
+      {
+        "title": "章节规划与配方库（sections.md / sections-library.md）",
+        "url": "https://github.com/Leonxlnx/taste-skill/blob/f6b76575f949707b4e3c37cd86cb44b0b98643e8/skills/taste-skill/references/sections.md",
+        "note": "不同业态的屏数预算、发牌列表、章节顺序与具体版面配方。",
+        "evidence": "source"
+      },
+      {
+        "title": "真机浏览器一致性检查与终审门禁（consistency.mjs / gate.mjs）",
+        "url": "https://github.com/Leonxlnx/taste-skill/blob/f6b76575f949707b4e3c37cd86cb44b0b98643e8/skills/taste-skill/scripts/consistency.mjs",
+        "note": "在 1440、1024、820、768、390 与 320 宽度下运行无头 Chrome 检查一屏一节、左右边距、对比度、WebGL 绘制与文案规则。",
+        "evidence": "source"
+      },
+      {
+        "title": "Taste Skill 官方网站",
+        "url": "https://www.tasteskill.dev/",
+        "note": "展示技能方向滚筒、五步改版对照、核心能力、安装与文档的产品官网，完整收录为 taste-skill-site 案例。",
+        "evidence": "observed"
+      }
+    ],
+    "snapshotPath": "demos/materials/taste-skill/",
+    "snapshotEntry": "SKILL.md",
+    "workflow": [
+      "拷贝套件并激活终审门禁：将 demos/materials/taste-skill/assets/ 复制到项目根目录，以 assets/starter.html 为起点；先运行 node scripts/gate.mjs --start index.html --kind <kind> --category \"<所售品类>\" --primary \"<主行动>\" 建立门禁。",
+      "判定业务种类并声明元数据：按简报将网站归入 software、gaming、tech、product、service 或 place 六类之一，在 <html data-type>、<meta name=\"page-type\"> 与 <meta name=\"site-kind\"> 中显式声明。",
+      "先写全页文案并执行 copy-lint：阅读 references/copy.md 与 copy-voice.md，确保首屏标题指明品类与受众并给出硬事实，所有标题含名词、按钮为“动词+宾语”，假定营业时间或价格标记 data-assumed，执行 node scripts/copy-lint.mjs index.html --kind <kind>。",
+      "逐屏规划并运行发牌脚本：用 assets/layout/deal.mjs 抽取 Hero 版式，用 scripts/start.mjs deal 与 css 抽取行业色板和 Google Fonts 字体配对，用 scripts/moments.mjs pick 抽取 1–2 个页面高光时刻（技术类页面另由 scripts/effects.mjs 或 scenes 抽取 1 个着色器/对象/大场景）。",
+      "组装真实界面与开放授权摄影：技术与软件页从 assets/ui/<name>/fragment.html 与 assets/diagrams/ 拼入改写为客户真实数据的 HTML 界面和脉冲流程图，用 scripts/icons.mjs scan 本地化全彩 SVG 图标；场所、服务与商品页用 scripts/photos.mjs 选取开放授权摄影并写入页脚单行 credits。",
+      "五档宽度真机浏览器检验与门禁放行：依次运行 consistency.mjs（1440/1024/820/768/390）、assets/layout/check.mjs（含长标题压力测试）、shoot.mjs 与 perf.mjs，逐轮修复 FAIL 并对照截图自查，最后运行 node scripts/gate.mjs index.html 直至输出 GATE: PASS（最多三轮）。"
+    ],
+    "relatedEntries": [
+      {
+        "kind": "case",
+        "id": "taste-skill-site",
+        "note": "Taste Skill 官方产品网站（tasteskill.dev），含首页 12 个模块与 Docs、Guide、Changelog、Blog 四个子页。"
+      }
+    ],
+    "galleryRatio": "16/9",
+    "gallery": [
+      {
+        "path": "demos/materials/taste-skill/examples/v2/coffee-storefront.webp",
+        "width": 1200,
+        "height": 696,
+        "caption": "Bohne & Söhne（莱比锡咖啡烘焙店首屏）：以手绘门店立面结合到店时间与导航入口",
+        "kind": "work",
+        "sourceUrl": "https://raw.githubusercontent.com/Leonxlnx/taste-skill/f6b76575f949707b4e3c37cd86cb44b0b98643e8/examples/v2/coffee-storefront.webp",
+        "license": "Taste Skill 仓库 MIT；页面照片来自 Wikimedia Commons 开放授权，署名见 examples/v2/CREDITS.md。"
+      },
+      {
+        "path": "demos/materials/taste-skill/examples/v2/night-dates.webp",
+        "width": 1200,
+        "height": 696,
+        "caption": "Nachtschicht（科隆电子乐之夜演出排期）：将演出日期与场地档案摄影融合排版",
+        "kind": "work",
+        "sourceUrl": "https://raw.githubusercontent.com/Leonxlnx/taste-skill/f6b76575f949707b4e3c37cd86cb44b0b98643e8/examples/v2/night-dates.webp",
+        "license": "Taste Skill 仓库 MIT；页面照片来自 Wikimedia Commons 开放授权，署名见 examples/v2/CREDITS.md。"
+      },
+      {
+        "path": "demos/materials/taste-skill/examples/v2/coffee-roast.webp",
+        "width": 1200,
+        "height": 686,
+        "caption": "Bohne & Söhne（烘焙日章节）：用四张不同温度烘焙阶段的照片与色温讲述工艺",
+        "kind": "work",
+        "sourceUrl": "https://raw.githubusercontent.com/Leonxlnx/taste-skill/f6b76575f949707b4e3c37cd86cb44b0b98643e8/examples/v2/coffee-roast.webp",
+        "license": "Taste Skill 仓库 MIT；页面照片来自 Wikimedia Commons 开放授权，署名见 examples/v2/CREDITS.md。"
+      },
+      {
+        "path": "demos/materials/taste-skill/examples/v2/coffee-questions.webp",
+        "width": 1200,
+        "height": 692,
+        "caption": "Bohne & Söhne（吧台常见问答）：将常见问题设计为可翻阅的叠放索引卡片",
+        "kind": "work",
+        "sourceUrl": "https://raw.githubusercontent.com/Leonxlnx/taste-skill/f6b76575f949707b4e3c37cd86cb44b0b98643e8/examples/v2/coffee-questions.webp",
+        "license": "Taste Skill 仓库 MIT；页面照片来自 Wikimedia Commons 开放授权，署名见 examples/v2/CREDITS.md。"
+      }
+    ],
+    "demos": [
+      {
+        "id": "effects-gallery",
+        "group": "着色器与三维对象",
+        "title": "25 个 WebGL 着色器背景画廊",
+        "component": "assets/effects/gallery.html",
+        "summary": "集中展示 25 个供 software、tech、gaming 页面使用的实时 WebGL 着色器背景，支持切换浅色/深色主题、行业色板、6 大分类筛选及卡片内 UI 片段叠加预览。",
+        "entrypoint": "demos/materials/taste-skill/assets/effects/gallery.html",
+        "parameters": [
+          {
+            "name": "并发上下文上限",
+            "value": "画廊 16 / 单页默认 4",
+            "note": "fx.js 按视口交集动态挂载与回收 WebGL 上下文"
+          },
+          {
+            "name": "着色器数量",
+            "value": "25 项（6 大家族）",
+            "note": "含光晕、网格、地形、抖动、流光、雕刻线条等"
+          },
+          {
+            "name": "配色联动",
+            "value": "读取页面 --bg / --ink / --accent",
+            "note": "自动适配当前页面 Token 与明暗模式"
+          }
+        ]
+      },
+      {
+        "id": "effects-lab",
+        "group": "着色器与三维对象",
+        "title": "着色器参数调节实验室",
+        "component": "assets/effects/lab.html",
+        "summary": "逐个选择 25 个 WebGL 着色器，实时调节速度、比例、密度、柔和度与色板，并在 Hero 画框与特性卡片两种宿主容器中预览、复制挂载代码。",
+        "entrypoint": "demos/materials/taste-skill/assets/effects/lab.html"
+      },
+      {
+        "id": "objects-gallery",
+        "group": "着色器与三维对象",
+        "title": "15 个 3D 与印刷着色器对象",
+        "component": "assets/objects/index.html",
+        "summary": "展示 15 个用于单页核心视觉焦点的程序化三维与印刷网点对象（地球仪、卡片叠、轮盘、台灯、杯具、爆炸分层、产品转台、抖动/雕版/半色调照片印刷等），支持 Paper、Stone、Graphite、Night 四套色板切换。",
+        "entrypoint": "demos/materials/taste-skill/assets/objects/index.html"
+      },
+      {
+        "id": "components-gallery",
+        "group": "组件与界面片段",
+        "title": "21 个 fx-* 创意组件画廊",
+        "component": "assets/components/index.html",
+        "summary": "展示 21 个可嵌入页面的 fx-* 创意组件（头像、横幅、柱图、按钮、折线图、抖动物体、特性卡、地球、动态标题、图标砖、标志墙、地图、照片框、定价表、进度条、提示词框、命令搜索、聚光灯、统计数与标签页）。",
+        "entrypoint": "demos/materials/taste-skill/assets/components/index.html"
+      },
+      {
+        "id": "components-lab",
+        "group": "组件与界面片段",
+        "title": "fx-* 创意组件实验室",
+        "component": "assets/components/_lab.html",
+        "summary": "单组件独立检视与交互测试工作台。",
+        "entrypoint": "demos/materials/taste-skill/assets/components/_lab.html"
+      },
+      {
+        "id": "ui-fragments",
+        "group": "组件与界面片段",
+        "title": "19 个真实 HTML UI 片段库",
+        "component": "assets/ui/index.html",
+        "summary": "供软件与技术页面直接粘贴改写的 19 个纯 HTML/CSS 产品界面片段（应用矩阵、日历、对话、清单、代码、光标、Diff 审查、文档、文件、集成、通知、流水线看板、搜索、滑块、统计、终端运行、开关、语音与窗口）。",
+        "entrypoint": "demos/materials/taste-skill/assets/ui/index.html"
+      },
+      {
+        "id": "ui-cards",
+        "group": "组件与界面片段",
+        "title": "发光特性卡片与循环动画",
+        "component": "assets/ui/cards.html",
+        "summary": "展示带内嵌发光面板（lit panels）、2.5–4 秒微循环动效与悬停重播机制的软件特性卡片。",
+        "entrypoint": "demos/materials/taste-skill/assets/ui/cards.html"
+      },
+      {
+        "id": "diagrams-demo",
+        "group": "组件与界面片段",
+        "title": "脉冲节点与连线流程图",
+        "component": "assets/diagrams/demo.html",
+        "summary": "在卡片中展示中枢分支、单输入三并行通道等结构流程图，信号脉冲沿连线持续运行。",
+        "entrypoint": "demos/materials/taste-skill/assets/diagrams/demo.html"
+      },
+      {
+        "id": "diagrams-lab",
+        "group": "组件与界面片段",
+        "title": "脉冲流程图交互实验室",
+        "component": "assets/diagrams/lab.html",
+        "summary": "实时切换与调试不同拓扑预设的脉冲节点流程图。",
+        "entrypoint": "demos/materials/taste-skill/assets/diagrams/lab.html"
+      },
+      {
+        "id": "moments-gallery",
+        "group": "页面高光时刻（Moments）",
+        "title": "页面高光时刻（Moments）目录",
+        "component": "assets/moments/gallery.html",
+        "summary": "每页按业态抽取 1–2 个的页面动效时刻索引（含滚轮计数、光标聚光灯、巨字过图、光圈展开、字母拼合、单线带色、水波图片、水波标题、跑马灯、照片章节、底片显影、钉住三步章节、逐词点亮等）。",
+        "entrypoint": "demos/materials/taste-skill/assets/moments/gallery.html"
+      },
+      {
+        "id": "moments-in-page",
+        "group": "页面高光时刻（Moments）",
+        "title": "场所/商品页内嵌高光时刻示范",
+        "component": "assets/moments/_demo/in-page.html",
+        "summary": "在完整页面上下文中演示面向 place/product 的 photo-chapters（整幅照片自下而上擦除切换章节）与 word-highlight（宣言逐词点亮）。",
+        "entrypoint": "demos/materials/taste-skill/assets/moments/_demo/in-page.html"
+      },
+      {
+        "id": "moments-in-page-service",
+        "group": "页面高光时刻（Moments）",
+        "title": "服务页内嵌高光时刻示范",
+        "component": "assets/moments/_demo/in-page-service.html",
+        "summary": "在完整服务页面上下文中演示 pinned-chapters（左侧三步依次展开、右侧画面交叉淡化）与 picture-develops（暗房显影式照片浮现）。",
+        "entrypoint": "demos/materials/taste-skill/assets/moments/_demo/in-page-service.html"
+      },
+      {
+        "id": "moments-in-card",
+        "group": "页面高光时刻（Moments）",
+        "title": "卡片级高光时刻示范",
+        "component": "assets/moments/_demo/in-card.html",
+        "summary": "演示在局部卡片与区块内部挂载的轻量高光时刻。",
+        "entrypoint": "demos/materials/taste-skill/assets/moments/_demo/in-card.html"
+      },
+      {
+        "id": "scene-descend-weather",
+        "group": "大型滚动场景（Big Scenes）",
+        "title": "Descend through the weather（穿越云层降落）",
+        "component": "assets/scenes/descend-through-weather/demo.html",
+        "summary": "随滚动从云层上方的俯瞰摄影穿过双层程序化云雾，降落至云层下方的第二张实景与底部宣言带。",
+        "entrypoint": "demos/materials/taste-skill/assets/scenes/descend-through-weather/demo.html"
+      },
+      {
+        "id": "scene-dot-full-stop",
+        "group": "大型滚动场景（Big Scenes）",
+        "title": "The dot becomes the full stop（圆点化作句号）",
+        "component": "assets/scenes/dot-becomes-the-full-stop/demo.html",
+        "summary": "一颗大圆点落入画面，核心主张从圆点左侧逐词生长，圆点随每词向右步进缩小，最终恰好成为整句末尾的句号。",
+        "entrypoint": "demos/materials/taste-skill/assets/scenes/dot-becomes-the-full-stop/demo.html"
+      },
+      {
+        "id": "scene-fixed-hero-object",
+        "group": "大型滚动场景（Big Scenes）",
+        "title": "Fixed hero object（跨章节伴随旋转主物体）",
+        "component": "assets/scenes/fixed-hero-object/demo.html",
+        "summary": "核心产品或三维印刷对象固定在独立图层随滚动持续旋转，并在左右分栏间平滑横移，承接下方多个章节与深色反转底面。",
+        "entrypoint": "demos/materials/taste-skill/assets/scenes/fixed-hero-object/demo.html"
+      },
+      {
+        "id": "scene-fly-into-shape",
+        "group": "大型滚动场景（Big Scenes）",
+        "title": "Fly into the shape（飞入品牌图形遮罩）",
+        "component": "assets/scenes/fly-into-the-shape/demo.html",
+        "summary": "品牌图形剪影内嵌下一章节的实景摄影，随滚动升至中央、转向正面并放大飞越屏幕四边，让内部画面铺满全屏。",
+        "entrypoint": "demos/materials/taste-skill/assets/scenes/fly-into-the-shape/demo.html"
+      },
+      {
+        "id": "scene-letter-bar-flood",
+        "group": "大型滚动场景（Big Scenes）",
+        "title": "Letter bar floods the ground（字母竖笔画铺满背景）",
+        "component": "assets/scenes/letter-bar-floods-the-ground/demo.html",
+        "summary": "镜头向中央带垂直竖笔（l 或 I）的大字推进，直至竖笔化作通高墨色立柱并向两侧撑满全屏，直接成为下一章节的反转底色。",
+        "entrypoint": "demos/materials/taste-skill/assets/scenes/letter-bar-floods-the-ground/demo.html"
+      },
+      {
+        "id": "scene-letter-physics",
+        "group": "大型滚动场景（Big Scenes）",
+        "title": "Letter physics（字母三维爆发与后景浮现）",
+        "component": "assets/scenes/letter-physics/demo.html",
+        "summary": "反转底上的大字主张短暂蓄力后在三维空间带自旋与重力向四周飞散，同时回答句从景深处整体浮现落位。",
+        "entrypoint": "demos/materials/taste-skill/assets/scenes/letter-physics/demo.html"
+      },
+      {
+        "id": "scene-object-through-type",
+        "group": "大型滚动场景（Big Scenes）",
+        "title": "Object through giant type（物体穿过巨字字墙）",
+        "component": "assets/scenes/object-through-giant-type/demo.html",
+        "summary": "三维对象沿巨型大写引语字墙垂直下落，每行文字在词隙处左右分开避让物体轮廓，待其穿过后重新合拢并由灰转墨。",
+        "entrypoint": "demos/materials/taste-skill/assets/scenes/object-through-giant-type/demo.html"
+      },
+      {
+        "id": "scene-parts-lock-whole",
+        "group": "大型滚动场景（Big Scenes）",
+        "title": "Parts lock into the whole（面板拼合为完整软件界面）",
+        "component": "assets/scenes/parts-lock-into-the-whole/demo.html",
+        "summary": "从单个巨大核心词退回软件界面标题位，四边面板飞入锁合为完整工作台，数据层逐层着色后退居右侧分栏。",
+        "entrypoint": "demos/materials/taste-skill/assets/scenes/parts-lock-into-the-whole/demo.html"
+      },
+      {
+        "id": "scene-powers-of-ten",
+        "group": "大型滚动场景（Big Scenes）",
+        "title": "Powers-of-ten pull-back（对数空间连续拉远入框）",
+        "component": "assets/scenes/powers-of-ten-pullback/demo.html",
+        "summary": "从铺满全屏的真实软件界面在对数空间匀速拉远，收束为立在发光底面上的设备屏幕，并在左侧浮现章节标题与行动入口。",
+        "entrypoint": "demos/materials/taste-skill/assets/scenes/powers-of-ten-pullback/demo.html"
+      },
+      {
+        "id": "scene-product-assembles",
+        "group": "大型滚动场景（Big Scenes）",
+        "title": "Product assembles into its action（界面逐步生长并折叠为行动按钮）",
+        "component": "assets/scenes/product-assembles-into-its-action/demo.html",
+        "summary": "软件界面按业务故事顺序逐行滑入生长，完成后所有行向内折叠收束为一颗带实时状态的真实行动按钮。",
+        "entrypoint": "demos/materials/taste-skill/assets/scenes/product-assembles-into-its-action/demo.html"
+      },
+      {
+        "id": "scene-shaped-window",
+        "group": "大型滚动场景（Big Scenes）",
+        "title": "Shaped window over a fixed world（双窗合拢推开固定世界）",
+        "component": "assets/scenes/shaped-window-over-fixed-world/demo.html",
+        "summary": "固定实景摄影前设两扇并列高窗，随滚动向外拓宽并消去中梃合为一窗，再将窗框推向屏幕之外使读者进入场景。",
+        "entrypoint": "demos/materials/taste-skill/assets/scenes/shaped-window-over-fixed-world/demo.html"
+      },
+      {
+        "id": "hero-split",
+        "group": "Hero 版式与字体配对",
+        "title": "Hero 版式：Split（左右分栏）",
+        "component": "assets/layout/hero-split.html",
+        "summary": "左文右图/界面的经典双栏首屏，含长标题压力测试契约。",
+        "entrypoint": "demos/materials/taste-skill/assets/layout/hero-split.html"
+      },
+      {
+        "id": "hero-centred",
+        "group": "Hero 版式与字体配对",
+        "title": "Hero 版式：Centred（居中宣言与宽幅舞台）",
+        "component": "assets/layout/hero-centred.html",
+        "summary": "居中标题与双行动按钮下方承接宽幅产品界面或主视觉画框。",
+        "entrypoint": "demos/materials/taste-skill/assets/layout/hero-centred.html"
+      },
+      {
+        "id": "hero-product",
+        "group": "Hero 版式与字体配对",
+        "title": "Hero 版式：Product（锚点尺度产品首屏）",
+        "component": "assets/layout/hero-product.html",
+        "summary": "面向实体商品与硬件的首屏版式，产品本体无外框大尺度呈现。",
+        "entrypoint": "demos/materials/taste-skill/assets/layout/hero-product.html"
+      },
+      {
+        "id": "hero-photo",
+        "group": "Hero 版式与字体配对",
+        "title": "Hero 版式：Photo（全幅摄影首屏）",
+        "component": "assets/layout/hero-photo.html",
+        "summary": "以全幅实景或世界观摄影为主体的首屏构成。",
+        "entrypoint": "demos/materials/taste-skill/assets/layout/hero-photo.html"
+      },
+      {
+        "id": "hero-place",
+        "group": "Hero 版式与字体配对",
+        "title": "Hero 版式：Place（实体门店与场所首屏）",
+        "component": "assets/layout/hero-place.html",
+        "summary": "专为咖啡馆、餐厅、旅馆、工作室设计的场所首屏，直接衔接营业状态与到访信息。",
+        "entrypoint": "demos/materials/taste-skill/assets/layout/hero-place.html"
+      },
+      {
+        "id": "hero-collage",
+        "group": "Hero 版式与字体配对",
+        "title": "Hero 版式：Collage（多图拼贴首屏）",
+        "component": "assets/layout/hero-collage.html",
+        "summary": "多张不同尺度的真实摄影围绕核心标题组合成网格拼贴。",
+        "entrypoint": "demos/materials/taste-skill/assets/layout/hero-collage.html"
+      },
+      {
+        "id": "hero-editorial",
+        "group": "Hero 版式与字体配对",
+        "title": "Hero 版式：Editorial（杂志社论首屏）",
+        "component": "assets/layout/hero-editorial.html",
+        "summary": "强调衬线/展示字体对比与分栏导语的编辑式首屏。",
+        "entrypoint": "demos/materials/taste-skill/assets/layout/hero-editorial.html"
+      },
+      {
+        "id": "hero-word",
+        "group": "Hero 版式与字体配对",
+        "title": "Hero 版式：Word（巨型字标首屏）",
+        "component": "assets/layout/hero-word.html",
+        "summary": "将品牌名或核心词放大为通栏视觉锚点的字标首屏。",
+        "entrypoint": "demos/materials/taste-skill/assets/layout/hero-word.html"
+      },
+      {
+        "id": "hero-film",
+        "group": "Hero 版式与字体配对",
+        "title": "Hero 版式：Film（影片画框首屏）",
+        "component": "assets/layout/hero-film.html",
+        "summary": "以动态影像或产品演示影片为核心画框的首屏版式。",
+        "entrypoint": "demos/materials/taste-skill/assets/layout/hero-film.html"
+      },
+      {
+        "id": "hero-statement",
+        "group": "Hero 版式与字体配对",
+        "title": "Hero 版式：Statement（主张先行首屏）",
+        "component": "assets/layout/hero-statement.html",
+        "summary": "大字号单句主张配合紧凑事实与主行动按钮的首屏。",
+        "entrypoint": "demos/materials/taste-skill/assets/layout/hero-statement.html"
+      },
+      {
+        "id": "hero-triptych",
+        "group": "Hero 版式与字体配对",
+        "title": "Hero 版式：Triptych（三联画首屏）",
+        "component": "assets/layout/hero-triptych.html",
+        "summary": "三栏并置对比或三景联动的三联画首屏。",
+        "entrypoint": "demos/materials/taste-skill/assets/layout/hero-triptych.html"
+      },
+      {
+        "id": "layout-fonts",
+        "group": "Hero 版式与字体配对",
+        "title": "字体配对样本（library/type.json）",
+        "component": "assets/layout/fonts.html",
+        "summary": "展示技能内置 Google Fonts 标题与正文字体配对的实际排版尺度与行高效果。",
+        "entrypoint": "demos/materials/taste-skill/assets/layout/fonts.html"
+      },
+      {
+        "id": "backgrounds-demo",
+        "group": "底纹、微动效与图标",
+        "title": "14 种 CSS 纯代码底纹画廊",
+        "component": "assets/backgrounds/demo.html",
+        "summary": "展示 14 种无需 WebGL 的 CSS 网格、点阵、细线与柔光底纹，仅用于技术类页面。",
+        "entrypoint": "demos/materials/taste-skill/assets/backgrounds/demo.html"
+      },
+      {
+        "id": "motion-demo",
+        "group": "底纹、微动效与图标",
+        "title": "全局微动效层（Motion Layer）",
+        "component": "assets/motion/demo.html",
+        "summary": "演示卡片悬停 2px 抬升、图片框内 1.02–1.03 缩放、按钮步进与按下反馈、下划线绘出与卡片微循环动效。",
+        "entrypoint": "demos/materials/taste-skill/assets/motion/demo.html"
+      },
+      {
+        "id": "icons-demo",
+        "group": "底纹、微动效与图标",
+        "title": "930 个本地全彩品牌与界面 SVG 图标库",
+        "component": "assets/icons/demo.html",
+        "summary": "浏览与检索技能内置的 930 个真实全彩品牌标识、文件类型与界面操作 SVG 图标。",
+        "entrypoint": "demos/materials/taste-skill/assets/icons/demo.html"
+      }
+    ],
+    "preview": "previews/materials/taste-skill.jpg",
+    "research": "docs/materials/taste-skill.md",
+    "sourceFiles": [
+      "demos/materials/taste-skill/SKILL.md",
+      "demos/materials/taste-skill/README.md",
+      "demos/materials/taste-skill/references/sections.md",
+      "demos/materials/taste-skill/references/layout-v4.md",
+      "demos/materials/taste-skill/references/copy.md",
+      "demos/materials/taste-skill/scripts/start.mjs",
+      "demos/materials/taste-skill/scripts/consistency.mjs",
+      "demos/materials/taste-skill/scripts/gate.mjs",
+      "demos/materials/taste-skill/assets/starter.html",
+      "demos/materials/taste-skill/assets/system.css"
+    ],
+    "prompt": "先阅读 demos/materials/taste-skill/SKILL.md 及对应的 references/（copy.md、copy-voice.md、system.md、layout-v4.md、sections.md）。根据业务简报将项目归入 software、gaming、tech、product、service 或 place 六类之一，拷贝 demos/materials/taste-skill/assets/ 到项目并运行 gate.mjs --start 建立终审门禁。先撰写全部真实文案并用 copy-lint.mjs 检查；随后通过 assets/layout/deal.mjs、scripts/start.mjs、scripts/moments.mjs 发牌确定 Hero 版式、行业色板、字体配对与 1–2 个页面 Moment（仅在 software/tech/gaming 页面使用 1 个 WebGL 着色器、3D/印刷对象或大型滚动场景，并在 HTML UI 片段与脉冲流程图中填入真实业务数据；在 place/service/product 页面严禁 WebGL，使用开放授权照片并在页脚单行署名）。构建完成后在无头浏览器中依次运行 consistency.mjs（1440/1024/820/768/390）、assets/layout/check.mjs、perf.mjs 与 gate.mjs，修掉所有 FAIL 直至 GATE: PASS。",
+    "$": {
+      "preview": "previews/materials/taste-skill.jpg",
+      "research": "docs/materials/taste-skill.md",
+      "licenses": "demos/materials/taste-skill/LICENSES.md",
+      "prompt": "prompts/materials/taste-skill.md",
+      "agent": "agent/materials/taste-skill.json",
+      "snapshot": "demos/materials/taste-skill/SKILL.md"
+    }
   }
 ]

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "repository": "https://github.com/MIBXR/web-atlas-next",
-  "materialCount": 21,
+  "materialCount": 22,
   "materials": [
     {
       "id": "shaders",
@@ -839,6 +839,50 @@
         "snapshotEntry": "SKILL.md",
         "entry": "entries/materials/pixelfx-skill.json",
         "preview": "previews/materials/pixelfx-skill.png"
+      }
+    },
+    {
+      "id": "taste-skill",
+      "title": "Taste Skill · 反 AI 套路的网页设计 skill 与资产套件",
+      "type": "agent-skill",
+      "category": "Agent 工作流",
+      "summary": "以 figma.com 与 x.ai 为标尺的网页设计 Agent Skill（v2.5.1）：用九条铁律、六类业态分类、发牌脚本、自带的网页设计资产套件（11 套 Hero 版式、25 个 WebGL 着色器背景、15 个三维/印刷对象、18 个页面动效 Moment、11 个滚动场景、21 个 fx-* 组件、19 个 HTML UI 片段、脉冲流程图、65 张开放授权照片与 930 个全彩品牌/界面图标）以及无头浏览器五档宽度一致性检查与终审门禁，生成专业公司网站。",
+      "tags": [
+        "Agent Skill",
+        "网页设计",
+        "反 AI 套路",
+        "设计系统",
+        "WebGL",
+        "Shader",
+        "滚动叙事",
+        "UI 片段",
+        "开放授权摄影",
+        "浏览器检查"
+      ],
+      "useCases": [
+        "从零构建 SaaS、AI、开发者工具、硬件、游戏、工作室、诊所或实体门店的专业网站",
+        "在真实浏览器中审计并重设计已有网页，消除紫色渐变、三张玻璃卡片、空洞套话与失衡边距",
+        "直接取用套件内的 25 个 WebGL 着色器背景、15 个 3D/印刷着色器对象、18 个页面 Moment、11 个滚动场景或 21 个 fx-* 创意组件",
+        "在软件产品页中接入纯 HTML/CSS 产品界面片段（app-frame、diff-review、pipeline-board 等）与脉冲节点流程图"
+      ],
+      "avoid": [
+        "在咖啡馆、烘焙店、餐厅、旅馆、律所或日常实体商品页面上滥用 WebGL 着色器、噪点或滚动飞入特效",
+        "在图片下方堆砌解释性图注、编造门牌号/电话/客户证言，或在设计中使用紫罗兰/薰衣草色渐变",
+        "跳过 copy-lint.mjs、consistency.mjs 与 gate.mjs 的真机浏览器五档宽度校验直接交付页面"
+      ],
+      "constraints": [
+        "本条目固定归档 Leonxlnx/taste-skill v2.5.1 提交 f6b76575f949707b4e3c37cd86cb44b0b98643e8 的完整技能原文（SKILL.md）、22 篇参考文档（references/）、12 个 CLI 脚本（scripts/）、配色字体库（library/）与可运行资产套件（assets/）。",
+        "运行 scripts/start.mjs、consistency.mjs、gate.mjs、photos.mjs、icons.mjs 需要 Node.js 22+ 及本地已安装的 Chrome、Edge 或 Chromium；可选依赖 ffmpeg 用于 WebP 转码与手机端首屏裁切。",
+        "WebGL 着色器背景（assets/effects/）、3D/印刷对象（assets/objects/）与大型滚动场景（assets/scenes/）仅限 software、tech、gaming 三类页面使用，且单页并发 WebGL 上下文不超过 4 个。",
+        "原文快照按第三方资源规则保持原始字节与英文文本；套件样例页引用 Google Fonts 在线字体。"
+      ],
+      "paths": {
+        "bundle": "agent/materials/taste-skill.json",
+        "demo": "demos/materials/taste-skill/assets/effects/gallery.html",
+        "snapshot": "demos/materials/taste-skill/",
+        "snapshotEntry": "SKILL.md",
+        "entry": "entries/materials/taste-skill.json",
+        "preview": "previews/materials/taste-skill.jpg"
       }
     }
   ]

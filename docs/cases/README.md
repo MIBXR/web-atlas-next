@@ -1,6 +1,6 @@
 # 案例与代码索引
 
-由 entries/cases/ 自动生成，共 44 项。真实网站案例按原始网址与采集日期固定归档。国家/地区按具体机构与创作来源收录。详细比较见 [国别案例比较](../country-comparison.md)。
+由 entries/cases/ 自动生成，共 45 项。真实网站案例按原始网址与采集日期固定归档。国家/地区按具体机构与创作来源收录。详细比较见 [国别案例比较](../country-comparison.md)。
 
 | 顺序 | 案例 | 分类 | 国家/地区 | 类型 | 采集日期 | 可查询资料 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -48,3 +48,4 @@
 | 75 | [Hallmark · 设计 skill 官网与五十主题](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/hallmark) | 产品 | 美国 | 原站局部复现 | 2026-11-01 | [原始案例](https://www.usehallmark.com/) · [研究](hallmark.md) · [Prompt数据](../../entries/cases/hallmark.json) · [Demo](../../demos/cases/hallmark/index.html) |
 | 76 | [HyperFrames · 为 Agent 打造的视频编辑器官网](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/hyperframes-site) | 产品 | 未确认 | 原站局部复现 | 2026-11-02 | [原始案例](https://hyperframes.heygen.com/) · [研究](hyperframes-site.md) · [Prompt数据](../../entries/cases/hyperframes-site.json) · [Demo](../../demos/cases/hyperframes-site/index.html) |
 | 77 | [Anime.js · JavaScript 动画引擎官网](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/animejs-site) | 产品 | 未确认 | 原站局部复现 | 2026-11-02 | [原始案例](https://animejs.com/) · [研究](animejs-site.md) · [Prompt数据](../../entries/cases/animejs-site.json) · [Demo](../../demos/cases/animejs-site/index.html) |
+| 78 | [Taste Skill · AI 编码 Agent 的网页设计 skill 官网](https://web-atlas-library.mibxranime.chatgpt.site/#/cases/taste-skill-site) | 产品 | 德国 | 原站局部复现 | 2026-11-19 | [原始案例](https://www.tasteskill.dev/) · [研究](taste-skill-site.md) · [Prompt数据](../../entries/cases/taste-skill-site.json) · [Demo](../../demos/cases/taste-skill-site/index.html) |

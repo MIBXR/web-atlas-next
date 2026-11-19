@@ -25,3 +25,4 @@
 | ascii.rest | [动画 ASCII 组件与 Kit 示例](ascii-rest.md) |
 | pixelfx | [代码像素特效、角色动作与精灵表](pixelfx.md) |
 | pixelfx Skill | [像素特效接触表迭代与制作工作流](pixelfx-skill.md) |
+| Taste Skill | [反 AI 套路的网页设计技能与资产套件](taste-skill.md) |

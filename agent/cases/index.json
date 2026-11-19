@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "repository": "https://github.com/MIBXR/web-atlas-next",
-  "entryCount": 44,
+  "entryCount": 45,
   "entries": [
     {
       "id": "apple-product",
@@ -3367,6 +3367,94 @@
         "preview": "previews/cases/animejs-site.jpg",
         "demo": "demos/cases/animejs-site/index.html",
         "entry": "entries/cases/animejs-site.json"
+      }
+    },
+    {
+      "id": "taste-skill-site",
+      "title": "Taste Skill · AI 编码 Agent 的网页设计 skill 官网",
+      "category": "产品",
+      "tags": [
+        "产品官网",
+        "Agent Skill",
+        "滚动叙事",
+        "三维滚筒",
+        "分步改版对照",
+        "GSAP",
+        "Lenis",
+        "Canvas",
+        "桌面应用模拟",
+        "响应式"
+      ],
+      "summary": "Taste Skill 的官方产品网站：以深褐至焦橙渐变首屏承托四类业态的真实作品标签页，用滚动驱动的二十方向三维滚筒展示发牌机制，以三张可重播的微叙事卡片解释搜图、真机检查与仪表盘模式，在同一 Noteflow DOM 画布上分五步演示从默认紫渐变套路到编辑式版面的蜕变，并结合可启停的 TasteCode 桌面工作流回放、9 层 Canvas 光泛字标交接与四个文档/指南子页完成闭环。",
+      "useCases": [
+        "AI 编码工具、Agent Skill 与开发者工具产品官网",
+        "需要证明“改版前后差异”的设计系统或前端工具落地页",
+        "包含多步骤桌面工作流回放与在线文档中心的开源项目门户",
+        "结合三维方向滚筒与高感染力终章字标的品牌展示站"
+      ],
+      "avoid": [
+        "没有具体改动细节却强行套用五步同页改版舞台",
+        "在低对比度或正文字号过小的区域滥用 Canvas 高斯模糊字标",
+        "将示范设定（Bohne & Söhne、Noteflow 等）当作真实商业客户案例陈述"
+      ],
+      "country": "德国",
+      "implementation": "reference-study",
+      "capturedAt": "2026-11-19",
+      "tokens": {
+        "palette": [
+          "#f8f4ee",
+          "#f3eee7",
+          "#ffffff",
+          "#1a0e08",
+          "#140a05",
+          "#ff5b14",
+          "#e8500e",
+          "#c2410c",
+          "#ffc9a3",
+          "#0f0f0f"
+        ],
+        "type": "Google Sans Flex 100..1000；Google Sans Code 300..800；正文 17px（手机 16px），代码与元数据 13px–14px。",
+        "layout": ".wrap min(880px, 100% - var(--gutter)*2)；.wrap-wide min(1080px, 100% - var(--gutter)*2)；--gutter 16px（手机）至 24px（桌面）；断点 390px / 640px / 768px / 960px / 1100px。",
+        "motion": "Lenis lerp 0.12；[data-enter] 阈值 0.01、交错 --enter-i；复制反馈 1600ms；TasteCode 演示时间线 8.6s；五步改版锚点 0 / 0.18 / 0.4 / 0.665 / 0.93。"
+      },
+      "composition": {
+        "color": "#f8f4ee 暖奶油纸面、#f3eee7 下沉暖灰、#ffffff 纯白卡片表面、#1a0e08 深褐主墨色与 #140a05 暖黑首尾底色；#ff5b14 / #e8500e 焦橙色与 #ffc9a3 暖桃色提供高能量视觉焦点。",
+        "typography": "Google Sans Flex 可变无衬线字体搭配 Google Sans Code 可变等宽字体；首屏 H1 clamp(40px, 6vw, 84px)（字距 -0.042em，行高 1.02），章节标题 clamp(30px, 3.8vw, 44px)，终章巨字 clamp(2.5rem, 7.6cqw, 8.5rem) / clamp(3.125rem, 9.5cqw, 10.625rem)。",
+        "layout": "主阅读容器 .wrap 宽 880px，宽舞台容器 .wrap-wide 宽 1080px（Hero 作品画框 1099px）；穿插 The draw（3040px）、Before and after（3200px）与 Light flood（2640px）三段全屏粘性滚动舞台。",
+        "imagery": "4 张高分辨率跨业态示范作品截图、3 张烘焙过程缩略图、全套纯 HTML/CSS 编写的实时界面片段（assets.mjs、inspect.mjs、Overview 仪表盘、Noteflow 演进画布、TasteCode 桌面窗口）及 SVG 噪点纹理。",
+        "shape": "9999px 胶囊顶栏与标签按钮、20px–24px 大圆角卡片表面、1px 暖墨色细分隔线（#140a050f）与带橙色三角准星的水平标尺线。",
+        "hierarchy": "首屏主张与作品证据 → 赞助背书 → 二十方向滚筒 → 三项核心能力 → 五步改版对照 → 安装方式与支持 Agent → TasteCode 桌面应用 → 常见问题与开源支持 → 终章宣言与页脚安装。",
+        "motion": "Lenis 平滑滚动耦合 GSAP ScrollTrigger 粘性时间线、三维圆柱透视旋转、圆形 clip-path 扫除、字词交错升降、数字滚轮、三维标签翻转与 9 层 Canvas 柔焦光泛。",
+        "coherence": "焦橙色从首屏日落渐变出发，在滚筒三角准星、能力卡底板、五步进度条、TasteCode 底部辉光与终章光泛舞台中一以贯之；所有命令行与代码块共享同一套 1600ms 复制反馈。",
+        "scroll": "桌面端启用 Lenis（lerp 0.12）平滑滚动并与 ScrollTrigger 同步；三段 .scene[data-scene] 粘性舞台将纵向行程转化为滚筒旋转、五步改版与光泛交接，减少动态模式下直接展示完整静态终态。"
+      },
+      "interaction": [
+        "自适应悬浮胶囊顶栏（nav.nav）在深色 Hero 上使用暗色磨砂玻璃，滚过 Hero 后切换为浅色 .on-light，向下滚动超过 6px 时收起（data-tucked），向上滚动或获得焦点时恢复；进入终章光泛与暖黑页脚时切换为 .is-dark，手机 390px 下折叠为 Open menu 抽屉并支持 Escape 与外部点击关闭。",
+        "Hero 作品展示提供 Coffee shop、Club night、Architects、Contracts 四个标签与左右方向键/Home/End 切换，ResizeObserver 实测当前标签矩形并以 clip-path: inset(... round 10px) 滑动胶囊指示器；向下滚动时 .work-frame 由 rotateX 26°、scale 0.84 展平至正视，Hero 离屏或后台时标记 data-asleep。",
+        "The draw（scroll-turned-drum）将二十条美术方向排在三维竖向滚筒上，随滚动更新旋转角 --drum-turn、逐项不透明度 --drum-o 与高亮 --drum-lit；中央细线与左右三角准星随对齐度呼吸缩放，右侧同步滚入当前编号（1 of 20）与方向说明，滚至末尾 91.2% 时触发 drum:close，以 [-5°, 2°, 6°] 旋转交错弹出三张 Dealt for this page 抽选卡。",
+        "Design sense 核心能力区（#how-it-works）的三张卡片随滚动裁切展开并带视差浮动；首次进入视口时依次驱动 Pictures 的步进打字检索与 CC BY-SA 徽章弹出、Inspector 的双轮扫描线与 FAIL/WARN 三维翻转 Fixed、App screens 的滚轮数字与七日营收柱图生长，鼠标再次移入已完成卡片时淡出重播。",
+        "Before and after（From default to designed）将左栏五步进度按钮（The default、One palette、Real type、Layout with intent、The last 10%）与右栏同一 Noteflow 真实 DOM 页面绑定：随滚动或点击步骤按钮（标记点 0、0.18、0.4、0.665、0.93），以圆形 clip-path 扫除默认紫渐变与玻璃卡片，依次替换为暖纸单色板、紧致标题、左对齐层级与带已完成清单的周报卡片，顶部胶囊同步滚动 Step 1–4 of 4。",
+        "Install 区支持 npx skills、Claude Code、Codex 三种安装方式切换，连同 Hero、页脚及 Docs/Guide 子页的命令与提示词复制按钮，点击后写入剪贴板、切换 data-copied 状态与勾号图标并播报 Copied to clipboard，1600ms 后复位。",
+        "TasteCode 桌面应用区在进入视口 50% 时自动启动 8.6 秒 GSAP 工作流时间线：左侧会话树与日志依次走过 6 个设计步骤并点亮四色色板与三张缩略图，右侧由 Changes 文件与代码 Diff 面板平滑切换到 Browser 预览面板、展开并上下滚动完整网页、弹出 1440 与 390 校验标签；右下角按钮随状态在 Pause、Play、Replay 之间切换，支持随时暂停、继续与悬停重播。",
+        "终章 Stop guessing, start deciding.（light-flood）在粘性视口内用多层二维 Canvas 绘制带确定性像素抖动的暖橙日冕（halo/core）、夜幕椭圆遮罩（night）与三级高斯模糊字层（lf-soft），随滚动推进日冕扩张与夜幕降落，使深色模糊的 Stop guessing, 上移淡出，亮白清晰的 start deciding. 从多层柔焦收束定格在视口中央。",
+        "页脚（foot-sunrise）随滚动升起底部暖橙光晕并从中心向两侧交错弹出 Taste Skill 巨字字符；Docs、Guide、Changelog 子页提供 sticky 目录（On this page），随滚动在 140px 阈值处高亮当前章节（aria-current=\"location\"）。"
+      ],
+      "themeBehavior": {
+        "mode": "fixed",
+        "default": "light",
+        "control": "无手动主题开关；页面按章节在深色天际首屏、暖奶油纸面正文、焦橙光泛终章与暖黑页脚之间自然过渡，悬浮顶栏随底层明暗自动切换 .on-light 与 .is-dark。",
+        "designReason": "以统一的暖纸色与焦橙色建立鲜明的编辑与暖调工业感，同时衬托深色 TasteCode 窗口与多色作品截图。"
+      },
+      "soundBehavior": {
+        "kind": "none",
+        "control": "全站无音频或视频控件。",
+        "interactionRole": "完全依靠滚动时间线、三维滚筒、分步 DOM 变形与界面微动画传达节奏。"
+      },
+      "paths": {
+        "bundle": "agent/cases/taste-skill-site.json",
+        "preview": "previews/cases/taste-skill-site.jpg",
+        "demo": "demos/cases/taste-skill-site/index.html",
+        "entry": "entries/cases/taste-skill-site.json"
       }
     }
   ]
